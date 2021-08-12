@@ -40,8 +40,8 @@ let a = b;
 let a;
 ```
 
-- `a`: Il nome della costante;
-- `b`: Il valore della costante. Può essere qualsiasi e può essere omesso, come nel secondo caso.
+- `a`: Il nome della variabile.
+- `b`: Il valore della variabile. Può essere qualsiasi e può essere omesso, come nel secondo caso.
 
 **Esempi:**
 
@@ -88,6 +88,12 @@ return a;
 **Esempi:**
 
 ```js
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns {number}
+ */
 function sumNumbers(a, b, c) {
   return a + b + c; // Restituiamo la somma dei 3 parametri passati nella funzione
 }
@@ -96,6 +102,10 @@ console.log(sumNumbers(2, 4, 6)); // 12
 ```
 
 ```js
+/**
+ * @param {unknown} a
+ * @returns {void}
+ */
 function log(a) {
   console.log(a); // Scriviamo il valore passato in console
   return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
@@ -105,6 +115,9 @@ log("Sus"); // "Sus"
 ```
 
 ```js
+/**
+ * @returns {void}
+ */
 function logSus() {
   console.log("Sus"); // Scriviamo "Sus" in console
   return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
@@ -134,11 +147,15 @@ Sintassi:
 await a;
 ```
 
-- `a`: La `Promise` da attendere.
+- `a`: La `Promise` da attendere. **Type:** `Promise`.
 
 **Esempi:**
 
 ```js
+/**
+ * @param {number} m
+ * @returns {Promise<number>}
+ */
 async function wait(m) {
   const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
   await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
@@ -370,7 +387,10 @@ class a {
 ```js
 // Creiamo una classe chiamata Square che rappresenterà un quadrato
 class Square {
-  // Questa è la funzione che viene eseguita quando è usato `new`
+  /**
+    * Questa è la funzione che viene eseguita quando è usato `new`
+    * @param {number} height
+    */
   constructor(height) {
     this.height = height; // Impostiamo la proprietà `height` al valore passato nella funzione
   }
@@ -388,6 +408,10 @@ class Square {
 
 // Creiamo una classe chiamata Rectangle per rappresentare un rettangolo che estende il quadrato
 class Rectangle extends Square {
+  /**
+    * @param {number} height
+    * @param {number} width
+    */
   constructor(height, width) {
     super(height); // Assicuriamoci di chiamare la funzione del quadrato prima di andare avanti
 
@@ -406,7 +430,7 @@ class Rectangle extends Square {
 
 const rettangolo = new Rectangle(10, 20); // Creiamo un nuovo rettangolo con base 20 e altezza 10
 
-console.log(rettangolo.getArea()); // 200 (20 * 10)
+console.log(rettangolo.getArea()); // 200
 ```
 
 ### [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) / [`continue`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue) / [`of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) / [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
