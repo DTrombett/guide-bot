@@ -450,4 +450,4 @@ for (a of b) {
 ```
 
 - `a`: Nome della variabile che rappresenterà l'elemento a ogni esecuzione;
-- `b`: un rray, stringa o qualsiasi altro elemento supporti questa iterazione.
+- `b`: Un array, stringa o qualsiasi altro elemento supporti questa iterazione.
