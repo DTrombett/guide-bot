@@ -22,7 +22,7 @@ function x(/**y, ...**/) {
 }
 ```
 - `x`: Nome della funzione da creare;
-- `y, ...`: Lista dei parametri della funzione.
+- `y, ...`: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
 
 La funzione verrà poi chiamata nel seguente modo:
 ```js
@@ -69,7 +69,7 @@ async function wait(m) {
     await new Promise(resolve => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
     const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
     console.log(passed); // ~1000
-    return passed; // Restituiamo quel valore
+    return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
 }
 
 console.log(wait(1000)); // Promise { <pending> }
