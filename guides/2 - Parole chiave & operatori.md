@@ -1,4 +1,4 @@
-# Parole chiave & operatori.md
+# Parole chiave & operatori
 
 In questo secondo articolo della guida inizieremo a scoprire qualcosa riguardo al Javascript.
 Partiremo dalle basi, infatti inizieremo con una lista delle parole chiave e degli operatori del JavaScript.
@@ -105,17 +105,7 @@ if (exp) {
 }
 ```
 
-### `break`
-ferma l'esecuzione di un loop passando all'azione successiva.
-```js
-let i = 0;
-while (i < 6) {
-    if (i === 3)
-        break;
-    i++; 
-}
-console.log(i); // 3
-```;
+
 
 ### `case`
 In uno `switch`, indica l'azione da eseguire quando il valore fornito nello switch è uguale a `x`.
