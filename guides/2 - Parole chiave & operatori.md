@@ -350,21 +350,20 @@ super.b(/* c, ... */); // Chiamiamo un metodo della classe estesa
 - `b`: Nome del metodo della classe da chiamare;
 - `c`, `...`: Parametri da passare al metodo della classe estesa.
 
-In una classe possiamo anche aggiungere metodi e proprietà statici, che non hanno quindi bisogno di _istanziare_ la classe. Per farlo aggiungiamo `static` prima del nome del metodo o della proprietà.
+In una classe possiamo anche aggiungere metodi statici, che non hanno quindi bisogno di _istanziare_ la classe. Per farlo aggiungiamo `static` prima del nome del metodo.
 
 **Sintassi:**
 
 ```js
-static a(/* b, ... */) {
+class a {
+  static b(/* c, ... */) {
     // Azioni da eseguire nel metodo statico
+  }
 }
-static c = d;
 ```
 
-- `a`: Nome del metodo statico;
-- `b`, `...`: Lista dei parametri per questo metodo;
-- `c`: Nome della proprietà statica;
-- `d`: Valore da assegnare alla proprietà statica.
+- `b`: Nome del metodo statico;
+- `c`, `...`: Lista dei parametri per questo metodo;
 
 **Esempi:**
 
@@ -409,3 +408,46 @@ const rettangolo = new Rectangle(10, 20); // Creiamo un nuovo rettangolo con bas
 
 console.log(rettangolo.getArea()); // 200 (20 * 10)
 ```
+
+### [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) / [`continue`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue) / [`of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) / [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+
+Con la parola chiave `for` possiamo creare un loop che si basa su 3 espressioni.
+
+**Sintassi:**
+
+```js
+for (a; b; c) {
+  // Codice da eseguire nel loop
+}
+```
+
+- `a`: Espressione per creare una variabile da utilizzare nel loop. Generalmente si inizializza a `0`;
+- `b`: Condizione che verrà verificata per decidere se il loop deve continuare o no;
+- `c`: Azione da eseguire alla fine di ogni esecuzione del codice nel loop.
+
+Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola. Ometterle tutte crea un loop infinito che va bloccato manualmente.
+
+Nel codice possiamo utilizzare `break` per uscire dal loop.
+
+Se invece vogliamo passare all'esecuzione successiva prima che il codice termini possiamo utilizzare la parola `continue`.
+
+**Sintassi:**
+
+```js
+continue;
+```
+
+Ci sono poi 2 speciali utilizzi del for loop: _for...of_ e _for...in_.
+
+Un loop _for...of_ esegue un'azione per ogni elemento di un array o carattere di una stringa.
+
+**Sintassi:**
+
+```js
+for (a of b) {
+  // Azioni da eseguire per ogni elemento di `b`. `a` sarà un riferimento a quell'elemento
+}
+```
+
+- `a`: Nome della variabile che rappresenterà l'elemento a ogni esecuzione;
+- `b`: un rray, stringa o qualsiasi altro elemento supporti questa iterazione.
