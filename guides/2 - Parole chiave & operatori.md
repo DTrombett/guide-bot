@@ -13,10 +13,11 @@ Gli operatori sono simboli o parole che creano una relazione tra più elementi, 
 
 Qui di seguito è riportata una lista delle parole chiave nel JavaScript e della loro funzione.
 
-### `function` / `return`
-La parola chiave `function` serve per creare una funzione JavaScript nella seguente forma:
+### [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) / [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
+La parola chiave `function` serve per creare una funzione JavaScript.
+Sintassi:
 ```js
-function x(y /**, ...**/) {
+function x(/**y, ...**/) {
     
 }
 ```
@@ -25,10 +26,11 @@ function x(y /**, ...**/) {
 
 La funzione verrà poi chiamata nel seguente modo:
 ```js
-x(y /**, ...**/);
+x(/**y , ...**/);
 ```
 
-`return` indica il valore che verrà restituito dalla funzione, nella forma:
+`return` indica il valore che verrà restituito dalla funzione.
+Sintassi:
 ```js
 return x;
 ```
@@ -37,15 +39,24 @@ return x;
 Esempio:
 ```js
 function sumNumbers(x, y, z) {
-    return x + y + z;
+    return x + y + z; // Restituiamo la somma dei 3 parametri passati nella funzione
 }
 
 console.log(sumNumbers(2, 4, 6)); // 12
 ```
 
-### `await`
-Viene usata prima di una `Promise` per far sì che il codice corrente si blocchi fino a che quella `Promise` non viene completata.
-Utilizzato nella seguente forma:
+### [`async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) / [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+`async` viene utilizzata prima della parola `function` per abilitare l'uso della parola `await` all'interno della funzione.
+Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una `Promise`, il cui valore da restituire sarà quello restituito dalla funzione.
+Sintassi:
+```js
+async function x(/**y, ...**/) {
+
+}
+```
+
+`await` viene usata prima di una `Promise` per far sì che il codice corrente si blocchi fino a che quella `Promise` non viene completata.
+Sintassi:
 ```js
 await x;
 ```
@@ -53,23 +64,29 @@ await x;
 
 Esempio:
 ```js
-const date = Date.now();
-await new Promise(resolve => setTimeout(resolve, 1000));
-console.log(Date.now() - date); // ~1000
+async function wait(m) {
+    const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
+    await new Promise(resolve => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
+    const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
+    console.log(passed); // ~1000
+    return passed; // Restituiamo quel valore
+}
+
+console.log(wait(1000)); // Promise { <pending> }
 ```
 
-### `if` / `else`
+### [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) / [`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 Questa parola chiave ci permette di eseguire una determinata azione se una condizione è vera.
-Forma:
+Sintassi:
 ```js
 if (x) {
 
 }
 ```
-- `x`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è *veritiera*.
+- `x`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è [veritiera](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
 
-`else` viene utilizzato per dichiarare l'azione da eseguire se la condizione non è veritiera.
-Forma:
+`else` viene utilizzato per dichiarare l'azione da eseguire se la condizione **non** è veritiera.
+Sintassi:
 ```js
 if (x) {
 
@@ -80,9 +97,9 @@ if (x) {
 
 Esempio:
 ```js
-const exp = true;
+const exp = true; // Creiamo una condizione
 if (exp) {
-    console.log("Sì");
+    console.log("Sì"); // `true` è veritiera perciò questo codice verrà eseguito e il successivo verrà ignorato
 } else {
     console.log("No");
 }
