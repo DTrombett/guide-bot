@@ -1,172 +1,411 @@
 # Parole chiave & operatori
 
-In questo secondo articolo della guida inizieremo a scoprire qualcosa riguardo al Javascript.
-Partiremo dalle basi, infatti inizieremo con una lista delle parole chiave e degli operatori del JavaScript.
+In questo secondo articolo della guida inizieremo a scoprire qualcosa riguardo al **JavaScript**.
+Partiremo dalle basi, infatti inizieremo con una lista delle **parole chiave** e degli **operatori** del JavaScript.
 
 ## Cosa sono le parole chiave e gli operatori?
 
-Le parole chiave, o riservate, del Javascript sono delle parole che indicano alcune specifiche azioni e non possono essere utilizzate come nomi per variabili, etc...
+Le **parole chiave**, o **riservate**, del JavaScript sono delle parole che indicano alcune specifiche azioni e non possono essere utilizzate come nomi per variabili, etc...
 
-Gli operatori sono simboli o parole che creano una relazione tra più elementi, come un'operazione aritmetica o l'assegnazione di una variabile.
+Gli **operatori** sono simboli o parole che creano una relazione tra più elementi, come un'operazione aritmetica o l'assegnazione di una variabile.
 
 ## Lista delle parole chiave
 
 Qui di seguito è riportata una lista delle parole chiave nel JavaScript e della loro funzione.
 
-### [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) / [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
-La parola chiave `function` serve per creare una funzione JavaScript.
-Sintassi:
+### [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) / [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+
+`const` e `let` sono le parole chiave utilizzate per dichiarare delle variabili.
+
+**Vedremo queste parole chiave nel dettaglio in un altro articolo.**
+
+`const` indica una costante, il cui valore è sempre lo stesso e non può essere modificato.
+
+**Sintassi:**
+
 ```js
-function x(/**y, ...**/) {
-    // Azioni da eseguire nella funzione
+const a = b;
+```
+
+- `a`: Il nome della costante;
+- `b`: Il valore della costante. Può essere qualsiasi ma è comunque obbligatorio e non può essere omesso.
+
+`let` indica una variabile, il cui valore può essere modificato.
+
+**Sintassi:**
+
+```js
+let a = b;
+// Oppure
+let a;
+```
+
+- `a`: Il nome della costante;
+- `b`: Il valore della costante. Può essere qualsiasi e può essere omesso, come nel secondo caso.
+
+**Esempi:**
+
+```js
+const i = 10;
+let n = i; // 10
+n = 0;
+console.log(i, n); // 10, 0
+```
+
+### [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) / [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
+
+La parola chiave `function` serve per creare una funzione JavaScript.
+
+**Vedremo questa struttura nel dettaglio in un altro articolo.**
+
+**Sintassi:**
+
+```js
+function a(/* b, ... */) {
+  // Azioni da eseguire nella funzione
 }
 ```
-- `x`: Nome della funzione da creare;
-- `y, ...`: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
+
+- `a`: Nome della funzione da creare;
+- `b, ...`: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
 
 La funzione verrà poi chiamata nel seguente modo:
+
 ```js
-x(/**y , ...**/);
+a(/* b , ... */);
 ```
 
 `return` indica il valore che verrà restituito dalla funzione.
-Sintassi:
-```js
-return x;
-```
-- `x`: il valore da restituire. È facoltativo e può essere omesso nel caso non si voglia restituire nessun valore (`return;`).
 
-Esempio:
+**Sintassi:**
+
 ```js
-function sumNumbers(x, y, z) {
-    return x + y + z; // Restituiamo la somma dei 3 parametri passati nella funzione
+return a;
+```
+
+- `a`: Il valore da restituire. È facoltativo e può essere omesso nel caso non si voglia restituire nessun valore (`return;`).
+
+**Esempi:**
+
+```js
+function sumNumbers(a, b, c) {
+  return a + b + c; // Restituiamo la somma dei 3 parametri passati nella funzione
 }
 
 console.log(sumNumbers(2, 4, 6)); // 12
 ```
 
-### [`async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) / [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
-`async` viene utilizzata prima della parola `function` per abilitare l'uso della parola `await` all'interno della funzione.
-Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una `Promise`, il cui valore da restituire sarà quello restituito dalla funzione.
-Sintassi:
 ```js
-async function x(/**y, ...**/) {
-    // Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`
+function log(a) {
+  console.log(a); // Scriviamo il valore passato in console
+  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
+}
+
+log("Sus"); // "Sus"
+```
+
+```js
+function logSus() {
+  console.log("Sus"); // Scriviamo "Sus" in console
+  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
+}
+
+logSus(); // "Sus"
+```
+
+### [`async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) / [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+
+`async` viene utilizzata prima della parola `function` per abilitare l'uso della parola `await` all'interno della funzione.
+
+Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una `Promise`, il cui valore da restituire sarà quello restituito dalla funzione.
+
+**Sintassi:**
+
+```js
+async function a(/* b, ... */) {
+  // Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`
 }
 ```
 
 `await` viene usata prima di una `Promise` per far sì che il codice corrente si blocchi fino a che quella `Promise` non viene completata.
 Sintassi:
-```js
-await x;
-```
-- `x`: La `Promise` da attendere.
 
-Esempio:
+```js
+await a;
+```
+
+- `a`: La `Promise` da attendere.
+
+**Esempi:**
+
 ```js
 async function wait(m) {
-    const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
-    await new Promise(resolve => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
-    const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
-    console.log(passed); // ~1000
-    return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
+  const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
+  await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
+  const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
+  console.log(passed); // ~1000
+  return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
 }
 
 console.log(wait(1000)); // Promise { <pending> }
 ```
 
 ### [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) / [`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
-Questa parola chiave ci permette di eseguire una determinata azione se una condizione è vera.
-Sintassi:
+
+Questa parola chiave ci permette di eseguire una determinata azione se una condizione è [veritiera](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
+
+**Sintassi:**
+
 ```js
-if (x) {
-    // Azioni da eseguire se la condizione è veritiera
+if (a) {
+  // Azioni da eseguire se la condizione è veritiera
 }
 ```
-- `x`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è [veritiera](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
+
+- `a`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è _veritiera_.
 
 `else` viene utilizzato per dichiarare l'azione da eseguire se la condizione **non** è veritiera.
-Sintassi:
+
+**Sintassi:**
+
 ```js
-if (x) {
-    // Azioni da eseguire se la condizione è veritiera
+if (a) {
+  // Azioni da eseguire se la condizione è veritiera
 } else {
-    // Azione da eseguire se la condizione NON è veritiera
+  // Azione da eseguire se la condizione NON è veritiera
 }
 ```
 
-Esempio:
+**Esempi:**
+
 ```js
-const exp = true; // Creiamo una condizione
-if (exp) {
-    console.log("Sì"); // `true` è una condizione veritiera perciò questo codice verrà eseguito e il successivo verrà ignorato
+if (expr) {
+  console.log("Sì"); // Se `expr` è un valore veritiero, allora "Sì" verrà scritto in console. In caso contrario verrà scritto "No"
 } else {
-    console.log("No");
+  console.log("No");
 }
 ```
 
-### [`switch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`case`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) /  [`break`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+#### **Espressione veritiera**
+
+Un valore è considerato **sempre** veritiero a meno che non sia uno dei seguenti:
+
+- `false`;
+- `0`;
+- `""`;
+- `null`;
+- `undefined`;
+- `NaN`.
+
+### [`switch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`case`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`break`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+
 `switch` serve per eseguire diverse azioni a seconda di un valore.
-Sintassi:
-```js
-switch (x) {
 
+**Sintassi:**
+
+```js
+switch (a) {
 }
 ```
-- `x`: l'espressione da controllare.
 
-Per definire le azioni da eseguire per ogni valore di `x` utilizziamo la parola `case`.
+- `a`: L'espressione da controllare.
+
+Per definire le azioni da eseguire per ogni valore di `a` utilizziamo la parola `case`.
 Sintassi:
+
 ```js
-switch (x) {
-    case y:
-        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
-    case ...:
+switch (a) {
+  case b:
+  // Azioni da eseguire se il valore di `a` è uguale a quello di `b`
+  /* case ...: */
 }
 ```
-- `y`, `...`: I valori di `x`. Se `x` corrisponde a quel valore, allora le azioni dopo i due punti vengono eseguite.
 
-Può essere anche aggiunta una azione da eseguire quando il valore di `x` è diverso da tutti quelli elencati con `case`. In questo caso utilizziamo la parola `default`.
-Sintassi:
+- `b`, `...`: I valori di `a`. Se `a` corrisponde a quel valore, allora le azioni dopo i due punti vengono eseguite.
+
+Può essere anche aggiunta una azione da eseguire quando il valore di `a` è diverso da tutti quelli elencati con `case`. In questo caso utilizziamo la parola `default`.
+
+**Sintassi:**
+
 ```js
-switch (x) {
-    case y:
-        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
-    case ...:
+switch (a) {
+  case b:
+  // Azioni da eseguire se il valore di `a` è uguale a quello di `b`
+  /* case ...: */
 
-    default:
-        // Azioni da eseguire se il valore di `x` non corrisponde a nessuno di quelli elencati (`y`, `...`)
+  default:
+  // Azioni da eseguire se il valore di `a` non corrisponde a nessuno di quelli elencati (`b`, `...`)
 }
 ```
 
 Per far sì che lo switch si fermi dopo aver eseguito le azioni nel `case`, dobbiamo aggiungere la parola `break`.
 Omettendo questa parola alla fine delle azioni il codice nello switch andrà avanti e le azioni nel `default` verranno eseguite.
-Sintassi:
-```js
-switch (x) {
-    case y:
-        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
-        break;
-    case ...:
 
-        break;
-    default:
-        // Azioni da eseguire se il valore di `x` non corrisponde a nessuno di quelli elencati (`y`, `...`)
+**Sintassi:**
+
+```js
+switch (a) {
+  case b:
+    // Azioni da eseguire se il valore di `a` è uguale a quello di `b`
+    break;
+  /* case ...:
+
+        break; */
+  default:
+  // Azioni da eseguire se il valore di `a` non corrisponde a nessuno di quelli elencati (`b`, `...`)
 }
 ```
 
-Esempio:
+**Esempi:**
+
 ```js
-const expr = "Pomodori";
 switch (expr) {
-    case "Banane":
-        console.log("Le banane costano 2€"); // Questa azione verrà eseguita se `expr` è "Banane"
-        break;
-    case "Pomodori":
-    case "Melanzane":
-        console.log("I pomodori e le melanzane costano 1,50€"); // Questa azione verrà eseguita se `expr` è "Pomodori" o "Melanzane"
-        break;
+  case "Banane":
+    console.log("Le banane costano 2€"); // Questa azione verrà eseguita se `expr` è "Banane"
+    break;
+  case "Pomodori":
+  case "Melanzane":
+    console.log("I pomodori e le melanzane costano 1,50€"); // Questa azione verrà eseguita se `expr` è "Pomodori" o "Melanzane"
+    break;
   default:
     console.log(`Mi dispiace, non abbiamo ${expr}.`); // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
 }
+```
+
+### [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+
+Le paroli `try` e `catch` servono per eseguire una determinata azione nel caso si verifichi un error nel codice.
+
+**Sintassi:**
+
+```js
+try {
+  // Codice da provare
+} catch (a) {
+  // Azioni da eseguire se il codice sopra ha prodotto un errore
+}
+```
+
+- `a`: Il nome da assegnare alla variabile che conterrà l'errore.
+
+**Esempi:**
+
+```js
+const a = "Sus";
+try {
+  console.log(b);
+} catch (error) {
+  console.error(error); // ReferenceError: b is not defined
+}
+```
+
+### [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) / [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) / [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) / [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) / [`static`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+
+Con la parola `class` possiamo creare una nuova _Classe_.
+
+Le classi, in JavaScript, possono generare degli _object_ con gli stessi elementi e metodi che però possono avere valori diversi. Sono praticamente dei _template_ che possono cambiare a seconda dei dati forniti e dei metodi utilizzati.
+
+**Vedremo questa struttura nel dettaglio in un altro articolo.**
+
+**Sintassi:**
+
+```js
+class a {
+  // Elementi di questa classe
+}
+```
+
+- `a`: Il nome della classe.
+
+Nella classe possiamo riferirci all'elemento istanziato e modificarlo grazie alla parola `this`.
+
+**Sintassi:**
+
+```js
+this; // Riferimento all'oggetto istanziato
+```
+
+Se abbiamo già un'altra classe da cui vogliamo creare la nostra, allora possiamo estenderla con la parola `extends`.
+
+**Sintassi:**
+
+```js
+class a extends b {
+  // Elementi di questa classe
+}
+```
+
+- `b`: La classe da estendere.
+
+Lavorando ad una classe che ne estende un'altra, potremo aver bisogno di accedere a metodi presenti nella classe estesa. In questo caso possiamo utilizzare la parola `super` per fare riferimento ad essa.
+
+**Sintassi:**
+
+```js
+super(/* a, ... */); // Chiamiamo la classe estesa
+super.b(/* c, ... */); // Chiamiamo un metodo della classe estesa
+```
+
+- `a`, `...`: Parametri da passare al [`constructor`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) della classe estesa;
+- `b`: Nome del metodo della classe da chiamare;
+- `c`, `...`: Parametri da passare al metodo della classe estesa.
+
+In una classe possiamo anche aggiungere metodi e proprietà statici, che non hanno quindi bisogno di _istanziare_ la classe. Per farlo aggiungiamo `static` prima del nome del metodo o della proprietà.
+
+**Sintassi:**
+
+```js
+static a(/* b, ... */) {
+    // Azioni da eseguire nel metodo statico
+}
+static c = d;
+```
+
+- `a`: Nome del metodo statico;
+- `b`, `...`: Lista dei parametri per questo metodo;
+- `c`: Nome della proprietà statica;
+- `d`: Valore da assegnare alla proprietà statica.
+
+**Esempi:**
+
+```js
+// Creiamo una classe chiamata Square che rappresenterà un quadrato
+class Square {
+  // Questa è la funzione che viene eseguita quando è usato `new`
+  constructor(height) {
+    this.height = height; // Impostiamo la proprietà `height` al valore passato nella funzione
+  }
+
+  // Creiamo un metodo per calcolare l'area del quadrato
+  getArea() {
+    return this.height ^ 2; // Calcoliamo l'altezza al quadrato
+  }
+
+  // Creiamo un metodo statico che crea un quadrato di altezza 0
+  static createEmpty() {
+    return new Square(0); // Creiamo un quadrato passando 0 come primo parametro e restituiamolo
+  }
+}
+
+// Creiamo una classe chiamata Rectangle per rappresentare un rettangolo che estende il quadrato
+class Rectangle extends Square {
+  constructor(height, width) {
+    super(height); // Assicuriamoci di chiamare la funzione del quadrato prima di andare avanti
+
+    this.width = width; // Impostiamo la larghezza del rettangolo
+  }
+
+  // Creiamo una proprietà perimetro che si basa sugli  altri dati del rettangolo
+  get perimeter() {
+    return (this.height + this.width) * 2; // Sommiamo base e altezza e raddoppiamola
+  }
+
+  getArea() {
+    return this.height * this.width; // Modifichiamo la funzione per calcolare l'area in modo che restituisca la base per l'altezza
+  }
+}
+
+const rettangolo = new Rectangle(10, 20); // Creiamo un nuovo rettangolo con base 20 e altezza 10
+
+console.log(rettangolo.getArea()); // 200 (20 * 10)
 ```
