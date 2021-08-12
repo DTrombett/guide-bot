@@ -57,6 +57,37 @@ const date = Date.now();
 await new Promise(resolve => setTimeout(resolve, 1000));
 console.log(Date.now() - date); // ~1000
 ```
+
+### `if` / `else`
+Questa parola chiave ci permette di eseguire una determinata azione se una condizione è vera.
+Forma:
+```js
+if (x) {
+
+}
+```
+- `x`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è *veritiera*.
+
+`else` viene utilizzato per dichiarare l'azione da eseguire se la condizione non è veritiera.
+Forma:
+```js
+if (x) {
+
+} else {
+
+}
+```
+
+Esempio:
+```js
+const exp = true;
+if (exp) {
+    console.log("Sì");
+} else {
+    console.log("No");
+}
+```
+
 ### `break`
 ferma l'esecuzione di un loop passando all'azione successiva.
 ```js
@@ -68,7 +99,9 @@ while (i < 6) {
 }
 console.log(i); // 3
 ```;
-- `case x`: in uno `switch`, indica l'azione da eseguire quando il valore fornito nello switch è uguale a `x`.
+
+### `case`
+In uno `switch`, indica l'azione da eseguire quando il valore fornito nello switch è uguale a `x`.
 ```js
 const foo = 5;
 switch (foo) {
