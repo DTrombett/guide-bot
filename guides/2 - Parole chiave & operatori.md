@@ -18,7 +18,7 @@ La parola chiave `function` serve per creare una funzione JavaScript.
 Sintassi:
 ```js
 function x(/**y, ...**/) {
-    
+    // Azioni da eseguire nella funzione
 }
 ```
 - `x`: Nome della funzione da creare;
@@ -51,7 +51,7 @@ Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente un
 Sintassi:
 ```js
 async function x(/**y, ...**/) {
-
+    // Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`
 }
 ```
 
@@ -80,7 +80,7 @@ Questa parola chiave ci permette di eseguire una determinata azione se una condi
 Sintassi:
 ```js
 if (x) {
-
+    // Azioni da eseguire se la condizione è veritiera
 }
 ```
 - `x`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è [veritiera](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
@@ -89,9 +89,9 @@ if (x) {
 Sintassi:
 ```js
 if (x) {
-
+    // Azioni da eseguire se la condizione è veritiera
 } else {
-
+    // Azione da eseguire se la condizione NON è veritiera
 }
 ```
 
@@ -99,22 +99,74 @@ Esempio:
 ```js
 const exp = true; // Creiamo una condizione
 if (exp) {
-    console.log("Sì"); // `true` è veritiera perciò questo codice verrà eseguito e il successivo verrà ignorato
+    console.log("Sì"); // `true` è una condizione veritiera perciò questo codice verrà eseguito e il successivo verrà ignorato
 } else {
     console.log("No");
 }
 ```
 
-
-
-### `case`
-In uno `switch`, indica l'azione da eseguire quando il valore fornito nello switch è uguale a `x`.
+### [`switch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`case`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) / [`default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) /  [`break`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+`switch` serve per eseguire diverse azioni a seconda di un valore.
+Sintassi:
 ```js
-const foo = 5;
-switch (foo) {
-    case 2:
-        console.log(2); // Se `foo` è uguale a 2 verrà scritto in console        break;
+switch (x) {
+
+}
+```
+- `x`: l'espressione da controllare.
+
+Per definire le azioni da eseguire per ogni valore di `x` utilizziamo la parola `case`.
+Sintassi:
+```js
+switch (x) {
+    case y:
+        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
+    case ...:
+}
+```
+- `y`, `...`: I valori di `x`. Se `x` corrisponde a quel valore, allora le azioni dopo i due punti vengono eseguite.
+
+Può essere anche aggiunta una azione da eseguire quando il valore di `x` è diverso da tutti quelli elencati con `case`. In questo caso utilizziamo la parola `default`.
+Sintassi:
+```js
+switch (x) {
+    case y:
+        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
+    case ...:
+
     default:
-        console.log('default')
+        // Azioni da eseguire se il valore di `x` non corrisponde a nessuno di quelli elencati (`y`, `...`)
+}
+```
+
+Per far sì che lo switch si fermi dopo aver eseguito le azioni nel `case`, dobbiamo aggiungere la parola `break`.
+Omettendo questa parola alla fine delle azioni il codice nello switch andrà avanti e le azioni nel `default` verranno eseguite.
+Sintassi:
+```js
+switch (x) {
+    case y:
+        // Azioni da eseguire se il valore di `x` è uguale a quello di `y`
+        break;
+    case ...:
+
+        break;
+    default:
+        // Azioni da eseguire se il valore di `x` non corrisponde a nessuno di quelli elencati (`y`, `...`)
+}
+```
+
+Esempio:
+```js
+const expr = "Pomodori";
+switch (expr) {
+    case "Banane":
+        console.log("Le banane costano 2€"); // Questa azione verrà eseguita se `expr` è "Banane"
+        break;
+    case "Pomodori":
+    case "Melanzane":
+        console.log("I pomodori e le melanzane costano 1,50€"); // Questa azione verrà eseguita se `expr` è "Pomodori" o "Melanzane"
+        break;
+  default:
+    console.log(`Mi dispiace, non abbiamo ${expr}.`); // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
 }
 ```
