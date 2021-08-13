@@ -9,6 +9,60 @@ Le **parole chiave**, o **riservate**, del JavaScript sono delle parole che indi
 
 Gli **operatori** sono simboli o parole che creano una relazione tra più elementi, come un'operazione aritmetica o l'assegnazione di una variabile.
 
+## [Lista degli operatori](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+
+Partiamo vedendo quali sono gli operatori, suddivisi in categorie, e quali sono le loro funzioni.
+
+### [Operatori di assegnazione](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)
+
+I primi operatori sono quelli che ci permettono di assegnare valori alle variabili. Vediamo quali sono e come si differenziano.
+
+#### [Assegnazione: `=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment)
+
+Questo è il più semplice operatore di assegnazione ed è utilizzato per inizializzare una variabile.
+
+**Sintassi:**
+
+```js
+a = b;
+const a = b;
+let a = b;
+```
+
+Per informazioni su cosa `a` e `b` rappresentano, controlla [`const / let`](#const--let).
+
+#### [Assegnazione con aggiunta: `+=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment)
+
+Con questo operatore possiamo riassegnare ad una variabile lo stesso valore con un aggiunta.
+
+**Sintassi:**
+
+```js
+a += b;
+```
+
+- `a`: La variabile da riassegnare. Deve essere di tipo `string | number | boolean`;
+- `b`: Il valore da aggiungere. Se `a` rappresenta una stringa questo valore può essere qualsiasi elemento che può essere convertito in una stringa. Se invece rappresenta un numero, allora deve essere un numero anche il valore da aggiungere, nel caso sia una stringa Typescript ci mostrerà un errore.
+
+**Equivalente:**
+
+```js
+a = a + b;
+```
+
+**Esempi:**
+
+```js
+let foo = "foo";
+let bar = 5;
+
+bar += 2; // 7
+
+foo += false; // "foofalse"
+
+foo += "bar"; // "foobar"
+```
+
 ## Lista delle parole chiave
 
 Qui di seguito è riportata una lista delle parole chiave nel JavaScript e della loro funzione.
