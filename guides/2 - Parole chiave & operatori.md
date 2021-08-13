@@ -38,17 +38,11 @@ Con questo operatore possiamo riassegnare ad una variabile lo stesso valore con 
 **Sintassi:**
 
 ```js
-a += b;
+a += b; // Equivalente: a = a + b
 ```
 
-- `a`: La variabile da riassegnare. Deve essere di tipo `string | number | boolean`;
+- `a`: La variabile da riassegnare. **Type:** `string | number`;
 - `b`: Il valore da aggiungere. Se `a` rappresenta una stringa questo valore può essere qualsiasi elemento che può essere convertito in una stringa. Se invece rappresenta un numero, allora deve essere un numero anche il valore da aggiungere, nel caso sia una stringa Typescript ci mostrerà un errore.
-
-**Equivalente:**
-
-```js
-a = a + b;
-```
 
 **Esempi:**
 
@@ -61,6 +55,674 @@ bar += 2; // 7
 foo += false; // "foofalse"
 
 foo += "bar"; // "foobar"
+```
+
+#### [Assegnazione con sottrazione: `-=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)
+
+Questo operatore ci permette di sotrarre uno specifico numero ad una variabile numerica riassegnandola.
+
+**Sintassi:**
+
+```js
+a -= b; // Equivalente: a = a - b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore da sotrarre. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar -= 2; // 3
+```
+
+#### [Assegnazione con moltiplicazione: `*=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment)
+
+Questo operatore ci permette di moltiplicare uno specifico numero ad una variabile numerica riassegnandola.
+
+**Sintassi:**
+
+```js
+a *= b; // Equivalente: a = a * b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore da moltiplicare. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar *= 2; // 10
+```
+
+#### [Assegnazione con divisione: `/=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment)
+
+Questo operatore ci permette di dividere una variabile per uno specifico numero, riassegnandola.
+
+**Sintassi:**
+
+```js
+a /= b; // Equivalente: a = a / b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore per cui dividere. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar /= 2; // 2.5
+bar /= 2; // 1.25
+bar /= 0; // Infinity
+```
+
+#### [Assegnazione del resto: `/=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment)
+
+Questo operatore ci permette di riassegnare ad una variabile il valore del resto della divisione tra se stessa e un numero.
+
+**Sintassi:**
+
+```js
+a %= b; // Equivalente: a = a % b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore per cui dividere per calcolare il resto. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar %= 2; // 1
+bar %= 0; // NaN
+```
+
+#### [Assegnazione con elevamento a potenza: `/=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment)
+
+Questo operatore ci permette di elevare a potenza una variabile per uno specifico numero, riassegnandola.
+
+**Sintassi:**
+
+```js
+a **= b; // Equivalente: a = a ** b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore per cui elevare a potenza. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar **= 2; // 25
+```
+
+#### [Assegnazione con spostamento dei bit a sinistra: `<<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment)
+
+Questo operatore ci permette di eseguire lo spostamento dei bit a sinistra ad una variabile per uno specifico numero di bit, riassegnandola.
+
+**Sintassi:**
+
+```js
+a <<= b; // Equivalente: a = a << b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il numero di bit da spostare a sinistra. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5; // 00000000000000000000000000000101
+
+bar <<= 2; // 00000000000000000000000000010100
+```
+
+#### [Assegnazione con spostamento dei bit a destra: `>>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment)
+
+Questo operatore ci permette di eseguire lo spostamento dei bit a destra ad una variabile per uno specifico numero di bit, riassegnandola.
+
+**Sintassi:**
+
+```js
+a >>= b; // Equivalente: a = a >> b
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il numero di bit da spostare a destra. **Type:** `number`.
+
+**Esempi:**
+
+```js
+let bar = 5; // 00000000000000000000000000000101
+
+bar >>= 2; // 1 - 00000000000000000000000000000001
+```
+
+<!-- TODO: Missing Assignments -->
+
+#### [Assegnazione con il Logical AND: `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
+
+Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è [veritiero](#espressione-veritiera).
+
+**Sintassi:**
+
+```js
+a &&= b; // Equivalente: a = a && (a = b)
+```
+
+- `a`: La variabile da riassegnare. **Type:** `unknwon`;
+- `b`: Il valore da riassegnare. **Type:** `unknown`.
+
+**Esempi:**
+
+```js
+let bar = 5;
+
+bar &&= 0; // 0
+bar &&= 10; // 0
+```
+
+#### [Assegnazione con il Logical OR: `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+
+Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile **non** è [veritiero](#espressione-veritiera).
+
+**Sintassi:**
+
+```js
+a ||= b; // Equivalente: a = a || (a = b)
+```
+
+- `a`: La variabile da riassegnare. **Type:** `unknwon`;
+- `b`: Il valore da riassegnare. **Type:** `unknown`.
+
+**Esempi:**
+
+```js
+let bar = 0;
+
+bar ||= 5; // 5
+bar ||= 10; // 5
+```
+
+#### [Assegnazione con il Logical non-null: `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
+
+Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è `null` o `undefined`.
+
+**Sintassi:**
+
+```js
+a ??= b; // Equivalente: a = a ?? (a = b)
+```
+
+- `a`: La variabile da riassegnare. **Type:** `unknwon`;
+- `b`: Il valore da riassegnare. **Type:** `unknown`.
+
+**Esempi:**
+
+```js
+let bar;
+
+bar ??= 5; // 5
+bar ??= 10; // 5
+```
+
+#### [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+Il _destructuring assignment_ ci permette di assegnare ad una variabile, un valore presente come proprietà in un object.
+
+**Sintassi:**
+
+```js
+const [a /* , ... */] = b;
+const { c } = d;
+const { e: f } = d;
+
+let [a /* , ... */] = b;
+let { c } = d;
+let { e: f } = d;
+
+[a /* , ... */] = b;
+({ c } = d);
+({ e: f } = d);
+```
+
+- `a`: Il nome da assegnare alla variabile. Rappresenta il primo elemento di `b`. `...` rappresenta gli altri valori di `b`;
+- `b`: Qualsiasi elemento iterabile, come nel [for...of loop](#for--continue--forof--forin);
+- `c`: Il nome della proprietà in `d` da salvare. Corrisponderà anche al nome della nuova variabile;
+- `d`: Un qualsiasi object;
+- `e`: Il nome della proprietà in `d` da salvare. Non corrisponderà al nome della variabile, in quanto è seguito dai due punti;
+- `f`: Il nome della variabile da assegnare al valore della proprietà di `d`.
+
+**Esempi:**
+
+```js
+const array = [1, 2, 3];
+const [one, two, three] = array;
+let uno, due, tre;
+
+console.log(one, two, three); // 1, 2, 3
+
+[uno, due, tre] = array;
+console.log(uno, due, tre); // 1, 2, 3
+```
+
+```js
+const object = { a: 1, b: 2, c: 3, other: 10 };
+const { a, b, c, other: number } = object;
+
+console.log(a, b, c, number); // 1, 2, 3, 10
+```
+
+```js
+const object = { a: 1, b: 2, c: 3, other: 10 };
+let a, b, c, number;
+
+({ a, b, c, other: number } = object);
+
+console.log(a, b, c, number); // 1, 2, 3, 10
+```
+
+### [Operatori di comparazione](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators)
+
+Questi operatori ci permettono di comparare più elementi e restituiscono un `boolean`.
+
+#### [Uguaglianza: `==`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality)
+
+Con questo simbolo possiamo controllare se due elementi sono uguali.
+
+Nel caso i due elementi siano di tipo diverso, allora vengono convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a == b;
+```
+
+**Esempi:**
+
+```js
+10 == 10; // true
+null == undefined; // true
+new String() == new String(); // false
+"15" == 15; // true
+"0" == undefined; // false
+```
+
+#### [Disuguaglianza: `!=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#inequality)
+
+Con questo simbolo possiamo controllare se due elementi sono diversi.
+
+Nel caso i due elementi siano di tipo diverso, allora vengono convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a != b;
+```
+
+**Esempi:**
+
+```js
+10 != 10; // false
+null != undefined; // false
+new String() != new String(); // true
+"15" != 15; // false
+"0" != undefined; // true
+```
+
+#### [Uguaglianza stretta: `===`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#identity)
+
+Con questo simbolo possiamo controllare se due elementi sono identici.
+
+Nel caso i due elementi siano di tipo diverso, **non** verranno convertiti allo stesso tipo e l'uguaglianza sarà falsa.
+
+**Sintassi:**
+
+```js
+a === b;
+```
+
+**Esempi:**
+
+```js
+10 === 10; // true
+"Sus" === `S${"u"}s`; // true
+"sus" === "Sus"; // false
+```
+
+#### [Disguaglianza stretta: `!==`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#nonidentity)
+
+Con questo simbolo possiamo controllare se due elementi **non** sono identici.
+
+Nel caso i due elementi siano di tipo diverso, **non** verranno convertiti allo stesso tipo e l'uguaglianza sarà falsa.
+
+**Sintassi:**
+
+```js
+a !== b;
+```
+
+**Esempi:**
+
+```js
+10 !== 10; // false
+"Sus" !== `S${"u"}s`; // false
+"sus" !== "Sus"; // true
+```
+
+#### [Maggiore: `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than)
+
+Con questo simbolo possiamo controllare se un numero è maggiore di un altro.
+
+Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a > b;
+```
+
+**Esempi:**
+
+```js
+"a" > "b"; // false
+"a" > "a"; // false
+"a" > "3"; // true
+
+"5" > 3; // true
+"3" > 3; // false
+"3" > 5; // false
+
+"hello" > 5; // false
+5 > "hello"; // false
+
+"5" > 3n; // true
+"3" > 5n; // false
+
+5 > 3; // true
+3 > 3; // false
+3 > 5; // false
+```
+
+#### [Maggiore o uguale: `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+
+Con questo simbolo possiamo controllare se un numero è maggiore o uguale ad un altro.
+
+Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a >= b;
+```
+
+**Esempi:**
+
+```js
+"a" >= "b"; // false
+"a" >= "a"; // true
+"a" >= "3"; // true
+
+"5" >= 3; // true
+"3" >= 3; // true
+"3" >= 5; // false
+
+"hello" >= 5; // false
+5 >= "hello"; // false
+
+5 >= 3; // true
+3 >= 3; // true
+3 >= 5; // false
+```
+
+#### [Minore: `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than)
+
+Con questo simbolo possiamo controllare se un numero è minore di un altro.
+
+Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a < b;
+```
+
+**Esempi:**
+
+```js
+"a" < "b"; // true
+"a" < "a"; // false
+"a" < "3"; // false
+
+"5" < 3; // false
+"3" < 3; // false
+"3" < 5; // true
+
+"hello" < 5; // false
+5 < "hello"; // false
+
+"5" < 3n; // false
+"3" < 5n; // true
+
+5 < 3; // false
+3 < 3; // false
+3 < 5; // true
+```
+
+#### [Minore o uguale: `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+
+Con questo simbolo possiamo controllare se un numero è minore o uguale ad un altro.
+
+Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.
+
+**Sintassi:**
+
+```js
+a <= b;
+```
+
+**Esempi:**
+
+```js
+"a" <= "b"; // true
+"a" <= "a"; // true
+"a" <= "3"; // false
+
+"5" <= 3; // false
+"3" <= 3; // true
+"3" <= 5; // true
+
+"hello" <= 5; // false
+5 <= "hello"; // false
+
+"5" <= 3n; // false
+"3" <= 5n; // true
+
+5 <= 3; // false
+3 <= 3; // true
+3 <= 5; // true
+```
+
+### [Operatori aritmetici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators)
+
+I seguenti operatori ci permettono di eseguire operazioni aritmetiche.
+
+Tutti questi operatori richiedono che gli elementi da utilizzare abbiano `number` come type.
+
+#### [Modulo: `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
+
+Con questo operatore possiamo calcolare il resto della divisione tra due numeri.
+
+**Sintassi:**
+
+```js
+a % b;
+```
+
+**Esempi:**
+
+```js
+12 % 5; // 2
+1 % -2; // 1
+1 % 2; // 1
+2 % 3; // 2
+5.5 % 2; // 1.5
+
+-12 % 5; // -2
+1 % 2; // -1
+4 % 2; // -0
+
+NaN % 2; // NaN
+
+Infinity % 2; // NaN
+Infinity % 0; // NaN
+Infinity % Infinity; // NaN
+```
+
+#### [Incremento: `++`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment)
+
+Con questo operatore possiamo aggiungere `1` ad una variabile.
+
+Se l'operatore precede la variabile, allora viene restituito il valore risultante, in caso contrario viene restituito il vecchio valore.
+
+**Sintassi:**
+
+```js
+a++;
+++a;
+```
+
+**Esempi:**
+
+```js
+let x = 3;
+y = x++;
+
+// y = 3
+// x = 4
+
+let a = 2;
+b = ++a;
+
+// a = 3
+// b = 3
+```
+
+#### [Decremento: `--`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement)
+
+Con questo operatore possiamo levare `1` ad una variabile.
+
+Se l'operatore precede la variabile, allora viene restituito il valore risultante, in caso contrario viene restituito il vecchio valore.
+
+**Sintassi:**
+
+```js
+a--;
+--a;
+```
+
+**Esempi:**
+
+```js
+let x = 3;
+y = x--;
+
+// y = 3
+// x = 2
+
+let a = 2;
+b = --a;
+
+// a = 1
+// b = 1
+```
+
+#### [Negazione numerica: `-`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+
+Con questo operatore possiamo invertire il segno di una variabile.
+
+**Sintassi:**
+
+```js
+-a;
+```
+
+**Esempi:**
+
+```js
+const x = 3;
+const y = -x;
+
+// y = -3
+// x = 3
+
+const x = "4";
+const y = -x;
+
+// y = -4
+```
+
+#### [Più numerico: `+`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+
+Questo operatore forza la conversione di un elemento ad un numero. Nel caso questo non sia possibile, [`NaN`](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/NaN) viene restituito.
+
+Una valida alternativa a questo operatore è utilizzare [`Number(a)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#description).
+
+**Sintassi:**
+
+```js
++a;
+```
+
+- `a`: Qualsiasi elemento che può essere convertito in numero.
+
+**Esempi:**
+
+```js
+const x = 1;
+const y = -1;
+
++x; // 1
++y; // -1
+
++true; // 1
++false; // 0
++function (val) {
+  return val;
+}; // NaN
+```
+
+#### [Operatore esponenziale: `**`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+
+Questo operatore eleva un numero a potenza.
+
+**Sintassi:**
+
+```js
+a ** b;
+```
+
+**Esempi:**
+
+```js
+2 ** 3; // 8
+3 ** 2; // 9
+3 ** 2.5; // 15.588457268119896
+10 ** -1; // 0.1
+NaN ** 2; // NaN
+
+2 ** (3 ** 2); // 512
+2 ** (3 ** 2); // 512
+(2 ** 3) ** 2; // 64
 ```
 
 ## Lista delle parole chiave
