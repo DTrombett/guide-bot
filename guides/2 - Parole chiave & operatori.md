@@ -52,121 +52,6 @@ n = 0;
 console.log(i, n); // 10, 0
 ```
 
-### [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) / [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
-
-La parola chiave `function` serve per creare una funzione JavaScript.
-
-**Vedremo questa struttura nel dettaglio in un altro articolo.**
-
-**Sintassi:**
-
-```js
-function a(/* b, ... */) {
-  // Azioni da eseguire nella funzione
-}
-```
-
-- `a`: Nome della funzione da creare;
-- `b, ...`: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
-
-La funzione verrà poi chiamata nel seguente modo:
-
-```js
-a(/* b , ... */);
-```
-
-`return` indica il valore che verrà restituito dalla funzione.
-
-**Sintassi:**
-
-```js
-return a;
-```
-
-- `a`: Il valore da restituire. È facoltativo e può essere omesso nel caso non si voglia restituire nessun valore (`return;`).
-
-**Esempi:**
-
-```js
-/**
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @returns {number}
- */
-function sumNumbers(a, b, c) {
-  return a + b + c; // Restituiamo la somma dei 3 parametri passati nella funzione
-}
-
-console.log(sumNumbers(2, 4, 6)); // 12
-```
-
-```js
-/**
- * @param {unknown} a
- * @returns {void}
- */
-function log(a) {
-  console.log(a); // Scriviamo il valore passato in console
-  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
-}
-
-log("Sus"); // "Sus"
-```
-
-```js
-/**
- * @returns {void}
- */
-function logSus() {
-  console.log("Sus"); // Scriviamo "Sus" in console
-  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
-}
-
-logSus(); // "Sus"
-```
-
-### [`async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) / [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
-
-`async` viene utilizzata prima della parola `function` per abilitare l'uso della parola `await` all'interno della funzione.
-
-Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una `Promise`, il cui valore da restituire sarà quello restituito dalla funzione.
-
-**Sintassi:**
-
-```js
-async function a(/* b, ... */) {
-  // Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`
-}
-```
-
-`await` viene usata prima di una `Promise` per far sì che il codice corrente si blocchi fino a che quella `Promise` non viene completata.
-Sintassi:
-
-```js
-await a;
-```
-
-- `a`: La `Promise` da attendere. **Type:** `Promise`.
-
-**Esempi:**
-
-```js
-/**
- * @param {number} m
- * @returns {Promise<number>}
- */
-async function wait(m) {
-  const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
-  await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
-  const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
-  console.log(passed); // ~1000
-  return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
-}
-
-console.log(wait(1000)); // Promise { <pending> }
-```
-
 ### [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) / [`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
 Questa parola chiave ci permette di eseguire una determinata azione se una condizione è [veritiera](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
@@ -289,6 +174,258 @@ switch (expr) {
 }
 ```
 
+### [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) / [`continue`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue) / [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) / [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+
+Con la parola chiave `for` possiamo creare un loop che si basa su 3 espressioni.
+
+**Sintassi:**
+
+```js
+for (a; b; c) {
+  // Codice da eseguire nel loop
+}
+```
+
+- `a`: Espressione per creare una variabile da utilizzare nel loop. Generalmente si inizializza a `0`;
+- `b`: Condizione che verrà verificata per decidere se il loop deve continuare o no;
+- `c`: Azione da eseguire alla fine di ogni esecuzione del codice nel loop.
+
+Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola. Ometterle tutte crea un loop infinito che va bloccato manualmente.
+
+Nel codice possiamo utilizzare `break` per uscire dal loop.
+
+Se invece vogliamo passare all'esecuzione successiva prima che il codice termini possiamo utilizzare la parola `continue`.
+
+**Sintassi:**
+
+```js
+continue;
+```
+
+Ci sono poi 2 speciali utilizzi del for loop: _for...of_ e _for...in_.
+
+Un _for...of_ loop esegue un'azione per ogni elemento di un array o carattere di una stringa, o elemento di altre strutture compatibili.
+
+**Sintassi:**
+
+```js
+for (a of b) {
+  // Azioni da eseguire per ogni elemento di `b`. `a` sarà un riferimento a quell'elemento
+}
+```
+
+- `a`: Nome della variabile che rappresenterà l'elemento ad ogni esecuzione;
+- `b`: Un array, stringa o qualsiasi altro elemento supporti questa iterazione.
+
+Un _for...in_ loop permette di eseguire un'azione per ogni _property_ di un _object_
+
+**Sintassi:**
+
+```js
+for (a in b) {
+  // Azioni da eseguire per ogni proprietà di `b`. `a` sarà un riferimento a quella proprietà
+}
+```
+
+- `a`: Nome della variabile che rappresenterà la proprietà ad ogni esecuzione;
+- `b`: Un qualsiasi _object_.
+
+**Esempi:**
+
+```js
+let text = ""; // Creiamo una stringa vuota
+
+// Creiamo un loop che verrà eseguito 10 volte
+for (let i = 0; i < 10; i++) {
+  if (i === 3) {
+    continue; // Se `i` è 3 (quindi siamo alla quarta esecuzione) il codice viene "saltato" e si passa alla prossima esecuzione
+  }
+  text = text + i; // Ad ogni esecuzione aggiungiamo il numero alla stringa
+}
+
+console.log(text); // "012456789" - Il 3 manca perchè lo abbiamo saltato con il `continue`
+```
+
+```js
+const array = ["a", "b", "c"];
+
+for (const element of array) {
+  console.log(element); // "a", "b", "c"
+}
+```
+
+```js
+const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`); // "a: 1", "b: 2", "c: 3"
+}
+```
+
+### [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while) / [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
+
+Un _while loop_ è un loop che esegue una determinata azione finchè una condizione è vera. Una specie di [for loop](#for--continue--forof--forin) molto semplificato.
+
+**Sintassi:**
+
+```js
+while (a) {
+  // Azioni da eseguire quando la condizione `a` è veritiera
+}
+```
+
+- `a`: Condizione da verificare prima di ogni esecuzione. Se è veritiera, allora il codice nel loop viene eseguito, in caso contrario il codice va avanti.
+
+Se vogliamo invece controllare la condizione **dopo** l'esecuzione, allora possiamo usare il _do...while_ loop.
+
+**Sintassi:**
+
+```js
+do {
+  // Azioni da eseguire nel loop prima di controllare la condizione
+} while (a);
+```
+
+**Esempi:**
+
+```js
+let n = 0; // Creiamo una variabile `n` ed assegnamogli il valore 0
+
+// Eseguiamo un loop per 3 volte
+while (n < 3) {
+  n++; // Ad ogni esecuzione aumentiamo di 1 la variabile `n`
+}
+
+console.log(n); // 3
+```
+
+```js
+let str = ""; // Creiamo una stringa vuota
+let i = 0; // Creiamo una variabile `i` e inizializziamola a 0
+
+do {
+  i++; // Ad ogni esecuzione aumentiamo di 1 la variabile `i`
+  str = str + i; // ed aggiungiamo il valore di `i` alla stringa
+} while (i < 5); // Eseguiamo il loop fino a che `i` è minore di 5
+
+console.log(str); // "12345"
+```
+
+### [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) / [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
+
+La parola chiave `function` serve per creare una funzione JavaScript.
+
+**Vedremo questa struttura nel dettaglio in un altro articolo.**
+
+**Sintassi:**
+
+```js
+function a(/* b, ... */) {
+  // Azioni da eseguire nella funzione
+}
+```
+
+- `a`: Nome della funzione da creare;
+- `b, ...`: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
+
+La funzione verrà poi chiamata nel seguente modo:
+
+```js
+a(/* b , ... */);
+```
+
+`return` indica il valore che verrà restituito dalla funzione.
+
+**Sintassi:**
+
+```js
+return a;
+```
+
+- `a`: Il valore da restituire. È facoltativo e può essere omesso nel caso non si voglia restituire nessun valore (`return;`).
+
+**Esempi:**
+
+```js
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns {number}
+ */
+function sumNumbers(a, b, c) {
+  return a + b + c; // Restituiamo la somma dei 3 parametri passati nella funzione
+}
+
+console.log(sumNumbers(2, 4, 6)); // 12
+```
+
+```js
+/**
+ * @param {unknown} a
+ * @returns {void}
+ */
+function log(a) {
+  console.log(a); // Scriviamo il valore passato in console
+  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
+}
+
+log("Sus"); // "Sus"
+```
+
+```js
+/**
+ * @returns {void}
+ */
+function logSus() {
+  console.log("Sus"); // Scriviamo "Sus" in console
+  return; // Non restituiamo nulla. Possiamo anche ometterlo in quanto si trova al termine della funzione
+}
+
+logSus(); // "Sus"
+```
+
+### [`async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) / [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+
+`async` viene utilizzata prima della parola `function` per abilitare l'uso della parola `await` all'interno della funzione.
+
+Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una `Promise`, il cui valore da restituire sarà quello restituito dalla funzione.
+
+**Sintassi:**
+
+```js
+async function a(/* b, ... */) {
+  // Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`
+}
+```
+
+`await` viene usata prima di una `Promise` per far sì che il codice corrente si blocchi fino a che quella `Promise` non viene completata.
+Sintassi:
+
+```js
+await a;
+```
+
+- `a`: La `Promise` da attendere. **Type:** `Promise`.
+
+**Esempi:**
+
+```js
+/**
+ * @param {number} m
+ * @returns {Promise<number>}
+ */
+async function wait(m) {
+  const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
+  await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
+  const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
+  console.log(passed); // ~1000
+  return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
+}
+
+console.log(wait(1000)); // Promise { <pending> }
+```
+
 ### [`try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 
 Le paroli `try` e `catch` servono per eseguire una determinata azione nel caso si verifichi un error nel codice.
@@ -316,7 +453,39 @@ try {
 }
 ```
 
-### [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) / [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) / [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) / [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) / [`static`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+### [`throw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
+
+Con la parola `throw` possiamo generare un errore e bloccare il codice corrente.
+
+Funziona alla stessa maniera di `return`, ma con la differenza che invece di restituire un valore comunica all'utente che un errore si è verificato e il codice non può continuare. Per far si che il processo in corso continui bisogna gestire l'errore utilizzando un [`try...catch`](#trycatch) block.
+
+**Sintassi:**
+
+```js
+throw a;
+```
+
+- `a`: L'errore da generare. Può essere qualsiasi valore, ma è obbligatorio.
+
+**Esempi:**
+
+```js
+// Creiamo una funzione che calcola l'area di un rettangolo con base e altezza
+function getArea(width, height) {
+  // Controlliamo se base e altezza sono numeri
+  if (isNaN(width) || isNaN(height)) {
+    throw "Non hai fornito numeri validi!"; // In caso contrario generiamo un errore
+  }
+}
+
+try {
+  getArea(3, "A"); // Chiamiamo la funzione, ma, invece di passare un numero, passiamo "A", che farà generare un errore
+} catch (e) {
+  console.error(e); // "Non hai fornito numeri validi!"
+}
+```
+
+### [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) / [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) / [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) / [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) / [`static`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) / [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
 
 Con la parola `class` possiamo creare una nuova _Classe_.
 
@@ -382,15 +551,26 @@ class a {
 - `b`: Nome del metodo statico;
 - `c`, `...`: Lista dei parametri per questo metodo;
 
+Per instanziare un nuovo oggetto appartenente ad una classe, utilizziamo la parola `new`.
+
+**Sintassi:**
+
+```js
+new a(/* b, ... */);
+```
+
+- `a`: Classe da costruire;
+- `b`, `...`: Parametri da passare alla funzione `constructor` della classe.
+
 **Esempi:**
 
 ```js
 // Creiamo una classe chiamata Square che rappresenterà un quadrato
 class Square {
   /**
-    * Questa è la funzione che viene eseguita quando è usato `new`
-    * @param {number} height
-    */
+   * Questa è la funzione che viene eseguita quando è usato `new`
+   * @param {number} height
+   */
   constructor(height) {
     this.height = height; // Impostiamo la proprietà `height` al valore passato nella funzione
   }
@@ -409,9 +589,9 @@ class Square {
 // Creiamo una classe chiamata Rectangle per rappresentare un rettangolo che estende il quadrato
 class Rectangle extends Square {
   /**
-    * @param {number} height
-    * @param {number} width
-    */
+   * @param {number} height
+   * @param {number} width
+   */
   constructor(height, width) {
     super(height); // Assicuriamoci di chiamare la funzione del quadrato prima di andare avanti
 
@@ -428,50 +608,7 @@ class Rectangle extends Square {
   }
 }
 
-const rettangolo = new Rectangle(10, 20); // Creiamo un nuovo rettangolo con base 20 e altezza 10
+const rettangolo = new Rectangle(10, 20); // Creiamo un nuovo rettangolo con base 20 e altezza 10 utilizzando la parola `new`
 
 console.log(rettangolo.getArea()); // 200
 ```
-
-### [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) / [`continue`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue) / [`of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) / [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-
-Con la parola chiave `for` possiamo creare un loop che si basa su 3 espressioni.
-
-**Sintassi:**
-
-```js
-for (a; b; c) {
-  // Codice da eseguire nel loop
-}
-```
-
-- `a`: Espressione per creare una variabile da utilizzare nel loop. Generalmente si inizializza a `0`;
-- `b`: Condizione che verrà verificata per decidere se il loop deve continuare o no;
-- `c`: Azione da eseguire alla fine di ogni esecuzione del codice nel loop.
-
-Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola. Ometterle tutte crea un loop infinito che va bloccato manualmente.
-
-Nel codice possiamo utilizzare `break` per uscire dal loop.
-
-Se invece vogliamo passare all'esecuzione successiva prima che il codice termini possiamo utilizzare la parola `continue`.
-
-**Sintassi:**
-
-```js
-continue;
-```
-
-Ci sono poi 2 speciali utilizzi del for loop: _for...of_ e _for...in_.
-
-Un loop _for...of_ esegue un'azione per ogni elemento di un array o carattere di una stringa.
-
-**Sintassi:**
-
-```js
-for (a of b) {
-  // Azioni da eseguire per ogni elemento di `b`. `a` sarà un riferimento a quell'elemento
-}
-```
-
-- `a`: Nome della variabile che rappresenterà l'elemento a ogni esecuzione;
-- `b`: Un array, stringa o qualsiasi altro elemento supporti questa iterazione.
