@@ -1818,10 +1818,12 @@ await a;
  */
 async function wait(m) {
   const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
-  await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
+  await new Promise((resolve) => setTimeout(resolve, m));
+  // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
   const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
   console.log(passed); // ~1000
-  return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
+  return passed; // Restituiamo quel valore.
+  // Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
 }
 
 console.log(wait(1000)); // Promise { <pending> }
