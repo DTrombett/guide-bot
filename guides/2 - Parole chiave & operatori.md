@@ -79,6 +79,8 @@ a === b;
 
 ```js
 10 === 10; // true
+"15" === 15; // false - Una stringa non sarà mai uguale ad un numero con l'uguaglianza stretta
+null === undefined; // false - Sono di due tipi diversi perciò non possono essere uguali
 "Sus" === `S${"u"}s`; // true - I template literals vengono prima eseguiti
 "sus" === "Sus"; // false - Case sensitive
 ```
@@ -99,6 +101,8 @@ a !== b;
 
 ```js
 10 !== 10; // false
+"15" !== 15; // true
+null !== undefined; // true
 "Sus" !== `S${"u"}s`; // false
 "sus" !== "Sus"; // true
 ```
@@ -596,7 +600,7 @@ false && ""; // false
 
 #### [OR logico: `||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
 
-L'operatore logico **OR** legge la prima espressione e, nel caso sia [veritiera](#espressione-veritiera), la restituisce, in caso contrario, restituisce esegue e restituisce la seconda.
+L'operatore logico **OR** legge la prima espressione e, nel caso sia [veritiera](#espressione-veritiera), la restituisce, in caso contrario, esegue e restituisce la seconda.
 
 Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera se uno degli operandi è veritiero.
 
@@ -634,9 +638,57 @@ false || ""; // ""
 false || varObject; // varObject
 ```
 
+#### [non-null: `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+
+L'operatore **non-null** (Nullish coalescing operator) legge la prima espressione e, nel caso sia `null | undefined`, esegue e restituisce la seconda, in caso contrario, restituisce questa prima.
+
+**Sintassi:**
+
+```js
+a ?? b;
+```
+
+**Esempi:**
+
+```js
+/**
+ * @type {string | null}
+ */
+const nullValue = null;
+const emptyText = ""; // non veritiera ma nemmeno nulla
+const someNumber = 42;
+
+nullValue ?? "default for A"; // "default for A"
+emptyText ?? "default for B"; // "" - `""` non è null o undefined
+someNumber ?? 0; // 42
+
+function A() {
+  console.log("A was called");
+  return undefined;
+}
+function B() {
+  console.log("B was called");
+  return false;
+}
+function C() {
+  console.log("C was called");
+  return "foo";
+}
+
+A() ?? C(); // "foo"
+// console: "A was called", "C was called"
+// `A()` ha restituito undefined
+// perciò anche`C()` viene eseguito
+
+B() ?? C(); // false
+// console: "B was called"
+// `B()` ha restituito false che non è un valore nullo
+// perciò`C()` non viene eseguito
+```
+
 #### [NOT logico: `!`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
 
-L'operatore logico **NOT** legge una sola espressione e restituisce `false` se l'espressione è veritiera, o viceversa.
+L'operatore logico **NOT** legge una sola espressione e restituisce `false` se l'espressione è [veritiera](#espressione-veritiera), o viceversa.
 
 Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera se l'operando **non** è un valore veritiero.
 
@@ -651,8 +703,8 @@ Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, 
 ```js
 !true; // false
 !false; // true
-!""; // true
-!"Cat"; // false
+!""; // true - `""` non è un valore veritiero perciò viene trattato come false
+!"Cat"; // false - Una stringa non vuota è un valore veritiero perciò viene trattata come true
 ```
 
 ### [Operatori di assegnazione](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)
@@ -683,6 +735,8 @@ let y = 10;
 let z;
 
 z = y = x; // 5 - `z` e `y` hanno ora lo stesso valore di `x`
+// Equivalente: `z = (y = x)` => `z = (y = 5)` => `z = 5`
+// A `y` è stato assegnato il valore di 5 e l'espressione `y = 5` ha anche restituito 5
 ```
 
 #### [Assegnazione con aggiunta: `+=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment)
@@ -706,7 +760,7 @@ a += b; // Equivalente: a = a + b
 let foo = "foo";
 let bar = 5;
 
-bar += 2; // 7
+bar += 2; // 7 - `bar = bar + 2` => `bar = 5 + 2` => `bar = 7`
 
 foo += false; // "foofalse"
 
@@ -733,7 +787,7 @@ a -= b; // Equivalente: a = a - b
 ```js
 let bar = 5;
 
-bar -= 2; // 3
+bar -= 2; // 3 - `bar = bar - 2` => `bar = 5 - 2` => `bar = 3`
 ```
 
 #### [Assegnazione con moltiplicazione: `*=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment)
@@ -756,7 +810,7 @@ a *= b; // Equivalente: a = a * b
 ```js
 let bar = 5;
 
-bar *= 2; // 10
+bar *= 2; // 10 - `bar = bar * 2` => `bar = 5 * 2` => `bar = 10`
 ```
 
 #### [Assegnazione con divisione: `/=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment)
@@ -779,9 +833,10 @@ a /= b; // Equivalente: a = a / b
 ```js
 let bar = 5;
 
-bar /= 2; // 2.5
+bar /= 2; // 2.5 - `bar = bar / 2` => `bar = 5 / 2` => `bar = 2.5`
 bar /= 2; // 1.25
-bar /= 0; // Infinity
+bar /= 0; // Infinity - `bar = bar / 0` => `bar = 5 / 0` => `bar = Infinity`
+// In JavaScript, qualsiasi numero diviso per 0 è uguale a Infinity
 ```
 
 #### [Assegnazione del resto: `%=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment)
@@ -806,8 +861,9 @@ a %= b; // Equivalente: a = a % b
 ```js
 let bar = 5;
 
-bar %= 2; // 1
-bar %= 0; // NaN
+bar %= 2; // 1 - `bar = bar % 2` => `bar = 5 % 2` => `bar = 1`
+bar %= 0; // NaN - `bar = bar % 0` => `bar = 5 % 0` => `bar = NaN`
+// In JavaScript, il modulo di una divisione per 0 è sempre NaN
 ```
 
 #### [Assegnazione con elevamento a potenza: `**=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment)
@@ -832,7 +888,7 @@ a **= b; // Equivalente: a = a ** b
 ```js
 let bar = 5;
 
-bar **= 2; // 25
+bar **= 2; // 25 - `bar = bar ** 2` => `bar = 5 ** 2` => `bar = 25`
 ```
 
 #### [Assegnazione con spostamento dei bit a sinistra: `<<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment)
@@ -855,9 +911,9 @@ a <<= b; // Equivalente: a = a << b
 **Esempi:**
 
 ```js
-let bar = 5; // 00000000000000000000000000000101
-
-bar <<= 2; // 00000000000000000000000000010100
+let bar = 5; // 00101
+// 2:           00010
+bar <<= 2; //   10100 (20)
 ```
 
 #### [Assegnazione con spostamento dei bit a destra: `>>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment)
@@ -880,9 +936,9 @@ a >>= b; // Equivalente: a = a >> b
 **Esempi:**
 
 ```js
-let bar = 5; // 00000000000000000000000000000101
-
-bar >>= 2; // 1 - 00000000000000000000000000000001
+let bar = 5; // 101
+// 2:           010
+bar >>= 2; //   001 (1)
 ```
 
 #### [Assegnazione con bitwise AND: `&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
@@ -905,10 +961,9 @@ a &= b;
 **Esempi:**
 
 ```js
-let a = 5;
-// 5:      101
-// 2:      010
-a &= 2; // 000
+let a = 5; // 101
+// 2:         010
+a &= 2; //    000 (0)
 ```
 
 #### [Assegnazione con bitwise OR: `|=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
@@ -931,10 +986,9 @@ a |= b;
 **Esempi:**
 
 ```js
-let a = 5;
-// 5:      101
-// 2:      010
-a |= 2; // 111 (7)
+let a = 5; // 101
+// 2:         010
+a |= 2; //    111 (7)
 ```
 
 #### [Assegnazione con bitwise XOR: `^=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)
@@ -959,22 +1013,21 @@ a ^= b;
 **Esempi:**
 
 ```js
-let a = 5;
-// 5:      101
-// 3:      011
-a ^= 3; // 110 (6)
+let a = 5; // 101
+// 3:         011
+a ^= 3; //    110 (6)
 ```
 
 #### [Assegnazione con il Logical AND: `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
 
-Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è [veritiero](#espressione-veritiera).
+Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore di quella variabile è [veritiero](#espressione-veritiera).
 
 Vedi anche: [Operatore logico AND](#and-logico).
 
 **Sintassi:**
 
 ```js
-a &&= b; // Equivalente: a = a && (a = b)
+a &&= b; // Equivalente: a && (a = b)
 ```
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
@@ -985,22 +1038,25 @@ a &&= b; // Equivalente: a = a && (a = b)
 **Esempi:**
 
 ```js
-let bar = 5;
+let x = 0;
+let y = 1;
 
-bar &&= 0; // 0
-bar &&= 10; // 0
+x &&= 0; // 0 - `x && (x = 0)` => `0 && (x = 0)` => `0` - L'assegnazione non viene eseguita, poichè 0 non è un valore veritiero
+x &&= 1; // 0 - `x && (x = 1)` => `0 && (x = 1)` => `0` - ""                                                                 ""
+y &&= 1; // 1 - `y && (y = 1)` => `1 && (y = 1)` => `y = 1` - L'assegnazione viene eseguita, poichè 1 è un valore veritiero
+y &&= 0; // 0 - `y && (y = 0)` => `1 && (y = 0)` => `y = 0` - ""                                                         ""
 ```
 
 #### [Assegnazione con il Logical OR: `||=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
 
-Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile **non** è [veritiero](#espressione-veritiera).
+Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore di quella variabile **non** è [veritiero](#espressione-veritiera).
 
 Vedi anche: [Operatore logico OR](#or-logico).
 
 **Sintassi:**
 
 ```js
-a ||= b; // Equivalente: a = a || (a = b)
+a ||= b; // Equivalente: a || (a = b)
 ```
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
@@ -1011,20 +1067,25 @@ a ||= b; // Equivalente: a = a || (a = b)
 **Esempi:**
 
 ```js
-let bar = 0;
+let x = 0;
+let y = 1;
 
-bar ||= 5; // 5
-bar ||= 10; // 5
+x ||= 0; // 0 - `x || (x = 0)` => `0 || (x = 0)` => `x = 0` - L'assegnazione viene eseguita, poichè 0 non è un valore veritiero
+x ||= 1; // 1 - `x || (x = 1)` => `0 || (x = 1)` => `x = 1` - ""                                                             ""
+y ||= 1; // 1 - `y || (y = 1)` => `1 || (y = 1)` => `1` - L'assegnazione non viene eseguita, poichè 1 è un valore veritiero
+y ||= 0; // 1 - `y || (y = 0)` => `1 || (y = 0)` => `1` - ""                                                             ""
 ```
 
 #### [Assegnazione con il Logical non-null: `??=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment)
 
 Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è `null` o `undefined`.
 
+Vedi anche: [Operatore logico non-null](#non-null)
+
 **Sintassi:**
 
 ```js
-a ??= b; // Equivalente: a = a ?? (a = b)
+a ??= b; // Equivalente: a ?? (a = b)
 ```
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
@@ -1035,10 +1096,13 @@ a ??= b; // Equivalente: a = a ?? (a = b)
 **Esempi:**
 
 ```js
-let bar;
+let x = null;
+let y = 1;
 
-bar ??= 5; // 5
-bar ??= 10; // 5
+x ??= 0; // 0 - `x ?? (x = 0)` => `null ?? (x = 0)` => `x = 0` - L'assegnazione viene eseguita, poichè il primo operando è null
+x ??= 1; // 0 - `x ?? (x = 1)` => `0 ?? (x = 1)` => `x = 1` - L'assegnazione non viene eseguita, poichè 0 non è un valore nullo
+y ??= 1; // 1 - `y ?? (y = 1)` => `1 ?? (y = 1)` => `1` - L'assegnazione non viene eseguita, poichè 1 non è un valore nullo
+y ??= null; // 1 - `y ?? (y = null)` => `1 ?? (y = null)` => `1` - ""                                                    ""
 ```
 
 #### [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
@@ -1101,7 +1165,7 @@ console.log(a, b, c, number); // 1, 2, 3, 10
 
 ### [Operatore condizionale ternario](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator)
 
-L'operatore condizionale ternario (**[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**) è un [`if...else`](#if--else) abbreviato che accetta una condizione da valutare, un'azione da eseguire quando quella condizione è veritiera e una da eseguire quando non lo è.
+L'operatore condizionale ternario (**[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**) è un [`if...else`](#if--else) abbreviato che accetta una condizione da valutare, un'azione da eseguire quando quella condizione è [veritiera](#espressione-veritiera) e una da eseguire quando non lo è.
 
 **Sintassi:**
 
@@ -1176,7 +1240,8 @@ const EmployeeDetails = {
 
 delete EmployeeDetails.name; // true
 
-delete EmployeeDetails.salary; // Typescript error: Property 'salary' does not exist on type '{ name: string; age: number; designation: string; }'
+delete EmployeeDetails.salary; // Typescript error:
+// Property 'salary' does not exist on type '{ name: string; age: number; designation: string; }'
 ```
 
 #### [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
@@ -1378,9 +1443,12 @@ Questa parola chiave ci permette di eseguire una determinata azione se una condi
 if (a) {
   // Azioni da eseguire se la condizione è veritiera
 }
+// Se vogliamo eseguire solo un'azione possiamo utilizzare:
+if (a) b;
 ```
 
-- `a`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è _veritiera_.
+- `a`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è veritiera;
+- `b`: Azione da eseguire quando `a` è un'espressione veritiera.
 
 `else` viene utilizzato per dichiarare l'azione da eseguire se la condizione **non** è veritiera.
 
@@ -1486,7 +1554,8 @@ switch (expr) {
     console.log("I pomodori e le melanzane costano 1,50€"); // Questa azione verrà eseguita se `expr` è "Pomodori" o "Melanzane"
     break;
   default:
-    console.log(`Mi dispiace, non abbiamo ${expr}.`); // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
+    console.log(`Mi dispiace, non abbiamo ${expr}.`);
+  // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
 }
 ```
 
@@ -1500,11 +1569,14 @@ Con la parola chiave `for` possiamo creare un loop che si basa su 3 espressioni.
 for (a; b; c) {
   // Codice da eseguire nel loop
 }
+// Se vogliamo eseguire solo un'azione possiamo utilizzare:
+for (a; b; c) d;
 ```
 
 - `a`: Espressione per creare una variabile da utilizzare nel loop. Generalmente si inizializza a `0`;
 - `b`: Condizione che verrà verificata per decidere se il loop deve continuare o no;
-- `c`: Azione da eseguire alla fine di ogni esecuzione del codice nel loop.
+- `c`: Azione da eseguire alla fine di ogni esecuzione del codice nel loop;
+- `d`: Singola azione da eseguire nel loop.
 
 Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola. Ometterle tutte crea un loop infinito che va bloccato manualmente.
 
@@ -1519,6 +1591,7 @@ continue;
 ```
 
 Ci sono poi 2 speciali utilizzi del for loop: _for...of_ e _for...in_.
+Anche qui possiamo omettere le parentesi graffe nel caso volessimo eseguire una sola azione.
 
 Un _for...of_ loop esegue un'azione per ogni elemento di un array o carattere di una stringa, o elemento di altre strutture compatibili.
 
@@ -1553,10 +1626,9 @@ let text = ""; // Creiamo una stringa vuota
 
 // Creiamo un loop che verrà eseguito 10 volte
 for (let i = 0; i < 10; i++) {
-  if (i === 3) {
-    continue; // Se `i` è 3 (quindi siamo alla quarta esecuzione) il codice viene "saltato" e si passa alla prossima esecuzione
-  }
-  text = text + i; // Ad ogni esecuzione aggiungiamo il numero alla stringa
+  if (i === 3) continue; // Se `i` è 3 (quindi siamo alla quarta esecuzione)
+  // il codice viene "saltato" e si passa alla prossima esecuzione
+  text += i; // Ad ogni esecuzione aggiungiamo il numero alla stringa
 }
 
 console.log(text); // "012456789" - Il 3 manca perchè lo abbiamo saltato con il `continue`
@@ -1580,7 +1652,7 @@ for (const property in object) {
 
 ### [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while) / [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
 
-Un _while loop_ è un loop che esegue una determinata azione finchè una condizione è vera. Una specie di [for loop](#for--continue--forof--forin) molto semplificato.
+Un _while loop_ è un loop che esegue una determinata azione finchè una condizione è [veritiera](#espressione-veritiera). Una specie di [for loop](#for--continue--forof--forin) molto semplificato.
 
 **Sintassi:**
 
@@ -1588,9 +1660,22 @@ Un _while loop_ è un loop che esegue una determinata azione finchè una condizi
 while (a) {
   // Azioni da eseguire quando la condizione `a` è veritiera
 }
+// Se vogliamo eseguire solo un'azione possiamo utilizzare:
+while (a) b;
 ```
 
-- `a`: Condizione da verificare prima di ogni esecuzione. Se è veritiera, allora il codice nel loop viene eseguito, in caso contrario il codice va avanti.
+- `a`: Condizione da verificare prima di ogni esecuzione. Se è veritiera, allora il codice nel loop viene eseguito, in caso contrario il codice va avanti;
+- `b`: Azione da eseguire quando a è un'espressione veritiera.
+
+Possiamo affermare che sia l'equivalente del seguente codice eseguito all'infinito:
+
+```js
+if (a) {
+  // Azioni da eseguire quando la condizione `a` è veritiera
+}
+// Se vogliamo eseguire solo un'azione possiamo utilizzare:
+if (a) b;
+```
 
 Se vogliamo invece controllare la condizione **dopo** l'esecuzione, allora possiamo usare il _do...while_ loop.
 
@@ -1733,10 +1818,12 @@ await a;
  */
 async function wait(m) {
   const date = Date.now(); // Registriamo la data quando la funzione viene chiamata
-  await new Promise((resolve) => setTimeout(resolve, m)); // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
+  await new Promise((resolve) => setTimeout(resolve, m));
+  // Attendiamo tanti millisecondi quanti ne sono stati passati come parametro `m` nella funzione
   const passed = Date.now() - date; // Registriamo quanto tempo è passato da quando la funzione è stata chiamata
   console.log(passed); // ~1000
-  return passed; // Restituiamo quel valore. Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
+  return passed; // Restituiamo quel valore.
+  // Nonostante sia un numero la funzione restituirà una `Promise` poiché abbiamo utilizzato la parola `async`
 }
 
 console.log(wait(1000)); // Promise { <pending> }
@@ -1937,4 +2024,4 @@ Con gli operatori potremo eseguire tutti i nostri calcoli, controlli etc... in m
 
 Nel prossimo articolo andremo più a fondo con le variabili per imparare come dichiararle correttamente e cambiarne il valore.
 
-## **Good Coding!**
+### **Good Coding!**
