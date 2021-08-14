@@ -1554,7 +1554,8 @@ switch (expr) {
     console.log("I pomodori e le melanzane costano 1,50€"); // Questa azione verrà eseguita se `expr` è "Pomodori" o "Melanzane"
     break;
   default:
-    console.log(`Mi dispiace, non abbiamo ${expr}.`); // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
+    console.log(`Mi dispiace, non abbiamo ${expr}.`);
+  // Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati
 }
 ```
 
