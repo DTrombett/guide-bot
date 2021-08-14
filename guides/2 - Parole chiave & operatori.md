@@ -556,7 +556,7 @@ a <= b;
 
 I seguenti operatori ci permettono di eseguire operazioni aritmetiche.
 
-Tutti questi operatori richiedono che gli elementi da utilizzare abbiano `number` come type.
+**Tutti i seguenti operatori richiedono operandi con type `number`**
 
 #### [Modulo: `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
 
@@ -723,6 +723,467 @@ NaN ** 2; // NaN
 2 ** (3 ** 2); // 512
 2 ** (3 ** 2); // 512
 (2 ** 3) ** 2; // 64
+```
+
+### [Operatori dei bit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators)
+
+Questi operatori trattano tutti i numeri come binari, invece che decimali, ed eseguono azione su di essi.
+
+**Tutti i seguenti operatori richiedono operandi con type `number`**
+
+#### [Bitwise AND: `&`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND)
+
+L'operatore dei bit **AND** confronta i bit di ogni numero, uno ad uno e, per ognuno di essi, restituisce 1 solo se entrambi i bit analizzati sono 1, in caso contrario, restituisce 0.
+
+**Sintassi:**
+
+```js
+a & b;
+```
+
+**Esempi:**
+
+```js
+const a = 5; // 101
+const b = 3; // 011
+//              |||  Solo gli ultimi bit sono entrambi 1
+//              001
+
+a & b; // 001 (1)
+```
+
+#### [Bitwise OR: `|`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)
+
+L'operatore dei bit **OR** confronta i bit di ogni numero, uno ad uno e, per ognuno di essi, restituisce 0 solo se entrambi i bit analizzati sono 0, in caso contrario, restituisce 1.
+
+**Sintassi:**
+
+```js
+a | b;
+```
+
+**Esempi:**
+
+```js
+const a = 5; // 101
+const b = 3; // 011
+//              |||  Nessun bit analizzato è 0 in entrambi i numeri
+//              111
+
+a | b; // 111 (7)
+```
+
+#### [Bitwise XOR: `^`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)
+
+L'operatore dei bit **XOR** confronta i bit di ogni numero, uno ad uno e, per ognuno di essi, restituisce 0 se i bit analizzati sono uguali, in caso contrario, restituisce 1.
+
+**Questo operatore è spesso confuso ed utilizzato per eseguire una potenza. Usare questo operatore per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore da utilizzare è invece [`*​​*`](#operatore-esponenziale)**
+
+**Sintassi:**
+
+```js
+a ^ b;
+```
+
+**Esempi:**
+
+```js
+const a = 5; // 101
+const b = 3; // 011
+//              |||  Solo gli ultimi bit sono uguali
+//              110
+
+a ^ b; // 110 (7)
+```
+
+#### [Bitwise NOT: `~`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT)
+
+L'operatore dei bit **NOT** confronta i bit di un numero, e restituisce il suo inverso.
+
+**Sintassi:**
+
+```js
+~a;
+```
+
+**Esempi:**
+
+```js
+const a = -3; // 11111111111111111111111111111101
+//               00000000000000000000000000000010
+//               Ogni 0 è convertito in 1 e viceversa
+
+~a; // 10 (2)
+```
+
+#### [Spostamento a sinistra: `<<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
+
+L'operatore dei bit di spostamento a sinistra (**Left shift**) aggiunge alla fine del numero binario tanti zeri quanto il secondo operando, spostando così i bit rilevanti verso sinistra.
+
+**Sintassi:**
+
+```js
+a << b;
+```
+
+**Esempi:**
+
+```js
+const a = 5; // 101
+const b = 2;
+
+// 5:           00000000000000000000000000000101
+//              00000000000000000000000000010100  Spostiamo di due posti verso sinistra i bit rilevanti (101)
+
+a << b; // 10100 (20)
+```
+
+#### [Spostamento a destra: `>>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift)
+
+L'operatore dei bit di spostamento a destra (**Right shift**) elimina dalla fine del numero binario tanti bit quanto il secondo operando, spostando così i bit rilevanti verso destra.
+
+**Sintassi:**
+
+```js
+a >> b;
+```
+
+**Esempi:**
+
+```js
+const a = 5; // 101
+const b = 2;
+
+// 5:           00000000000000000000000000000101
+//              00000000000000000000000000000001
+// Spostiamo di due posti verso destra i bit rilevanti (101)
+// Gli ultimi 2 bit (01) vengono così scartati
+
+a >> b; // 1
+```
+
+### [Operatori logici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators)
+
+Questi operatori analizzano uno o due operandi qualsiasi e restituiscono uno dei due o un `boolean` in base a una operazione logica.
+
+#### [AND logico: `&&`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
+
+L'operatore logico **AND** legge la prima espressione e, nel caso sia [veritiera](#espressione-veritiera), esegue anche la seconda e la restituisce, in caso contrario, restituisce questa prima espressione.
+
+Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera **solo e soltanto** se entrambi gli operandi sono veritieri.
+
+**Sintassi:**
+
+```js
+a && b;
+```
+
+**Esempi:**
+
+```js
+function A() {
+  console.log("called A");
+  return false;
+}
+function B() {
+  console.log("called B");
+  return true;
+}
+
+A() && B(); // false
+// console: "called A"
+// La funzione `A` restituisce false, perciò l'operatore && non esegue anche la funzione `B`
+
+true && true; // true
+true && false; // false
+false && true; // false
+false && 3 == 4; // false
+"Cat" && "Dog"; // "Dog"
+false && "Cat"; // false
+"Cat" && false; // false
+"" && false; // ""
+false && ""; // false
+```
+
+#### [OR logico: `||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
+
+L'operatore logico **OR** legge la prima espressione e, nel caso sia [veritiera](#espressione-veritiera), la restituisce, in caso contrario, restituisce esegue e restituisce la seconda.
+
+Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera se uno degli operandi è veritiero.
+
+**Sintassi:**
+
+```js
+a || b;
+```
+
+**Esempi:**
+
+```js
+function A() {
+  console.log("called A");
+  return false;
+}
+function B() {
+  console.log("called B");
+  return true;
+}
+
+A() || B(); // true
+// console: "called A", "called B"
+// La funzione `A` restituisce false, perciò l'operatore || esegue anche la funzione `B`
+
+true || true; // true
+false || true; // true
+true || false; // true
+false || 3 == 4; // false
+"Cat" || "Dog"; // "Cat"
+false || "Cat"; // "Cat"
+"Cat" || false; // "Cat"
+"" || false; // false
+false || ""; // ""
+false || varObject; // varObject
+```
+
+#### [NOT logico: `!`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
+
+L'operatore logico **NOT** legge una sola espressione e restituisce `false` se l'espressione è veritiera, o viceversa.
+
+Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera se l'operando **non** è un valore veritiero.
+
+**Sintassi:**
+
+```js
+!a;
+```
+
+**Esempi:**
+
+```js
+!true; // false
+!false; // true
+!""; // true
+!"Cat"; // false
+```
+
+### [Operatore condizionale ternario](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator)
+
+L'operatore condizionale ternario (**[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**) è un [`if...else`](#if--else) abbreviato che accetta una condizione da valutare, un'azione da eseguire quando quella condizione è veritiera e una da eseguire quando non lo è.
+
+**Sintassi:**
+
+```js
+a ? b : c;
+// Equivalente:
+if (a) b;
+else c;
+```
+
+**Esempi:**
+
+```js
+const age = 26;
+const adult = age >= 18 ? "Yes" : "No"; // "Yes"
+
+function example() {
+  return condition1 ? value1 : condition2 ? value2 : condition3 ? value3 : value4;
+}
+// Equivalente:
+function example() {
+  if (condition1) {
+    return value1;
+  } else if (condition2) {
+    return value2;
+  } else if (condition3) {
+    return value3;
+  } else {
+    return value4;
+  }
+}
+```
+
+### [Operatori singoli](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#unary_operators)
+
+I seguenti operatori vengono utilizzati con un solo operando.
+
+#### [`delete`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete)
+
+Questo operatore rimuove una proprietà di un object.
+
+**Sintassi:**
+
+```js
+delete a.b;
+delete a[b];
+```
+
+- `a`: Un qualsiasi object;
+- `b`: Il nome della proprietà da eliminare. **Type:** `keyof a`. (Ulteriori info: [`keyof`](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)).
+
+**Esempi:**
+
+```js
+/**
+ * Senza specificare il type di questo object,
+ * con name facoltativo,
+ * Typescript ci mostrerebbe un errore nel primo delete.
+ * @type {{
+ * name?: string;
+ * age: number;
+ * designation: string;
+ * }}
+ */
+const EmployeeDetails = {
+  name: "xyz",
+  age: 5,
+  designation: "Developer",
+};
+
+delete EmployeeDetails.name; // true
+
+delete EmployeeDetails.salary; // Typescript error: Property 'salary' does not exist on type '{ name: string; age: number; designation: string; }'
+```
+
+#### [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+Questo operatore restituisce il tipo di un elemento.
+
+**Sintassi:**
+
+```js
+typeof a;
+```
+
+**Esempi:**
+
+```js
+// Numbers
+typeof 37; // "number"
+typeof 3.14; // "number"
+typeof Math.LN2; // "number"
+typeof Infinity; // "number"
+typeof NaN; // "number"
+typeof Number("1"); // "number"
+typeof Number("shoe"); // "number"
+
+typeof 42n; // "bigint"
+
+// Strings
+typeof ""; // "string"
+typeof "bla"; // "string"
+typeof `template literal`; // "string"
+typeof "1"; // "string" - Anche se c'è un numero è sempre una stringa
+typeof typeof 1; // "string" - typeof restituisce una stringa
+typeof String(1); // "string"
+
+// Booleans
+typeof true; // "boolean"
+typeof false; // "boolean"
+typeof Boolean(1); // "boolean"
+
+// Symbols
+typeof Symbol("foo"); // "symbol"
+typeof Symbol.iterator; // "symbol"
+
+// Undefined
+typeof undefined; // "undefined"
+
+// Objects
+typeof { a: 1 }; // "object"
+typeof [1, 2, 4]; // "object" - Gli array sono comunque considerati object
+typeof new Date(); // "object"
+typeof /regex/; // "object"
+typeof null; // "object" - ATTENZIONE: null non ha un tipo e viene considerato object
+
+// Functions
+typeof function () {}; // "function"
+typeof class C {}; // "function" - Anche le classi sono funzioni
+typeof Math.sin; // "function"
+```
+
+#### [`void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+Questo operatore esegue un'espressione e restituisce `undefined`.
+
+**Sintassi:**
+
+```js
+void a;
+```
+
+**Esempi:**
+
+```js
+void Promise.resolve(); // undefined
+```
+
+### [Operatori di relazione](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators)
+
+I seguenti operatori verificano una relazione tra due operandi.
+
+Tutti restituiscono un type `boolean`.
+
+#### [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in)
+
+Questo operatore verifica se una proprietà è presente in un object.
+
+**Il valore di questo operatore è diverso da quello che ha nel contesto del [`for...in`](#for--continue--forof--forin).**
+
+**Sintassi:**
+
+```js
+a in b;
+```
+
+- `a`: Il nome della proprietà da controllare. **Type:** `'string' | 'number' | 'symbol'`;
+- `b`: Qualsiasi object non primitivo (stringhe, numeri, etc...).
+
+**Esempi:**
+
+```js
+const trees = ["redwood", "bay", "cedar", "oak", "maple"];
+0 in trees; // true
+3 in trees; // true
+6 in trees; // false
+"bay" in trees; // false - "bay" è un valore, non una proprietà. Usa `Array#includes()` invece.
+"length" in trees; // true
+Symbol.iterator in trees; // true
+
+"PI" in Math; // true
+
+const mycar = { make: "Honda", model: "Accord", year: 1998 };
+"make" in mycar; // true
+"model" in mycar; // true
+```
+
+#### [`instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof)
+
+Questo operatore verifica se un object è stato instanziato da una classe.
+
+Per informazioni riguardo le classi controlla [il paragrafo dedicato](#class--this--extends--super--static--new).
+
+**Sintassi:**
+
+```js
+a instanceof b;
+```
+
+- `a`: L'oggetto da controllare. Può essere qualsiasi object non primitivo;
+- `b`: La classe di cui si vuole controllare se `a` faccia parte.
+
+**Esempi:**
+
+```js
+const stringObject = new String("String created with constructor");
+
+stringObject instanceof String; // true
+stringObject instanceof Object; // true - Tutti gli object derivano dalla classe `Object`
+stringObject instanceof Date; // false
+
+const myDate = new Date();
+
+myDate instanceof Date; // true
+myDate instanceof String; // false
 ```
 
 ## Lista delle parole chiave
