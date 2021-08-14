@@ -1080,7 +1080,7 @@ y ||= 0; // 1 - `y || (y = 0)` => `1 || (y = 0)` => `1` - ""                    
 
 Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è `null` o `undefined`.
 
-Vedi anche: [Operatore logico non-null](#non-null-logico).
+Vedi anche: [Operatore logico non-null](#non-null)
 
 **Sintassi:**
 
