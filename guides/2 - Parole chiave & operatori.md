@@ -640,7 +640,7 @@ false || varObject; // varObject
 
 #### [NOT logico: `!`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
 
-L'operatore logico **NOT** legge una sola espressione e restituisce `false` se l'espressione è veritiera, o viceversa.
+L'operatore logico **NOT** legge una sola espressione e restituisce `false` se l'espressione è [veritiera](#espressione-veritiera), o viceversa.
 
 Semplificando il concetto, in un contesto dove abbiamo bisogno di un `boolean`, come un [`if`](#if--else), l'espressione restituita sarà veritiera se l'operando **non** è un valore veritiero.
 
@@ -687,6 +687,8 @@ let y = 10;
 let z;
 
 z = y = x; // 5 - `z` e `y` hanno ora lo stesso valore di `x`
+// Equivalente: `z = (y = x)` => `z = (y = 5)` => `z = 5`
+// A `y` è stato assegnato il valore di 5 e l'espressione `y = 5` ha anche restituito 5
 ```
 
 #### [Assegnazione con aggiunta: `+=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment)
