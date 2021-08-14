@@ -5,9 +5,9 @@ Partiremo dalle basi, infatti inizieremo con una lista delle **parole chiave** e
 
 ## Cosa sono le parole chiave e gli operatori?
 
-Le **parole chiave**, o **riservate**, del JavaScript sono delle parole che indicano alcune specifiche azioni e non possono essere utilizzate come nomi per variabili, etc...
-
 Gli **operatori** sono simboli o parole che creano una relazione tra più elementi, come un'operazione aritmetica o l'assegnazione di una variabile.
+
+Le **parole chiave**, o **riservate**, del JavaScript sono delle parole che indicano alcune specifiche azioni e non possono essere utilizzate come nomi per variabili, etc...
 
 ## [Lista degli operatori](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
 
@@ -883,6 +883,86 @@ a >>= b; // Equivalente: a = a >> b
 let bar = 5; // 00000000000000000000000000000101
 
 bar >>= 2; // 1 - 00000000000000000000000000000001
+```
+
+#### [Assegnazione con bitwise AND: `&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
+
+Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e restituisce un 1 **solo e soltanto** quando entrambi i bit analizzati sono 1. Poi riassegna il valore alla variabile.
+
+Vedi anche: [Bitwise AND operator](#bitwise-and).
+
+**Sintassi:**
+
+```js
+a &= b;
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore da confrontare con l'operatore di bit AND. **Type:** `number`.
+
+**Restituisce:** `a & b`.
+
+**Esempi:**
+
+```js
+let a = 5;
+// 5:      101
+// 2:      010
+a &= 2; // 000
+```
+
+#### [Assegnazione con bitwise OR: `|=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
+
+Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e restituisce un 0 **solo e soltanto** quando entrambi i bit analizzati sono 0. Poi riassegna il valore alla variabile.
+
+Vedi anche: [Bitwise OR operator](#bitwise-or).
+
+**Sintassi:**
+
+```js
+a |= b;
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore da confrontare con l'operatore di bit OR. **Type:** `number`.
+
+**Restituisce:** `a | b`.
+
+**Esempi:**
+
+```js
+let a = 5;
+// 5:      101
+// 2:      010
+a |= 2; // 111 (7)
+```
+
+#### [Assegnazione con bitwise XOR: `^=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)
+
+Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e restituisce un 0 **solo e soltanto** quando i bit analizzati sono uguali. Poi riassegna il valore alla variabile.
+
+**Questo operatore è spesso confuso ed utilizzato per eseguire e riassegnare una potenza. Usare questo operatore per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore da utilizzare è invece [`*​​*=`](#assegnazione-con-elevamento-a-potenza)**
+
+Vedi anche: [Bitwise XOR operator](#bitwise-xor).
+
+**Sintassi:**
+
+```js
+a ^= b;
+```
+
+- `a`: La variabile da riassegnare. **Type:** `number`;
+- `b`: Il valore da confrontare con l'operatore di bit XOR. **Type:** `number`.
+
+**Restituisce:** `a ^ b`.
+
+**Esempi:**
+
+```js
+let a = 5;
+// 5:      101
+// 3:      011
+a ^= 3; // 110 (6)
 ```
 
 #### [Assegnazione con il Logical AND: `&&=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
