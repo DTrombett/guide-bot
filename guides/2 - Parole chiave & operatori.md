@@ -1240,7 +1240,8 @@ const EmployeeDetails = {
 
 delete EmployeeDetails.name; // true
 
-delete EmployeeDetails.salary; // Typescript error: Property 'salary' does not exist on type '{ name: string; age: number; designation: string; }'
+delete EmployeeDetails.salary; // Typescript error:
+// Property 'salary' does not exist on type '{ name: string; age: number; designation: string; }'
 ```
 
 #### [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
