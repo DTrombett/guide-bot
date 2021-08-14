@@ -79,6 +79,8 @@ a === b;
 
 ```js
 10 === 10; // true
+"15" === 15; // false - Una stringa non sarà mai uguale ad un numero con l'uguaglianza stretta
+null === undefined; // false - Sono di due tipi diversi perciò non possono essere uguali
 "Sus" === `S${"u"}s`; // true - I template literals vengono prima eseguiti
 "sus" === "Sus"; // false - Case sensitive
 ```
@@ -99,6 +101,8 @@ a !== b;
 
 ```js
 10 !== 10; // false
+"15" !== 15; // true
+null !== undefined; // true
 "Sus" !== `S${"u"}s`; // false
 "sus" !== "Sus"; // true
 ```
