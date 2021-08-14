@@ -505,7 +505,7 @@ const a = -3; // 11111111111111111111111111111101
 ~a; // 10 (2)
 ```
 
-#### [Spostamento a sinistra: `<<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
+#### [Spostamento dei bit a sinistra: `<<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
 
 L'operatore dei bit di spostamento a sinistra (**Left shift**) aggiunge alla fine del numero binario tanti zeri quanto il secondo operando, spostando così i bit rilevanti verso sinistra.
 
@@ -527,7 +527,7 @@ const b = 2;
 a << b; // 10100 (20)
 ```
 
-#### [Spostamento a destra: `>>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift)
+#### [Spostamento dei bit a destra: `>>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift)
 
 L'operatore dei bit di spostamento a destra (**Right shift**) elimina dalla fine del numero binario tanti bit quanto il secondo operando, spostando così i bit rilevanti verso destra.
 
@@ -748,7 +748,8 @@ a *= b; // Equivalente: a = a * b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il valore da moltiplicare. **Type:** `number`.
-- **Restituisce:** `a * b`.
+
+**Restituisce:** `a * b`.
 
 **Esempi:**
 
@@ -770,7 +771,8 @@ a /= b; // Equivalente: a = a / b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il valore per cui dividere. **Type:** `number`.
-- **Restituisce:** `a / b`.
+
+**Restituisce:** `a / b`.
 
 **Esempi:**
 
@@ -786,6 +788,8 @@ bar /= 0; // Infinity
 
 Questo operatore ci permette di riassegnare ad una variabile il valore del resto della divisione tra se stessa e un numero.
 
+Vedi anche: [Operatore modulo](#modulo).
+
 **Sintassi:**
 
 ```js
@@ -794,7 +798,8 @@ a %= b; // Equivalente: a = a % b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il valore per cui dividere per calcolare il resto. **Type:** `number`.
-- **Restituisce:** `a % b`.
+
+**Restituisce:** `a % b`.
 
 **Esempi:**
 
@@ -809,6 +814,8 @@ bar %= 0; // NaN
 
 Questo operatore ci permette di elevare a potenza una variabile per uno specifico numero, riassegnandola.
 
+Vedi anche: [Operatore esponenziale](#operatore-esponenziale).
+
 **Sintassi:**
 
 ```js
@@ -817,7 +824,8 @@ a **= b; // Equivalente: a = a ** b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il valore per cui elevare a potenza. **Type:** `number`.
-- **Restituisce:** `a ** b`.
+
+**Restituisce:** `a ** b`.
 
 **Esempi:**
 
@@ -831,6 +839,8 @@ bar **= 2; // 25
 
 Questo operatore ci permette di eseguire lo spostamento dei bit a sinistra ad una variabile per uno specifico numero di bit, riassegnandola.
 
+Vedi anche: [Left shift operator](#spostamento-dei-bit-a-sinistra).
+
 **Sintassi:**
 
 ```js
@@ -839,7 +849,8 @@ a <<= b; // Equivalente: a = a << b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il numero di bit da spostare a sinistra. **Type:** `number`.
-- **Restituisce:** `a << b`.
+
+**Restituisce:** `a << b`.
 
 **Esempi:**
 
@@ -853,6 +864,8 @@ bar <<= 2; // 00000000000000000000000000010100
 
 Questo operatore ci permette di eseguire lo spostamento dei bit a destra ad una variabile per uno specifico numero di bit, riassegnandola.
 
+Vedi anche: [Right shift operator](#spostamento-dei-bit-a-destra).
+
 **Sintassi:**
 
 ```js
@@ -861,7 +874,8 @@ a >>= b; // Equivalente: a = a >> b
 
 - `a`: La variabile da riassegnare. **Type:** `number`;
 - `b`: Il numero di bit da spostare a destra. **Type:** `number`.
-- **Restituisce:** `a >> b`.
+
+**Restituisce:** `a >> b`.
 
 **Esempi:**
 
@@ -875,6 +889,8 @@ bar >>= 2; // 1 - 00000000000000000000000000000001
 
 Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile è [veritiero](#espressione-veritiera).
 
+Vedi anche: [Operatore logico AND](#and-logico).
+
 **Sintassi:**
 
 ```js
@@ -883,7 +899,8 @@ a &&= b; // Equivalente: a = a && (a = b)
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
 - `b`: Il valore da riassegnare. **Type:** `unknown`.
-- **Restituisce:** `a && b`.
+
+**Restituisce:** `a && b`.
 
 **Esempi:**
 
@@ -898,6 +915,8 @@ bar &&= 10; // 0
 
 Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella variabile **non** è [veritiero](#espressione-veritiera).
 
+Vedi anche: [Operatore logico OR](#or-logico).
+
 **Sintassi:**
 
 ```js
@@ -906,7 +925,8 @@ a ||= b; // Equivalente: a = a || (a = b)
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
 - `b`: Il valore da riassegnare. **Type:** `unknown`.
-- **Restituisce:** `a || b`.
+
+**Restituisce:** `a || b`.
 
 **Esempi:**
 
@@ -929,7 +949,8 @@ a ??= b; // Equivalente: a = a ?? (a = b)
 
 - `a`: La variabile da riassegnare. **Type:** `unknwon`;
 - `b`: Il valore da riassegnare. **Type:** `unknown`.
-- **Restituisce:** `a ?? b`.
+
+**Restituisce:** `a ?? b`.
 
 **Esempi:**
 
