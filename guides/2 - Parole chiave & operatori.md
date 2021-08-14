@@ -1107,7 +1107,7 @@ console.log(a, b, c, number); // 1, 2, 3, 10
 
 ### [Operatore condizionale ternario](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator)
 
-L'operatore condizionale ternario (**[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**) è un [`if...else`](#if--else) abbreviato che accetta una condizione da valutare, un'azione da eseguire quando quella condizione è veritiera e una da eseguire quando non lo è.
+L'operatore condizionale ternario (**[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**) è un [`if...else`](#if--else) abbreviato che accetta una condizione da valutare, un'azione da eseguire quando quella condizione è [veritiera](#espressione-veritiera) e una da eseguire quando non lo è.
 
 **Sintassi:**
 
@@ -1386,7 +1386,7 @@ if (a) {
 }
 ```
 
-- `a`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è _veritiera_.
+- `a`: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è veritiera.
 
 `else` viene utilizzato per dichiarare l'azione da eseguire se la condizione **non** è veritiera.
 
@@ -1586,7 +1586,7 @@ for (const property in object) {
 
 ### [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while) / [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
 
-Un _while loop_ è un loop che esegue una determinata azione finchè una condizione è vera. Una specie di [for loop](#for--continue--forof--forin) molto semplificato.
+Un _while loop_ è un loop che esegue una determinata azione finchè una condizione è [veritiera](#espressione-veritiera). Una specie di [for loop](#for--continue--forof--forin) molto semplificato.
 
 **Sintassi:**
 
