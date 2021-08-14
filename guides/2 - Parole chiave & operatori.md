@@ -712,7 +712,7 @@ a += b; // Equivalente: a = a + b
 let foo = "foo";
 let bar = 5;
 
-bar += 2; // 7
+bar += 2; // 7 - `bar = bar + 2` => `bar = 5 + 2` => `bar = 7`
 
 foo += false; // "foofalse"
 
