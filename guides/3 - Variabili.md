@@ -1,6 +1,6 @@
 # Variabili
 
-In questo nuovo articolo riguardo il JavaScript andremo ad osservare le variabili nel JavaScript!
+In questo nuovo articolo andremo ad osservare le variabili nel JavaScript!
 
 Grazie alle variabili possiamo salvare degli elementi per poterli riutilizzare e modificare nello
 stesso codice.
