@@ -155,7 +155,7 @@ inizializzare tutte le costanti.
 Possiamo assegnare qualsiasi nome alle variabili, purchè:
 
 - Inizi con una lettera, `$` o `_`;
-- Non corrisponda e nessuna parola chiave.
+- Non corrisponde a nessuna parola chiave.
 
 Iniziare il nome di una variabile con un trattino basso è poco usato e generalmente viene utilizzato
 per indicare una variabile che non verrà usata o che è, comunque, privata.
