@@ -1,11 +1,11 @@
 # Variabili
 
-In questo nuovo articolo riguardo il JavaScript andremo ad osservare le variabili!
+In questo nuovo articolo riguardo il JavaScript andremo ad osservare le variabili nel JavaScript!
 
 Grazie alle variabili possiamo salvare degli elementi per poterli riutilizzare e modificare nello
 stesso codice.
 
-Se una variabile non deve essere mai riassegnata (quindi modificata), allora si chiamerà
+Se una variabile non dovrà mai essere riassegnata (quindi modificata), allora si chiamerà
 **costante**.
 
 Ora iniziamo a vedere come creare una variabile.
@@ -18,19 +18,19 @@ Per dichiarare una variabile abbiamo bisogno di una delle seguenti parole chiave
   Dichiara una variabile classica, è sconsigliato utilizzare questa parola chiave per creare una
   variabile, in quanto ci sono vari problemi che ne derivano, perciò noi non utilizzeremo mai questo
   tipo di variabili nel nostro codice:
-  - Queste variabili sono accessibili in tutto il file, significa che dichiarare una variabile, ad
-    esempio, all'interno di una condizione `if` la dichiara anche all'esterno. Questo, però,
-    significa che, all'esterno della condizione, la variabile potrebbe essere dichiarata o meno.
-    **Esempio:**
+  - Queste variabili sono accessibili in tutto il file, ciò significa che dichiarare una variabile,
+    ad esempio, all'interno di una condizione `if`, la dichiara anche all'esterno. Questo, però,
+    significa che, all'esterno della condizione, la variabile può essere dichiarata come non
+    esserlo. **Esempio:**
     ```js
     if (expr) {
     	var a = 5;
     }
     console.log(a); // `a` è definita oppure no?
     ```
-  - Possiamo dichiarare in qualsiasi punto del codice le nostre variabili ma risulteranno sempre
-    definite, anche prima della loro dichiarazione, cosa che puo portare a risultati inaspettati o
-    potremmo pensare che la variabile abbia un altro valore. **Esempio:**
+  - Possiamo dichiarare in qualsiasi punto del codice le nostre variabili, ma risulteranno sempre
+    definite, anche prima della loro dichiarazione, ma ciò può portare a risultati inaspettati o a
+    pensare che la variabile abbia un altro valore. **Esempio:**
     ```js
     a = 10;
     console.log(a); // Quale sarà il valore di `a`?
@@ -46,11 +46,11 @@ Per dichiarare una variabile abbiamo bisogno di una delle seguenti parole chiave
     // E questo significa che possiamo utilizzare gli operatori come `var x += a`?
     ```
 - [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let): Con
-  questa parola chiave possiamo creare variabili che possono essere riassegnate ma non ridichiarate
-  e non sono accessibili prima della loro dichiarazione. Inoltre sono _block scoped_, cioè limitate
-  allo _scope_ in cui si trovano. Uno _scope_, in JavaScript, è lo spazio dove le variabili sono
-  accessibili. Ci sono 3 tipi di _scope_:
-  - **Global Scope**: È lo _scope_ globale,con tutte le variabili dichiarate fuori da qualsiasi
+  questa parola chiave possiamo creare variabili che possono essere riassegnate e non ridichiarate
+  ma non si puó accedere ad essa senza una loro dichiarazione. Inoltre sono _block scoped_, cioè
+  limitate allo _scope_ in cui si trovano. Uno _scope_, in JavaScript, è lo spazio dove le variabili
+  sono accessibili. Ci sono 3 tipi di _scope_:
+  - **Global Scope**: È lo _scope_ globale, con tutte le variabili dichiarate fuori da qualsiasi
     blocco di parentesi graffe e sono disponibili in tutto il file;
   - **Function Scope**: È lo _scope_ di una funzione, con tutte le variabili dichiarate all'interno
     di una funzione che **non** possono essere utilizzate al di fuori, farlo produrrebbe un
@@ -118,7 +118,7 @@ Quindi, abbiamo 3 modi per dichiarare una variabile:
 
 ## Inizializzare una variabile
 
-Una variabile viene inizializzata quando gli assegniamo un valore direttamente all'assegnazione.
+Una variabile viene inizializzata quando le assegniamo un valore direttamente all'assegnazione.
 
 **Esempio:**
 
@@ -137,7 +137,7 @@ riassegnarla. Non farlo produrrà un errore.
 
 ## Dichiarare più variabili
 
-Se vogliamo dichiarare più variabili contemporaneamente, possiamo utilizzare la virgola, come
+Se vogliamo dichiarare più variabili contemporaneamente possiamo utilizzare la virgola, come
 nell'esempio seguente:
 
 ```js
@@ -146,7 +146,7 @@ let a = b,
 	e;
 ```
 
-Questo codice ha creato e variabili, di nome `a`, `c` e `d` con valori rispettivamente di `b` e `d`,
+Questo codice ha creato 3 variabili, di nome `a`, `c` e `d` con valori rispettivamente di `b` e `d`,
 mentre `e` non è stata inizializzata. Possiamo fare lo stesso con `const`, ma dobbiamo sempre
 inizializzare tutte le costanti.
 
