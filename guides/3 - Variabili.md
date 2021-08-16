@@ -16,8 +16,8 @@ Per dichiarare una variabile abbiamo bisogno di una delle seguenti parole chiave
 
 - [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var):
   Dichiara una variabile classica, è sconsigliato utilizzare questa parola chiave per creare una
-  variabile, in quanto ci sono vari problemi che ne derivano, perciò noi non utilizzeremo mai questo
-  tipo di variabili nel nostro codice:
+  variabile, in quanto ci sono vari problemi da cui ne deriva, perciò noi non utilizzeremo mai questo
+  tipo di variabile nel nostro codice:
   - Queste variabili sono accessibili in tutto il file, ciò significa che dichiarare una variabile,
     ad esempio, all'interno di una condizione `if`, la dichiara anche all'esterno. Questo, però,
     significa che, all'esterno della condizione, la variabile può essere dichiarata come non
