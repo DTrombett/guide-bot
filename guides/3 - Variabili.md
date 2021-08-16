@@ -147,7 +147,7 @@ let a = b,
 ```
 
 Questo codice ha creato e variabili, di nome `a`, `c` e `d` con valori rispettivamente di `b` e `d`,
-mentre `c` non è stata inizializzata. Possiamo fare lo stesso con `const`, ma dobbiamo sempre
+mentre `e` non è stata inizializzata. Possiamo fare lo stesso con `const`, ma dobbiamo sempre
 inizializzare tutte le costanti.
 
 ## Nome delle variabili
