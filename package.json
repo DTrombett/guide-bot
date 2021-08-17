@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node .",
-    "html": "npx prettier guides && cd html-pages && npm ci && npm start && npx prettier pages"
+    "html": "npx prettier --write guides && cd html-pages && npm ci && npm start && npx prettier --write pages && cd .."
   },
   "repository": {
     "type": "git",
