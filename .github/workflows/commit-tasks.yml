@@ -18,9 +18,8 @@ jobs:
       - name: Deploy pages and lint the code
         run: |
           echo "Clone the repository"
-          rm -r ./*
-          rm -r .*
-          git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
+          git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git ${GITHUB_REPOSITORY}
+          cd ${GITHUB_REPOSITORY}
           echo "Run the tasks"
           npm ci
           npm run html
