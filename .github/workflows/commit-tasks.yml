@@ -18,7 +18,7 @@ jobs:
       - name: Deploy pages and lint the code
         run: |
           echo "Clone the repository"
-          rm -r ./*
+          rm .eslintrc.json
           git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git out
           cd out
           echo "Run the tasks"
