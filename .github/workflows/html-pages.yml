@@ -25,7 +25,8 @@ jobs:
           TARGET_BRANCH="main"
           git clone $REPO out
           cd out
-          mv ../html-pages/* html-pages/
+          rm pages/*
+          mv ../pages/* pages/
           echo "Commit and push"
           git add .
           git config user.name "${GITHUB_ACTOR}"
