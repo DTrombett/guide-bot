@@ -18,6 +18,19 @@ jobs:
           node-version: 16
 
       - name: Deploy pages
-        uses: dtrombett/action-html-pages
+        run: |
+          echo "Run the build"
+          npm run html
+          REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          TARGET_BRANCH="main"
+          git clone $REPO out
+          cd out
+          mv ../html-pages/* html-pages/
+          echo "Commit and push"
+          git add .
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git commit -m "HTML pages build" || true
+          git push origin $TARGET_BRANCH
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
