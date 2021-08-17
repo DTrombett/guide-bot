@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/DTrombett/guide-bot/issues"
   },
-  "homepage": "https://github.com/DTrombett/guide-bot#readme"
+  "homepage": "https://github.com/DTrombett/guide-bot#readme",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^16.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
+  }
 }
