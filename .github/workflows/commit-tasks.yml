@@ -23,7 +23,7 @@ jobs:
           echo "Run the tasks"
           npm ci
           npm run html
-          eslint src --fix
+          npx eslint src --fix
           echo "Commit and push"
           git add .
           git config user.name "${GITHUB_ACTOR}"
