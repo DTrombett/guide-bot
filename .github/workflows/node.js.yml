@@ -23,6 +23,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: cd html-pages
-      - run: npm ci
-      - run: npm start
+      - run: cd html-pages && npm ci && npm start
