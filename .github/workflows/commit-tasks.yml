@@ -17,6 +17,7 @@ jobs:
 
       - name: Deploy pages and lint the code
         run: |
+          git branch
           REPOSITORY_NAME="guide-bot"
           echo "Clone the repository"
           rm -r .eslintrc.json
