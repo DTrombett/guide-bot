@@ -15,19 +15,20 @@ jobs:
         with:
           node-version: 16
 
-      - name: Deploy pages
+      - name: Deploy pages and lint the code
         run: |
           echo "Clone the repository"
           git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git out
           cd out
           echo "Run the tasks"
+          npm ci
           npm run html
           eslint src --fix
           echo "Commit and push"
           git add .
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git commit -m "HTML pages build" || true
+          git commit -m "chore: deploy pages and lint source" || true
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
