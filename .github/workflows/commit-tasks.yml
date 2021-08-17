@@ -1,10 +1,10 @@
-name: Deploy HTML pages
+name: Run tasks on commit
 
 on: [push, pull_request]
 
 jobs:
-  html-pages:
-    name: Deploy HTML pages
+  commit-tasks:
+    name: Run tasks on commit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,14 +17,12 @@ jobs:
 
       - name: Deploy pages
         run: |
-          echo "Run the build"
-          npm run html
           echo "Clone the repository"
           git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git out
           cd out
-          echo "Move generated files"
-          rm pages/*
-          mv ../pages/* pages/
+          echo "Run the tasks"
+          npm run html
+          eslint src --fix
           echo "Commit and push"
           git add .
           git config user.name "${GITHUB_ACTOR}"
