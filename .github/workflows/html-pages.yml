@@ -5,19 +5,19 @@ name: Deploy HTML pages
 on: [push, pull_request]
 
 jobs:
-	html-pages:
-		name: Deploy HTML pages
-		runs-on: ubuntu-latest
-		steps:
-			- name: Checkout repository
-				uses: actions/checkout@v2
+  html-pages:
+    name: Deploy HTML pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-			- name: Install Node v16
-				uses: actions/setup-node@v2
-				with:
-					node-version: 16
+      - name: Install Node v16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
 
-			- name: Deploy pages
-				uses: dtrombett/action-docs@v1
-				env:
-					GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy pages
+        uses: dtrombett/action-docs@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
