@@ -4,11 +4,12 @@
     "arrowParens": "always",
     "bracketSpacing": true,
     "embeddedLanguageFormatting": "auto",
+    "filepath": "src/",
+    "parser": "typescript",
     "endOfLine": "crlf",
     "semi": true,
     "singleQuote": false,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": true,
-    "parser": "markdown"
+    "useTabs": true
 }
