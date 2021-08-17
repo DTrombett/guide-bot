@@ -19,9 +19,7 @@ jobs:
         run: |
           REPOSITORY_NAME="guide-bot"
           echo "Clone the repository"
-          cd ..
-          rm -r ${REPOSITORY_NAME}/*
-          rm -r ${REPOSITORY_NAME}/.*
+          rm -r .eslintrc.json
           git clone https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git ${REPOSITORY_NAME}
           cd ${REPOSITORY_NAME}
           echo "Run the tasks"
