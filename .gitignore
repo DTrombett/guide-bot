@@ -1,8 +1,8 @@
 node_modules/
-.*/
 *.map
 .env
 coverage/
 *.log
 types/
 dist/
+.vscode/
