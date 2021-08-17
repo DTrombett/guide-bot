@@ -18,6 +18,6 @@ jobs:
           node-version: 16
 
       - name: Deploy pages
-        uses: dtrombett/action-html-pages@v1
+        uses: dtrombett/action-html-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
