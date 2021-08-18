@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node .",
     "html": "npx prettier --write guides && rm pages/*.html && cd html-pages && npm ci && npm start && cd .. && npx prettier --write pages",
-    "lint": "npx eslint --src --fix",
+    "lint": "npx eslint src --fix",
     "commit": "git add . && git config user.name \"${GITHUB_ACTOR}\" && git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\" && git commit -m \"chore: deploy pages and lint source\" || true && git push"
   },
   "repository": {
