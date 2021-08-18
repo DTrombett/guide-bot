@@ -18,18 +18,16 @@ jobs:
         with:
           node-version: 16
 
+      - name: Install all dependencies
+      - run: npm ci
+
       - name: Deploy HTML pages
         run: npm run html
 
       - name: Run eslint
-        run: npx eslint src --fix
+        run: npm run lint
 
       - name: Commit changes
-        run: |
-          git add .
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git commit -m "chore: deploy pages and lint source" || true
-          git push
+        run: npm run commit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
