@@ -1,7 +1,7 @@
 # Oggetti
 
 Il JavaScript è un linguaggio che si basa sugli _[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)_.
-Un object è una collezione di proprietà, ossia delle associazioni tra una chiave e un valore.
+Un object è una collezione di proprietà, ossia un'associazione tra una chiave e un valore.
 
 ## Come funzionano gli object?
 
@@ -12,7 +12,7 @@ La stessa cosa vale per gli object del JavaScript: ogni object ha delle propriet
 
 ## Proprietà e valori
 
-Per sapere quale è il valore che corrisponde ad una certa proprietà, in JavaScript utilizziamo il punto:
+Per sapere qual è il valore che corrisponde ad una certa proprietà, in JavaScript utilizziamo il punto:
 
 ```js
 a.b; // Leggiamo la proprietà `b`
