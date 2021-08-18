@@ -8,7 +8,6 @@ Un object è una collezione di proprietà, ossia delle associazioni tra una chia
 Possiamo comparare questi object agli oggetti nella vita reale.
 Prendiamo, ad esempio, una tazza: avrà un colore, un materiale, una grandezza, etc...
 
-
 La stessa cosa vale per gli object del JavaScript: ogni object ha delle proprietà, le quali ci forniscono dei dati.
 
 ## Proprietà e valori
