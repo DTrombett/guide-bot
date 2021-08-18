@@ -164,7 +164,7 @@ tazza.colore?.length; // undefined
 
 **Nota: Questo paragrafo utilizza una sintassi che vedremo nel dettaglio più avanti.**
 
-Istanziando questa classe, creiamo un nuovo object, è lo stesso di utilizzare delle parentesi graffe.
+Istanziando questa classe creiamo un nuovo object; è lo stesso di utilizzare delle parentesi graffe
 
 In questo articolo vedremo solo i metodi degli objects in quanto ci riguardano.
 Tutte le informazioni riguardo ai metodi statici etc... le vedremo nell'articolo sugli oggetti globali.
