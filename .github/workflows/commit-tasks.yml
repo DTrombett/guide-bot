@@ -1,9 +1,6 @@
 name: Run tasks on commit
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   commit-tasks:
@@ -34,6 +31,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git commit -m "chore: deploy pages and lint source" || true
-          git push
+          git pull -r
+          git push -f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
