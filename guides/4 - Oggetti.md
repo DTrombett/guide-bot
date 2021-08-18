@@ -1,6 +1,6 @@
 # Oggetti
 
-Il JavaScript è un linguaggio che si basa sugli *object*.
+Il JavaScript è un linguaggio che si basa sugli _object_.
 Un object è una collezione di proprietà, ossia delle associazioni tra una chiave e un valore.
 
 ## Come funzionano gli object?
@@ -140,7 +140,7 @@ b?.(/** e, ... */);
 
 - `a`: Un qualsiasi object che può avere un valore nullo;
 - `b`: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se `b` non è una funzione.
-	**Type:** `Function | null | undefined`
+  **Type:** `Function | null | undefined`
 
 **Restituisce:** `undefined` se `a` è `null` o `undefined`, in caso contrario, il valore della proprietà `b`.
 
@@ -199,23 +199,23 @@ a.hasOwnProperty(v);
 
 ```js
 const example = {};
-example.hasOwnProperty('prop'); // false - Non esiste nessuna proprietà `prop` in `example`
+example.hasOwnProperty("prop"); // false - Non esiste nessuna proprietà `prop` in `example`
 
-example.prop = 'exists';
-example.hasOwnProperty('prop'); // true - `prop` ora esiste
+example.prop = "exists";
+example.hasOwnProperty("prop"); // true - `prop` ora esiste
 
 example.prop = null;
-example.hasOwnProperty('prop'); // true - `prop` è null ma esiste
+example.hasOwnProperty("prop"); // true - `prop` è null ma esiste
 
 example.prop = undefined;
-example.hasOwnProperty('prop'); // true - `prop` è undefined ma esiste
+example.hasOwnProperty("prop"); // true - `prop` è undefined ma esiste
 
 let example = {};
-example.prop = 'exists';
+example.prop = "exists";
 
-example.hasOwnProperty('prop'); // true
-example.hasOwnProperty('toString'); // false - È un metodo nativo
-example.hasOwnProperty('hasOwnProperty'); // false - Anche questo è un metodo nativo
+example.hasOwnProperty("prop"); // true
+example.hasOwnProperty("toString"); // false - È un metodo nativo
+example.hasOwnProperty("hasOwnProperty"); // false - Anche questo è un metodo nativo
 
-'toString' in example; // true - L'operatore `in` non controlla se la proprietà è nativa
+"toString" in example; // true - L'operatore `in` non controlla se la proprietà è nativa
 ```
