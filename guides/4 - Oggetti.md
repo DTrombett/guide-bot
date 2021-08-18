@@ -1,6 +1,6 @@
 # Oggetti
 
-Il JavaScript è un linguaggio che si basa sugli _object_.
+Il JavaScript è un linguaggio che si basa sugli _[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)_.
 Un object è una collezione di proprietà, ossia delle associazioni tra una chiave e un valore.
 
 ## Come funzionano gli object?
@@ -19,7 +19,7 @@ a.b; // Leggiamo la proprietà `b`
 a.b = c; // Specifichiamo che la proprietà `b` corrisponde al valore di `c`
 ```
 
-- `a`: L'oggetto che stiamo leggendo. **Type:** `{}`;
+- `a`: L'oggetto che stiamo leggendo. **Type:** `Object`;
 - `b`: Il nome della proprietà da leggere. **Type:** `string | symbol | number`;
 - `c`: Il valore da assegnare alla proprietà `b`. **Type:** `unknown`.
 
@@ -49,13 +49,13 @@ console.log(tazza.larghezza);
 // Se una proprietà non esiste, verrà restituito `undefined`
 ```
 
-## Index access
+## [Bracket notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#bracket_notation)
 
 Le proprietà di un object possono essere semplici stringhe, come `larghezza` o `colore`, ma anche simboli o numeri.
 
 Purtroppo, però, possiamo utilizzare il punto per accedere ad una proprietà solo se il suo nome è una stringa, inizia con una lettera e non contiene spazi.
 
-In caso contrario, dobbiamo utilizzare l'**index access**.
+In caso contrario, dobbiamo utilizzare la _bracket notation_.
 
 **Esempi:**
 
@@ -124,7 +124,7 @@ tazza.colore = null;
 console.log(tazza.colore.length); // TypeError: cannot read property "length" of null
 ```
 
-## Optional chaining operator: `?.`
+## [Optional chaining operator: `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 Per evitare questi errori con valori che possono essere `null` o `undefined` possiamo utilizzare l'operatore `?.`.
 
@@ -138,9 +138,8 @@ a?.[d];
 b?.(/** e, ... */);
 ```
 
-- `a`: Un qualsiasi object che può avere un valore nullo;
-- `b`: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se `b` non è una funzione.
-  **Type:** `Function | null | undefined`
+- `a`: Un qualsiasi object che può avere un valore nullo. **Type:** `unknown`.
+- `b`: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se `b` non è una funzione. **Type:** `Function | null | undefined`
 
 **Restituisce:** `undefined` se `a` è `null` o `undefined`, in caso contrario, il valore della proprietà `b`.
 
@@ -157,7 +156,7 @@ tazza.colore?.length; // undefined
 // Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito
 ```
 
-## Object
+## [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 `Object` è una variabile globale, nonché una classe a cui appartengono tutti gli objects.
 
@@ -190,7 +189,7 @@ Controlla se un object ha una certa proprietà, escludendo le proprietà e i met
 object.hasOwnProperty(v);
 ```
 
-- `v`: La proprietà da controllare. **Type:** `type PropertyKey = string | number | symbol`.
+- `v`: La proprietà da controllare. **Type:** `PropertyKey = string | number | symbol`.
 
 **Restituisce:** `boolean` - `true` se la proprietà esiste e non è nativa, `false` in caso contrario.
 
