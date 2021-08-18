@@ -13,7 +13,7 @@ jobs:
       - name: Merge base branch
         run: |
           git fetch
-          git merge "${GITHUB_BASE_REF}"
+          git merge origin/"${GITHUB_BASE_REF}"
 
       - name: Commit changes
         run: npm run commit
