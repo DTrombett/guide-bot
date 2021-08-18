@@ -11,8 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Merge base branch
-        run: |
-          git merge ${GITHUB_HEAD_REF}
+        run: git merge ${GITHUB_HEAD_REF}
 
       - name: Commit changes
         run: npm run commit
