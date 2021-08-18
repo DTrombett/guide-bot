@@ -1,9 +1,6 @@
 name: Run tasks on commit
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   commit-tasks:
