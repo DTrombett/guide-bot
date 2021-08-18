@@ -10,5 +10,6 @@
     "tabWidth": 2,
     "trailingComma": "es5",
     "useTabs": true,
-    "parser": "html"
+    "parser": "html",
+    "proseWrap": "never"
 }
