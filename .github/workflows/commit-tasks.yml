@@ -30,7 +30,8 @@ jobs:
           git add .
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git pull -r
           git commit -m "chore: deploy pages and lint source" || true
-          git push
+          git push -f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
