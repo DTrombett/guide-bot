@@ -13,8 +13,6 @@ jobs:
       - name: Merge base branch
         run: |
           git fetch
-          git checkout "${GITHUB_BASE_REF}"
-          git checkout "${GITHUB_HEAD_REF}"
           git merge "${GITHUB_BASE_REF}"
 
       - name: Commit changes
