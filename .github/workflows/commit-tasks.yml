@@ -19,7 +19,7 @@ jobs:
           node-version: 16
 
       - name: Install all dependencies
-      - run: npm ci
+        run: npm ci
 
       - name: Deploy HTML pages
         run: npm run html
