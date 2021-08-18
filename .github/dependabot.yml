@@ -10,7 +10,7 @@ updates:
       prefix: "deps"
       prefix-development: "devDeps"
       include: "scope"
-    millestone: 3
+    milestone: 3
     open-pull-requests-limit: 10
     reviewers:
       - "DTrombett"
