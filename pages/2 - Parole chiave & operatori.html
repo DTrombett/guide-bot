@@ -1,18 +1,43 @@
 <h1>Parole chiave &amp; operatori</h1>
-<p>In questo secondo articolo della guida inizieremo a scoprire qualcosa riguardo al <strong>JavaScript</strong>.
-Partiremo dalle basi, infatti inizieremo con una lista delle <strong>parole chiave</strong> e degli <strong>operatori</strong>
-del JavaScript.</p>
+<p>
+	In questo secondo articolo della guida inizieremo a scoprire qualcosa riguardo al
+	<strong>JavaScript</strong>. Partiremo dalle basi, infatti inizieremo con una lista delle
+	<strong>parole chiave</strong> e degli <strong>operatori</strong> del JavaScript.
+</p>
 <h2>Cosa sono le parole chiave e gli operatori?</h2>
-<p>Gli <strong>operatori</strong> sono simboli o parole che creano una relazione tra più elementi, come
-un’operazione aritmetica o l’assegnazione di una variabile.</p>
-<p>Le <strong>parole chiave</strong>, o <strong>riservate</strong>, del JavaScript sono delle parole che indicano alcune
-specifiche azioni e non possono essere utilizzate come nomi per variabili, etc…</p>
-<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators">Lista degli operatori</a></h2>
-<p>Partiamo vedendo quali sono gli operatori, suddivisi in categorie, e quali sono le loro funzioni.</p>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators">Operatori di comparazione</a></h3>
+<p>
+	Gli <strong>operatori</strong> sono simboli o parole che creano una relazione tra più elementi,
+	come un’operazione aritmetica o l’assegnazione di una variabile.
+</p>
+<p>
+	Le <strong>parole chiave</strong>, o <strong>riservate</strong>, del JavaScript sono delle parole
+	che indicano alcune specifiche azioni e non possono essere utilizzate come nomi per variabili,
+	etc…
+</p>
+<h2>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"
+		>Lista degli operatori</a
+	>
+</h2>
+<p>
+	Partiamo vedendo quali sono gli operatori, suddivisi in categorie, e quali sono le loro funzioni.
+</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators"
+		>Operatori di comparazione</a
+	>
+</h3>
 <p>Questi operatori ci permettono di comparare più elementi.</p>
-<p>Tutti restituiscono un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>.</p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality">Uguaglianza: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">==</code></a></h4>
+<p>
+	Tutti restituiscono un
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code>.
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality"
+		>Uguaglianza: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">==</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se due elementi sono uguali.</p>
 <p>Nel caso i due elementi siano di tipo diverso, allora vengono convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -25,7 +50,11 @@ specifiche azioni e non possono essere utilizzate come nomi per variabili, etc�
 <span style="color: #800;">&quot;15&quot;</span> == <span style="color: #800;">15</span>; <span style="color: #888">// true - La stringa viene convertita in numero e 15 viene rilevato</span>
 <span style="color: #800;">&quot;0&quot;</span> == <span style="color: #78a960;">undefined</span>; <span style="color: #888">// false</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#inequality">Disuguaglianza: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">!=</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#inequality"
+		>Disuguaglianza: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">!=</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se due elementi sono diversi.</p>
 <p>Nel caso i due elementi siano di tipo diverso, allora vengono convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -38,10 +67,17 @@ specifiche azioni e non possono essere utilizzate come nomi per variabili, etc�
 <span style="color: #800;">&quot;15&quot;</span> != <span style="color: #800;">15</span>; <span style="color: #888">// false</span>
 <span style="color: #800;">&quot;0&quot;</span> != <span style="color: #78a960;">undefined</span>; <span style="color: #888">// true</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#identity">Uguaglianza stretta: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">===</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#identity"
+		>Uguaglianza stretta:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">===</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se due elementi sono identici.</p>
-<p>Nel caso i due elementi siano di tipo diverso, <strong>non</strong> verranno convertiti allo stesso tipo e
-l’uguaglianza sarà falsa.</p>
+<p>
+	Nel caso i due elementi siano di tipo diverso, <strong>non</strong> verranno convertiti allo
+	stesso tipo e l’uguaglianza sarà falsa.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a === b;
 </code></pre>
@@ -52,10 +88,17 @@ l’uguaglianza sarà falsa.</p>
 <span style="color: #800;">&quot;Sus&quot;</span> === <span style="color: #800;">`S<span class="hljs-subst">${<span style="color: #800;">&quot;u&quot;</span>}</span>s`</span>; <span style="color: #888">// true - I template literals vengono prima eseguiti</span>
 <span style="color: #800;">&quot;sus&quot;</span> === <span style="color: #800;">&quot;Sus&quot;</span>; <span style="color: #888">// false - Case sensitive</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#nonidentity">Disguaglianza stretta: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">!==</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#nonidentity"
+		>Disguaglianza stretta:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">!==</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se due elementi <strong>non</strong> sono identici.</p>
-<p>Nel caso i due elementi siano di tipo diverso, <strong>non</strong> verranno convertiti allo stesso tipo e la
-disuguaglianza sarà vera.</p>
+<p>
+	Nel caso i due elementi siano di tipo diverso, <strong>non</strong> verranno convertiti allo
+	stesso tipo e la disuguaglianza sarà vera.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a !== b;
 </code></pre>
@@ -66,7 +109,11 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800;">&quot;Sus&quot;</span> !== <span style="color: #800;">`S<span class="hljs-subst">${<span style="color: #800;">&quot;u&quot;</span>}</span>s`</span>; <span style="color: #888">// false</span>
 <span style="color: #800;">&quot;sus&quot;</span> !== <span style="color: #800;">&quot;Sus&quot;</span>; <span style="color: #888">// true</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than">Maggiore: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&gt;</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than"
+		>Maggiore: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">&gt;</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se un numero è maggiore di un altro.</p>
 <p>Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -92,7 +139,13 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800;">3</span> &gt; <span style="color: #800;">3</span>; <span style="color: #888">// false</span>
 <span style="color: #800;">3</span> &gt; <span style="color: #800;">5</span>; <span style="color: #888">// false</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal">Maggiore o uguale: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&gt;=</code></a></h4>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal"
+		>Maggiore o uguale:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&gt;=</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se un numero è maggiore o uguale ad un altro.</p>
 <p>Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -115,7 +168,11 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800;">3</span> &gt;= <span style="color: #800;">3</span>; <span style="color: #888">// true</span>
 <span style="color: #800;">3</span> &gt;= <span style="color: #800;">5</span>; <span style="color: #888">// false</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than">Minore: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than"
+		>Minore: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">&lt;</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se un numero è minore di un altro.</p>
 <p>Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -141,7 +198,13 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800;">3</span> &lt; <span style="color: #800;">3</span>; <span style="color: #888">// false</span>
 <span style="color: #800;">3</span> &lt; <span style="color: #800;">5</span>; <span style="color: #888">// true</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal">Minore o uguale: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;=</code></a></h4>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal"
+		>Minore o uguale:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&lt;=</code></a
+	>
+</h4>
 <p>Con questo simbolo possiamo controllare se un numero è minore o uguale ad un altro.</p>
 <p>Nel caso i due elementi siano di tipo diverso, verranno convertiti allo stesso tipo.</p>
 <p><strong>Sintassi:</strong></p>
@@ -167,10 +230,24 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800;">3</span> &lt;= <span style="color: #800;">3</span>; <span style="color: #888">// true</span>
 <span style="color: #800;">3</span> &lt;= <span style="color: #800;">5</span>; <span style="color: #888">// true</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators">Operatori aritmetici</a></h3>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators"
+		>Operatori aritmetici</a
+	>
+</h3>
 <p>I seguenti operatori ci permettono di eseguire operazioni aritmetiche.</p>
-<p><strong>Tutti i seguenti operatori richiedono operandi con type <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</strong></p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder">Modulo: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">%</code></a></h4>
+<p>
+	<strong
+		>Tutti i seguenti operatori richiedono operandi con type
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.</strong
+	>
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
+		>Modulo: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">%</code></a
+	>
+</h4>
 <p>Con questo operatore possiamo calcolare il resto della divisione tra due numeri.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a % b;
@@ -193,10 +270,19 @@ disuguaglianza sarà vera.</p>
 <span style="color: #800; font-weight: 700;">Infinity</span> % <span style="color: #800;">0</span>; <span style="color: #888">// NaN</span>
 <span style="color: #800; font-weight: 700;">Infinity</span> % <span style="color: #800; font-weight: 700;">Infinity</span>; <span style="color: #888">// NaN</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment">Incremento: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">++</code></a></h4>
-<p>Con questo operatore possiamo aggiungere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">1</code> ad una variabile.</p>
-<p>Se l’operatore precede la variabile, allora viene restituito il valore risultante, in caso contrario
-viene restituito il vecchio valore.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment"
+		>Incremento: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">++</code></a
+	>
+</h4>
+<p>
+	Con questo operatore possiamo aggiungere
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">1</code> ad una variabile.
+</p>
+<p>
+	Se l’operatore precede la variabile, allora viene restituito il valore risultante, in caso
+	contrario viene restituito il vecchio valore.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a++;
 ++a;
@@ -214,10 +300,19 @@ b = ++a;
 <span style="color: #888">// a: 3</span>
 <span style="color: #888">// b: 3</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement">Decremento: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">--</code></a></h4>
-<p>Con questo operatore possiamo levare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">1</code> ad una variabile.</p>
-<p>Se l’operatore precede la variabile, allora viene restituito il valore risultante, in caso contrario
-viene restituito il vecchio valore.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement"
+		>Decremento: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">--</code></a
+	>
+</h4>
+<p>
+	Con questo operatore possiamo levare
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">1</code> ad una variabile.
+</p>
+<p>
+	Se l’operatore precede la variabile, allora viene restituito il valore risultante, in caso
+	contrario viene restituito il vecchio valore.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a--;
 --a;
@@ -235,7 +330,13 @@ b = --a;
 <span style="color: #888">// a: 1</span>
 <span style="color: #888">// b: 1</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_negation">Negazione numerica: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-</code></a></h4>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_negation"
+		>Negazione numerica:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">-</code></a
+	>
+</h4>
 <p>Con questo operatore possiamo invertire il segno di una variabile.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">-a;
@@ -252,18 +353,34 @@ b = --a;
 
 <span style="color: #888">// y: -4</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus">Più numerico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">+</code></a></h4>
-<p>Questo operatore forza la conversione di un elemento ad un numero. Nel caso questo non sia
-possibile,
-<a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/NaN"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code></a> viene
-restituito.</p>
-<p>Una valida alternativa a questo operatore è utilizzare
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#description"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Number(a)</code></a>.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus"
+		>Più numerico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">+</code></a
+	>
+</h4>
+<p>
+	Questo operatore forza la conversione di un elemento ad un numero. Nel caso questo non sia
+	possibile,
+	<a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/NaN"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">NaN</code></a
+	>
+	viene restituito.
+</p>
+<p>
+	Una valida alternativa a questo operatore è utilizzare
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#description"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">Number(a)</code></a
+	>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">+a;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Qualsiasi elemento che può essere convertito in numero.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Qualsiasi elemento
+		che può essere convertito in numero.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> x = <span style="color: #800;">1</span>;
@@ -278,7 +395,13 @@ restituito.</p>
     <span style="font-weight: 700;">return</span> <span style="color: #800;">1</span>;
 }; <span style="color: #888">// NaN - Le funzioni non possono essere convertite in numero</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation">Operatore esponenziale: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">**</code></a></h4>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation"
+		>Operatore esponenziale:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">**</code></a
+	>
+</h4>
 <p>Questo operatore eleva un numero a potenza.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ** b;
@@ -294,13 +417,31 @@ restituito.</p>
 <span style="color: #800;">2</span> ** (<span style="color: #800;">3</span> ** <span style="color: #800;">2</span>); <span style="color: #888">// 512</span>
 (<span style="color: #800;">2</span> ** <span style="color: #800;">3</span>) ** <span style="color: #800;">2</span>; <span style="color: #888">// 64</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators">Operatori dei bit</a></h3>
-<p>Questi operatori trattano tutti i numeri come binari, invece che decimali, ed eseguono azione su di
-essi.</p>
-<p><strong>Tutti i seguenti operatori richiedono operandi e restituiscono valori con type <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code></strong></p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND">Bitwise AND: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&amp;</code></a></h4>
-<p>L’operatore dei bit <strong>AND</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno di essi,
-restituisce 1 solo se entrambi i bit analizzati sono 1, in caso contrario, restituisce 0.</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators"
+		>Operatori dei bit</a
+	>
+</h3>
+<p>
+	Questi operatori trattano tutti i numeri come binari, invece che decimali, ed eseguono azione su
+	di essi.
+</p>
+<p>
+	<strong
+		>Tutti i seguenti operatori richiedono operandi e restituiscono valori con type
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code></strong
+	>
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND"
+		>Bitwise AND: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">&amp;</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit <strong>AND</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno
+	di essi, restituisce 1 solo se entrambi i bit analizzati sono 1, in caso contrario, restituisce 0.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &amp; b;
 </code></pre>
@@ -312,9 +453,15 @@ restituisce 1 solo se entrambi i bit analizzati sono 1, in caso contrario, resti
 
 a &amp; b; <span style="color: #888">// 001 (1)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR">Bitwise OR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">|</code></a></h4>
-<p>L’operatore dei bit <strong>OR</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno di essi,
-restituisce 0 solo se entrambi i bit analizzati sono 0, in caso contrario, restituisce 1.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR"
+		>Bitwise OR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">|</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit <strong>OR</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno
+	di essi, restituisce 0 solo se entrambi i bit analizzati sono 0, in caso contrario, restituisce 1.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a | b;
 </code></pre>
@@ -326,12 +473,25 @@ restituisce 0 solo se entrambi i bit analizzati sono 0, in caso contrario, resti
 
 a | b; <span style="color: #888">// 111 (7)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR">Bitwise XOR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">^</code></a></h4>
-<p>L’operatore dei bit <strong>XOR</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno di essi,
-restituisce 0 se i bit analizzati sono uguali, in caso contrario, restituisce 1.</p>
-<p><strong>Questo operatore è spesso confuso ed utilizzato per eseguire una potenza. Usare questo operatore
-per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore da utilizzare è
-invece <a href="#operatore-esponenziale"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">*​​*</code></a></strong></p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR"
+		>Bitwise XOR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">^</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit <strong>XOR</strong> confronta i bit di ogni numero, uno ad uno e, per ognuno
+	di essi, restituisce 0 se i bit analizzati sono uguali, in caso contrario, restituisce 1.
+</p>
+<p>
+	<strong
+		>Questo operatore è spesso confuso ed utilizzato per eseguire una potenza. Usare questo
+		operatore per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore da
+		utilizzare è invece
+		<a href="#operatore-esponenziale"
+			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">*​​*</code></a
+		></strong
+	>
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ^ b;
 </code></pre>
@@ -343,8 +503,15 @@ invece <a href="#operatore-esponenziale"><code style="padding: 3px 5px; backgrou
 
 a ^ b; <span style="color: #888">// 110 (7)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT">Bitwise NOT: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">~</code></a></h4>
-<p>L’operatore dei bit <strong>NOT</strong> confronta i bit di un numero, e restituisce il suo inverso.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT"
+		>Bitwise NOT: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">~</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit <strong>NOT</strong> confronta i bit di un numero, e restituisce il suo
+	inverso.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">~a;
 </code></pre>
@@ -355,9 +522,17 @@ a ^ b; <span style="color: #888">// 110 (7)</span>
 
 ~a; <span style="color: #888">// 10 (2)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift">Spostamento dei bit a sinistra: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;&lt;</code></a></h4>
-<p>L’operatore dei bit di spostamento a sinistra (<strong>Left shift</strong>) aggiunge alla fine del numero binario
-tanti zeri quanto il secondo operando, spostando così i bit rilevanti verso sinistra.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift"
+		>Spostamento dei bit a sinistra:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&lt;&lt;</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit di spostamento a sinistra (<strong>Left shift</strong>) aggiunge alla fine del
+	numero binario tanti zeri quanto il secondo operando, spostando così i bit rilevanti verso
+	sinistra.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &lt;&lt; b;
 </code></pre>
@@ -370,9 +545,16 @@ tanti zeri quanto il secondo operando, spostando così i bit rilevanti verso sin
 
 a &lt;&lt; b; <span style="color: #888">// 10100 (20)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift">Spostamento dei bit a destra: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&gt;&gt;</code></a></h4>
-<p>L’operatore dei bit di spostamento a destra (<strong>Right shift</strong>) elimina dalla fine del numero binario
-tanti bit quanto il secondo operando, spostando così i bit rilevanti verso destra.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift"
+		>Spostamento dei bit a destra:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&gt;&gt;</code></a
+	>
+</h4>
+<p>
+	L’operatore dei bit di spostamento a destra (<strong>Right shift</strong>) elimina dalla fine del
+	numero binario tanti bit quanto il secondo operando, spostando così i bit rilevanti verso destra.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &gt;&gt; b;
 </code></pre>
@@ -387,16 +569,35 @@ tanti bit quanto il secondo operando, spostando così i bit rilevanti verso dest
 
 a &gt;&gt; b; <span style="color: #888">// 1</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators">Operatori logici</a></h3>
-<p>Questi operatori analizzano uno o due operandi qualsiasi e restituiscono uno dei due o un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>
-in base a una operazione logica.</p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">AND logico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&amp;&amp;</code></a></h4>
-<p>L’operatore logico <strong>AND</strong> legge la prima espressione e, nel caso sia
-<a href="#espressione-veritiera">veritiera</a>, esegue anche la seconda e la restituisce, in caso contrario,
-restituisce questa prima espressione.</p>
-<p>Semplificando il concetto, in un contesto dove abbiamo bisogno di un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>, come un
-<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code></a>, l’espressione restituita sarà veritiera <strong>solo e soltanto</strong> se entrambi gli
-operandi sono veritieri.</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators"
+		>Operatori logici</a
+	>
+</h3>
+<p>
+	Questi operatori analizzano uno o due operandi qualsiasi e restituiscono uno dei due o un
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code> in base a una
+	operazione logica.
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND"
+		>AND logico:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&amp;&amp;</code></a
+	>
+</h4>
+<p>
+	L’operatore logico <strong>AND</strong> legge la prima espressione e, nel caso sia
+	<a href="#espressione-veritiera">veritiera</a>, esegue anche la seconda e la restituisce, in caso
+	contrario, restituisce questa prima espressione.
+</p>
+<p>
+	Semplificando il concetto, in un contesto dove abbiamo bisogno di un
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code>, come un
+	<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code></a
+	>, l’espressione restituita sarà veritiera <strong>solo e soltanto</strong> se entrambi gli
+	operandi sono veritieri.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &amp;&amp; b;
 </code></pre>
@@ -424,12 +625,22 @@ operandi sono veritieri.</p>
 <span style="color: #800;">&quot;&quot;</span> &amp;&amp; <span style="color: #78a960;">false</span>; <span style="color: #888">// &quot;&quot;</span>
 <span style="color: #78a960;">false</span> &amp;&amp; <span style="color: #800;">&quot;&quot;</span>; <span style="color: #888">// false</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">OR logico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">||</code></a></h4>
-<p>L’operatore logico <strong>OR</strong> legge la prima espressione e, nel caso sia
-<a href="#espressione-veritiera">veritiera</a>, la restituisce, in caso contrario, esegue e restituisce la
-seconda.</p>
-<p>Semplificando il concetto, in un contesto dove abbiamo bisogno di un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>, come un
-<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code></a>, l’espressione restituita sarà veritiera se uno degli operandi è veritiero.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR"
+		>OR logico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">||</code></a
+	>
+</h4>
+<p>
+	L’operatore logico <strong>OR</strong> legge la prima espressione e, nel caso sia
+	<a href="#espressione-veritiera">veritiera</a>, la restituisce, in caso contrario, esegue e
+	restituisce la seconda.
+</p>
+<p>
+	Semplificando il concetto, in un contesto dove abbiamo bisogno di un
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code>, come un
+	<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code></a
+	>, l’espressione restituita sarà veritiera se uno degli operandi è veritiero.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a || b;
 </code></pre>
@@ -458,9 +669,18 @@ seconda.</p>
 <span style="color: #78a960;">false</span> || <span style="color: #800;">&quot;&quot;</span>; <span style="color: #888">// &quot;&quot;</span>
 <span style="color: #78a960;">false</span> || varObject; <span style="color: #888">// varObject</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator">non-null: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">??</code></a></h4>
-<p>L’operatore <strong>non-null</strong> (Nullish coalescing operator) legge la prima espressione e, nel caso sia
-<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null | undefined</code>, esegue e restituisce la seconda, in caso contrario, restituisce questa prima.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator"
+		>non-null: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">??</code></a
+	>
+</h4>
+<p>
+	L’operatore <strong>non-null</strong> (Nullish coalescing operator) legge la prima espressione e,
+	nel caso sia
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">null | undefined</code>, esegue e
+	restituisce la seconda, in caso contrario, restituisce questa prima.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ?? b;
 </code></pre>
@@ -499,12 +719,23 @@ someNumber ?? <span style="color: #800;">0</span>; <span style="color: #888">// 
 <span style="color: #888">// `B()` ha restituito false che non è un valore nullo</span>
 <span style="color: #888">// perciò`C()` non viene eseguito</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT">NOT logico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">!</code></a></h4>
-<p>L’operatore logico <strong>NOT</strong> legge una sola espressione e restituisce <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> se l’espressione è
-<a href="#espressione-veritiera">veritiera</a>, o viceversa.</p>
-<p>Semplificando il concetto, in un contesto dove abbiamo bisogno di un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>, come un
-<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code></a>, l’espressione restituita sarà veritiera se l’operando <strong>non</strong> è un valore
-veritiero.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT"
+		>NOT logico: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">!</code></a
+	>
+</h4>
+<p>
+	L’operatore logico <strong>NOT</strong> legge una sola espressione e restituisce
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">false</code> se l’espressione è
+	<a href="#espressione-veritiera">veritiera</a>, o viceversa.
+</p>
+<p>
+	Semplificando il concetto, in un contesto dove abbiamo bisogno di un
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code>, come un
+	<a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code></a
+	>, l’espressione restituita sarà veritiera se l’operando <strong>non</strong> è un valore
+	veritiero.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">!a;
 </code></pre>
@@ -514,19 +745,42 @@ veritiero.</p>
 !<span style="color: #800;">&quot;&quot;</span>; <span style="color: #888">// true - `&quot;&quot;` non è un valore veritiero perciò viene trattato come false</span>
 !<span style="color: #800;">&quot;Cat&quot;</span>; <span style="color: #888">// false - Una stringa non vuota è un valore veritiero perciò viene trattata come true</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators">Operatori di assegnazione</a></h3>
-<p>Questi operatori ci permettono di assegnare valori alle variabili. Vediamo quali sono e come si
-differenziano.</p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment">Assegnazione: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">=</code></a></h4>
-<p>L’uguale è il più semplice operatore di assegnazione ed è utilizzato per assegnare un valore ad una
-variabile.</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators"
+		>Operatori di assegnazione</a
+	>
+</h3>
+<p>
+	Questi operatori ci permettono di assegnare valori alle variabili. Vediamo quali sono e come si
+	differenziano.
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment"
+		>Assegnazione: <code style="padding: 3px 5px; background: #f0f0f0; color: #444">=</code></a
+	>
+</h4>
+<p>
+	L’uguale è il più semplice operatore di assegnazione ed è utilizzato per assegnare un valore ad
+	una variabile.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a = b;
 <span style="font-weight: 700;">const</span> a = b;
 <span style="font-weight: 700;">let</span> a = b;
 </code></pre>
-<p>Per informazioni su cosa <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> rappresentano, controlla <a href="#const--let"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const / let</code></a>.</p>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>.</p>
+<p>
+	Per informazioni su cosa
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> e
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code> rappresentano, controlla
+	<a href="#const--let"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">const / let</code></a
+	>.
+</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> x = <span style="color: #800;">5</span>;
 <span style="font-weight: 700;">let</span> y = <span style="color: #800;">10</span>;
@@ -536,19 +790,36 @@ z = y = x; <span style="color: #888">// 5 - `z` e `y` hanno ora lo stesso valore
 <span style="color: #888">// Equivalente: `z = (y = x)` =&gt; `z = (y = 5)` =&gt; `z = 5`</span>
 <span style="color: #888">// A `y` è stato assegnato il valore di 5 e l&#x27;espressione `y = 5` ha anche restituito 5</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment">Assegnazione con aggiunta: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">+=</code></a></h4>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment"
+		>Assegnazione con aggiunta:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">+=</code></a
+	>
+</h4>
 <p>Con questo operatore possiamo riassegnare ad una variabile lo stesso valore con un aggiunta.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a += b; <span style="color: #888">// Equivalente: a = a + b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string | number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da aggiungere. Se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> rappresenta una stringa questo valore può essere qualsiasi
-elemento che può essere convertito in una stringa. Se invece rappresenta un numero, allora deve
-essere un numero anche il valore da aggiungere, nel caso sia una stringa Typescript ci mostrerà un
-errore.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">string | number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		aggiungere. Se
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> rappresenta una
+		stringa questo valore può essere qualsiasi elemento che può essere convertito in una stringa. Se
+		invece rappresenta un numero, allora deve essere un numero anche il valore da aggiungere, nel
+		caso sia una stringa Typescript ci mostrerà un errore.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a + b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a + b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> foo = <span style="color: #800;">&quot;foo&quot;</span>;
 <span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
@@ -559,48 +830,105 @@ foo += <span style="color: #78a960;">false</span>; <span style="color: #888">// 
 
 foo += <span style="color: #800;">&quot;bar&quot;</span>; <span style="color: #888">// &quot;foobar&quot;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment">Assegnazione con sottrazione: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-=</code></a></h4>
-<p>Questo operatore ci permette di sotrarre uno specifico numero ad una variabile numerica
-riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment"
+		>Assegnazione con sottrazione:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">-=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di sotrarre uno specifico numero ad una variabile numerica
+	riassegnandola.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a -= b; <span style="color: #888">// Equivalente: a = a - b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da sotrarre. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		sotrarre. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a - b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a - b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
 
 bar -= <span style="color: #800;">2</span>; <span style="color: #888">// 3 - `bar = bar - 2` =&gt; `bar = 5 - 2` =&gt; `bar = 3`</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment">Assegnazione con moltiplicazione: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">*=</code></a></h4>
-<p>Questo operatore ci permette di moltiplicare uno specifico numero ad una variabile numerica
-riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment"
+		>Assegnazione con moltiplicazione:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">*=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di moltiplicare uno specifico numero ad una variabile numerica
+	riassegnandola.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a *= b; <span style="color: #888">// Equivalente: a = a * b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da moltiplicare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		moltiplicare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a * b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a * b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
 
 bar *= <span style="color: #800;">2</span>; <span style="color: #888">// 10 - `bar = bar * 2` =&gt; `bar = 5 * 2` =&gt; `bar = 10`</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment">Assegnazione con divisione: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">/=</code></a></h4>
-<p>Questo operatore ci permette di dividere una variabile per uno specifico numero, riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment"
+		>Assegnazione con divisione:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">/=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di dividere una variabile per uno specifico numero, riassegnandola.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a /= b; <span style="color: #888">// Equivalente: a = a / b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore per cui dividere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore per cui
+		dividere. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a / b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a / b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
 
@@ -609,18 +937,37 @@ bar /= <span style="color: #800;">2</span>; <span style="color: #888">// 1.25</s
 bar /= <span style="color: #800;">0</span>; <span style="color: #888">// Infinity - `bar = bar / 0` =&gt; `bar = 5 / 0` =&gt; `bar = Infinity`</span>
 <span style="color: #888">// In JavaScript, qualsiasi numero diviso per 0 è uguale a Infinity</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment">Assegnazione del resto: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">%=</code></a></h4>
-<p>Questo operatore ci permette di riassegnare ad una variabile il valore del resto della divisione tra
-se stessa e un numero.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division_assignment"
+		>Assegnazione del resto:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">%=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di riassegnare ad una variabile il valore del resto della divisione
+	tra se stessa e un numero.
+</p>
 <p>Vedi anche: <a href="#modulo">Operatore modulo</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a %= b; <span style="color: #888">// Equivalente: a = a % b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore per cui dividere per calcolare il resto. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore per cui
+		dividere per calcolare il resto. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a % b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a % b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
 
@@ -628,126 +975,266 @@ bar %= <span style="color: #800;">2</span>; <span style="color: #888">// 1 - `ba
 bar %= <span style="color: #800;">0</span>; <span style="color: #888">// NaN - `bar = bar % 0` =&gt; `bar = 5 % 0` =&gt; `bar = NaN`</span>
 <span style="color: #888">// In JavaScript, il modulo di una divisione per 0 è sempre NaN</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment">Assegnazione con elevamento a potenza: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">**=</code></a></h4>
-<p>Questo operatore ci permette di elevare a potenza una variabile per uno specifico numero,
-riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment"
+		>Assegnazione con elevamento a potenza:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">**=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di elevare a potenza una variabile per uno specifico numero,
+	riassegnandola.
+</p>
 <p>Vedi anche: <a href="#operatore-esponenziale">Operatore esponenziale</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a **= b; <span style="color: #888">// Equivalente: a = a ** b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore per cui elevare a potenza. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore per cui
+		elevare a potenza. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a ** b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a ** b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>;
 
 bar **= <span style="color: #800;">2</span>; <span style="color: #888">// 25 - `bar = bar ** 2` =&gt; `bar = 5 ** 2` =&gt; `bar = 25`</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment">Assegnazione con spostamento dei bit a sinistra: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;&lt;=</code></a></h4>
-<p>Questo operatore ci permette di eseguire lo spostamento dei bit a sinistra ad una variabile per uno
-specifico numero di bit, riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment"
+		>Assegnazione con spostamento dei bit a sinistra:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&lt;&lt;=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di eseguire lo spostamento dei bit a sinistra ad una variabile per
+	uno specifico numero di bit, riassegnandola.
+</p>
 <p>Vedi anche: <a href="#spostamento-dei-bit-a-sinistra">Left shift operator</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &lt;&lt;= b; <span style="color: #888">// Equivalente: a = a &lt;&lt; b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il numero di bit da spostare a sinistra. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il numero di bit da
+		spostare a sinistra. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a &lt;&lt; b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a &lt;&lt; b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>; <span style="color: #888">// 00101</span>
 <span style="color: #888">// 2:           00010</span>
 bar &lt;&lt;= <span style="color: #800;">2</span>; <span style="color: #888">//   10100 (20)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment">Assegnazione con spostamento dei bit a destra: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&gt;&gt;=</code></a></h4>
-<p>Questo operatore ci permette di eseguire lo spostamento dei bit a destra ad una variabile per uno
-specifico numero di bit, riassegnandola.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment"
+		>Assegnazione con spostamento dei bit a destra:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&gt;&gt;=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di eseguire lo spostamento dei bit a destra ad una variabile per uno
+	specifico numero di bit, riassegnandola.
+</p>
 <p>Vedi anche: <a href="#spostamento-dei-bit-a-destra">Right shift operator</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &gt;&gt;= b; <span style="color: #888">// Equivalente: a = a &gt;&gt; b</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il numero di bit da spostare a destra. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il numero di bit da
+		spostare a destra. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a &gt;&gt; b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a &gt;&gt; b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> bar = <span style="color: #800;">5</span>; <span style="color: #888">// 101</span>
 <span style="color: #888">// 2:           010</span>
 bar &gt;&gt;= <span style="color: #800;">2</span>; <span style="color: #888">//   001 (1)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment">Assegnazione con bitwise AND: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&amp;=</code></a></h4>
-<p>Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
-restituisce un 1 <strong>solo e soltanto</strong> quando entrambi i bit analizzati sono 1. Poi riassegna il
-valore alla variabile.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment"
+		>Assegnazione con bitwise AND:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&amp;=</code></a
+	>
+</h4>
+<p>
+	Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
+	restituisce un 1 <strong>solo e soltanto</strong> quando entrambi i bit analizzati sono 1. Poi
+	riassegna il valore alla variabile.
+</p>
 <p>Vedi anche: <a href="#bitwise-and">Bitwise AND operator</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &amp;= b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da confrontare con l’operatore di bit AND. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		confrontare con l’operatore di bit AND. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a &amp; b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a &amp; b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = <span style="color: #800;">5</span>; <span style="color: #888">// 101</span>
 <span style="color: #888">// 2:         010</span>
 a &amp;= <span style="color: #800;">2</span>; <span style="color: #888">//    000 (0)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment">Assegnazione con bitwise OR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">|=</code></a></h4>
-<p>Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
-restituisce un 0 <strong>solo e soltanto</strong> quando entrambi i bit analizzati sono 0. Poi riassegna il
-valore alla variabile.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment"
+		>Assegnazione con bitwise OR:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">|=</code></a
+	>
+</h4>
+<p>
+	Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
+	restituisce un 0 <strong>solo e soltanto</strong> quando entrambi i bit analizzati sono 0. Poi
+	riassegna il valore alla variabile.
+</p>
 <p>Vedi anche: <a href="#bitwise-or">Bitwise OR operator</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a |= b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da confrontare con l’operatore di bit OR. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		confrontare con l’operatore di bit OR. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a | b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a | b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = <span style="color: #800;">5</span>; <span style="color: #888">// 101</span>
 <span style="color: #888">// 2:         010</span>
 a |= <span style="color: #800;">2</span>; <span style="color: #888">//    111 (7)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment">Assegnazione con bitwise XOR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">^=</code></a></h4>
-<p>Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
-restituisce un 0 <strong>solo e soltanto</strong> quando i bit analizzati sono uguali. Poi riassegna il valore
-alla variabile.</p>
-<p><strong>Questo operatore è spesso confuso ed utilizzato per eseguire e riassegnare una potenza. Usare
-questo operatore per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore da
-utilizzare è invece <a href="#assegnazione-con-elevamento-a-potenza"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">*​​*=</code></a></strong></p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment"
+		>Assegnazione con bitwise XOR:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">^=</code></a
+	>
+</h4>
+<p>
+	Questo operatore confronta i bit del vecchio valore della variabile con quelli del nuovo e
+	restituisce un 0 <strong>solo e soltanto</strong> quando i bit analizzati sono uguali. Poi
+	riassegna il valore alla variabile.
+</p>
+<p>
+	<strong
+		>Questo operatore è spesso confuso ed utilizzato per eseguire e riassegnare una potenza. Usare
+		questo operatore per le potenze è errato e conduce a risultati inaspettati. Il giusto operatore
+		da utilizzare è invece
+		<a href="#assegnazione-con-elevamento-a-potenza"
+			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">*​​*=</code></a
+		></strong
+	>
+</p>
 <p>Vedi anche: <a href="#bitwise-xor">Bitwise XOR operator</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ^= b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da confrontare con l’operatore di bit XOR. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		confrontare con l’operatore di bit XOR. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">number</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a ^ b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a ^ b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = <span style="color: #800;">5</span>; <span style="color: #888">// 101</span>
 <span style="color: #888">// 3:         011</span>
 a ^= <span style="color: #800;">3</span>; <span style="color: #888">//    110 (6)</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment">Assegnazione con il Logical AND: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&amp;&amp;=</code></a></h4>
-<p>Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore di
-quella variabile è <a href="#espressione-veritiera">veritiero</a>.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment"
+		>Assegnazione con il Logical AND:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">&amp;&amp;=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore
+	di quella variabile è <a href="#espressione-veritiera">veritiero</a>.
+</p>
 <p>Vedi anche: <a href="#and-logico">Operatore logico AND</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a &amp;&amp;= b; <span style="color: #888">// Equivalente: a &amp;&amp; (a = b)</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknwon</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknwon</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknown</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a &amp;&amp; b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a &amp;&amp; b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> x = <span style="color: #800;">0</span>;
 <span style="font-weight: 700;">let</span> y = <span style="color: #800;">1</span>;
@@ -757,18 +1244,37 @@ x &amp;&amp;= <span style="color: #800;">1</span>; <span style="color: #888">// 
 y &amp;&amp;= <span style="color: #800;">1</span>; <span style="color: #888">// 1 - `y &amp;&amp; (y = 1)` =&gt; `1 &amp;&amp; (y = 1)` =&gt; `y = 1` - L&#x27;assegnazione viene eseguita, poichè 1 è un valore veritiero</span>
 y &amp;&amp;= <span style="color: #800;">0</span>; <span style="color: #888">// 0 - `y &amp;&amp; (y = 0)` =&gt; `1 &amp;&amp; (y = 0)` =&gt; `y = 0` - &quot;&quot;                                                         &quot;&quot;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment">Assegnazione con il Logical OR: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">||=</code></a></h4>
-<p>Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore di
-quella variabile <strong>non</strong> è <a href="#espressione-veritiera">veritiero</a>.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment"
+		>Assegnazione con il Logical OR:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">||=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di riassegnare una variabile ad un valore solo se il vecchio valore
+	di quella variabile <strong>non</strong> è <a href="#espressione-veritiera">veritiero</a>.
+</p>
 <p>Vedi anche: <a href="#or-logico">Operatore logico OR</a>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ||= b; <span style="color: #888">// Equivalente: a || (a = b)</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknwon</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknwon</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknown</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a || b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a || b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> x = <span style="color: #800;">0</span>;
 <span style="font-weight: 700;">let</span> y = <span style="color: #800;">1</span>;
@@ -778,18 +1284,38 @@ x ||= <span style="color: #800;">1</span>; <span style="color: #888">// 1 - `x |
 y ||= <span style="color: #800;">1</span>; <span style="color: #888">// 1 - `y || (y = 1)` =&gt; `1 || (y = 1)` =&gt; `1` - L&#x27;assegnazione non viene eseguita, poichè 1 è un valore veritiero</span>
 y ||= <span style="color: #800;">0</span>; <span style="color: #888">// 1 - `y || (y = 0)` =&gt; `1 || (y = 0)` =&gt; `1` - &quot;&quot;                                                             &quot;&quot;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment">Assegnazione con il Logical non-null: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">??=</code></a></h4>
-<p>Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella
-variabile è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment"
+		>Assegnazione con il Logical non-null:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">??=</code></a
+	>
+</h4>
+<p>
+	Questo operatore ci permette di riassegnare una variabile ad un valore solo se il valore di quella
+	variabile è <code style="padding: 3px 5px; background: #f0f0f0; color: #444">null</code> o
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">undefined</code>.
+</p>
 <p>Vedi anche: <a href="#non-null">Operatore logico non-null</a></p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ??= b; <span style="color: #888">// Equivalente: a ?? (a = b)</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La variabile da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknwon</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore da riassegnare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La variabile da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknwon</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore da
+		riassegnare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknown</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a ?? b</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a ?? b</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> x = <span style="color: #78a960;">null</span>;
 <span style="font-weight: 700;">let</span> y = <span style="color: #800;">1</span>;
@@ -799,9 +1325,16 @@ x ??= <span style="color: #800;">1</span>; <span style="color: #888">// 0 - `x ?
 y ??= <span style="color: #800;">1</span>; <span style="color: #888">// 1 - `y ?? (y = 1)` =&gt; `1 ?? (y = 1)` =&gt; `1` - L&#x27;assegnazione non viene eseguita, poichè 1 non è un valore nullo</span>
 y ??= <span style="color: #78a960;">null</span>; <span style="color: #888">// 1 - `y ?? (y = null)` =&gt; `1 ?? (y = null)` =&gt; `1` - &quot;&quot;                                                    &quot;&quot;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></h4>
-<p>Il <em>destructuring assignment</em> ci permette di assegnare ad una variabile, un valore presente come
-proprietà in un object.</p>
+<h4>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+		>Destructuring assignment</a
+	>
+</h4>
+<p>
+	Il <em>destructuring assignment</em> ci permette di assegnare ad una variabile, un valore presente
+	come proprietà in un object.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> [a <span style="color: #888">/* , ... */</span>] = b;
 <span style="font-weight: 700;">const</span> { c } = d;
@@ -816,16 +1349,41 @@ proprietà in un object.</p>
 ({ <span style="color: #444">e</span>: f } = d);
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome da assegnare alla variabile. Rappresenta il primo elemento di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>. <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code> rappresenta
-gli altri valori di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Qualsiasi elemento iterabile, come nel <a href="#for--continue--forof--forin">for…of loop</a>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Il nome della proprietà in <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> da salvare. Corrisponderà anche al nome della nuova variabile;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Un qualsiasi object;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e</code>: Il nome della proprietà in <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> da salvare. Non corrisponderà al nome della variabile, in
-quanto è seguito dai due punti;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">f</code>: Il nome della variabile da assegnare al valore della proprietà di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome da assegnare
+		alla variabile. Rappresenta il primo elemento di
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>.
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code> rappresenta gli
+		altri valori di <code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Qualsiasi elemento
+		iterabile, come nel <a href="#for--continue--forof--forin">for…of loop</a>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">c</code>: Il nome della
+		proprietà in <code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code> da
+		salvare. Corrisponderà anche al nome della nuova variabile;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code>: Un qualsiasi object;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">e</code>: Il nome della
+		proprietà in <code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code> da
+		salvare. Non corrisponderà al nome della variabile, in quanto è seguito dai due punti;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">f</code>: Il nome della
+		variabile da assegnare al valore della proprietà di
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code>.
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code> o
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>];
 <span style="font-weight: 700;">const</span> [one, two, three] = array;
@@ -848,12 +1406,25 @@ quanto è seguito dai due punti;</li>
 
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a, b, c, number); <span style="color: #888">// 1, 2, 3, 10</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator">Operatore condizionale ternario</a></h3>
-<p>L’operatore condizionale ternario
-(<strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) operator</a></strong>)
-è un <a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if...else</code></a> abbreviato che accetta una condizione da valutare, un’azione da
-eseguire quando quella condizione è <a href="#espressione-veritiera">veritiera</a> e una da eseguire quando non
-lo è.</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator"
+		>Operatore condizionale ternario</a
+	>
+</h3>
+<p>
+	L’operatore condizionale ternario (<strong
+		><a
+			href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
+			>Conditional (ternary) operator</a
+		></strong
+	>) è un
+	<a href="#if--else"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if...else</code></a
+	>
+	abbreviato che accetta una condizione da valutare, un’azione da eseguire quando quella condizione
+	è <a href="#espressione-veritiera">veritiera</a> e una da eseguire quando non lo è.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a ? b : c;
 <span style="color: #888">// Equivalente:</span>
@@ -880,20 +1451,41 @@ lo è.</p>
     }
 }
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#unary_operators">Operatori singoli</a></h3>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#unary_operators"
+		>Operatori singoli</a
+	>
+</h3>
 <p>I seguenti operatori vengono utilizzati con un solo operando.</p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">delete</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">delete</code></a
+	>
+</h4>
 <p>Questo operatore rimuove una proprietà di un object.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">delete</span> a.<span class="hljs-property">b</span>;
 <span style="font-weight: 700;">delete</span> a[b];
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Un qualsiasi object;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il nome della proprietà da eliminare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">keyof a</code>. (Ulteriori info:
-<a href="https://www.typescriptlang.org/docs/handbook/2/keyof-types.html"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">keyof</code></a>).</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Un qualsiasi object;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il nome della
+		proprietà da eliminare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">keyof a</code>. (Ulteriori
+		info:
+		<a href="https://www.typescriptlang.org/docs/handbook/2/keyof-types.html"
+			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">keyof</code></a
+		>).
+	</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">true</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">/**
  * Senza specificare il type di questo object,
@@ -916,13 +1508,22 @@ lo è.</p>
 <span style="font-weight: 700;">delete</span> <span style="color: #800; font-weight: 700;">EmployeeDetails</span>.<span class="hljs-property">salary</span>; <span style="color: #888">// Typescript error:</span>
 <span style="color: #888">// Property &#x27;salary&#x27; does not exist on type &#x27;{ name: string; age: number; designation: string; }&#x27;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">typeof</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">typeof</code></a
+	>
+</h4>
 <p>Questo operatore restituisce il tipo di un elemento.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">typeof</span> a;
 </code></pre>
-<p><strong>Restituisce:</strong>
-<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; | &quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444"
+		>&quot;string&quot; | &quot;number&quot; | &quot;bigint&quot; | &quot;boolean&quot; |
+		&quot;symbol&quot; | &quot;undefined&quot; | &quot;object&quot; | &quot;function&quot;</code
+	>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">// Numbers</span>
 <span style="font-weight: 700;">typeof</span> <span style="color: #800;">37</span>; <span style="color: #888">// &quot;number&quot;</span>
@@ -967,28 +1568,65 @@ lo è.</p>
 <span style="font-weight: 700;">typeof</span> <span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">C</span> {}; <span style="color: #888">// &quot;function&quot; - Anche le classi sono funzioni</span>
 <span style="font-weight: 700;">typeof</span> <span style="color: #800; font-weight: 700;">Math</span>.<span class="hljs-property">sin</span>; <span style="color: #888">// &quot;function&quot;</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">void</code></a></h4>
-<p>Questo operatore esegue un’espressione e restituisce <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">void</code></a
+	>
+</h4>
+<p>
+	Questo operatore esegue un’espressione e restituisce
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">undefined</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">void</span> a;
 </code></pre>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">undefined</code>.
+</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">void</span> <span style="color: #800; font-weight: 700;">Promise</span>.<span style="color: #800; font-weight: 700;">resolve</span>(); <span style="color: #888">// undefined</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators">Operatori di relazione</a></h3>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators"
+		>Operatori di relazione</a
+	>
+</h3>
 <p>I seguenti operatori verificano una relazione tra due operandi.</p>
-<p>Tutti restituiscono un type <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code>.</p>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">in</code></a></h4>
+<p>
+	Tutti restituiscono un type
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">boolean</code>.
+</p>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">in</code></a
+	>
+</h4>
 <p>Questo operatore verifica se una proprietà è presente in un object.</p>
-<p><strong>Il valore di questo operatore è diverso da quello che ha nel contesto del
-<a href="#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a>.</strong></p>
+<p>
+	<strong
+		>Il valore di questo operatore è diverso da quello che ha nel contesto del
+		<a href="#for--continue--forof--forin"
+			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">for...in</code></a
+		>.</strong
+	>
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a <span style="font-weight: 700;">in</span> b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della proprietà da controllare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">'string' | 'number' | 'symbol'</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Qualsiasi object non primitivo (stringhe, numeri, etc…).</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome della
+		proprietà da controllare. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444"
+			>'string' | 'number' | 'symbol'</code
+		>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Qualsiasi object non
+		primitivo (stringhe, numeri, etc…).
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> trees = [<span style="color: #800;">&quot;redwood&quot;</span>, <span style="color: #800;">&quot;bay&quot;</span>, <span style="color: #800;">&quot;cedar&quot;</span>, <span style="color: #800;">&quot;oak&quot;</span>, <span style="color: #800;">&quot;maple&quot;</span>];
@@ -1005,16 +1643,29 @@ lo è.</p>
 <span style="color: #800;">&quot;make&quot;</span> <span style="font-weight: 700;">in</span> mycar; <span style="color: #888">// true</span>
 <span style="color: #800;">&quot;model&quot;</span> <span style="font-weight: 700;">in</span> mycar; <span style="color: #888">// true</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">instanceof</code></a></h4>
+<h4>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">instanceof</code></a
+	>
+</h4>
 <p>Questo operatore verifica se un object è stato instanziato da una classe.</p>
-<p>Per informazioni riguardo le classi controlla
-<a href="#class--this--extends--super--static--new">il paragrafo dedicato</a>.</p>
+<p>
+	Per informazioni riguardo le classi controlla
+	<a href="#class--this--extends--super--static--new">il paragrafo dedicato</a>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a <span style="font-weight: 700;">instanceof</span> b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: L’oggetto da controllare. Può essere qualsiasi object non primitivo;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: La classe di cui si vuole controllare se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> faccia parte.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: L’oggetto da
+		controllare. Può essere qualsiasi object non primitivo;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: La classe di cui si
+		vuole controllare se
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> faccia parte.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> stringObject = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">String</span>(<span style="color: #800;">&quot;String created with constructor&quot;</span>);
@@ -1029,28 +1680,59 @@ myDate <span style="font-weight: 700;">instanceof</span> <span style="color: #80
 myDate <span style="font-weight: 700;">instanceof</span> <span style="color: #800; font-weight: 700;">String</span>; <span style="color: #888">// false</span>
 </code></pre>
 <h2>Lista delle parole chiave</h2>
-<p>Qui di seguito è riportata una lista delle parole chiave nel JavaScript e della loro funzione.</p>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code></a></h3>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code> sono le parole chiave utilizzate per dichiarare delle variabili.</p>
+<p>
+	Qui di seguito è riportata una lista delle parole chiave nel JavaScript e della loro funzione.
+</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code></a
+	>
+</h3>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code> e
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code> sono le parole chiave
+	utilizzate per dichiarare delle variabili.
+</p>
 <p><strong>Vedremo queste parole chiave nel dettaglio nel prossimo articolo.</strong></p>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code> indica una costante, il cui valore è sempre lo stesso e non può essere modificato.</p>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code> indica una costante,
+	il cui valore è sempre lo stesso e non può essere modificato.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della costante;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore della costante. Può essere qualsiasi ma è comunque obbligatorio e non può essere
-omesso.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome della
+		costante;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore della
+		costante. Può essere qualsiasi ma è comunque obbligatorio e non può essere omesso.
+	</li>
 </ul>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code> indica una variabile, il cui valore può essere modificato.</p>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code> indica una variabile,
+	il cui valore può essere modificato.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = b;
 <span style="color: #888">// Oppure</span>
 <span style="font-weight: 700;">let</span> a;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della variabile.</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il valore della variabile. Può essere qualsiasi e può essere omesso, come nel secondo caso.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome della
+		variabile.
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il valore della
+		variabile. Può essere qualsiasi e può essere omesso, come nel secondo caso.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> i = <span style="color: #800;">10</span>;
@@ -1058,9 +1740,19 @@ omesso.</li>
 n = <span style="color: #800;">0</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(i, n); <span style="color: #888">// 10, 0</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">else</code></a></h3>
-<p>Questa parola chiave ci permette di eseguire una determinata azione se una condizione è
-<a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">veritiera</a>.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">else</code></a
+	>
+</h3>
+<p>
+	Questa parola chiave ci permette di eseguire una determinata azione se una condizione è
+	<a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">veritiera</a>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (a) {
     <span style="color: #888">// Azioni da eseguire se la condizione è veritiera</span>
@@ -1069,11 +1761,20 @@ n = <span style="color: #800;">0</span>;
 <span style="font-weight: 700;">if</span> (a) b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Espressione da verificare. Il codice nelle parentesi verrà eseguito solo se questa
-espressione è veritiera;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Azione da eseguire quando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> è un’espressione veritiera.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Espressione da
+		verificare. Il codice nelle parentesi verrà eseguito solo se questa espressione è veritiera;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Azione da eseguire
+		quando <code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> è
+		un’espressione veritiera.
+	</li>
 </ul>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">else</code> viene utilizzato per dichiarare l’azione da eseguire se la condizione <strong>non</strong> è veritiera.</p>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">else</code> viene utilizzato per
+	dichiarare l’azione da eseguire se la condizione <strong>non</strong> è veritiera.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (a) {
     <span style="color: #888">// Azioni da eseguire se la condizione è veritiera</span>
@@ -1089,25 +1790,53 @@ espressione è veritiera;</li>
 }
 </code></pre>
 <h4><strong>Espressione veritiera</strong></h4>
-<p>Un valore è considerato <strong>sempre</strong> veritiero a meno che non sia uno dei seguenti:</p>
+<p>
+	Un valore è considerato <strong>sempre</strong> veritiero a meno che non sia uno dei seguenti:
+</p>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">0</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&quot;&quot;</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code>.</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">false</code>;</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">0</code>;</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">&quot;&quot;</code>;</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">null</code>;</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">undefined</code>;</li>
+	<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444">NaN</code>.</li>
 </ul>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">switch</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">case</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">default</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">break</code></a></h3>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">switch</code> serve per eseguire diverse azioni a seconda di un valore.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">switch</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">case</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">default</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">break</code></a
+	>
+</h3>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">switch</code> serve per eseguire
+	diverse azioni a seconda di un valore.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">switch</span> (a) {
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: L’espressione da controllare.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: L’espressione da
+		controllare.
+	</li>
 </ul>
-<p>Per definire le azioni da eseguire per ogni valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> utilizziamo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">case</code>. Sintassi:</p>
+<p>
+	Per definire le azioni da eseguire per ogni valore di
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> utilizziamo la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">case</code>. Sintassi:
+</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">switch</span> (a) {
     <span style="font-weight: 700;">case</span> <span style="color: #444">b</span>:
     <span style="color: #888">// Azioni da eseguire se il valore di `a` è uguale a quello di `b`</span>
@@ -1115,11 +1844,21 @@ espressione è veritiera;</li>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code>: I valori di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>. Se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> corrisponde a quel valore, allora le azioni dopo i due punti
-vengono eseguite.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>,
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code>: I valori di
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>. Se
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> corrisponde a quel
+		valore, allora le azioni dopo i due punti vengono eseguite.
+	</li>
 </ul>
-<p>Può essere anche aggiunta una azione da eseguire quando il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> è diverso da tutti quelli
-elencati con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">case</code>. In questo caso utilizziamo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">default</code>.</p>
+<p>
+	Può essere anche aggiunta una azione da eseguire quando il valore di
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> è diverso da tutti
+	quelli elencati con <code style="padding: 3px 5px; background: #f0f0f0; color: #444">case</code>.
+	In questo caso utilizziamo la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">default</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">switch</span> (a) {
     <span style="font-weight: 700;">case</span> <span style="color: #444">b</span>:
@@ -1130,9 +1869,13 @@ elencati con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c
     <span style="color: #888">// Azioni da eseguire se il valore di `a` non corrisponde a nessuno di quelli elencati (`b`, `...`)</span>
 }
 </code></pre>
-<p>Per far sì che lo switch si fermi dopo aver eseguito le azioni nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">case</code>, dobbiamo aggiungere la
-parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">break</code>. Omettendo questa parola alla fine delle azioni il codice nello switch andrà avanti e
-le azioni nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">default</code> verranno eseguite.</p>
+<p>
+	Per far sì che lo switch si fermi dopo aver eseguito le azioni nel
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">case</code>, dobbiamo aggiungere
+	la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444">break</code>. Omettendo
+	questa parola alla fine delle azioni il codice nello switch andrà avanti e le azioni nel
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">default</code> verranno eseguite.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">switch</span> (a) {
     <span style="font-weight: 700;">case</span> <span style="color: #444">b</span>:
@@ -1159,8 +1902,28 @@ le azioni nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">
     <span style="color: #888">// Questa azione verrà eseguita se `expr` non è nessuno dei valori sopra indicati</span>
 }
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">continue</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...of</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a></h3>
-<p>Con la parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for</code> possiamo creare un loop che si basa su 3 espressioni.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">for</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">continue</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">for...of</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">for...in</code></a
+	>
+</h3>
+<p>
+	Con la parola chiave
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">for</code> possiamo creare un
+	loop che si basa su 3 espressioni.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">for</span> (a; b; c) {
     <span style="color: #888">// Codice da eseguire nel loop</span>
@@ -1169,42 +1932,81 @@ le azioni nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">
 <span style="font-weight: 700;">for</span> (a; b; c) d;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Espressione per creare una variabile da utilizzare nel loop. Generalmente si inizializza a
-<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">0</code>;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Condizione che verrà verificata per decidere se il loop deve continuare o no;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Azione da eseguire alla fine di ogni esecuzione del codice nel loop;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Singola azione da eseguire nel loop.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Espressione per
+		creare una variabile da utilizzare nel loop. Generalmente si inizializza a
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">0</code>;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Condizione che verrà
+		verificata per decidere se il loop deve continuare o no;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">c</code>: Azione da eseguire
+		alla fine di ogni esecuzione del codice nel loop;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code>: Singola azione da
+		eseguire nel loop.
+	</li>
 </ul>
-<p>Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola.
-Ometterle tutte crea un loop infinito che va bloccato manualmente.</p>
-<p>Nel codice possiamo utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">break</code> per uscire dal loop.</p>
-<p>Se invece vogliamo passare all’esecuzione successiva prima che il codice termini possiamo utilizzare
-la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">continue</code>.</p>
+<p>
+	Tutte le espressioni sono facoltative ma è comunque obbligatorio aggiungere i punti e virgola.
+	Ometterle tutte crea un loop infinito che va bloccato manualmente.
+</p>
+<p>
+	Nel codice possiamo utilizzare
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">break</code> per uscire dal loop.
+</p>
+<p>
+	Se invece vogliamo passare all’esecuzione successiva prima che il codice termini possiamo
+	utilizzare la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">continue</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">continue</span>;
 </code></pre>
-<p>Ci sono poi 2 speciali utilizzi del for loop: <em>for…of</em> e <em>for…in</em>. Anche qui possiamo omettere
-le parentesi graffe nel caso volessimo eseguire una sola azione.</p>
-<p>Un <em>for…of</em> loop esegue un’azione per ogni elemento di un array o carattere di una stringa, o
-elemento di altre strutture compatibili.</p>
+<p>
+	Ci sono poi 2 speciali utilizzi del for loop: <em>for…of</em> e <em>for…in</em>. Anche qui
+	possiamo omettere le parentesi graffe nel caso volessimo eseguire una sola azione.
+</p>
+<p>
+	Un <em>for…of</em> loop esegue un’azione per ogni elemento di un array o carattere di una stringa,
+	o elemento di altre strutture compatibili.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">for</span> (a <span style="font-weight: 700;">of</span> b) {
     <span style="color: #888">// Azioni da eseguire per ogni elemento di `b`. `a` sarà un riferimento a quell&#x27;elemento</span>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Nome della variabile che rappresenterà l’elemento ad ogni esecuzione;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Un array, stringa o qualsiasi altro elemento supporti questa iterazione.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Nome della variabile
+		che rappresenterà l’elemento ad ogni esecuzione;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Un array, stringa o
+		qualsiasi altro elemento supporti questa iterazione.
+	</li>
 </ul>
-<p>Un <em>for…in</em> loop permette di eseguire un’azione per ogni <em>property</em> di un <em>object</em></p>
+<p>
+	Un <em>for…in</em> loop permette di eseguire un’azione per ogni <em>property</em> di un
+	<em>object</em>
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">for</span> (a <span style="font-weight: 700;">in</span> b) {
     <span style="color: #888">// Azioni da eseguire per ogni proprietà di `b`. `a` sarà un riferimento a quella proprietà</span>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Nome della variabile che rappresenterà la proprietà ad ogni esecuzione;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Un qualsiasi <em>object</em>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Nome della variabile
+		che rappresenterà la proprietà ad ogni esecuzione;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Un qualsiasi
+		<em>object</em>.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> text = <span style="color: #800;">&quot;&quot;</span>; <span style="color: #888">// Creiamo una stringa vuota</span>
@@ -1230,10 +2032,20 @@ elemento di altre strutture compatibili.</p>
     <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">`<span class="hljs-subst">${property}</span>: <span class="hljs-subst">${object[property]}</span>`</span>); <span style="color: #888">// &quot;a: 1&quot;, &quot;b: 2&quot;, &quot;c: 3&quot;</span>
 }
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">while</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">do...while</code></a></h3>
-<p>Un <em>while loop</em> è un loop che esegue una determinata azione finchè una condizione è
-<a href="#espressione-veritiera">veritiera</a>. Una specie di <a href="#for--continue--forof--forin">for loop</a> molto
-semplificato.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">while</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">do...while</code></a
+	>
+</h3>
+<p>
+	Un <em>while loop</em> è un loop che esegue una determinata azione finchè una condizione è
+	<a href="#espressione-veritiera">veritiera</a>. Una specie di
+	<a href="#for--continue--forof--forin">for loop</a> molto semplificato.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">while</span> (a) {
     <span style="color: #888">// Azioni da eseguire quando la condizione `a` è veritiera</span>
@@ -1242,9 +2054,15 @@ semplificato.</p>
 <span style="font-weight: 700;">while</span> (a) b;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Condizione da verificare prima di ogni esecuzione. Se è veritiera, allora il codice nel loop
-viene eseguito, in caso contrario il codice va avanti;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Azione da eseguire quando a è un’espressione veritiera.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Condizione da
+		verificare prima di ogni esecuzione. Se è veritiera, allora il codice nel loop viene eseguito,
+		in caso contrario il codice va avanti;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Azione da eseguire
+		quando a è un’espressione veritiera.
+	</li>
 </ul>
 <p>Possiamo affermare che sia l’equivalente del seguente codice eseguito all’infinito:</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (a) {
@@ -1253,8 +2071,10 @@ viene eseguito, in caso contrario il codice va avanti;</li>
 <span style="color: #888">// Se vogliamo eseguire solo un&#x27;azione possiamo utilizzare:</span>
 <span style="font-weight: 700;">if</span> (a) b;
 </code></pre>
-<p>Se vogliamo invece controllare la condizione <strong>dopo</strong> l’esecuzione, allora possiamo usare il
-<em>do…while</em> loop.</p>
+<p>
+	Se vogliamo invece controllare la condizione <strong>dopo</strong> l’esecuzione, allora possiamo
+	usare il <em>do…while</em> loop.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">do</span> {
     <span style="color: #888">// Azioni da eseguire nel loop prima di controllare la condizione</span>
@@ -1280,8 +2100,20 @@ viene eseguito, in caso contrario il codice va avanti;</li>
 
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(str); <span style="color: #888">// &quot;12345&quot;</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return</code></a></h3>
-<p>La parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code> serve per creare una funzione JavaScript.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">function</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">return</code></a
+	>
+</h3>
+<p>
+	La parola chiave
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">function</code> serve per creare
+	una funzione JavaScript.
+</p>
 <p><strong>Vedremo questa struttura nel dettaglio in un altro articolo.</strong></p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/* b, ... */</span></span>) {
@@ -1289,20 +2121,31 @@ viene eseguito, in caso contrario il codice va avanti;</li>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Nome della funzione da creare;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...</code>: Lista dei parametri della funzione. Facoltativo, una funzione può anche non avere
-parametri.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Nome della funzione
+		da creare;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b, ...</code>: Lista dei
+		parametri della funzione. Facoltativo, una funzione può anche non avere parametri.
+	</li>
 </ul>
 <p>La funzione verrà poi chiamata nel seguente modo:</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #800; font-weight: 700;">a</span>(<span style="color: #888">/* b , ... */</span>);
 </code></pre>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return</code> indica il valore che verrà restituito dalla funzione.</p>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">return</code> indica il valore
+	che verrà restituito dalla funzione.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">return</span> a;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il valore da restituire. È facoltativo e può essere omesso nel caso non si voglia restituire
-nessun valore (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return;</code>).</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il valore da
+		restituire. È facoltativo e può essere omesso nel caso non si voglia restituire nessun valore
+		(<code style="padding: 3px 5px; background: #f0f0f0; color: #444">return;</code>).
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">/**
@@ -1338,22 +2181,50 @@ nessun valore (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;"
 
 <span style="color: #800; font-weight: 700;">logSus</span>(); <span style="color: #888">// &quot;Sus&quot;</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">async</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">await</code></a></h3>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">async</code> viene utilizzata prima della parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code> per abilitare l’uso della parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">await</code>
-all’interno della funzione.</p>
-<p>Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code>, il cui
-valore da restituire sarà quello restituito dalla funzione.</p>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">async</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">await</code></a
+	>
+</h3>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">async</code> viene utilizzata
+	prima della parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">function</code> per abilitare
+	l’uso della parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">await</code> all’interno della
+	funzione.
+</p>
+<p>
+	Se questa parola chiave viene utilizzata, la funzione restituirà sicuramente una
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Promise</code>, il cui valore da
+	restituire sarà quello restituito dalla funzione.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">async</span> <span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/* b, ... */</span></span>) {
     <span style="color: #888">// Azioni da eseguire nella funzione. È possibile utilizzare la parola chiave `await`</span>
 }
 </code></pre>
-<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">await</code> viene usata prima di una <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code> per far sì che il codice corrente si blocchi fino a che
-quella <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code> non viene completata. Sintassi:</p>
+<p>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">await</code> viene usata prima di
+	una <code style="padding: 3px 5px; background: #f0f0f0; color: #444">Promise</code> per far sì che
+	il codice corrente si blocchi fino a che quella
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Promise</code> non viene
+	completata. Sintassi:
+</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">await</span> a;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: La <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code> da attendere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code>.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: La
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Promise</code> da attendere.
+		<strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Promise</code>.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">/**
@@ -1372,9 +2243,16 @@ quella <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise
 
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800; font-weight: 700;">wait</span>(<span style="color: #800;">1000</span>)); <span style="color: #888">// Promise { &lt;pending&gt; }</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">try...catch</code></a></h3>
-<p>Le paroli <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">try</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">catch</code> servono per eseguire una determinata azione nel caso si verifichi un error
-nel codice.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">try...catch</code></a
+	>
+</h3>
+<p>
+	Le paroli <code style="padding: 3px 5px; background: #f0f0f0; color: #444">try</code> e
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">catch</code> servono per eseguire
+	una determinata azione nel caso si verifichi un error nel codice.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">try</span> {
     <span style="color: #888">// Codice da provare</span>
@@ -1383,7 +2261,10 @@ nel codice.</p>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome da assegnare alla variabile che conterrà l’errore.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome da assegnare
+		alla variabile che conterrà l’errore.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = <span style="color: #800;">&quot;Sus&quot;</span>;
@@ -1393,16 +2274,35 @@ nel codice.</p>
     <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">error</span>(error); <span style="color: #888">// ReferenceError: b is not defined</span>
 }
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">throw</code></a></h3>
-<p>Con la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">throw</code> possiamo generare un errore e bloccare il codice corrente.</p>
-<p>Funziona alla stessa maniera di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return</code>, ma con la differenza che invece di restituire un valore
-comunica all’utente che un errore si è verificato e il codice non può continuare. Per far si che il
-processo in corso continui bisogna gestire l’errore utilizzando un <a href="#trycatch"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">try...catch</code></a> block.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">throw</code></a
+	>
+</h3>
+<p>
+	Con la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">throw</code> possiamo generare un
+	errore e bloccare il codice corrente.
+</p>
+<p>
+	Funziona alla stessa maniera di
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">return</code>, ma con la
+	differenza che invece di restituire un valore comunica all’utente che un errore si è verificato e
+	il codice non può continuare. Per far si che il processo in corso continui bisogna gestire
+	l’errore utilizzando un
+	<a href="#trycatch"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">try...catch</code></a
+	>
+	block.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">throw</span> a;
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: L’errore da generare. Può essere qualsiasi valore, ma è obbligatorio.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: L’errore da generare.
+		Può essere qualsiasi valore, ma è obbligatorio.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">// Creiamo una funzione che calcola l&#x27;area di un rettangolo con base e altezza</span>
@@ -1419,11 +2319,41 @@ processo in corso continui bisogna gestire l’errore utilizzando un <a href="#t
     <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">error</span>(e); <span style="color: #888">// &quot;Non hai fornito numeri validi!&quot;</span>
 }
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">extends</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">static</code></a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new</code></a></h3>
-<p>Con la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code> possiamo creare una nuova <em>Classe</em>.</p>
-<p>Le classi, in JavaScript, possono generare degli <em>object</em> con gli stessi elementi e metodi che però
-possono avere valori diversi. Sono praticamente dei <em>template</em> che possono cambiare a seconda dei
-dati forniti e dei metodi utilizzati.</p>
+<h3>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">class</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">this</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">extends</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">super</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">static</code></a
+	>
+	/
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">new</code></a
+	>
+</h3>
+<p>
+	Con la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">class</code> possiamo creare una
+	nuova <em>Classe</em>.
+</p>
+<p>
+	Le classi, in JavaScript, possono generare degli <em>object</em> con gli stessi elementi e metodi
+	che però possono avere valori diversi. Sono praticamente dei <em>template</em> che possono
+	cambiare a seconda dei dati forniti e dei metodi utilizzati.
+</p>
 <p><strong>Vedremo questa struttura nel dettaglio in un altro articolo.</strong></p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">a</span> {
@@ -1431,38 +2361,68 @@ dati forniti e dei metodi utilizzati.</p>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della classe.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Il nome della classe.
+	</li>
 </ul>
-<p>Nella classe possiamo riferirci all’elemento istanziato e modificarlo grazie alla parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>.</p>
+<p>
+	Nella classe possiamo riferirci all’elemento istanziato e modificarlo grazie alla parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">this</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #bc6060;">this</span>; <span style="color: #888">// Riferimento all&#x27;oggetto istanziato</span>
 </code></pre>
-<p>Se abbiamo già un’altra classe da cui vogliamo creare la nostra, allora possiamo estenderla con la
-parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">extends</code>.</p>
+<p>
+	Se abbiamo già un’altra classe da cui vogliamo creare la nostra, allora possiamo estenderla con la
+	parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444">extends</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">a</span> <span style="font-weight: 700;">extends</span> <span class="hljs-title class_ inherited__">b</span> {
     <span style="color: #888">// Elementi di questa classe</span>
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: La classe da estendere.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: La classe da
+		estendere.
+	</li>
 </ul>
-<p>Lavorando ad una classe che ne estende un’altra, potremo aver bisogno di accedere a metodi presenti
-nella classe estesa. In questo caso possiamo utilizzare la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code> per fare riferimento ad
-essa.</p>
+<p>
+	Lavorando ad una classe che ne estende un’altra, potremo aver bisogno di accedere a metodi
+	presenti nella classe estesa. In questo caso possiamo utilizzare la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">super</code> per fare riferimento
+	ad essa.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #bc6060;">super</span>(<span style="color: #888">/* a, ... */</span>); <span style="color: #888">// Chiamiamo la classe estesa</span>
 <span style="color: #bc6060;">super</span>.<span style="color: #800; font-weight: 700;">b</span>(<span style="color: #888">/* c, ... */</span>); <span style="color: #888">// Chiamiamo un metodo della classe estesa</span>
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code>: Parametri da passare al
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></a>
-della classe estesa;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Nome del metodo della classe da chiamare;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code>: Parametri da passare al metodo della classe estesa.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>,
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code>: Parametri da
+		passare al
+		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor"
+			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">constructor</code></a
+		>
+		della classe estesa;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Nome del metodo della
+		classe da chiamare;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">c</code>,
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code>: Parametri da
+		passare al metodo della classe estesa.
+	</li>
 </ul>
-<p>In una classe possiamo anche aggiungere metodi statici, che non hanno quindi bisogno di <em>istanziare</em>
-la classe. Per farlo aggiungiamo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">static</code> prima del nome del metodo.</p>
+<p>
+	In una classe possiamo anche aggiungere metodi statici, che non hanno quindi bisogno di
+	<em>istanziare</em> la classe. Per farlo aggiungiamo
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">static</code> prima del nome del
+	metodo.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">a</span> {
     <span style="font-weight: 700;">static</span> <span style="color: #800; font-weight: 700;">b</span>(<span class="hljs-params"><span style="color: #888">/* c, ... */</span></span>) {
@@ -1471,16 +2431,34 @@ la classe. Per farlo aggiungiamo <code style="padding: 3px 5px; background: #f0f
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Nome del metodo statico;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code>: Lista dei parametri per questo metodo;</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Nome del metodo
+		statico;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">c</code>,
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code>: Lista dei parametri
+		per questo metodo;
+	</li>
 </ul>
-<p>Per instanziare un nuovo oggetto appartenente ad una classe, utilizziamo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new</code>.</p>
+<p>
+	Per instanziare un nuovo oggetto appartenente ad una classe, utilizziamo la parola
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">new</code>.
+</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">a</span>(<span style="color: #888">/* b, ... */</span>);
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Classe da costruire;</li>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...</code>: Parametri da passare alla funzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code> della classe.</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Classe da costruire;
+	</li>
+	<li>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>,
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">...</code>: Parametri da
+		passare alla funzione
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">constructor</code> della
+		classe.
+	</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="color: #888">// Creiamo una classe chiamata Square che rappresenterà un quadrato</span>
@@ -1532,12 +2510,30 @@ la classe. Per farlo aggiungiamo <code style="padding: 3px 5px; background: #f0f
 </code></pre>
 <h2>Conclusione</h2>
 <p>In questo articolo abbiamo visto molte funzioni utile del javascript.</p>
-<p>Con gli operatori potremo eseguire tutti i nostri calcoli, controlli etc… in modo estremamente
-facile, mentre, grazie alle parole chiave, possiamo implementare nel nostro codice qualsiasi cosa,
-come loop, con <a href="#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for</code></a> e <a href="#while--dowhile"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">while</code></a>, azioni differenti
-in base a condizioni, con <a href="#if--else"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if...else</code></a>, salvare dei valori, con
-<a href="#const--let"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code></a>, o creare object con metodi predefiniti, con
-<a href="#class--this--extends--super--static--new"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code></a>.</p>
-<p>Nel prossimo articolo andremo più a fondo con le variabili per imparare come dichiararle
-correttamente e cambiarne il valore.</p>
+<p>
+	Con gli operatori potremo eseguire tutti i nostri calcoli, controlli etc… in modo estremamente
+	facile, mentre, grazie alle parole chiave, possiamo implementare nel nostro codice qualsiasi cosa,
+	come loop, con
+	<a href="#for--continue--forof--forin"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">for</code></a
+	>
+	e
+	<a href="#while--dowhile"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">while</code></a
+	>, azioni differenti in base a condizioni, con
+	<a href="#if--else"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">if...else</code></a
+	>, salvare dei valori, con
+	<a href="#const--let"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code> e
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code></a
+	>, o creare object con metodi predefiniti, con
+	<a href="#class--this--extends--super--static--new"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">class</code></a
+	>.
+</p>
+<p>
+	Nel prossimo articolo andremo più a fondo con le variabili per imparare come dichiararle
+	correttamente e cambiarne il valore.
+</p>
 <h3><strong>Good Coding!</strong></h3>

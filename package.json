@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node .",
-    "html": "cd html-pages && npm ci && npm start"
+    "html": "npx prettier --write guides && rm pages/*.html && cd html-pages && npm ci && npm start && cd .. && npx prettier --write pages",
+    "lint": "npx eslint src --fix",
+    "commit": "git add . && git config user.name \"${GITHUB_ACTOR}\" && git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\" && git commit -m \"chore: deploy pages and lint source\" || true && git push"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/DTrombett/guide-bot/issues"
   },
-  "homepage": "https://github.com/DTrombett/guide-bot#readme"
+  "homepage": "https://github.com/DTrombett/guide-bot#readme",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^16.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
+  }
 }
