@@ -254,14 +254,9 @@ tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">len
 	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">toString</code>.
 </p>
 <p><strong>Sintassi:</strong></p>
-<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(v);
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">object.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(v);
 </code></pre>
 <ul>
-	<li>
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Un qualsiasi oggetto
-		valido. <strong>Type:</strong>
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Object</code>;
-	</li>
 	<li>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">v</code>: La proprietà da
 		controllare. <strong>Type:</strong>
@@ -298,4 +293,40 @@ example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span
 example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;hasOwnProperty&quot;</span>); <span style="color: #888">// false - Anche questo è un metodo nativo</span>
 
 <span style="color: #800;">&quot;toString&quot;</span> <span style="font-weight: 700;">in</span> example; <span style="color: #888">// true - L&#x27;operatore `in` non controlla se la proprietà è nativa</span>
+</code></pre>
+<h3>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"
+		><code style="padding: 3px 5px; background: #f0f0f0; color: #444">Object#toString()</code></a
+	>
+</h3>
+<p>
+	Converte l’object in stringa. Questo metodo differisce in base al tipo di object, infatti, degli
+	object nativi non possono essere convertiti e viene restituito
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">[object Object]</code>.
+</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">object.<span style="color: #800; font-weight: 700;">toString</span>();
+</code></pre>
+<p>
+	<strong>Restituisce:</strong>
+	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">string</code> - L’object
+	convertito in stringa.
+</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Dog</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">name, breed, color, sex</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">name</span> = name;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">breed</span> = breed;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">color</span> = color;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">sex</span> = sex;
+    }
+}
+
+theDog = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Dog</span>(<span style="color: #800;">&quot;Gabby&quot;</span>, <span style="color: #800;">&quot;Lab&quot;</span>, <span style="color: #800;">&quot;chocolate&quot;</span>, <span style="color: #800;">&quot;female&quot;</span>);
+
+theDog.<span style="color: #800; font-weight: 700;">toString</span>(); <span style="color: #888">// [object Object]</span>
+
+<span style="font-weight: 700;">const</span> i = <span style="color: #800;">10</span>;
+i.<span style="color: #800; font-weight: 700;">toString</span>(); <span style="color: #888">// &quot;10&quot;</span>
 </code></pre>
