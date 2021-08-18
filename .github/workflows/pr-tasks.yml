@@ -1,0 +1,20 @@
+name: Run tasks on Pull Request
+
+on: pull_request
+
+jobs:
+  pr-tasks:
+    name: Run tasks on Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Merge base branch
+        run: |
+          git merge ${GITHUB_HEAD_REF}
+
+      - name: Commit changes
+        run: npm run commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
