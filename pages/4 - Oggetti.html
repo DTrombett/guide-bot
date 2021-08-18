@@ -1,7 +1,11 @@
 <h1>Oggetti</h1>
 <p>
-	Il JavaScript è un linguaggio che si basa sugli <em>object</em>. Un object è una collezione di
-	proprietà, ossia delle associazioni tra una chiave e un valore.
+	Il JavaScript è un linguaggio che si basa sugli
+	<em
+		><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects"
+			>object</a
+		></em
+	>. Un object è una collezione di proprietà, ossia delle associazioni tra una chiave e un valore.
 </p>
 <h2>Come funzionano gli object?</h2>
 <p>
@@ -24,7 +28,7 @@ a.<span class="hljs-property">b</span> = c; <span style="color: #888">// Specifi
 	<li>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: L’oggetto che stiamo
 		leggendo. <strong>Type:</strong>
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">{}</code>;
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Object</code>;
 	</li>
 	<li>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Il nome della
@@ -67,7 +71,12 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&qu
 <span style="color: #888">// Console: undefined</span>
 <span style="color: #888">// Se una proprietà non esiste, verrà restituito `undefined`</span>
 </code></pre>
-<h2>Index access</h2>
+<h2>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#bracket_notation"
+		>Bracket notation</a
+	>
+</h2>
 <p>
 	Le proprietà di un object possono essere semplici stringhe, come
 	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">larghezza</code> o
@@ -78,7 +87,7 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&qu
 	Purtroppo, però, possiamo utilizzare il punto per accedere ad una proprietà solo se il suo nome è
 	una stringa, inizia con una lettera e non contiene spazi.
 </p>
-<p>In caso contrario, dobbiamo utilizzare l’<strong>index access</strong>.</p>
+<p>In caso contrario, dobbiamo utilizzare la <em>bracket notation</em>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> tazza = {};
 tazza[<span style="color: #800;">&quot;data creazione&quot;</span>] = <span style="color: #800;">2000</span>; <span style="color: #888">// Impostiamo la proprietà &quot;data creazione&quot; a `2000`</span>
@@ -151,8 +160,11 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>); <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
 </code></pre>
 <h2>
-	Optional chaining operator:
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">?.</code>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+		>Optional chaining operator:
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">?.</code></a
+	>
 </h2>
 <p>
 	Per evitare questi errori con valori che possono essere
@@ -172,7 +184,8 @@ b?.(<span style="color: #888">/** e, ... */</span>);
 <ul>
 	<li>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>: Un qualsiasi object
-		che può avere un valore nullo;
+		che può avere un valore nullo. <strong>Type:</strong>
+		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">unknown</code>.
 	</li>
 	<li>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>: Una funzione che può
@@ -203,7 +216,11 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">
 tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">length</span>; <span style="color: #888">// undefined</span>
 <span style="color: #888">// Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito</span>
 </code></pre>
-<h2>Object</h2>
+<h2>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+		>Object</a
+	>
+</h2>
 <p>
 	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">Object</code> è una variabile
 	globale, nonché una classe a cui appartengono tutti gli objects.
@@ -261,7 +278,7 @@ tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">len
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">v</code>: La proprietà da
 		controllare. <strong>Type:</strong>
 		<code style="padding: 3px 5px; background: #f0f0f0; color: #444"
-			>type PropertyKey = string | number | symbol</code
+			>PropertyKey = string | number | symbol</code
 		>.
 	</li>
 </ul>
