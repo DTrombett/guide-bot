@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node .",
-    "html": "npx prettier --write guides && rm pages/*.html && cd html-pages && npm ci && npm start",
+    "html": "npx prettier --write guides/*.md && rm pages/*.html && cd html-pages && npm ci && npm start",
     "lint": "npx eslint src --fix"
   },
   "repository": {
