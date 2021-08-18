@@ -187,10 +187,9 @@ Controlla se un object ha una certa proprietà, escludendo le proprietà e i met
 **Sintassi:**
 
 ```js
-a.hasOwnProperty(v);
+object.hasOwnProperty(v);
 ```
 
-- `a`: Un qualsiasi oggetto valido. **Type:** `Object`;
 - `v`: La proprietà da controllare. **Type:** `type PropertyKey = string | number | symbol`.
 
 **Restituisce:** `boolean` - `true` se la proprietà esiste e non è nativa, `false` in caso contrario.
@@ -218,4 +217,36 @@ example.hasOwnProperty("toString"); // false - È un metodo nativo
 example.hasOwnProperty("hasOwnProperty"); // false - Anche questo è un metodo nativo
 
 "toString" in example; // true - L'operatore `in` non controlla se la proprietà è nativa
+```
+
+### [`Object#toString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
+
+Converte l'object in stringa. Questo metodo differisce in base al tipo di object, infatti, degli object nativi non possono essere convertiti e viene restituito `[object Object]`.
+
+**Sintassi:**
+
+```js
+object.toString();
+```
+
+**Restituisce:** `string` - L'object convertito in stringa.
+
+**Esempi:**
+
+```js
+class Dog {
+	constructor(name, breed, color, sex) {
+		this.name = name;
+		this.breed = breed;
+		this.color = color;
+		this.sex = sex;
+	}
+}
+
+theDog = new Dog("Gabby", "Lab", "chocolate", "female");
+
+theDog.toString(); // [object Object]
+
+const i = 10;
+i.toString(); // "10"
 ```
