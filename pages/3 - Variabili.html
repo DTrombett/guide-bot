@@ -1,230 +1,115 @@
 <h1>Variabili</h1>
 <p>In questo nuovo articolo andremo ad osservare le variabili nel JavaScript!</p>
-<p>
-	Grazie alle variabili possiamo salvare degli elementi per poterli riutilizzare e modificare nello
-	stesso codice.
-</p>
-<p>
-	Se una variabile non dovrà mai essere riassegnata (quindi modificata), allora si chiamerà
-	<strong>costante</strong>.
-</p>
+<p>Grazie alle variabili possiamo salvare degli elementi per poterli riutilizzare e modificare nello stesso codice.</p>
+<p>Se una variabile non dovrà mai essere riassegnata (quindi modificata), allora si chiamerà <strong>costante</strong>.</p>
 <p>Ora iniziamo a vedere come creare una variabile.</p>
 <h2>Dichiarare una variabile</h2>
 <p>Per dichiarare una variabile abbiamo bisogno di una delle seguenti parole chiave:</p>
 <ul>
-	<li>
-		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
-			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">var</code></a
-		>: Dichiara una variabile classica, è sconsigliato utilizzare questa parola chiave per creare
-		una variabile, in quanto ci sono vari problemi che ne derivano, perciò noi non utilizzeremo mai
-		questa parola chiave nel nostro codice:
-		<ul>
-			<li>
-				Queste variabili sono accessibili in tutto il file, ciò significa che dichiarare una
-				variabile, ad esempio, all’interno di una condizione
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code>, la dichiara
-				anche all’esterno. Questo, però, significa che, all’esterno della condizione, la variabile
-				può essere dichiarata come non esserlo.
-				<strong>Esempio:</strong>
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (expr) {
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">var</code></a>: Dichiara una variabile classica, è sconsigliato utilizzare questa parola chiave per creare una variabile, in quanto ci sono vari problemi che ne derivano, perciò noi non utilizzeremo mai questa parola chiave nel nostro codice:
+<ul>
+<li>Queste variabili sono accessibili in tutto il file, ciò significa che dichiarare una variabile, ad esempio, all’interno di una condizione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code>, la dichiara anche all’esterno.
+Questo, però, significa che, all’esterno della condizione, la variabile può essere dichiarata come non esserlo.
+<strong>Esempio:</strong>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (expr) {
     <span style="font-weight: 700;">var</span> a = <span style="color: #800;">5</span>;
 }
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a); <span style="color: #888">// `a` è definita oppure no?</span>
-</code></pre>
-			</li>
-			<li>
-				Possiamo dichiarare in qualsiasi punto del codice le nostre variabili, ma risulteranno
-				sempre definite, anche prima della loro dichiarazione, ma ciò può portare a risultati
-				inaspettati o a pensare che la variabile abbia un altro valore.
-				<strong>Esempio:</strong>
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a = <span style="color: #800;">10</span>;
+</code></pre></li>
+<li>Possiamo dichiarare in qualsiasi punto del codice le nostre variabili, ma risulteranno sempre definite, anche prima della loro dichiarazione, ma ciò può portare a risultati inaspettati o a pensare che la variabile abbia un altro valore.
+<strong>Esempio:</strong>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a = <span style="color: #800;">10</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a); <span style="color: #888">// Quale sarà il valore di `a`?</span>
 <span style="font-weight: 700;">var</span> a = <span style="color: #800;">5</span>;
-</code></pre>
-			</li>
-			<li>
-				Queste variabili possono essere dichiarate nuovamente, cosa molto confusionaria e che può
-				portare a problemi.
-				<strong>Esempio:</strong>
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">var</span> x = <span style="color: #800;">5</span>;
+</code></pre></li>
+<li>Queste variabili possono essere dichiarate nuovamente, cosa molto confusionaria e che può portare a problemi.
+<strong>Esempio:</strong>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">var</span> x = <span style="color: #800;">5</span>;
 <span style="font-weight: 700;">var</span> a = <span style="color: #800;">7</span>;
 <span style="font-weight: 700;">var</span> x = a; <span style="color: #888">// Abbiamo dichiarato nuovamente la variabile?!</span>
 <span style="color: #888">// O l&#x27;abbiamo solo riassegnata?</span>
 <span style="color: #888">// E questo significa che possiamo utilizzare gli operatori come `var x += a`?</span>
-</code></pre>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"
-			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code></a
-		>: Con questa parola chiave possiamo creare variabili che possono essere riassegnate e non
-		ridichiarate ma non si puó accedere ad essa senza una loro dichiarazione. Inoltre sono
-		<em>block scoped</em>, cioè limitate allo <em>scope</em> in cui si trovano. Uno <em>scope</em>,
-		in JavaScript, è lo spazio dove le variabili sono accessibili. Ci sono 3 tipi di <em>scope</em>:
-		<ul>
-			<li>
-				<strong>Global Scope</strong>: È lo <em>scope</em> globale, con tutte le variabili
-				dichiarate fuori da qualsiasi blocco di parentesi graffe e sono disponibili in tutto il
-				file;
-			</li>
-			<li>
-				<strong>Function Scope</strong>: È lo <em>scope</em> di una funzione, con tutte le variabili
-				dichiarate all’interno di una funzione che <strong>non</strong> possono essere utilizzate al
-				di fuori, farlo produrrebbe un
-				<a
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined#wrong_scope"
-					><code style="padding: 3px 5px; background: #f0f0f0; color: #444">ReferenceError</code></a
-				>;
-			</li>
-			<li>
-				<strong>Block Scope</strong>: È lo <em>scope</em> che si crea all’interno di qualsiasi
-				parentesi graffa, come un
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">if</code>. Creare una
-				variabile all’interno di parentesi graffe significa non poterla utilizzare all’esterno, come
-				nelle funzioni. Bisogna, perciò, fare attenzione se vogliamo assegnare una variabile a
-				seconda di una condizione, come nel seguente esempio:
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (expr)
+</code></pre></li>
+</ul></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code></a>: Con questa parola chiave possiamo creare variabili che possono essere riassegnate e non ridichiarate ma non si puó accedere ad essa senza una loro dichiarazione.
+Inoltre sono <em>block scoped</em>, cioè limitate allo <em>scope</em> in cui si trovano.
+Uno <em>scope</em>, in JavaScript, è lo spazio dove le variabili sono accessibili.
+Ci sono 3 tipi di <em>scope</em>:
+<ul>
+<li><strong>Global Scope</strong>: È lo <em>scope</em> globale, con tutte le variabili dichiarate fuori da qualsiasi blocco di parentesi graffe e sono disponibili in tutto il file;</li>
+<li><strong>Function Scope</strong>: È lo <em>scope</em> di una funzione, con tutte le variabili dichiarate all’interno di una funzione che <strong>non</strong> possono essere utilizzate al di fuori, farlo produrrebbe un <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined#wrong_scope"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ReferenceError</code></a>;</li>
+<li><strong>Block Scope</strong>: È lo <em>scope</em> che si crea all’interno di qualsiasi parentesi graffa, come un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code>.
+Creare una variabile all’interno di parentesi graffe significa non poterla utilizzare all’esterno, come nelle funzioni.
+Bisogna, perciò, fare attenzione se vogliamo assegnare una variabile a seconda di una condizione, come nel seguente esempio:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">if</span> (expr)
   <span style="font-weight: 700;">let</span> a = <span style="color: #800;">10</span>;
 <span style="font-weight: 700;">else</span>
   <span style="font-weight: 700;">let</span> a = <span style="color: #800;">15</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a);
 </code></pre>
-				Qui potremmo aspettarci che
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> sia 10 o 15 a
-				seconda della condizione, ma non è così, perché abbiamo dichiarato
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> all’interno di un
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">if...else</code> ad una
-				sola condizione, che ha implicitamente delle parentesi graffe, perciò
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">console.log(a)</code> si
-				trova all’esterno dello scope della variabile
-				<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code> ed un errore viene
-				mostrato. Per evitare questo errore possiamo dichiarare prima la variabile, senza
-				inizializzarla, e poi modificarla all’interno dell’<code
-					style="padding: 3px 5px; background: #f0f0f0; color: #444"
-					>if...else</code
-				>:
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a;
+Qui potremmo aspettarci che <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> sia 10 o 15 a seconda della condizione, ma non è così, perché abbiamo dichiarato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> all’interno di un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if...else</code> ad una sola condizione, che ha implicitamente delle parentesi graffe, perciò <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">console.log(a)</code> si trova all’esterno dello scope della variabile <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> ed un errore viene mostrato.
+Per evitare questo errore possiamo dichiarare prima la variabile, senza inizializzarla, e poi modificarla all’interno dell’<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if...else</code>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a;
 <span style="font-weight: 700;">if</span> (expr) a = <span style="color: #800;">10</span>;
 <span style="font-weight: 700;">else</span> a = <span style="color: #800;">15</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a); <span style="color: #888">// Ora `a` sarà definita perché è stata dichiarata fuori dalla condizione</span>
 </code></pre>
-				Per evitare questo codice molto lungo, possiamo utilizzare il
-				<em>conditional (ternary) operator</em>:
-				<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = expr ? <span style="color: #800;">10</span> : <span style="color: #800;">15</span>;
+Per evitare questo codice molto lungo, possiamo utilizzare il <em>conditional (ternary) operator</em>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = expr ? <span style="color: #800;">10</span> : <span style="color: #800;">15</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a);
-</code></pre>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"
-			><code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code></a
-		>: Con questa parola chiave possiamo creare una <em>costante</em>. Anche qui vale lo stesso
-		della precedente, con la differenza che non può essere riassegnata e farlo produrrebbe un
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">TypeError</code>:
-		<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = <span style="color: #800;">15</span>;
+</code></pre></li>
+</ul></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code></a>: Con questa parola chiave possiamo creare una <em>costante</em>.
+Anche qui vale lo stesso della precedente, con la differenza che non può essere riassegnata e farlo produrrebbe un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">TypeError</code>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = <span style="color: #800;">15</span>;
 <span style="font-weight: 700;">if</span> (expr) a = <span style="color: #800;">20</span>; <span style="color: #888">// TypeError: Invalid assignment to const a</span>
 </code></pre>
-		Anche <code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code> è
-		<em>block scoped</em> e non può essere ridichiarata, inoltre utilizzarla prima della sua
-		dichiarazione produce un
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">ReferenceError</code>.
-	</li>
+Anche <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code> è <em>block scoped</em> e non può essere ridichiarata, inoltre utilizzarla prima della sua dichiarazione produce un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ReferenceError</code>.</li>
 </ul>
 <p>Quindi, abbiamo 3 modi per dichiarare una variabile:</p>
 <ol>
-	<li>
-		Dichiarare ed inizializzare una variabile con
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code>:
-		<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = b;
+<li>Dichiarare ed inizializzare una variabile con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = b;
+</code></pre></li>
+<li>Dichiarare una variabile con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a;
 </code></pre>
-	</li>
-	<li>
-		Dichiarare una variabile con
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code>:
-		<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a;
-</code></pre>
-		Questo metodo richiede che la variabile venga riassegnata prima che venga utilizzata, nella
-		forma seguente:
-		<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a = b;
-</code></pre>
-	</li>
-	<li>
-		Dichiarare ed inizializzare una variabile con
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code>:
-		<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = b;
-</code></pre>
-	</li>
+Questo metodo richiede che la variabile venga riassegnata prima che venga utilizzata, nella forma seguente:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">a = b;
+</code></pre></li>
+<li>Dichiarare ed inizializzare una variabile con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code>:
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> a = b;
+</code></pre></li>
 </ol>
-<p>
-	<strong>Vedi anche:</strong>
-	<a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#const--let"
-		>Sintassi per <code style="padding: 3px 5px; background: #f0f0f0; color: #444">let</code> e
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code></a
-	>.
-</p>
+<p><strong>Vedi anche:</strong> <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#const--let">Sintassi per <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code></a>.</p>
 <h2>Inizializzare una variabile</h2>
-<p>
-	Una variabile viene inizializzata quando le assegniamo un valore direttamente all’assegnazione.
-</p>
+<p>Una variabile viene inizializzata quando le assegniamo un valore direttamente all’assegnazione.</p>
 <p><strong>Esempio:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = b; <span style="color: #888">// Variabile `a` inizializzata a `b`</span>
 <span style="font-weight: 700;">let</span> c; <span style="color: #888">// Variabile non inizializzata</span>
 <span style="color: #888">// Il suo valore è ora undefined</span>
 </code></pre>
-<p>
-	Se la variabile viene inizializzata, ha come valore
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code>, in caso contrario, il
-	suo valore sarà <code style="padding: 3px 5px; background: #f0f0f0; color: #444">undefined</code>.
-</p>
-<p>
-	Una variabile dovrebbe essere sempre assegnata ad un valore prima di utilizzarla. Se invece
-	vogliamo creare una costante, dobbiamo <strong>obbligatoriamente</strong> inizializzarla, in
-	quanto non possiamo mai riassegnarla. Non farlo produrrà un errore.
-</p>
+<p>Se la variabile viene inizializzata, ha come valore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>, in caso contrario, il suo valore sarà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p>Una variabile dovrebbe essere sempre assegnata ad un valore prima di utilizzarla.
+Se invece vogliamo creare una costante, dobbiamo <strong>obbligatoriamente</strong> inizializzarla, in quanto non possiamo mai riassegnarla.
+Non farlo produrrà un errore.</p>
 <h2>Dichiarare più variabili</h2>
-<p>
-	Se vogliamo dichiarare più variabili contemporaneamente possiamo utilizzare la virgola, come
-	nell’esempio seguente:
-</p>
+<p>Se vogliamo dichiarare più variabili contemporaneamente possiamo utilizzare la virgola, come nell’esempio seguente:</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">let</span> a = b,
     c = d,
     e;
 </code></pre>
-<p>
-	Questo codice ha creato 3 variabili, di nome
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">a</code>,
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">c</code> e
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code> con valori
-	rispettivamente di <code style="padding: 3px 5px; background: #f0f0f0; color: #444">b</code> e
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">d</code>, mentre
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">e</code> non è stata
-	inizializzata. Possiamo fare lo stesso con
-	<code style="padding: 3px 5px; background: #f0f0f0; color: #444">const</code>, ma dobbiamo sempre
-	inizializzare tutte le costanti.
-</p>
+<p>Questo codice ha creato 3 variabili, di nome <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> con valori rispettivamente di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>, mentre <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e</code> non è stata inizializzata.
+Possiamo fare lo stesso con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">const</code>, ma dobbiamo sempre inizializzare tutte le costanti.</p>
 <h2>Nome delle variabili</h2>
 <p>Possiamo assegnare qualsiasi nome alle variabili, purchè:</p>
 <ul>
-	<li>
-		Inizi con una lettera,
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">$</code> o
-		<code style="padding: 3px 5px; background: #f0f0f0; color: #444">_</code>;
-	</li>
-	<li>Non corrisponda a nessuna parola chiave.</li>
+<li>Inizi con una lettera, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">$</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">_</code>;</li>
+<li>Non corrisponda a nessuna parola chiave.</li>
 </ul>
-<p>
-	Iniziare il nome di una variabile con un trattino basso è poco usato e generalmente viene
-	utilizzato per indicare una variabile che non verrà usata o che è, comunque, privata.
-</p>
+<p>Iniziare il nome di una variabile con un trattino basso è poco usato e generalmente viene utilizzato per indicare una variabile che non verrà usata o che è, comunque, privata.</p>
 <h2>Conclusione</h2>
-<p>
-	In questo articolo abbiamo visto come funzionano le variabili e come utilizzarle correttamente!
-</p>
-<p>
-	Grazie alle variabili possiamo salvare valori per poterli accedere successivamente, grazie a due
-	semplici parole chiave.
-</p>
+<p>In questo articolo abbiamo visto come funzionano le variabili e come utilizzarle correttamente!</p>
+<p>Grazie alle variabili possiamo salvare valori per poterli accedere successivamente, grazie a due semplici parole chiave.</p>
 <p>Nel prossimo articolo osserveremo invece le funzioni e come usarle al meglio.</p>
 <h3><strong>Good Coding!</strong></h3>
