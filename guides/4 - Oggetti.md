@@ -157,7 +157,7 @@ tazza.colore?.length; // undefined
 // Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito
 ```
 
-# Object
+## Object
 
 `Object` è una variabile globale, nonché una classe a cui appartengono tutti gli objects.
 
@@ -250,3 +250,31 @@ theDog.toString(); // [object Object]
 const i = 10;
 i.toString(); // "10"
 ```
+
+## Loop delle proprietà
+
+Possiamo anche eseguire un loop delle proprietà di un object, in modo da eseguire una azione per ognuna di esso.
+Per farlo utilizziamo un [`for...in`](2%20-%20Parole%20chiave%20&%20operatori.md#for--continue--forof--forin) loop.
+
+Per evitare di eseguire azioni anche per proprietà native dell'object utilizziamo il metodo `hasOwnProperty`.
+
+**Vedi anche:** Sintassi [`for...in`](2%20-%20Parole%20chiave%20&%20operatori.md#for--continue--forof--forin) loop.
+
+**Esempi:**
+
+```js
+const obj = { a: 1, b: 2, c: 3 };
+
+for (const key in obj)
+	if (Object.hasOwnProperty.call(obj, key)) console.log(`obj.${key} = ${obj[key]}`);
+
+// Console: "obj.a = 1", "obj.b = 2", "obj.c = 3"
+```
+
+## Conclusione
+
+In questo articolo abbiamo scoperto gli objects, la natura del JavaScript.
+
+Nel prossimo articolo andremo a vedere le funzioni, la loro dichiarazione e come utilizzarle al meglio.
+
+### **Good Coding!**
