@@ -128,8 +128,7 @@ function run(message, args) {
 Qui di seguito è riportata una lista dei vari _types_ predefiniti che possono essere utilizzati per descrivere i nostri elementi.
 Se volete utilizzare un _type_ esterno, cioè creato da un altro package, ricordate di utilizzare la procedura descritta nel punto 4 della [sezione precedente](#assegnare-types-manualmente).
 
-- `any`: Può essere qualsiasi cosa e disabilita tutti i controlli su di lui, sconsigliato da usare.
-  Es. `1`, `undefined`;
+- `any`: Può essere qualsiasi cosa e disabilita tutti i controlli su di lui, sconsigliato da usare. Es. `1`, `undefined`;
 - `bigint`: Indica un numero molto grande. Es. `30n`;
 - `boolean`: Sì o no. Es. `true`, `false`;
 - `null`: Nulla, ma nella forma Javascript. Es. `null`;
@@ -137,12 +136,10 @@ Se volete utilizzare un _type_ esterno, cioè creato da un altro package, ricord
 - `string`: Indica una stringa Javascript. Es. `"Sus"`, `""`;
 - `symbol`: Indica un simbolo univoco in Javascritp. Es. `Symbol("Sus")`;
 - `undefined`: Nulla, qualcosa che non esiste. Es. `undefined`;
-- `unknown`: Può essere qualsiasi cosa e richiede di controllare manualmente che _type_ abbia prima di eseguire qualsiasi azione con esso.
-  Es. `"Sus"`, `null`;
+- `unknown`: Può essere qualsiasi cosa e richiede di controllare manualmente che _type_ abbia prima di eseguire qualsiasi azione con esso. Es. `"Sus"`, `null`;
 - `void`: Di nuovo nulla, ma utilizzato nelle funzioni che non usano nessun `return`;
 - `x[]`: Un _array_ dove tutti gli elementi hanno come tipo `x`. Es. `string[]`, `unknown[]`;
-- `Promise<x>`: Una _promessa_ che restituirà un elemento di tipo `x` quando verrà _esaudita_.
-  Es. `Promise<string>`, `Promise<unknown>`.
+- `Promise<x>`: Una _promessa_ che restituirà un elemento di tipo `x` quando verrà _esaudita_. Es. `Promise<string>`, `Promise<unknown>`.
 
 ## File configurazione
 
