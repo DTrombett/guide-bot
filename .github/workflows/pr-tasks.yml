@@ -15,9 +15,7 @@ jobs:
           git fetch
           git checkout "${GITHUB_BASE_REF}"
           git checkout "${GITHUB_HEAD_REF}"
+          git config user.name \"${GITHUB_ACTOR}\"
+          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"
           git merge "${GITHUB_BASE_REF}"
-
-      - name: Commit changes
-        run: npm run commit
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push
