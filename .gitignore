@@ -4,4 +4,3 @@ node_modules/
 coverage/
 *.log
 .vscode/
-html-pages/jsconfig.json
