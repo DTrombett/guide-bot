@@ -1,0 +1,19 @@
+{
+  "name": "html-pages",
+  "version": "0.0.1",
+  "description": "Deploy HTML pages for guides.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm ci && node ."
+  },
+  "author": "DTrombett",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.6.2",
+    "@types/remarkable": "^2.0.3"
+  },
+  "dependencies": {
+    "highlight.js": "^11.2.0",
+    "remarkable": "^2.0.1"
+  }
+}

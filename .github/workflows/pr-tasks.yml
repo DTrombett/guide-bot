@@ -1,0 +1,17 @@
+name: Run tasks on Pull Request
+
+on: pull_request
+
+jobs:
+  pr-tasks:
+    name: Run tasks on Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run ESLint
+        run: |
+          npm ci
+          npx eslint src
+          npx prettier -c guides/*.md

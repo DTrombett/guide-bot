@@ -1,9 +1,6 @@
 node_modules/
-.*/
-*lock.*
 *.map
 .env
 coverage/
 *.log
-types/
-html-pages/
+.vscode/
