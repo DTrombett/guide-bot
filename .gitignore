@@ -4,7 +4,4 @@ node_modules/
 coverage/
 *.log
 .vscode/
-html-pages/src/
-html-pages/.eslintrc.json
-html-pages/.prettierrc.json
-html-pages/tsconfig.json
+html-pages/jsconfig.json
