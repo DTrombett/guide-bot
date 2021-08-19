@@ -4,8 +4,8 @@
   "description": "This project includes a bunch of guides to create a bot with **[discord.js](https://discord.js.org/)** and a template code in the [`src`](src) directory.",
   "main": "src/index.js",
   "scripts": {
-    "test": "node .",
-    "html": "npx prettier --write guides/*.md && rm pages/*.html && cd html-pages && npm ci && node .",
+    "test": "npm ci && node .",
+    "html": "npx prettier --write guides/*.md && rm pages/*.html && cd html-pages && node .",
     "lint": "npx eslint src --fix"
   },
   "repository": {

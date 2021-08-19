@@ -4,13 +4,12 @@
   "description": "Deploy HTML pages for guides.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node ."
+    "start": "npm ci && node ."
   },
   "author": "DTrombett",
   "license": "ISC",
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
-    "@types/node": "^16.6.1",
+    "@types/node": "^16.6.2",
     "@types/remarkable": "^2.0.3"
   },
   "dependencies": {
