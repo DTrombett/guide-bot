@@ -110,6 +110,8 @@ tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">spl
 tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">null</span>;
 tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">length</span>; <span style="color: #888">// undefined</span>
 <span style="color: #888">// Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito</span>
+tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>; <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
+<span style="color: #888">// Senza optional chaining operator riceviamo un errore perché `tazza.colore` è nullo</span>
 </code></pre>
 <h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></h2>
 <p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object</code> è una variabile globale, nonché una classe a cui appartengono tutti gli objects.</p>

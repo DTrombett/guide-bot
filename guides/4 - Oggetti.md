@@ -154,6 +154,8 @@ tazza.colore?.split?.("al"); // ["Gi", "lo"]
 tazza.colore = null;
 tazza.colore?.length; // undefined
 // Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito
+tazza.colore.length; // TypeError: cannot read property "length" of null
+// Senza optional chaining operator riceviamo un errore perché `tazza.colore` è nullo
 ```
 
 ## [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
