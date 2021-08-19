@@ -1,4 +1,3 @@
-
 # Codice di Comportamento del Collaboratore
 
 ## Il Nostro Impegno
