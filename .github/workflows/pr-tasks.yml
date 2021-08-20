@@ -17,4 +17,4 @@ jobs:
         # npx prettier --config guides/.prettierrc.json -c guides/*.md
           npx prettier --config guides/.prettierrc.json --write guides/*.md
           git add .
-          git diff
+          git diff -c "guides/5 - Funzioni.md"

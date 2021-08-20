@@ -71,4 +71,4 @@ Il nome della funzione deve rispettare le stesse condizioni di quello delle vari
 
 I parametri di una funzione sono come delle variabili dichiarate con let all'interno della stessa funzione.
 
-Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione
+Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione.
