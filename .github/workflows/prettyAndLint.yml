@@ -13,7 +13,7 @@ jobs:
         run: npx eslint src --fix
 
       - name: Run prettier
-        run: npx prettier --write ./*.md ./*.js
+        run: npx prettier --write ./**/*.md ./**/*.js
 
       - name: Commit changes
         run: |
