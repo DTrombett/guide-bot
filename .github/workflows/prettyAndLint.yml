@@ -17,9 +17,9 @@ jobs:
 
       - name: Commit changes
         run: |
-          git checkout -b chore/prettyAndLint/"$GITHUB_RUN_ID"
+          git checkout -b chore/pretty-and-lint/"$GITHUB_RUN_ID"
           git add .
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git commit -m "chore: run prettier and eslint" || true
-          git push -u origin chore/prettyAndLint/"$GITHUB_RUN_ID"
+          git push -u origin chore/pretty-and-lint/"$GITHUB_RUN_ID"
