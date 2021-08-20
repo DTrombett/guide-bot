@@ -1,6 +1,6 @@
 # Oggetti
 
- Il JavaScript è un linguaggio che si basa sugli _[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)_.
+Il JavaScript è un linguaggio che si basa sugli _[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)_.
 Un object è una collezione di proprietà, ossia un'associazione tra una chiave e un valore.
 
 ## Come funzionano gli object?
