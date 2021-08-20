@@ -2,7 +2,7 @@
 
 Le funzioni, in JavaScript, costituiscono un blocco di codice che si basa su dei dati e che può essere eseguito quando vogliamo.
 
-Per farlo, ci basterà dichiarare la determinata funzione con i suoi _parametri_, il suo codice ed il suo nome 
+Per farlo, ci basterà dichiarare la determinata funzione con i suoi _parametri_, il suo codice ed il suo nome
 
 ## Dichiarare una funzione
 
@@ -25,11 +25,13 @@ Grazie a loro possiamo scrivere delle funzioni in modo più semplici che potrann
 Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 
 **Vantaggi:**
+
 - Più facili da utilizzare;
 - Più veloci;
 - Possibilità di restituire immediatamente un valore senza utilizzare le parentesi graffe.
 
 **Svantaggi:**
+
 - Non possono utilizzare `this` (vedremo questo più avanti);
 - Non possono essere utilizzati come metodi;
 - Non possono essere usati per creare classi.
@@ -37,11 +39,11 @@ Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 **Sintassi:**
 
 ```js
-a => b; // Se abbiamo solo un parametro e vogliamo restituire direttamente un valore
+(a) => b; // Se abbiamo solo un parametro e vogliamo restituire direttamente un valore
 (/** c, ...d */) => b; // Se abbiamo 0 o più parametri e vogliamo restituire direttamente un valore
 (/** c, ...d */) => {
 	// Azioni da eseguire nella funzione
-} // Se abbiamo 0 o più parametri e vogliamo eseguire più di un azione
+}; // Se abbiamo 0 o più parametri e vogliamo eseguire più di un azione
 ```
 
 - `a`: Unico parametro da passare nella funzione;
@@ -51,6 +53,7 @@ a => b; // Se abbiamo solo un parametro e vogliamo restituire direttamente un va
 ## Elementi di una funzione
 
 Una funzione avrà quindi:
+
 - Un nome (`a`);
 - Dei parametri facoltativi (`b, ...c`);
 - Un codice.
@@ -68,4 +71,4 @@ Il nome della funzione deve rispettare le stesse condizioni di quello delle vari
 
 I parametri di una funzione sono come delle variabili dichiarate con let all'interno della stessa funzione.
 
-Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione 
+Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione
