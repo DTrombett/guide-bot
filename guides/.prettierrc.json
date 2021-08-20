@@ -1,5 +1,5 @@
 {
-    "filepath": "./guides/*.md",
+    "filepath": "./*.md",
     "parser": "markdown",
     "printWidth": 100,
     "quoteProps": "consistent",

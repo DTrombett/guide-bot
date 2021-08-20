@@ -50,6 +50,74 @@ Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 - `b`: Valore da restituire immediatamente;
 - `c, ...d`: Parametri facoltativi da passare nella funzione.
 
+**Esempi:**
+
+```js
+/**
+ * Funzione classica
+ * @param {number} a
+ */
+function name(a) {
+	return a + 100;
+}
+
+/**
+ * Equivalente:
+ * @param {number} a
+ */
+(a) => a + 100;
+
+/**
+ * Funzione classica
+ * @param {number} a
+ * @param {number} b
+ */
+function name1(a, b) {
+	return a + b + 100;
+}
+
+/**
+ * Equivalente:
+ * @param {number} a
+ * @param {number} b
+ */
+(a, b) => a + b + 100;
+
+// Funzione classica
+let c = 4;
+let d = 2;
+function name2() {
+	return c + d + 100;
+}
+
+// Equivalente:
+let e = 4;
+let f = 2;
+() => e + f + 100;
+
+/**
+ * Funzione classica
+ * @param {number} a
+ * @param {number} b
+ */
+function name3(a, b) {
+	let chuck = 42;
+	return a + b + chuck;
+}
+
+/**
+ * Equivalente:
+ * @param {number} a
+ * @param {number} b
+ */
+(a, b) => {
+	let chuck = 42;
+	return a + b + chuck;
+};
+
+() => ({ foo: "a" }); //  {foo: "a"}
+```
+
 ## Elementi di una funzione
 
 Una funzione avrà quindi:
