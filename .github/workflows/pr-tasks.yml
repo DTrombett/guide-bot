@@ -14,10 +14,7 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: |
-          npx eslint src
-          npx prettier --config guides/.prettierrc.json -c guides/*.md
+        run: npx eslint src
 
       - name: Run Prettier
-        run: |
-          npx prettier --config guides/.prettierrc.json -c guides/*.md
+        run: npx prettier --config guides/.prettierrc.json -c guides/*.md
