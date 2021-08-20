@@ -10,10 +10,10 @@ jobs:
         run: npm ci
 
       - name: Run eslint
-        run: eslint src --fix
+        run: npx eslint src --fix
 
       - name: Run prettier
-        run: prettier --write *
+        run: npx prettier --write ./*.md ./*.js
 
       - name: Commit changes
         run: |
