@@ -1,4 +1,6 @@
 {
+    "filepath": "./guides/*.md",
+    "parser": "markdown",
     "printWidth": 100,
     "quoteProps": "consistent",
     "arrowParens": "always",
@@ -9,6 +11,5 @@
     "singleQuote": false,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": true,
-    "parser": "markdown"
+    "useTabs": true
 }
