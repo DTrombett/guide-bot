@@ -10,11 +10,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install all dependencies
+        run: npm ci
+
       - name: Run ESLint
         run: |
-          npm ci
           npx eslint src
-          npx prettier --config guides/.prettierrc.json --write guides/*.md
-          git add .
-          git diff -c "guides/5 - Funzioni.md"
-        # npx prettier --config guides/.prettierrc.json -c guides/*.md
+          npx prettier --config guides/.prettierrc.json -c guides/*.md
+
+      - name: Run Prettier
+        run: |
+          npx prettier --config guides/.prettierrc.json -c guides/*.md
