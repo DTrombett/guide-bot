@@ -14,6 +14,6 @@ jobs:
         run: |
           npm ci
           npx eslint src
-          npx prettier --config guides/.prettierrc.json -c guides/*.md
+          npx prettier --config guides/.prettierrc.json -c guides/*.md || true
           git add .
           git diff
