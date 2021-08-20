@@ -5,13 +5,16 @@ on: pull_request
 jobs:
   pr-tasks:
     name: Run tasks on Pull Request
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install all dependencies
+        run: npm ci
+
       - name: Run ESLint
-        run: |
-          npm ci
-          npx eslint src
-          npx prettier -c guides/*.md
+        run: npx eslint src
+
+      - name: Run Prettier
+        run: npx prettier --config guides/.prettierrc.json -c guides/*.md
