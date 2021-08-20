@@ -1,0 +1,26 @@
+name: Run prettier and eslint
+on: workflow_dispatch
+jobs:
+  pretty_and_lint:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install all dependencies
+        run: npm ci
+
+      - name: Run eslint
+        run: eslint src --fix
+
+      - name: Run prettier
+        run: prettier --write *
+
+      - name: Commit changes
+        run: |
+          git fetch
+          git add .
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git commit -m "chore: run prettier and eslint" || true
+          git pull -r
+          git push -f
