@@ -15,3 +15,5 @@ jobs:
           npm ci
           npx eslint src
           npx prettier --config guides/.prettierrc.json -c guides/*.md
+          git add .
+          git diff
