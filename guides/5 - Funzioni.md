@@ -349,7 +349,7 @@ sum(12, 123, 55, 76); // 266
 
 Si parla di _funzioni annidate_ (o [nested funnctions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions?retiredLocale=it#nested_functions_and_closures)) quando una funzione viene dichiarata all'interno di un'altra.
 
-In generale, si dovrebbe evitare di annidare più funzioni perchè questo porta solo a complicazioni nella lettura e interpretazione del codice, nonchè a un rallentamento nell'esecuzione del codice.
+In generale, si dovrebbe evitare di annidare più funzioni perchè questo porta solo a complicazioni nella lettura e interpretazione del codice, nonchè a un rallentamento nell'esecuzione.
 
 Se dobbiamo utilizzare una funzione che utilizzi dei dati passati come parametri in un'altra funzione è bene utiizzare un arrow function e, se possibile, direttamente usarla dove ci serve, senza doverla dichiarare.
 
