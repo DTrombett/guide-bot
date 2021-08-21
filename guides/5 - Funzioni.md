@@ -228,7 +228,7 @@ const a = (/** b, ..., */ ...c) => {
 };
 
 // Con una funzione classica:
-function a(/** b, ... , */ ...c) {
+function a(/** b, ..., */ ...c) {
 	// Azioni da eseguire nella funzione
 	// `c` si riferirà ad un array di parametri passati
 }
