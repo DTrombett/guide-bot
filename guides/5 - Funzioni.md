@@ -482,7 +482,7 @@ multiply(5, undefined); // 5
  * Moltiplica più numeri per uno stesso valore.
  * @param {number} multiplier - Il valore per cui moltiplicare
  * @param {number[]} theArgs - I valori da moltiplicare
- * @returns {number[]} I numeri moltiplicati
+ * @returns {number[]} I risultati
  */
 function multiply2(multiplier, ...theArgs) {
 	return theArgs.map((x) => multiplier * x);
