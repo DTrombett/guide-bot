@@ -99,8 +99,8 @@ const name2 = () => c + d + 100;
  * @param {number} b
  */
 function name3(a, b) {
-	const chuck = 42;
-	return a + b + chuck;
+	const i = 42;
+	return a + b + i;
 }
 
 /**
