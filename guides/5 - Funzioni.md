@@ -724,7 +724,7 @@ encodeURI("ABC abc 123"); // ABC%20abc%20123
 
 ### [`decodeURI(encodedURI: string): string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI)
 
-Decodifica una stringa dal formato URI.
+Decodifica una stringa in formato URI.
 
 **Sintassi:**
 
