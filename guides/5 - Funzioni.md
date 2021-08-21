@@ -734,7 +734,7 @@ decodeURI(encodedURI);
 
 - `encodedURI`: Un URI codificato.
 
-**Restituisce:** `string` - La stringa decodificata dal formato URI.
+**Restituisce:** `string` - La stringa decodificata in formato URI.
 
 **Esempi:**
 
