@@ -578,7 +578,7 @@ Di seguito ne è una lista.
 
 Esegue un codice JavaScript rilevato da una stringa.
 
-**Nota: questa funzione può essere pericolosa, in quanto il codice potrebbe avere origini sconosciute e verrà eseguito normalmente**
+**Nota: questa funzione può essere pericolosa, in quanto il codice potrebbe avere origini sconosciute e verrà eseguito normalmente.**
 
 **Sintassi:**
 
