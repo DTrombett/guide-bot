@@ -98,7 +98,6 @@
         "no-labels": "warn",
         "no-loop-func": "warn",
         "no-loss-of-precision": "warn",
-        "no-magic-numbers": "warn",
         "no-multi-str": "warn",
         "no-new": "warn",
         "no-new-func": "warn",

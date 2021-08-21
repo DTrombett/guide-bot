@@ -492,3 +492,264 @@ function multiply2(multiplier, ...theArgs) {
 
 multiply2(2, 1, 2, 3); // [2, 4, 6]
 ```
+
+## Function
+
+Ogni funzione appartiene ad una classe speciale, chiamata `Function`.
+Questa classe è globale ed accessibile ovunque nel nostro codice.
+
+**Nota: scopriremo nel dettaglio cosa sono le classi nel prossimo articolo, intanto, in questo paragrafo, vediamo quali sono i metodi comuni a tutte le funzioni.**
+
+### Metodi
+
+#### [`<Function>.bind(thisArg: unknown, ...args: unknown[]): Function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+
+Questo metodo ci permette di creare una nuova funzione, identica alla precedente, ma con il valore di `this` diverso e dei parametri _appesi_ all'inizio di essa.
+
+**Sintassi:**
+
+```js
+func.bind(thisArg /** , ...args */);
+```
+
+- `thisArg`: L'object da usare come `this`;
+- `...args`: I parametri da passare come primi nella funzione.
+
+**Restituisce:** `func` - La funzione modificata con il nuovo `this` e i parametri passati all'inizio.
+
+**Esempi:**
+
+```js
+const obj = {
+	a: 10,
+	/**
+	 * Somma il valore di a con un altro.
+	 * @param {number} b - Un altro numero
+	 */
+	sum(b) {
+		return this.a + b;
+	},
+};
+
+obj.sum(20); // 30 - `this.a + b` => `10 + 20` => 30
+obj.sum.bind({ a: 15 })(25); // 40 - `this.a` corrisponde ora a 15
+obj.sum.bind({ a: 35 }, 40)(); // 75 - `this.a` corrisponde ora a 35 e `b` corrisponde a 40
+```
+
+#### [`<Function>.call(thisArg: unknown, ...args: unknown[]): unknown`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+
+Questo metodo ci permette di chiamare una funzione, ma con il valore di `this` diverso.
+
+**Sintassi:**
+
+```js
+func.call(thisArg /** , ...args */);
+```
+
+- `thisArg`: L'object da usare come `this`;
+- `...args`: I parametri da passare nella funzione.
+
+**Restituisce:** `unknown` - Il valore restituito dalla funzione.
+
+**Esempi:**
+
+```js
+const obj = {
+	a: 10,
+	/**
+	 * Somma il valore di a con un altro.
+	 * @param {number} b - Un altro numero
+	 */
+	sum(b) {
+		return this.a + b;
+	},
+};
+
+obj.sum(20); // 30 - `this.a + b` => `10 + 20` => 30
+obj.sum.call({ a: 15 }, 25); // 40 - `this.a` corrisponde ora a 15 e `b` corrisponde a 25
+obj.sum.call({ a: 35 }, 40); // 75 - `this.a` corrisponde ora a 35 e `b` corrisponde a 40
+```
+
+## Funzioni globali
+
+Ci sono poi delle funzioni predefinite che possiamo utilizzare ovunque.
+
+Di seguito ne è una lista.
+
+### [`eval(x: string): unknown`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval)
+
+Esegue un codice JavaScript rilevato da una stringa.
+
+**Nota: questa funzione può essere pericolosa, in quanto il codice potrebbe avere origini sconosciute e verrà eseguito normalmente**
+
+**Sintassi:**
+
+```js
+eval(x);
+```
+
+- `x`: Una stringa che contiene codice JavaScript valido.
+
+**Restituisce:** `unknown` - Il risultato dell'esecuzione del codice.
+
+**Esempi:**
+
+```js
+const x = 2;
+const y = 39;
+const z = "42";
+eval("x + y + 1"); // 42
+eval(z); // 42
+```
+
+### [`isFinite(number: number): boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite)
+
+Determina se un numero è finito (non infinito).
+
+**Sintassi:**
+
+```js
+isFinite(number);
+```
+
+- `number`: Un qualsiasi numero.
+
+**Restituisce:** `boolean` - `true` se il numero passato non è `Infinity` o `NaN`, `false` in caso contrario.
+
+**Esempi:**
+
+```js
+isFinite(Infinity); // false
+isFinite(NaN); // false
+isFinite(-Infinity); // false
+
+isFinite(0); // true
+isFinite(2e64); // true
+isFinite(910); // true
+```
+
+### [`isNaN(number: number): boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
+
+Determina se un numero è **NaN** (not-a-number).
+
+**Sintassi:**
+
+```js
+isNaN(number);
+```
+
+- `number`: Un qualsiasi numero.
+
+**Restituisce:** `boolean` - `true` se il numero passato non è `NaN`, `false` in caso contrario.
+
+**Esempi:**
+
+```js
+isNaN(NaN); // true
+
+isNaN(37); // false
+```
+
+### [`parseFloat(string: string): number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
+
+Converte una stringa in un numero con la virgola.
+
+**Sintassi:**
+
+```js
+parseFloat(string);
+```
+
+- `string`: Una stringa che contiene un numero con la virgola.
+
+**Restituisce:** `number` - Il numero rilevato, o `NaN` se non è stato possibile trovare alcun numero.
+
+**Esempi:**
+
+```js
+// Tutti i seguenti esempi restituiscono 3.14:
+parseFloat("3.14");
+parseFloat("  3.14  ");
+parseFloat("314e-2");
+parseFloat("0.0314E+2");
+parseFloat("3.14some non-digit characters");
+```
+
+### [`parseInt(string: string, radix?: number): number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+
+Converte una stringa in un numero con la virgola.
+
+**Sintassi:**
+
+```js
+parseInt(string /** , radix */);
+```
+
+- `string`: Una stringa che contiene un numero intero;
+- `radix`: La base del numero (decimale, ottale, etc...). Facoltativo, è 10 di default se il numero **non** inizia con 0, 16 in caso contrario.
+
+**Restituisce:** `number` - Il numero rilevato, o `NaN` se non è stato possibile trovare alcun numero.
+
+**Esempi:**
+
+```js
+// Tutti i seguenti esempi restituiscono 15:
+parseInt("015", 10);
+parseInt("15,123", 10);
+parseInt("15 * 3", 10);
+parseInt("15e2", 10);
+parseInt("15px", 10);
+parseInt("12", 13);
+```
+
+### [`encodeURI(uri: string): string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI)
+
+Codifica una stringa in formato URI.
+
+**Sintassi:**
+
+```js
+encodeURI(uri);
+```
+
+- `uri`: Un URI.
+
+**Restituisce:** `string` - La stringa convertita in formato URI.
+
+**Esempi:**
+
+```js
+encodeURI(";,/?:@&=+$#"); // ;,/?:@&=+$#
+encodeURI("-_.!~*'()"); // -_.!~*'()
+encodeURI("ABC abc 123"); // ABC%20abc%20123
+```
+
+### [`decodeURI(encodedURI: string): string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI)
+
+Decodifica una stringa dal formato URI.
+
+**Sintassi:**
+
+```js
+decodeURI(encodedURI);
+```
+
+- `encodedURI`: Un URI codificato.
+
+**Restituisce:** `string` - La stringa decodificata dal formato URI.
+
+**Esempi:**
+
+```js
+decodeURI("https://developer.mozilla.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B");
+// "https://developer.mozilla.org/ru/docs/JavaScript_шеллы"
+```
+
+## Conclusione
+
+In questo articolo abbiamo osservato le funzioni e il loro utilizzo!
+Ora sappiamo creare una funzione ed utilizzare i suoi parametri.
+
+Nel prossimo articolo vedremo invece le classi, una specie di incrocio tra le funzioni e gli object!
+
+### **Good Coding!**
