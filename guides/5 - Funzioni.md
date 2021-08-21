@@ -168,7 +168,7 @@ Andiamo ad esaminare questi elementi nel dettaglio.
 
 ### Nome della funzione
 
-Ogni funzione deve avere un nome.
+Ogni funzione può avere un nome.
 Grazie ad esso saremo in grado di usarla, o _chiamarla_.
 
 Il nome della funzione deve rispettare le stesse condizioni di quello delle variabili che abbiamo visto nell'articolo **Variabili**.
