@@ -284,7 +284,7 @@ function a(/** b, ..., */ c = d) {
 ```
 
 - `c`: Il nome del parametro facoltativo;
-- `d`: Il valore di default che viene assegnato quando il parametro non viene passato o viene passato undefined.
+- `d`: Il valore di default che viene assegnato quando il parametro non viene passato o è `undefined`.
 
 **Esempi:**
 
