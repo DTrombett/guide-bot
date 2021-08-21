@@ -333,6 +333,7 @@ Se nessun valore viene restituito, la funzione restituirà automaticamente `unde
  */
 const sum = (...numbers) => numbers.reduce((num1, num2) => num1 + num2);
 // Questa funzione non usa return ma è un arrow function abbreviata perciò il valore restituito è quello immediatamente dopo la freccia
+
 /**
  * Equivalente:
  * @param {...number} numbers - I numeri da sommare
