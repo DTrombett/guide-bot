@@ -16,6 +16,8 @@ function a(/** b, ...c */) {
 }
 ```
 
+- `a`: Il nome della funzione;
+- `b, ...c`: I parametri della funzione.
 ## Arrow functions
 
 C'è poi un metodo diverso per dichiarare una funzione: le [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
