@@ -204,8 +204,8 @@ Possiamo decidere noi che nome dare ai parametri, così come quanti includerne n
 const sus = () => console.log("Sus"); // Nessun parametro
 
 /**
- * Creiamo una funzione con un parametro
- * Usiamo il jsdoc per specificare il tipo del parametro
+ * Creiamo una funzione con un parametro.
+ * Usiamo il JSDoc per specificare il tipo del parametro.
  * @param {unknown} a
  */
 const log = (a) => console.log(a);
