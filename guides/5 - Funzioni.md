@@ -82,7 +82,7 @@ function name1(a, b) {
  * @param {number} a
  * @param {number} b
  */
-(a, b) => a + b + 100;
+const name1 = (a, b) => a + b + 100;
 
 // Funzione classica
 const c = 4;
