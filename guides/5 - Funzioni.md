@@ -321,7 +321,7 @@ test(null); // 'object' (num is null)
 Una funzione, infine, ha un codice.
 Questo codice rappresenta le azioni da eseguire quando la funzione viene chiamata, utilizzando i parametri passati ad essa.
 
-Dopo aver eseguito le dovute operazioni, la funzione potrà poi restituire un valore con la parola chiave `return`.
+Dopo aver eseguito le dovute operazioni, la funzione potrà restituire un valore con la parola chiave `return`.
 Se nessun valore viene restituito, la funzione restituirà automaticamente `undefined`.
 
 **Esempi:**
