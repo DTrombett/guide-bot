@@ -222,7 +222,7 @@ Per farlo usiamo i 3 puntini prima del nome del parametro e nella funzione potre
 **Sintassi:**
 
 ```js
-const a = (/** b, ... , */ ...c) => {
+const a = (/** b, ..., */ ...c) => {
 	// Azioni da eseguire nella funzione
 	// `c` si riferirà ad un array di parametri passati
 };
