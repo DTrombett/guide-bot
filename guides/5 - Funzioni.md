@@ -215,7 +215,7 @@ const log = (a) => console.log(a);
 
 Se in una funzione vogliamo utilizzare un numero indefinito di parametri, possiamo utilizzare i [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
 
-Per farlo usiamo i 3 puntini prima del nome del parametro e nella funzione potremo accedere a quel parametro riferendoci ad un array dei parametri ricevuti.
+Per farlo usiamo i 3 puntini prima del nome del parametro e nella funzione potremo accedere a quella variabile riferendoci ad un array dei parametri ricevuti.
 
 **Nota: è possibile utilizzare solo un rest parameter in una funzione e deve essere collocato obbligatoriamente alla fine.**
 
