@@ -22,7 +22,7 @@ function a(/** b, ...c */) {
 
 C'è poi un metodo diverso per dichiarare una funzione: le [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
-Grazie a loro possiamo scrivere delle funzioni in modo più semplici che potranno essere eseguite più velocemente.
+Grazie a loro possiamo scrivere delle funzioni in modo più semplice che potranno essere eseguite più velocemente.
 
 Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 
