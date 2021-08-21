@@ -41,11 +41,10 @@ Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 **Sintassi:**
 
 ```js
-(a) => b; // Se abbiamo solo un parametro e vogliamo restituire direttamente un valore
-(/** c, ...d */) => b; // Se abbiamo 0 o più parametri e vogliamo restituire direttamente un valore
-(/** c, ...d */) => {
+(/** a, ...b */) => c; // Se abbiamo 0 o più parametri e vogliamo restituire direttamente un valore
+(/** a, ...b */) => {
 	// Azioni da eseguire nella funzione
-}; // Se abbiamo 0 o più parametri e vogliamo eseguire più di un azione
+}; // Se abbiamo 0 o più parametri e vogliamo eseguire più di un'azione
 ```
 
 - `a, ...b`: Parametri facoltativi da passare nella funzione;
