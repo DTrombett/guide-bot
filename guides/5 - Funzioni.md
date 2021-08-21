@@ -436,7 +436,7 @@ setTimeout(concurrentPromise, 7000);
 
 ## JSDoc
 
-Come spiegato nel primo articolo, per dare informazioni al nostro editor riguardo i parametri delle nostre funzioni dobbiamo usare i JSDoc, ossia dei commenti multi-line prima di dichiarare la funzione.
+Come spiegato nel primo articolo, per dare informazioni al nostro editor riguardo i parametri delle nostre funzioni dobbiamo usare i JSDoc, ossia dei commenti _multi-line_ prima di dichiarare la funzione.
 
 Qui di seguito è illustrato come utilizzare questi commenti al meglio nelle funzioni.
 
