@@ -304,7 +304,7 @@ multiply(5, undefined); // 5
 
 /**
  * Scriviamo in console il tipo del parametro passato
- * @param {number|string|null} num
+ * @param {number|string|null} [num]
  */
 function test(num = 1) {
 	console.log(typeof num);
