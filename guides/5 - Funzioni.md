@@ -66,7 +66,7 @@ function name(a) {
  * Equivalente:
  * @param {number} a
  */
-(a) => a + 100;
+const name = (a) => a + 100;
 
 /**
  * Funzione classica
