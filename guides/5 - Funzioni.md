@@ -2,7 +2,7 @@
 
 Le funzioni, in JavaScript, costituiscono un blocco di codice che si basa su dei dati e che può essere eseguito quando vogliamo.
 
-Per farlo, ci basterà dichiarare la determinata funzione con i suoi _parametri_, il suo codice ed il suo nome
+Per farlo, ci basterà dichiarare la determinata funzione con i suoi _parametri_, il suo codice ed il suo nome.
 
 ## Dichiarare una funzione
 
