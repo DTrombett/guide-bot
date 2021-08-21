@@ -48,9 +48,8 @@ Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:
 }; // Se abbiamo 0 o più parametri e vogliamo eseguire più di un azione
 ```
 
-- `a`: Unico parametro da passare nella funzione;
-- `b`: Valore da restituire immediatamente;
-- `c, ...d`: Parametri facoltativi da passare nella funzione.
+- `a, ...b`: Parametri facoltativi da passare nella funzione;
+- `c`: Valore da restituire immediatamente.
 
 **Esempi:**
 
