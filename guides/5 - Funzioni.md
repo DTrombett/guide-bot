@@ -92,9 +92,7 @@ function name2() {
 }
 
 // Equivalente:
-const e = 4;
-const f = 2;
-() => e + f + 100;
+const name2 = () => c + d + 100;
 
 /**
  * Funzione classica
