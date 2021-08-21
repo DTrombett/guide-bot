@@ -136,14 +136,9 @@ arr.filter((v) => v % 2 === 0); // [6, 0, 18]
 
 arr.map((v) => v * 2); // [10, 12, 26, 0, 2, 36, 46]
 
-/**
- * Creiamo una Promise
- * Vedremo questa struttura nel dettaglio in un altro articolo
- * @type {Promise<void>}
- */
-const promise = new Promise((resolve) => {
-	resolve();
-});
+// Creiamo una Promise
+// Vedremo questa struttura nel dettaglio in un altro articolo
+const promise = Promise.resolve();
 
 promise
 	.then((a) => {
