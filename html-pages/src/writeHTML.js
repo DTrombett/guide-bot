@@ -20,10 +20,9 @@ module.exports =
 				// Convert the file to HTML
 				.render(content.toString())
 				// Apply inline style to HTML tags
-				.replace(/<code>/gu, '<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">')
 				.replace(
-					/<code class="language-js">/gu,
-					'<code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;">'
+					/<code( class="language-js"|)>/gu,
+					'<code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">'
 				)
 				.replace(/<span class="hljs-comment(| [a-zA-Z]+_)">/gu, '<span style="color: #888">')
 				.replace(
