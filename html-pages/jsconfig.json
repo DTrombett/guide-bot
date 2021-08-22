@@ -1,7 +1,11 @@
 {
-	"include": ["src/"],
+	"include": [
+		"src/"
+	],
 	"compilerOptions": {
-		"lib": ["es2020"],
+		"lib": [
+			"es2020"
+		],
 		"module": "commonJS",
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
