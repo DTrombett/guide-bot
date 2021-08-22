@@ -19,6 +19,8 @@ module.exports =
 			md
 				// Convert the file to HTML
 				.render(content.toString())
+				// Convert line breaks to CRLF
+				.replaceAll("\n", "\r\n")
 				// Apply inline style to HTML tags
 				.replace(/<code>/gu, '<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">')
 				.replace(
