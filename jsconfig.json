@@ -4,12 +4,12 @@
     ],
     "compilerOptions": {
         "lib": [
-            "es2020"
+            "esnext"
         ],
         "module": "commonJS",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
-        "target": "es2020",
+        "target": "esnext",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
