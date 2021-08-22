@@ -63,7 +63,7 @@ Ora osserviamo quali sono le sue principali funzioni:</p>
 <p>Ovviamente, Typescript non può sempre immaginare che <em>types</em> vogliamo assegnare ad alcuni elementi, perciò dovremo dirglielo noi!
 Per farlo utilizzeremo i <strong><a href="https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html">JSDoc</a></strong>.
 Prendiamo il seguente esempio di codice:</p>
-<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">run</span>(<span class="hljs-params">message, args</span>) {
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">run</span>(<span class="hljs-params">message, args</span>) {
     <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(message.<span class="hljs-property">auhtor</span>);
     <span style="font-weight: 700;">return</span> args.<span style="color: #800; font-weight: 700;">join</span>(<span style="color: #800;">&quot; &quot;</span>);
 }
@@ -89,7 +89,7 @@ Per risolvere questo problema seguiamo la seguente procedura:</p>
 <p><img src="/images/1/CustomTypes.png" alt="CustomTypes" /></p>
 <p>Ora Typescript potrà finalmente aiutarci anche all’interno della funzione!
 Il codice precedente sarà adesso come il seguente e ci avvertirà dell’errore in <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">message.auhtor</code>:</p>
-<pre><code style="background: #f0f0f0; color: #444; padding: 1em; overflow-x: auto; display: block;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Message</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Message</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
 
 <span style="color: #888">/**
  * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">Message</span>} <span style="color: #bc6060;">message</span>
