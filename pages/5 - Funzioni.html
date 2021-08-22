@@ -2,15 +2,15 @@
 <p>Le funzioni, in JavaScript, costituiscono un blocco di codice che si basa su dei dati e che può essere eseguito quando vogliamo.</p>
 <p>Per farlo, ci basterà dichiarare la determinata funzione con i suoi <em>parametri</em>, il suo codice ed il suo nome.</p>
 <h2>Dichiarare una funzione</h2>
-<p>Per dichiarare una funzione, utilizziamo la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">function</code></a>, che abbiamo già visto nell’articolo <strong>Parole chiave e operatori</strong>.</p>
+<p>Per dichiarare una funzione, utilizziamo la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code></a>, che abbiamo già visto nell’articolo <strong>Parole chiave e operatori</strong>.</p>
 <p>Ricontrolliamo la sintassi:</p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {
     <span style="color: #888">// Azioni da eseguire nella funzione</span>
 }
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a</code>: Il nome della funzione;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b, ...c</code>: I parametri della funzione.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della funzione;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...c</code>: I parametri della funzione.</li>
 </ul>
 <h2>Arrow functions</h2>
 <p>C’è poi un metodo diverso per dichiarare una funzione: le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a>.</p>
@@ -24,7 +24,7 @@
 </ul>
 <p><strong>Svantaggi:</strong></p>
 <ul>
-<li>Non possono utilizzare <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code> (vedremo questo più avanti);</li>
+<li>Non possono utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> (vedremo questo più avanti);</li>
 <li>Non possono essere utilizzati come metodi;</li>
 <li>Non possono essere usati per creare classi.</li>
 </ul>
@@ -35,8 +35,8 @@
 }; <span style="color: #888">// Se abbiamo 0 o più parametri e vogliamo eseguire più di un&#x27;azione</span>
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a, ...b</code>: Parametri facoltativi da passare nella funzione;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">c</code>: Valore da restituire immediatamente.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a, ...b</code>: Parametri facoltativi da passare nella funzione;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Valore da restituire immediatamente.</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
@@ -144,8 +144,8 @@ promise
 <h2>Elementi di una funzione</h2>
 <p>Una funzione avrà quindi:</p>
 <ul>
-<li>Un nome (<code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a</code>);</li>
-<li>Dei parametri facoltativi (<code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b, ...c</code>);</li>
+<li>Un nome (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>);</li>
+<li>Dei parametri facoltativi (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...c</code>);</li>
 <li>Un codice.</li>
 </ul>
 <p>Andiamo ad esaminare questi elementi nel dettaglio.</p>
@@ -167,7 +167,7 @@ Grazie ad esso saremo in grado di usarla, o <em>chiamarla</em>.</p>
 <span style="color: #888">// Console: &quot;Sus&quot;</span>
 </code></pre>
 <h3>Parametri</h3>
-<p>I parametri di una funzione sono come delle variabili dichiarate con <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">let</code> all’interno della stessa funzione.</p>
+<p>I parametri di una funzione sono come delle variabili dichiarate con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code> all’interno della stessa funzione.</p>
 <p>Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione e di quale tipo.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">sus</span> = (<span class="hljs-params"></span>) =&gt; <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Sus&quot;</span>); <span style="color: #888">// Nessun parametro</span>
@@ -196,7 +196,7 @@ Grazie ad esso saremo in grado di usarla, o <em>chiamarla</em>.</p>
 }
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">c</code>: Nome da assegnare alla variabile che rappresenterà l’array di parametri passati alla fine (dopo <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code> ed altri eventuali parametri).</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Nome da assegnare alla variabile che rappresenterà l’array di parametri passati alla fine (dopo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> ed altri eventuali parametri).</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
@@ -232,8 +232,8 @@ Possiamo farlo, semplicemente usando l’uguale vicino il nome del parametro, co
 }
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">c</code>: Il nome del parametro facoltativo;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">d</code>: Il valore di default che viene assegnato quando il parametro non viene passato o è <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Il nome del parametro facoltativo;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Il valore di default che viene assegnato quando il parametro non viene passato o è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
@@ -265,8 +265,8 @@ Possiamo farlo, semplicemente usando l’uguale vicino il nome del parametro, co
 <h3>Codice della funzione</h3>
 <p>Una funzione, infine, ha un codice.
 Questo codice rappresenta le azioni da eseguire quando la funzione viene chiamata, utilizzando i parametri passati ad essa.</p>
-<p>Dopo aver eseguito le dovute operazioni, la funzione potrà restituire un valore con la parola chiave <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">return</code>.
-Se nessun valore viene restituito, la funzione restituirà automaticamente <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>.</p>
+<p>Dopo aver eseguito le dovute operazioni, la funzione potrà restituire un valore con la parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return</code>.
+Se nessun valore viene restituito, la funzione restituirà automaticamente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
  * Eseguiamo la somma di tutti i numeri passati come parametro.
@@ -302,8 +302,8 @@ Se nessun valore viene restituito, la funzione restituirà automaticamente <code
 };
 </code></pre>
 <h2>Funzioni asincrone</h2>
-<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">funzioni asincrone</a> sono quelle che utilizzano <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">async</code> prima del loro nome o, nelle arrow functions, prima dei parametri.</p>
-<p>Queste funzioni possono utilizzare <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">await</code> nel loro codice e restituiranno sempre una <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Promise</code>.</p>
+<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">funzioni asincrone</a> sono quelle che utilizzano <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">async</code> prima del loro nome o, nelle arrow functions, prima dei parametri.</p>
+<p>Queste funzioni possono utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">await</code> nel loro codice e restituiranno sempre una <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">resolveAfter2Seconds</span>(<span class="hljs-params"></span>) {
     <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;starting slow promise&quot;</span>);
@@ -378,11 +378,11 @@ Se nessun valore viene restituito, la funzione restituirà automaticamente <code
 }
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">g</code>: Il type del parametro <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">h</code>: Il type del parametro facoltativo <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">c</code>. Non è necessario includere <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code> perchè viene incluso automaticamente nei parametri facoltativi;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">i</code>: Il type del parametro facoltativo <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">d</code>. Può essere omesso in quanto utilizziamo un valore di default. In tal caso il suo type sarebbe lo stesso di <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">e</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">j</code>: Il type del rest parameter <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">f</code>. Non è necessario specificare che si tratti di un array perchè viene rilevato automaticamente;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">k</code>: Il type del valore restituito. Può essere omesso se il nostro editor è capace di rilevarlo da solo.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">g</code>: Il type del parametro <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">h</code>: Il type del parametro facoltativo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>. Non è necessario includere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> perchè viene incluso automaticamente nei parametri facoltativi;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">i</code>: Il type del parametro facoltativo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>. Può essere omesso in quanto utilizziamo un valore di default. In tal caso il suo type sarebbe lo stesso di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">j</code>: Il type del rest parameter <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">f</code>. Non è necessario specificare che si tratti di un array perchè viene rilevato automaticamente;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">k</code>: Il type del valore restituito. Può essere omesso se il nostro editor è capace di rilevarlo da solo.</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
@@ -412,20 +412,20 @@ Se nessun valore viene restituito, la funzione restituirà automaticamente <code
 <span style="color: #800; font-weight: 700;">multiply2</span>(<span style="color: #800;">2</span>, <span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>); <span style="color: #888">// [2, 4, 6]</span>
 </code></pre>
 <h2>Function</h2>
-<p>Ogni funzione appartiene ad una classe speciale, chiamata <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Function</code>.
+<p>Ogni funzione appartiene ad una classe speciale, chiamata <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Function</code>.
 Questa classe è globale ed accessibile ovunque nel nostro codice.</p>
 <p><strong>Nota: scopriremo nel dettaglio cosa sono le classi nel prossimo articolo, intanto, in questo paragrafo, vediamo quali sono i metodi comuni a tutte le funzioni.</strong></p>
 <h3>Metodi</h3>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">&lt;Function&gt;.bind(thisArg: unknown, ...args: unknown[]): Function</code></a></h4>
-<p>Questo metodo ci permette di creare una nuova funzione, identica alla precedente, ma con il valore di <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code> diverso e dei parametri <em>appesi</em> all’inizio di essa.</p>
+<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Function&gt;.bind(thisArg: unknown, ...args: unknown[]): Function</code></a></h4>
+<p>Questo metodo ci permette di creare una nuova funzione, identica alla precedente, ma con il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> diverso e dei parametri <em>appesi</em> all’inizio di essa.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">func.<span style="color: #800; font-weight: 700;">bind</span>(thisArg <span style="color: #888">/** , ...args */</span>);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">thisArg</code>: L’object da usare come <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">...args</code>: I parametri da passare come primi nella funzione.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: L’object da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...args</code>: I parametri da passare come primi nella funzione.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">func</code> - La funzione modificata con il nuovo <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code> e i parametri passati all’inizio.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">func</code> - La funzione modificata con il nuovo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> e i parametri passati all’inizio.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = {
     <span style="color: #444">a</span>: <span style="color: #800;">10</span>,
@@ -442,16 +442,16 @@ obj.<span style="color: #800; font-weight: 700;">sum</span>(<span style="color: 
 obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">bind</span>({ <span style="color: #444">a</span>: <span style="color: #800;">15</span> })(<span style="color: #800;">25</span>); <span style="color: #888">// 40 - `this.a` corrisponde ora a 15</span>
 obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">bind</span>({ <span style="color: #444">a</span>: <span style="color: #800;">35</span> }, <span style="color: #800;">40</span>)(); <span style="color: #888">// 75 - `this.a` corrisponde ora a 35 e `b` corrisponde a 40</span>
 </code></pre>
-<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">&lt;Function&gt;.call(thisArg: unknown, ...args: unknown[]): unknown</code></a></h4>
-<p>Questo metodo ci permette di chiamare una funzione, ma con il valore di <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code> diverso.</p>
+<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Function&gt;.call(thisArg: unknown, ...args: unknown[]): unknown</code></a></h4>
+<p>Questo metodo ci permette di chiamare una funzione, ma con il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> diverso.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">func.<span style="color: #800; font-weight: 700;">call</span>(thisArg <span style="color: #888">/** , ...args */</span>);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">thisArg</code>: L’object da usare come <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">this</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">...args</code>: I parametri da passare nella funzione.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: L’object da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...args</code>: I parametri da passare nella funzione.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">unknown</code> - Il valore restituito dalla funzione.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il valore restituito dalla funzione.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = {
     <span style="color: #444">a</span>: <span style="color: #800;">10</span>,
@@ -471,16 +471,16 @@ obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight
 <h2>Funzioni globali</h2>
 <p>Ci sono poi delle funzioni predefinite che possiamo utilizzare ovunque.</p>
 <p>Di seguito ne è una lista.</p>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">eval(x: string): unknown</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">eval(x: string): unknown</code></a></h3>
 <p>Esegue un codice JavaScript rilevato da una stringa.</p>
 <p><strong>Nota: questa funzione può essere pericolosa, in quanto il codice potrebbe avere origini sconosciute e verrà eseguito normalmente.</strong></p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">eval</span>(x);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">x</code>: Una stringa che contiene codice JavaScript valido.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">x</code>: Una stringa che contiene codice JavaScript valido.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">unknown</code> - Il risultato dell’esecuzione del codice.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il risultato dell’esecuzione del codice.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> x = <span style="color: #800;">2</span>;
 <span style="font-weight: 700;">const</span> y = <span style="color: #800;">39</span>;
@@ -488,15 +488,15 @@ obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight
 <span style="color: #397300;">eval</span>(<span style="color: #800;">&quot;x + y + 1&quot;</span>); <span style="color: #888">// 42</span>
 <span style="color: #397300;">eval</span>(z); <span style="color: #888">// 42</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">isFinite(number: number): boolean</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">isFinite(number: number): boolean</code></a></h3>
 <p>Determina se un numero è finito (non infinito).</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isFinite</span>(number);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">number</code>: Un qualsiasi numero.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>: Un qualsiasi numero.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">boolean</code> - <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">true</code> se il numero passato non è <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Infinity</code> o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">NaN</code>, <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">false</code> in caso contrario.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se il numero passato non è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Infinity</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isFinite</span>(<span style="color: #800; font-weight: 700;">Infinity</span>); <span style="color: #888">// false</span>
 <span style="color: #397300;">isFinite</span>(<span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// false</span>
@@ -506,29 +506,29 @@ obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight
 <span style="color: #397300;">isFinite</span>(<span style="color: #800;">2e64</span>); <span style="color: #888">// true</span>
 <span style="color: #397300;">isFinite</span>(<span style="color: #800;">910</span>); <span style="color: #888">// true</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">isNaN(number: number): boolean</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">isNaN(number: number): boolean</code></a></h3>
 <p>Determina se un numero è <strong>NaN</strong> (not-a-number).</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isNaN</span>(number);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">number</code>: Un qualsiasi numero.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>: Un qualsiasi numero.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">boolean</code> - <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">true</code> se il numero passato non è <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">NaN</code>, <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">false</code> in caso contrario.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se il numero passato non è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isNaN</span>(<span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// true</span>
 
 <span style="color: #397300;">isNaN</span>(<span style="color: #800;">37</span>); <span style="color: #888">// false</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">parseFloat(string: string): number</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">parseFloat(string: string): number</code></a></h3>
 <p>Converte una stringa in un numero con la virgola.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">parseFloat</span>(string);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string</code>: Una stringa che contiene un numero con la virgola.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code>: Una stringa che contiene un numero con la virgola.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">number</code> - Il numero rilevato, o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">NaN</code> se non è stato possibile trovare alcun numero.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - Il numero rilevato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code> se non è stato possibile trovare alcun numero.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Tutti i seguenti esempi restituiscono 3.14:</span>
 <span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;3.14&quot;</span>);
@@ -537,16 +537,16 @@ obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight
 <span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;0.0314E+2&quot;</span>);
 <span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;3.14altri caratteri&quot;</span>);
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">parseInt(string: string, radix?: number): number</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">parseInt(string: string, radix?: number): number</code></a></h3>
 <p>Converte una stringa in un numero con la virgola.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">parseInt</span>(string <span style="color: #888">/** , radix */</span>);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string</code>: Una stringa che contiene un numero intero;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">radix</code>: La base del numero (decimale, ottale, etc…). Facoltativo, è 10 di default se il numero <strong>non</strong> inizia con 0, 16 in caso contrario.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code>: Una stringa che contiene un numero intero;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">radix</code>: La base del numero (decimale, ottale, etc…). Facoltativo, è 10 di default se il numero <strong>non</strong> inizia con 0, 16 in caso contrario.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">number</code> - Il numero rilevato, o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">NaN</code> se non è stato possibile trovare alcun numero.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - Il numero rilevato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code> se non è stato possibile trovare alcun numero.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Tutti i seguenti esempi restituiscono 15:</span>
 <span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;015&quot;</span>, <span style="color: #800;">10</span>);
@@ -556,29 +556,29 @@ obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight
 <span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;15px&quot;</span>, <span style="color: #800;">10</span>);
 <span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;12&quot;</span>, <span style="color: #800;">13</span>);
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">encodeURI(uri: string): string</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">encodeURI(uri: string): string</code></a></h3>
 <p>Codifica una stringa in formato URI.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">encodeURI</span>(uri);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">uri</code>: Un URI.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">uri</code>: Un URI.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string</code> - La stringa convertita in formato URI.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - La stringa convertita in formato URI.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;;,/?:@&amp;=+$#&quot;</span>); <span style="color: #888">// ;,/?:@&amp;=+$#</span>
 <span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;-_.!~*&#x27;()&quot;</span>); <span style="color: #888">// -_.!~*&#x27;()</span>
 <span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;ABC abc 123&quot;</span>); <span style="color: #888">// ABC%20abc%20123</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">decodeURI(encodedURI: string): string</code></a></h3>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">decodeURI(encodedURI: string): string</code></a></h3>
 <p>Decodifica una stringa in formato URI.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">decodeURI</span>(encodedURI);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">encodedURI</code>: Un URI codificato.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">encodedURI</code>: Un URI codificato.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string</code> - La stringa decodificata in formato URI.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - La stringa decodificata in formato URI.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">decodeURI</span>(<span style="color: #800;">&quot;https://developer.mozilla.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B&quot;</span>);
 <span style="color: #888">// &quot;https://developer.mozilla.org/ru/docs/JavaScript_шеллы&quot;</span>

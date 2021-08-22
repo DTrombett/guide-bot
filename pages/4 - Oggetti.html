@@ -11,12 +11,12 @@ Prendiamo, ad esempio, una tazza: avrà un colore, un materiale, una grandezza, 
 a.<span class="hljs-property">b</span> = c; <span style="color: #888">// Specifichiamo che la proprietà `b` corrisponde al valore di `c`</span>
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a</code>: L’oggetto che stiamo leggendo. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Object</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code>: Il nome della proprietà da leggere. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string | symbol | number</code>;</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">c</code>: Il valore da assegnare alla proprietà <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code>. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">unknown</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: L’oggetto che stiamo leggendo. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il nome della proprietà da leggere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string | symbol | number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Il valore da assegnare alla proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
 </ul>
 <h2>Creare un object</h2>
-<p>Tutto in JavaScript è un object, tranne <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">null</code> e <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>, ma possiamo anche crearne noi di nuovi, utilizzando le parentesi graffe: <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">{}</code>.</p>
+<p>Tutto in JavaScript è un object, tranne <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, ma possiamo anche crearne noi di nuovi, utilizzando le parentesi graffe: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">{}</code>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {}; <span style="color: #888">// Creiamo un object vuoto e salviamolo nella costante `tazza`</span>
 <span style="color: #888">// Ora l&#x27;object non avrà nessuna proprietà perciò dobbiamo crearne qualcuna noi</span>
@@ -37,7 +37,7 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&qu
 <span style="color: #888">// Se una proprietà non esiste, verrà restituito `undefined`</span>
 </code></pre>
 <h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#bracket_notation">Bracket notation</a></h2>
-<p>Le proprietà di un object possono essere semplici stringhe, come <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">larghezza</code> o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">colore</code>, ma anche simboli o numeri.</p>
+<p>Le proprietà di un object possono essere semplici stringhe, come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">larghezza</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">colore</code>, ma anche simboli o numeri.</p>
 <p>Purtroppo, però, possiamo utilizzare il punto per accedere ad una proprietà solo se il suo nome è una stringa, inizia con una lettera e non contiene spazi.</p>
 <p>In caso contrario, dobbiamo utilizzare la <em>bracket notation</em>.</p>
 <p><strong>Esempi:</strong></p>
@@ -49,8 +49,8 @@ tazza[<span style="color: #800;">&quot;altezza&quot;</span>] = <span style="colo
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza[<span style="color: #800;">&quot;data creazione&quot;</span>]); <span style="color: #888">// 2000</span>
 </code></pre>
 <h2>Proprietà inesistenti</h2>
-<p>Come visto in precedenza, se proviamo ad accedere ad una proprietà inesistente ci verrà restituito <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>.</p>
-<p>Attenzione, però, perché <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code> è un valore come gli altri, e possiamo anche esplicitamente impostare una proprietà al valore <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>, perciò, se vogliamo controllare se una proprietà esiste o meno, non possiamo semplicemente vedere se è uguale a <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>.</p>
+<p>Come visto in precedenza, se proviamo ad accedere ad una proprietà inesistente ci verrà restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p>Attenzione, però, perché <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> è un valore come gli altri, e possiamo anche esplicitamente impostare una proprietà al valore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, perciò, se vogliamo controllare se una proprietà esiste o meno, non possiamo semplicemente vedere se è uguale a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>);
@@ -59,7 +59,7 @@ tazza.<span class="hljs-property">altezza</span> = <span style="color: #78a960;"
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>);
 <span style="color: #888">// Console: undefined - Perché la proprietà esiste ma ha il vore di `undefined`</span>
 </code></pre>
-<p>Per risolvere questo problema dobbiamo utilizzare l’operatore <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">in</code>, che ci dirà se la proprietà esiste o meno.</p>
+<p>Per risolvere questo problema dobbiamo utilizzare l’operatore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">in</code>, che ci dirà se la proprietà esiste o meno.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;altezza&quot;</span> <span style="font-weight: 700;">in</span> tazza);
@@ -69,7 +69,7 @@ tazza.<span class="hljs-property">altezza</span> = <span style="color: #78a960;"
 <span style="color: #888">// Console: true - La proprietà `altezza` esiste in `tazza`, seppur è `undefined`</span>
 </code></pre>
 <h2>Valori che sono objects</h2>
-<p>Come detto in precedenza, tutto è un object, tranne <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">null</code> e <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>, questo significa che possiamo sempre utilizzare il punto o le parentesi quadre per accedere ad una proprietà di un valore.</p>
+<p>Come detto in precedenza, tutto è un object, tranne <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, questo significa che possiamo sempre utilizzare il punto o le parentesi quadre per accedere ad una proprietà di un valore.</p>
 <p>Questo comprende anche stringhe, numeri, etc…: anche loro in realtà sono objects e hanno delle proprietà.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> str = <span style="color: #800;">&quot;Sus&quot;</span>;
@@ -88,8 +88,8 @@ tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&qu
 tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">null</span>;
 <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>); <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
 </code></pre>
-<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining operator: <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">?.</code></a></h2>
-<p>Per evitare questi errori con valori che possono essere <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">null</code> o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code> possiamo utilizzare l’operatore <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">?.</code>.</p>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining operator: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">?.</code></a></h2>
+<p>Per evitare questi errori con valori che possono essere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> possiamo utilizzare l’operatore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">?.</code>.</p>
 <p>Questo operatore possiamo utilizzarlo al posto del punto o prima delle parentesi quadre quando leggiamo una proprietà.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a?.<span class="hljs-property">c</span>;
@@ -97,10 +97,10 @@ a?.[d];
 b?.(<span style="color: #888">/** e, ... */</span>);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a</code>: Un qualsiasi object che può avere un valore nullo. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">unknown</code>.</li>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code>: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code> non è una funzione. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Function | null | undefined</code></li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Un qualsiasi object che può avere un valore nullo. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> non è una funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Function | null | undefined</code></li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code> se <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a</code> è <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">null</code> o <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">undefined</code>, in caso contrario, il valore della proprietà <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">b</code>.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, in caso contrario, il valore della proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
 tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&quot;Giallo&quot;</span>;
@@ -114,7 +114,7 @@ tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">leng
 <span style="color: #888">// Senza optional chaining operator riceviamo un errore perché `tazza.colore` è nullo</span>
 </code></pre>
 <h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></h2>
-<p><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Object</code> è una variabile globale, nonché una classe a cui appartengono tutti gli objects.</p>
+<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object</code> è una variabile globale, nonché una classe a cui appartengono tutti gli objects.</p>
 <p><strong>Nota: Nei prossimi articoli vedremo nel dettaglio le classi e le variabili globali (oggetti globali).</strong></p>
 <p><strong>Nota: Questo paragrafo utilizza una sintassi che vedremo nel dettaglio più avanti.</strong></p>
 <p>Istanziando questa classe creiamo un nuovo object; è come utilizzare delle parentesi graffe</p>
@@ -124,18 +124,18 @@ Tutte le informazioni riguardo ai metodi statici etc… le vedremo nell’artico
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Object</span>(value);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">value</code>: Un valore da cui creare il nuovo object. Se è un valore nullo verrà creato un object vuoto (<code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">{}</code>), in caso contrario verrà restituito l’oggetto passato. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">unknown</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">value</code>: Un valore da cui creare il nuovo object. Se è un valore nullo verrà creato un object vuoto (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">{}</code>), in caso contrario verrà restituito l’oggetto passato. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
 </ul>
 <p><strong>Metodi:</strong></p>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Object#hasOwnProperty(v: PropertyKey)</code></a></h3>
-<p>Controlla se un object ha una certa proprietà, escludendo le proprietà e i metodi nativi, come <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">toString</code>.</p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object#hasOwnProperty(v: PropertyKey)</code></a></h3>
+<p>Controlla se un object ha una certa proprietà, escludendo le proprietà e i metodi nativi, come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">toString</code>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">object.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(v);
 </code></pre>
 <ul>
-<li><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">v</code>: La proprietà da controllare. <strong>Type:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">PropertyKey = string | number | symbol</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">v</code>: La proprietà da controllare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">PropertyKey = string | number | symbol</code>.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">boolean</code> - <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">true</code> se la proprietà esiste e non è nativa, <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">false</code> in caso contrario.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se la proprietà esiste e non è nativa, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> example = {};
 example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// false - Non esiste nessuna proprietà `prop` in `example`</span>
@@ -158,12 +158,12 @@ example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span
 
 <span style="color: #800;">&quot;toString&quot;</span> <span style="font-weight: 700;">in</span> example; <span style="color: #888">// true - L&#x27;operatore `in` non controlla se la proprietà è nativa</span>
 </code></pre>
-<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">Object#toString()</code></a></h3>
-<p>Converte l’object in stringa. Questo metodo differisce in base al tipo di object, infatti, degli object nativi non possono essere convertiti e viene restituito <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">[object Object]</code>.</p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object#toString()</code></a></h3>
+<p>Converte l’object in stringa. Questo metodo differisce in base al tipo di object, infatti, degli object nativi non possono essere convertiti e viene restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">[object Object]</code>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">object.<span style="color: #800; font-weight: 700;">toString</span>();
 </code></pre>
-<p><strong>Restituisce:</strong> <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">string</code> - L’object convertito in stringa.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - L’object convertito in stringa.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Dog</span> {
     <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">name, breed, color, sex</span>) {
@@ -183,9 +183,9 @@ i.<span style="color: #800; font-weight: 700;">toString</span>(); <span style="c
 </code></pre>
 <h2>Loop delle proprietà</h2>
 <p>Possiamo anche eseguire un loop delle proprietà di un object, in modo da eseguire una azione per ognuna di esso.
-Per farlo utilizziamo un <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">for...in</code></a> loop.</p>
-<p>Per evitare di eseguire azioni anche per proprietà native dell’object utilizziamo il metodo <code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">hasOwnProperty</code>.</p>
-<p><strong>Vedi anche:</strong> Sintassi <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">for...in</code></a> loop.</p>
+Per farlo utilizziamo un <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a> loop.</p>
+<p>Per evitare di eseguire azioni anche per proprietà native dell’object utilizziamo il metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">hasOwnProperty</code>.</p>
+<p><strong>Vedi anche:</strong> Sintassi <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a> loop.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = { <span style="color: #444">a</span>: <span style="color: #800;">1</span>, <span style="color: #444">b</span>: <span style="color: #800;">2</span>, <span style="color: #444">c</span>: <span style="color: #800;">3</span> };
 
