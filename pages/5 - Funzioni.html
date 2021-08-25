@@ -1,0 +1,590 @@
+<h1>Funzioni</h1>
+<p>Le funzioni, in JavaScript, costituiscono un blocco di codice che si basa su dei dati e che può essere eseguito quando vogliamo.</p>
+<p>Per farlo, ci basterà dichiarare la determinata funzione con i suoi <em>parametri</em>, il suo codice ed il suo nome.</p>
+<h2>Dichiarare una funzione</h2>
+<p>Per dichiarare una funzione, utilizziamo la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code></a>, che abbiamo già visto nell’articolo <strong>Parole chiave e operatori</strong>.</p>
+<p>Ricontrolliamo la sintassi:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Il nome della funzione;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...c</code>: I parametri della funzione.</li>
+</ul>
+<h2>Arrow functions</h2>
+<p>C’è poi un metodo diverso per dichiarare una funzione: le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a>.</p>
+<p>Grazie a loro possiamo scrivere delle funzioni in modo più semplice che potranno essere eseguite più velocemente.</p>
+<p>Vediamo i vantaggi e gli svantaggi di queste speciali funzioni:</p>
+<p><strong>Vantaggi:</strong></p>
+<ul>
+<li>Più facili da utilizzare;</li>
+<li>Più veloci;</li>
+<li>Possibilità di restituire immediatamente un valore senza utilizzare le parentesi graffe.</li>
+</ul>
+<p><strong>Svantaggi:</strong></p>
+<ul>
+<li>Non possono utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> (vedremo questo più avanti);</li>
+<li>Non possono essere utilizzati come metodi;</li>
+<li>Non possono essere usati per creare classi.</li>
+</ul>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">(<span style="color: #888">/** a, ...b */</span>) =&gt; c; <span style="color: #888">// Se abbiamo 0 o più parametri e vogliamo restituire direttamente un valore</span>
+<span class="hljs-function">(<span class="hljs-params"><span style="color: #888">/** a, ...b */</span></span>) =&gt;</span> {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+}; <span style="color: #888">// Se abbiamo 0 o più parametri e vogliamo eseguire più di un&#x27;azione</span>
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a, ...b</code>: Parametri facoltativi da passare nella funzione;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Valore da restituire immediatamente.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Funzione classica
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">name</span>(<span class="hljs-params">a</span>) {
+    <span style="font-weight: 700;">return</span> a + <span style="color: #800;">100</span>;
+}
+
+<span style="color: #888">/**
+ * Equivalente:
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">name</span> = (<span class="hljs-params">a</span>) =&gt; a + <span style="color: #800;">100</span>;
+
+<span style="color: #888">/**
+ * Funzione classica
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span>
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">name1</span>(<span class="hljs-params">a, b</span>) {
+    <span style="font-weight: 700;">return</span> a + b + <span style="color: #800;">100</span>;
+}
+
+<span style="color: #888">/**
+ * Equivalente:
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">name1</span> = (<span class="hljs-params">a, b</span>) =&gt; a + b + <span style="color: #800;">100</span>;
+
+<span style="color: #888">// Funzione classica</span>
+<span style="font-weight: 700;">const</span> c = <span style="color: #800;">4</span>;
+<span style="font-weight: 700;">const</span> d = <span style="color: #800;">2</span>;
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">name2</span>(<span class="hljs-params"></span>) {
+    <span style="font-weight: 700;">return</span> c + d + <span style="color: #800;">100</span>;
+}
+
+<span style="color: #888">// Equivalente:</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">name2</span> = (<span class="hljs-params"></span>) =&gt; c + d + <span style="color: #800;">100</span>;
+
+<span style="color: #888">/**
+ * Funzione classica
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span>
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">name3</span>(<span class="hljs-params">a, b</span>) {
+    <span style="font-weight: 700;">const</span> i = <span style="color: #800;">42</span>;
+    <span style="font-weight: 700;">return</span> a + b + i;
+}
+
+<span style="color: #888">/**
+ * Equivalente:
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">name3</span> = (<span class="hljs-params">a, b</span>) =&gt; {
+    <span style="font-weight: 700;">const</span> i = <span style="color: #800;">42</span>;
+    <span style="font-weight: 700;">return</span> a + b + i;
+};
+
+<span class="hljs-function">() =&gt;</span> ({ <span style="color: #444">foo</span>: <span style="color: #800;">&quot;a&quot;</span> }); <span style="color: #888">//  { foo: &quot;a&quot; }</span>
+
+<span style="color: #888">/**
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">simple</span> = (<span class="hljs-params">a</span>) =&gt; (a &gt; <span style="color: #800;">15</span> ? <span style="color: #800;">15</span> : a);
+<span style="color: #800; font-weight: 700;">simple</span>(<span style="color: #800;">16</span>); <span style="color: #888">// 15</span>
+<span style="color: #800; font-weight: 700;">simple</span>(<span style="color: #800;">10</span>); <span style="color: #888">// 10</span>
+
+<span style="color: #888">/**
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span>
+ */</span>
+<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> (a &gt; b ? a : b);
+
+<span style="font-weight: 700;">const</span> arr = [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>, <span style="color: #800;">13</span>, <span style="color: #800;">0</span>, <span style="color: #800;">1</span>, <span style="color: #800;">18</span>, <span style="color: #800;">23</span>];
+
+arr.<span style="color: #800; font-weight: 700;">reduce</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b); <span style="color: #888">// 66 - Vedremo gli array nel dettaglio in un altro articolo</span>
+
+arr.<span style="color: #800; font-weight: 700;">filter</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v % <span style="color: #800;">2</span> === <span style="color: #800;">0</span>); <span style="color: #888">// [6, 0, 18]</span>
+
+arr.<span style="color: #800; font-weight: 700;">map</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v * <span style="color: #800;">2</span>); <span style="color: #888">// [10, 12, 26, 0, 2, 36, 46]</span>
+
+<span style="color: #888">// Creiamo una Promise</span>
+<span style="color: #888">// Vedremo questa struttura nel dettaglio in un altro articolo</span>
+<span style="font-weight: 700;">const</span> promise = <span style="color: #800; font-weight: 700;">Promise</span>.<span style="color: #800; font-weight: 700;">resolve</span>();
+
+promise
+    .<span style="color: #800; font-weight: 700;">then</span>(<span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> {
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a);
+    })
+    .<span style="color: #800; font-weight: 700;">catch</span>(<span class="hljs-function">(<span class="hljs-params">b</span>) =&gt;</span> {
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">error</span>(b);
+    });
+
+<span style="color: #397300;">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Prima&quot;</span>);
+    <span style="color: #397300;">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Dopo&quot;</span>);
+    }, <span style="color: #800;">1</span>);
+}, <span style="color: #800;">1</span>);
+</code></pre>
+<h2>Elementi di una funzione</h2>
+<p>Una funzione avrà quindi:</p>
+<ul>
+<li>Un nome (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>);</li>
+<li>Dei parametri facoltativi (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...c</code>);</li>
+<li>Un codice.</li>
+</ul>
+<p>Andiamo ad esaminare questi elementi nel dettaglio.</p>
+<h3>Nome della funzione</h3>
+<p>Ogni funzione può avere un nome.
+Grazie ad esso saremo in grado di usarla, o <em>chiamarla</em>.</p>
+<p>Il nome della funzione deve rispettare le stesse condizioni di quello delle variabili che abbiamo visto nell’articolo <strong>Variabili</strong>.</p>
+<p>Ci sono casi in cui invece il nome è facoltativo, come nei <em>callback</em>, dove, però, utilizzeremo soprattutto le arrow functions:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Sus&quot;</span>), <span style="color: #800;">1</span>); <span style="color: #888">// Qui abbiamo utilizzato una arrow functions invece che una funzione normale</span>
+<span style="color: #888">// Se volessimo utilizzare una funzione classica faremmo così:</span>
+<span style="color: #397300;">setTimeout</span>(<span style="font-weight: 700;">function</span> (<span class="hljs-params"></span>) {
+    <span style="font-weight: 700;">return</span> <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Sus&quot;</span>);
+}, <span style="color: #800;">1</span>); <span style="color: #888">// In questo caso possiamo omettere il nome della funzione</span>
+</code></pre>
+<p>Le arrow functions, invece, non hanno un nome e le possiamo salvare in delle costanti:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">func</span> = (<span class="hljs-params"></span>) =&gt; <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Sus&quot;</span>);
+
+<span style="color: #800; font-weight: 700;">func</span>();
+<span style="color: #888">// Console: &quot;Sus&quot;</span>
+</code></pre>
+<h3>Parametri</h3>
+<p>I parametri di una funzione sono come delle variabili dichiarate con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">let</code> all’interno della stessa funzione.</p>
+<p>Possiamo decidere noi che nome dare ai parametri, così come quanti includerne nella nostra funzione e di quale tipo.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">sus</span> = (<span class="hljs-params"></span>) =&gt; <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Sus&quot;</span>); <span style="color: #888">// Nessun parametro</span>
+
+<span style="color: #888">/**
+ * Creiamo una funzione con un parametro.
+ * Usiamo il JSDoc per specificare il tipo del parametro.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">unknown</span>} <span style="color: #bc6060;">a</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">log</span> = (<span class="hljs-params">a</span>) =&gt; <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a);
+</code></pre>
+<h4>Rest parameters</h4>
+<p>Se in una funzione vogliamo utilizzare un numero indefinito di parametri, possiamo utilizzare i <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">rest parameters</a>.</p>
+<p>Per farlo usiamo i 3 puntini prima del nome del parametro e nella funzione potremo accedere a quella variabile riferendoci ad un array dei parametri ricevuti.</p>
+<p><strong>Nota: è possibile utilizzare solo un rest parameter in una funzione e deve essere collocato obbligatoriamente alla fine.</strong></p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">a</span> = (<span class="hljs-params"><span style="color: #888">/** b, ..., */</span> ...c</span>) =&gt; {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+    <span style="color: #888">// `c` si riferirà ad un array di parametri passati</span>
+};
+
+<span style="color: #888">// Con una funzione classica:</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/** b, ..., */</span> ...c</span>) {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+    <span style="color: #888">// `c` si riferirà ad un array di parametri passati</span>
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Nome da assegnare alla variabile che rappresenterà l’array di parametri passati alla fine (dopo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> ed altri eventuali parametri).</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string</span>} <span style="color: #bc6060;">b</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">...string</span>} <span style="color: #bc6060;">otherParams</span> - Rappresenta tutti i parametri passati nella funzione dopo `a` e `b`, quindi dal terzo in poi
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">myFun</span>(<span class="hljs-params">a, b, ...otherParams</span>) {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;a&quot;</span>, a);
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;b&quot;</span>, b);
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;otherParams&quot;</span>, otherParams);
+}
+
+<span style="color: #800; font-weight: 700;">myFun</span>(<span style="color: #800;">&quot;one&quot;</span>, <span style="color: #800;">&quot;two&quot;</span>, <span style="color: #800;">&quot;three&quot;</span>, <span style="color: #800;">&quot;four&quot;</span>, <span style="color: #800;">&quot;five&quot;</span>, <span style="color: #800;">&quot;six&quot;</span>);
+<span style="color: #888">// Console:</span>
+<span style="color: #888">// a, &quot;one&quot;</span>
+<span style="color: #888">// b, &quot;two&quot;</span>
+<span style="color: #888">// otherParams, [&quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;]</span>
+
+<span style="color: #800; font-weight: 700;">myFun</span>(<span style="color: #800;">&quot;one&quot;</span>, <span style="color: #800;">&quot;two&quot;</span>);
+<span style="color: #888">// Console:</span>
+<span style="color: #888">// a, &quot;one&quot;</span>
+<span style="color: #888">// b, &quot;two&quot;</span>
+<span style="color: #888">// otherParams, [] - Abbiamo passato solo due parametri perciò `otherParams` sarà un array vuoto</span>
+</code></pre>
+<h4>Valori di default</h4>
+<p>Se un parametro è facoltativo potremmo voler aggiungere un <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">valore di default</a> che viene utilizzato quando quel parametro non viene passato.
+Possiamo farlo, semplicemente usando l’uguale vicino il nome del parametro, come se volessimo assegnare un valore a quel parametro.</p>
+<p><strong>Nota: è possibile utilizzare quanti valori di default vogliamo in una funzione ma devono essere collocati obbligatoriamente alla fine.</strong></p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params"><span style="color: #888">/** b, ..., */</span> c = d</span>) {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Il nome del parametro facoltativo;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Il valore di default che viene assegnato quando il parametro non viene passato o è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Moltiplica 2 numeri.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span> - Il numero da moltiplicare
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} [b] - Il numero per cui moltiplicare. 1 di default
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">multiply</span>(<span class="hljs-params">a, b = <span style="color: #800;">1</span></span>) {
+    <span style="font-weight: 700;">return</span> a * b;
+}
+
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>, <span style="color: #800;">2</span>); <span style="color: #888">// 10</span>
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>); <span style="color: #888">// 5</span>
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>, <span style="color: #78a960;">undefined</span>); <span style="color: #888">// 5</span>
+
+<span style="color: #888">/**
+ * Scriviamo in console il tipo del parametro passato
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number|string|null</span>} [num]
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">test</span>(<span class="hljs-params">num = <span style="color: #800;">1</span></span>) {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="font-weight: 700;">typeof</span> num);
+}
+
+<span style="color: #800; font-weight: 700;">test</span>(); <span style="color: #888">// &#x27;number&#x27; (num is 1)</span>
+<span style="color: #800; font-weight: 700;">test</span>(<span style="color: #78a960;">undefined</span>); <span style="color: #888">// &#x27;number&#x27; (num is 1)</span>
+<span style="color: #800; font-weight: 700;">test</span>(<span style="color: #800;">&quot;&quot;</span>); <span style="color: #888">// &#x27;string&#x27; (num is &#x27;&#x27;)</span>
+<span style="color: #800; font-weight: 700;">test</span>(<span style="color: #78a960;">null</span>); <span style="color: #888">// &#x27;object&#x27; (num is null)</span>
+</code></pre>
+<h3>Codice della funzione</h3>
+<p>Una funzione, infine, ha un codice.
+Questo codice rappresenta le azioni da eseguire quando la funzione viene chiamata, utilizzando i parametri passati ad essa.</p>
+<p>Dopo aver eseguito le dovute operazioni, la funzione potrà restituire un valore con la parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">return</code>.
+Se nessun valore viene restituito, la funzione restituirà automaticamente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Eseguiamo la somma di tutti i numeri passati come parametro.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">...number</span>} <span style="color: #bc6060;">numbers</span> - I numeri da sommare
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">sum</span> = (<span class="hljs-params">...numbers</span>) =&gt; numbers.<span style="color: #800; font-weight: 700;">reduce</span>(<span class="hljs-function">(<span class="hljs-params">num1, num2</span>) =&gt;</span> num1 + num2);
+<span style="color: #888">// Questa funzione non usa return ma è un arrow function abbreviata perciò il valore restituito è quello immediatamente dopo la freccia</span>
+
+<span style="color: #888">/**
+ * Equivalente:
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">...number</span>} <span style="color: #bc6060;">numbers</span> - I numeri da sommare
+ */</span>
+<span class="hljs-function">(<span class="hljs-params">...numbers</span>) =&gt;</span> {
+    <span style="font-weight: 700;">return</span> numbers.<span style="color: #800; font-weight: 700;">reduce</span>(<span class="hljs-function">(<span class="hljs-params">num1, num2</span>) =&gt;</span> num1 + num2);
+};
+
+<span style="color: #800; font-weight: 700;">sum</span>(<span style="color: #800;">12</span>, <span style="color: #800;">123</span>, <span style="color: #800;">55</span>, <span style="color: #800;">76</span>); <span style="color: #888">// 266</span>
+</code></pre>
+<h2>Nested functions</h2>
+<p>Si parla di <em>funzioni annidate</em> (o <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions?retiredLocale=it#nested_functions_and_closures">nested funnctions</a>) quando una funzione viene dichiarata all’interno di un’altra.</p>
+<p>In generale, si dovrebbe evitare di annidare più funzioni perchè questo porta solo a complicazioni nella lettura e interpretazione del codice, nonchè a un rallentamento nell’esecuzione.</p>
+<p>Se dobbiamo utilizzare una funzione che utilizzi dei dati passati come parametri in un’altra funzione è bene utiizzare un arrow function e, se possibile, direttamente usarla dove ci serve, senza doverla dichiarare.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string[]</span>} <span style="color: #bc6060;">args</span>
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">run</span> = (<span class="hljs-params">args</span>) =&gt; {
+    <span style="font-weight: 700;">const</span> [first] = args;
+    <span style="font-weight: 700;">return</span> <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+        <span style="color: #800; font-weight: 700;">resolve</span>(first);
+    });
+    <span style="color: #888">// Abbiamo passato una funzione come parametro in `new Promise()` ma senza dichiararla all&#x27;esterno</span>
+};
+</code></pre>
+<h2>Funzioni asincrone</h2>
+<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">funzioni asincrone</a> sono quelle che utilizzano <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">async</code> prima del loro nome o, nelle arrow functions, prima dei parametri.</p>
+<p>Queste funzioni possono utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">await</code> nel loro codice e restituiranno sempre una <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Promise</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">resolveAfter2Seconds</span>(<span class="hljs-params"></span>) {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;starting slow promise&quot;</span>);
+    <span style="font-weight: 700;">return</span> <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+        <span style="color: #397300;">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+            <span style="color: #800; font-weight: 700;">resolve</span>(<span style="color: #800;">&quot;slow&quot;</span>);
+            <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;slow promise is done&quot;</span>);
+        }, <span style="color: #800;">2000</span>);
+    });
+}
+
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">resolveAfter1Second</span>(<span class="hljs-params"></span>) {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;starting fast promise&quot;</span>);
+    <span style="font-weight: 700;">return</span> <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> {
+        <span style="color: #397300;">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+            <span style="color: #800; font-weight: 700;">resolve</span>(<span style="color: #800;">&quot;fast&quot;</span>);
+            <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;fast promise is done&quot;</span>);
+        }, <span style="color: #800;">1000</span>);
+    });
+}
+
+<span style="font-weight: 700;">async</span> <span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">sequentialStart</span>(<span class="hljs-params"></span>) {
+    <span style="color: #888">// 1. Questo viene eseguito immediatamente</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;==SEQUENTIAL START==&quot;</span>);
+
+    <span style="font-weight: 700;">const</span> slow = <span style="font-weight: 700;">await</span> <span style="color: #800; font-weight: 700;">resolveAfter2Seconds</span>();
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(slow); <span style="color: #888">// 2. Questo viene eseguito 2 secondi dopo 1</span>
+
+    <span style="font-weight: 700;">const</span> fast = <span style="font-weight: 700;">await</span> <span style="color: #800; font-weight: 700;">resolveAfter1Second</span>();
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(fast); <span style="color: #888">// 3. Questo viene eseguito 3 secondi dopo 1 e 1 secondo dopo 2</span>
+}
+
+<span style="font-weight: 700;">async</span> <span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">concurrentStart</span>(<span class="hljs-params"></span>) {
+    <span style="color: #888">// 1. Questo viene eseguito immediatamente</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;==CONCURRENT START with await==&quot;</span>);
+    <span style="font-weight: 700;">const</span> slow = <span style="color: #800; font-weight: 700;">resolveAfter2Seconds</span>(); <span style="color: #888">// Questo viene eseguito immediatamente</span>
+    <span style="font-weight: 700;">const</span> fast = <span style="color: #800; font-weight: 700;">resolveAfter1Second</span>(); <span style="color: #888">// Questo viene eseguito immediatamente</span>
+    <span style="color: #888">// Non viene aspettato che il timer finisca utilizzando await</span>
+
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="font-weight: 700;">await</span> slow); <span style="color: #888">// 2. Questo viene eseguito 2 secondi dopo 1</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="font-weight: 700;">await</span> fast); <span style="color: #888">// 3. Questo viene eseguito 2 secondi dopo 1 e immediatamente dopo 2 in quanto il timer di un secondo è già terminato</span>
+}
+
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">concurrentPromise</span>(<span class="hljs-params"></span>) {
+    <span style="color: #888">// 1. Questo viene eseguito immediatamente</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;==CONCURRENT START with Promise.all==&quot;</span>);
+    <span style="font-weight: 700;">return</span> <span style="color: #800; font-weight: 700;">Promise</span>.<span style="color: #800; font-weight: 700;">all</span>([<span style="color: #800; font-weight: 700;">resolveAfter2Seconds</span>(), <span style="color: #800; font-weight: 700;">resolveAfter1Second</span>()]).<span style="color: #800; font-weight: 700;">then</span>(<span class="hljs-function">(<span class="hljs-params">messages</span>) =&gt;</span> {
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(messages[<span style="color: #800;">0</span>]); <span style="color: #888">// slow</span>
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(messages[<span style="color: #800;">1</span>]); <span style="color: #888">// fast</span>
+        <span style="color: #888">// Vengono eseguiti entrambi dopo 2 secondi</span>
+    });
+}
+
+<span style="color: #800; font-weight: 700;">sequentialStart</span>();
+<span style="color: #397300;">setTimeout</span>(concurrentStart, <span style="color: #800;">4000</span>);
+<span style="color: #397300;">setTimeout</span>(concurrentPromise, <span style="color: #800;">7000</span>);
+</code></pre>
+<h2>JSDoc</h2>
+<p>Come spiegato nel primo articolo, per dare informazioni al nostro editor riguardo i parametri delle nostre funzioni dobbiamo usare i JSDoc, ossia dei commenti <em>multi-line</em> prima di dichiarare la funzione.</p>
+<p>Qui di seguito è illustrato come utilizzare questi commenti al meglio nelle funzioni.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Descrizione della funzione
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">g</span>} <span style="color: #bc6060;">b</span> - Descrizione del parametro `b`
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">h</span>} [c] - Descrizione del parametro `c`. Utilizziamo le parentesi quadre per indicare che è facoltativo
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">i</span>} [d] - Descrizione del parametro `d`. Se omettessimo questa riga il suo type sarà automaticamente rilevato dal valore di default
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">...j</span>} <span style="color: #bc6060;">f</span> - Descrizione del parametro `e`. Utilizziamo i 3 puntini per indicare che è un rest parameter. Non c&#x27;è bisogno di usare le parentesi quadre perchè i rest parameter sono sempre facoltativi
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">k</span>} Descrizione del valore restituito. Se omettessimo questa riga il suo type sarà automaticamente rilevato
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">a</span>(<span class="hljs-params">b, c, d = e, ...f</span>) {
+    <span style="color: #888">// Azioni da eseguire nella funzione</span>
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">g</code>: Il type del parametro <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">h</code>: Il type del parametro facoltativo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>. Non è necessario includere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> perchè viene incluso automaticamente nei parametri facoltativi;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">i</code>: Il type del parametro facoltativo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>. Può essere omesso in quanto utilizziamo un valore di default. In tal caso il suo type sarebbe lo stesso di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">j</code>: Il type del rest parameter <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">f</code>. Non è necessario specificare che si tratti di un array perchè viene rilevato automaticamente;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">k</code>: Il type del valore restituito. Può essere omesso se il nostro editor è capace di rilevarlo da solo.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Moltiplica 2 numeri.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">a</span> - Il numero da moltiplicare
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} [b] - Il numero per cui moltiplicare. 1 di default
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">number</span>} Il risultato dell&#x27;operazione
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">multiply</span>(<span class="hljs-params">a, b = <span style="color: #800;">1</span></span>) {
+    <span style="font-weight: 700;">return</span> a * b;
+}
+
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>, <span style="color: #800;">2</span>); <span style="color: #888">// 10</span>
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>); <span style="color: #888">// 5</span>
+<span style="color: #800; font-weight: 700;">multiply</span>(<span style="color: #800;">5</span>, <span style="color: #78a960;">undefined</span>); <span style="color: #888">// 5</span>
+
+<span style="color: #888">/**
+ * Moltiplica più numeri per uno stesso valore.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">multiplier</span> - Il valore per cui moltiplicare
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number[]</span>} <span style="color: #bc6060;">theArgs</span> - I valori da moltiplicare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">number[]</span>} I risultati
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">multiply2</span>(<span class="hljs-params">multiplier, ...theArgs</span>) {
+    <span style="font-weight: 700;">return</span> theArgs.<span style="color: #800; font-weight: 700;">map</span>(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> multiplier * x);
+}
+
+<span style="color: #800; font-weight: 700;">multiply2</span>(<span style="color: #800;">2</span>, <span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>); <span style="color: #888">// [2, 4, 6]</span>
+</code></pre>
+<h2>Function</h2>
+<p>Ogni funzione appartiene ad una classe speciale, chiamata <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Function</code>.
+Questa classe è globale ed accessibile ovunque nel nostro codice.</p>
+<p><strong>Nota: scopriremo nel dettaglio cosa sono le classi nel prossimo articolo, intanto, in questo paragrafo, vediamo quali sono i metodi comuni a tutte le funzioni.</strong></p>
+<h3>Metodi</h3>
+<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Function&gt;.bind(thisArg: unknown, ...args: unknown[]): Function</code></a></h4>
+<p>Questo metodo ci permette di creare una nuova funzione, identica alla precedente, ma con il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> diverso e dei parametri <em>appesi</em> all’inizio di essa.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">func.<span style="color: #800; font-weight: 700;">bind</span>(thisArg <span style="color: #888">/** , ...args */</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: L’object da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...args</code>: I parametri da passare come primi nella funzione.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">func</code> - La funzione modificata con il nuovo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> e i parametri passati all’inizio.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = {
+    <span style="color: #444">a</span>: <span style="color: #800;">10</span>,
+    <span style="color: #888">/**
+     * Somma il valore di a con un altro.
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span> - Un altro numero
+     */</span>
+    <span style="color: #800; font-weight: 700;">sum</span>(<span class="hljs-params">b</span>) {
+        <span style="font-weight: 700;">return</span> <span style="color: #bc6060;">this</span>.<span class="hljs-property">a</span> + b;
+    },
+};
+
+obj.<span style="color: #800; font-weight: 700;">sum</span>(<span style="color: #800;">20</span>); <span style="color: #888">// 30 - `this.a + b` =&gt; `10 + 20` =&gt; 30</span>
+obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">bind</span>({ <span style="color: #444">a</span>: <span style="color: #800;">15</span> })(<span style="color: #800;">25</span>); <span style="color: #888">// 40 - `this.a` corrisponde ora a 15</span>
+obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">bind</span>({ <span style="color: #444">a</span>: <span style="color: #800;">35</span> }, <span style="color: #800;">40</span>)(); <span style="color: #888">// 75 - `this.a` corrisponde ora a 35 e `b` corrisponde a 40</span>
+</code></pre>
+<h4><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Function&gt;.call(thisArg: unknown, ...args: unknown[]): unknown</code></a></h4>
+<p>Questo metodo ci permette di chiamare una funzione, ma con il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> diverso.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">func.<span style="color: #800; font-weight: 700;">call</span>(thisArg <span style="color: #888">/** , ...args */</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: L’object da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...args</code>: I parametri da passare nella funzione.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il valore restituito dalla funzione.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = {
+    <span style="color: #444">a</span>: <span style="color: #800;">10</span>,
+    <span style="color: #888">/**
+     * Somma il valore di a con un altro.
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">b</span> - Un altro numero
+     */</span>
+    <span style="color: #800; font-weight: 700;">sum</span>(<span class="hljs-params">b</span>) {
+        <span style="font-weight: 700;">return</span> <span style="color: #bc6060;">this</span>.<span class="hljs-property">a</span> + b;
+    },
+};
+
+obj.<span style="color: #800; font-weight: 700;">sum</span>(<span style="color: #800;">20</span>); <span style="color: #888">// 30 - `this.a + b` =&gt; `10 + 20` =&gt; 30</span>
+obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">call</span>({ <span style="color: #444">a</span>: <span style="color: #800;">15</span> }, <span style="color: #800;">25</span>); <span style="color: #888">// 40 - `this.a` corrisponde ora a 15 e `b` corrisponde a 25</span>
+obj.<span class="hljs-property">sum</span>.<span style="color: #800; font-weight: 700;">call</span>({ <span style="color: #444">a</span>: <span style="color: #800;">35</span> }, <span style="color: #800;">40</span>); <span style="color: #888">// 75 - `this.a` corrisponde ora a 35 e `b` corrisponde a 40</span>
+</code></pre>
+<h2>Funzioni globali</h2>
+<p>Ci sono poi delle funzioni predefinite che possiamo utilizzare ovunque.</p>
+<p>Di seguito ne è una lista.</p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">eval(x: string): unknown</code></a></h3>
+<p>Esegue un codice JavaScript rilevato da una stringa.</p>
+<p><strong>Nota: questa funzione può essere pericolosa, in quanto il codice potrebbe avere origini sconosciute e verrà eseguito normalmente.</strong></p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">eval</span>(x);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">x</code>: Una stringa che contiene codice JavaScript valido.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il risultato dell’esecuzione del codice.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> x = <span style="color: #800;">2</span>;
+<span style="font-weight: 700;">const</span> y = <span style="color: #800;">39</span>;
+<span style="font-weight: 700;">const</span> z = <span style="color: #800;">&quot;42&quot;</span>;
+<span style="color: #397300;">eval</span>(<span style="color: #800;">&quot;x + y + 1&quot;</span>); <span style="color: #888">// 42</span>
+<span style="color: #397300;">eval</span>(z); <span style="color: #888">// 42</span>
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">isFinite(number: number): boolean</code></a></h3>
+<p>Determina se un numero è finito (non infinito).</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isFinite</span>(number);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>: Un qualsiasi numero.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se il numero passato non è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Infinity</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isFinite</span>(<span style="color: #800; font-weight: 700;">Infinity</span>); <span style="color: #888">// false</span>
+<span style="color: #397300;">isFinite</span>(<span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// false</span>
+<span style="color: #397300;">isFinite</span>(-<span style="color: #800; font-weight: 700;">Infinity</span>); <span style="color: #888">// false</span>
+
+<span style="color: #397300;">isFinite</span>(<span style="color: #800;">0</span>); <span style="color: #888">// true</span>
+<span style="color: #397300;">isFinite</span>(<span style="color: #800;">2e64</span>); <span style="color: #888">// true</span>
+<span style="color: #397300;">isFinite</span>(<span style="color: #800;">910</span>); <span style="color: #888">// true</span>
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">isNaN(number: number): boolean</code></a></h3>
+<p>Determina se un numero è <strong>NaN</strong> (not-a-number).</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isNaN</span>(number);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>: Un qualsiasi numero.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se il numero passato non è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">isNaN</span>(<span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// true</span>
+
+<span style="color: #397300;">isNaN</span>(<span style="color: #800;">37</span>); <span style="color: #888">// false</span>
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">parseFloat(string: string): number</code></a></h3>
+<p>Converte una stringa in un numero con la virgola.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">parseFloat</span>(string);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code>: Una stringa che contiene un numero con la virgola.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - Il numero rilevato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code> se non è stato possibile trovare alcun numero.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Tutti i seguenti esempi restituiscono 3.14:</span>
+<span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;3.14&quot;</span>);
+<span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;  3.14  &quot;</span>);
+<span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;314e-2&quot;</span>);
+<span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;0.0314E+2&quot;</span>);
+<span style="color: #397300;">parseFloat</span>(<span style="color: #800;">&quot;3.14altri caratteri&quot;</span>);
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">parseInt(string: string, radix?: number): number</code></a></h3>
+<p>Converte una stringa in un numero con la virgola.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">parseInt</span>(string <span style="color: #888">/** , radix */</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code>: Una stringa che contiene un numero intero;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">radix</code>: La base del numero (decimale, ottale, etc…). Facoltativo, è 10 di default se il numero <strong>non</strong> inizia con 0, 16 in caso contrario.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - Il numero rilevato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">NaN</code> se non è stato possibile trovare alcun numero.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Tutti i seguenti esempi restituiscono 15:</span>
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;015&quot;</span>, <span style="color: #800;">10</span>);
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;15,123&quot;</span>, <span style="color: #800;">10</span>);
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;15 * 3&quot;</span>, <span style="color: #800;">10</span>);
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;15e2&quot;</span>, <span style="color: #800;">10</span>);
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;15px&quot;</span>, <span style="color: #800;">10</span>);
+<span style="color: #397300;">parseInt</span>(<span style="color: #800;">&quot;12&quot;</span>, <span style="color: #800;">13</span>);
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">encodeURI(uri: string): string</code></a></h3>
+<p>Codifica una stringa in formato URI.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">encodeURI</span>(uri);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">uri</code>: Un URI.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - La stringa convertita in formato URI.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;;,/?:@&amp;=+$#&quot;</span>); <span style="color: #888">// ;,/?:@&amp;=+$#</span>
+<span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;-_.!~*&#x27;()&quot;</span>); <span style="color: #888">// -_.!~*&#x27;()</span>
+<span style="color: #397300;">encodeURI</span>(<span style="color: #800;">&quot;ABC abc 123&quot;</span>); <span style="color: #888">// ABC%20abc%20123</span>
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">decodeURI(encodedURI: string): string</code></a></h3>
+<p>Decodifica una stringa in formato URI.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">decodeURI</span>(encodedURI);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">encodedURI</code>: Un URI codificato.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - La stringa decodificata in formato URI.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #397300;">decodeURI</span>(<span style="color: #800;">&quot;https://developer.mozilla.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B&quot;</span>);
+<span style="color: #888">// &quot;https://developer.mozilla.org/ru/docs/JavaScript_шеллы&quot;</span>
+</code></pre>
+<h2>Conclusione</h2>
+<p>In questo articolo abbiamo osservato le funzioni e il loro utilizzo!
+Ora sappiamo creare una funzione ed utilizzare i suoi parametri.</p>
+<p>Nel prossimo articolo vedremo invece le classi, una specie di incrocio tra le funzioni e gli object!</p>
+<h3><strong>Good Coding!</strong></h3>
