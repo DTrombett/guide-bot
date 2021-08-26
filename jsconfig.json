@@ -1,6 +1,6 @@
 {
     "include": [
-        "src/"
+        "src/**/*"
     ],
     "compilerOptions": {
         "lib": [
@@ -8,10 +8,8 @@
         ],
         "module": "commonJS",
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
         "target": "esnext",
         "strict": true,
-        "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "allowUnreachableCode": false,
@@ -24,7 +22,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "resolveJsonModule": true,
-        "noEmit": true,
-        "checkJs": true
+        "checkJs": true,
+        "noEmit": true
     }
 }
