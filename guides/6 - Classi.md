@@ -20,7 +20,7 @@ Grazie a loro possiamo creare degli objects simili partendo da una semplice funz
 
 ## Dichiarare una classe
 
-Per dichiarare una classe utilizziamo la parola chiave `class` che abbiamo spiegato nel dettaglio nell'articolo **Parole chiave & operatori**.
+Per dichiarare una classe utilizziamo la parola chiave [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) che abbiamo spiegato nel dettaglio nell'articolo **Parole chiave & operatori**.
 
 Ogni classe deve avere un nome e una funzione principale che creerà il nostro object.
 Generalmente, le classi vengono chiamate con un nome che inizia con una lettera maiuscola (es. **Rettangolo**).
@@ -44,8 +44,8 @@ class A {
 
 ## `constructor`
 
-La prima funzione che dichiariamo si chiama `constructor` e verrà chiamata quando utilizzeremo la parola `new` per creare il nuovo object.
-Questa funzione dovrà quindi impostare le proprietà dell'object, che sarà definito con il nome `this`.
+La prima funzione che dichiariamo si chiama [`constructor`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) e verrà chiamata quando utilizzeremo la parola [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) per creare il nuovo object.
+Questa funzione dovrà quindi impostare le proprietà dell'object, che sarà definito con il nome [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
 
 **Esempi:**
 
@@ -142,7 +142,7 @@ class A {
 }
 ```
 
-- `d`: Nome della proprietà. Viene dichiarata come un metodo, ma con la parola `get` prima; indica che il valore della proprietà `d` sarà quello restituito dalla funzione.
+- `d`: Nome della proprietà. Viene dichiarata come un metodo, ma con la parola `get` prima, la quale indica che il valore della proprietà `d` sarà quello restituito dalla funzione.
 
 **Esempi:**
 
@@ -172,11 +172,11 @@ console.log(rettangolo.area); // 200 - `this.altezza * this.larghezza` => `10 * 
 ## Estendere una classe
 
 In JavaScript possiamo anche creare una classe partendo da un'altra.
-Per farlo aggiungiamo la parola `extends` dopo il nome della nostra classe, seguito dalla classe da estendere.
+Per farlo aggiungiamo la parola [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) dopo il nome della nostra classe, seguito dalla classe da estendere.
 
 L'object che creeremo potrà quindi essere _combinato_ con quello creato da un'altra classe ed avere tutti i suoi metodi e le sue proprietà.
-Per far si che questo accada, però, dobbiamo utilizzare la parola chiave `super`.
-Nel `constructor`, `super` sarà il constructor della classe estesa e va obbligatoriamente chiamato immediatamente, mentre nei metodi e getters sarà un riferimento all'object creato dalla classe estesa, praticamente il `this` ma della classe che stiamo estendendo.
+Per far si che questo accada, però, dobbiamo utilizzare la parola chiave [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super).
+Nel `constructor`, `super` sarà il constructor della classe estesa e va chiamato subito, mentre nei metodi e getters sarà un riferimento all'object creato dalla classe estesa, praticamente il `this` ma della classe che stiamo estendendo.
 
 **Sintassi:**
 
