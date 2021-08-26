@@ -3,6 +3,21 @@
 Le [classi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) sono come dei template per creare degli object.
 Grazie a loro possiamo creare degli objects simili partendo da una semplice funzione.
 
+## Sommario
+
+- [Classi](#classi)
+	- [Sommario](#sommario)
+	- [Dichiarare una classe](#dichiarare-una-classe)
+	- [`constructor`](#constructor)
+	- [Metodi](#metodi)
+	- [Getters](#getters)
+	- [Estendere una classe](#estendere-una-classe)
+	- [Dichiarare una classe con `function`](#dichiarare-una-classe-con-function)
+	- [Conclusione](#conclusione)
+		- [**Good Coding!**](#good-coding)
+
+---
+
 ## Dichiarare una classe
 
 Per dichiarare una classe utilizziamo la parola chiave `class` che abbiamo spiegato nel dettaglio nell'articolo **Parole chiave & operatori**.
@@ -24,6 +39,8 @@ class A {
 
 - `A`: Il nome della classe. Segue gli stessi criteri del nome di una variabile;
 - `b, ...c`: I parametri della funzione per creare il nostro object.
+
+---
 
 ## `constructor`
 
@@ -55,6 +72,8 @@ rettangolo.larghezza = 30; // Possiamo anche riassegnare i suoi valori, come un 
 console.log(rettangolo.larghezza);
 // Console: 30
 ```
+
+---
 
 ## Metodi
 
@@ -102,6 +121,8 @@ const rettangolo = new Rettangolo(10, 20);
 console.log(rettangolo.calculateArea()); // 200 - `this.altezza * this.larghezza` => `10 * 20` => 200
 ```
 
+---
+
 ## Getters
 
 Nelle classi possiamo anche aggiungere delle proprietà speciali, chiamate [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get).
@@ -145,6 +166,8 @@ const rettangolo = new Rettangolo(10, 20);
 
 console.log(rettangolo.area); // 200 - `this.altezza * this.larghezza` => `10 * 20` => 200
 ```
+
+---
 
 ## Estendere una classe
 
@@ -213,3 +236,45 @@ const bobby = new Cane("Bobby");
 bobby.parla(); // Bobby fa bau.
 bobby.faiBau(); // Bobby fa bau.
 ```
+
+---
+
+## Dichiarare una classe con `function`
+
+Se vogliamo creare una classe semplice, che non abbia metodi nè getters, ma solo un constructor, possiamo anche dichiararla come una funzione normale.
+In questo caso daremo alla funzione il nome che vorremmo dare alla classe e potremo utilizzare `this` proprio come nel `constructor` di una classe.
+
+Questo metodo, comunque, è preferibilmente da evitare, in quanto limitato e confusionario, nonchè richiede di ritrasformare la funzione in classe nel caso volessimo aggiungere metodi o getters.
+
+**Esempi:**
+
+```js
+/**
+ * @param {number} altezza - L'altezza del rettangolo
+ * @param {number} larghezza - La larghezza del rettangolo
+ */
+function Rettangolo(altezza, larghezza) {
+	this.altezza = altezza; // Impostiamo una proprietà chiamata `altezza` con il valore del primo parametro
+	this.larghezza = larghezza; // Impostiamo una proprietà chiamata `larghezza` con il valore del secondo parametro
+}
+
+const rettangolo = new Rettangolo(10, 20); // Rettangolo { altezza: 10, larghezza: 20 }
+// Ora `rettangolo` è un object che ha una proprietà `altezza` con valore 10 e `larghezza` con valore 20
+console.log(rettangolo.altezza);
+console.log(rettangolo.larghezza);
+// Console: 10
+// Console: 20
+
+rettangolo.larghezza = 30; // Possiamo anche riassegnare i suoi valori, come un normale object
+console.log(rettangolo.larghezza);
+// Console: 30
+```
+
+---
+
+## Conclusione
+
+In questo articolo abbiamo imparato a creare e utilizzare le classi.
+Il prossimo sarà l'ultimo articolo riguardo il JavaScript e riguarderà gli array, altri articoli generali sulla programmazione saranno pubblicati anche più in avanti.
+
+### **Good Coding!**
