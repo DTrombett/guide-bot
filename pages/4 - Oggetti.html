@@ -1,0 +1,200 @@
+<h1>Oggetti</h1>
+<p>Il JavaScript è un linguaggio che si basa sugli <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">object</a></em>.
+Un object è una collezione di proprietà, ossia un’associazione tra una chiave e un valore.</p>
+<h2>Come funzionano gli object?</h2>
+<p>Possiamo comparare questi object agli oggetti nella vita reale.
+Prendiamo, ad esempio, una tazza: avrà un colore, un materiale, una grandezza, etc…</p>
+<p>La stessa cosa vale per gli object del JavaScript: ogni object ha delle proprietà, le quali ci forniscono dei dati.</p>
+<h2>Proprietà e valori</h2>
+<p>Per sapere qual è il valore che corrisponde ad una certa proprietà, in JavaScript utilizziamo il punto:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a.<span class="hljs-property">b</span>; <span style="color: #888">// Leggiamo la proprietà `b`</span>
+a.<span class="hljs-property">b</span> = c; <span style="color: #888">// Specifichiamo che la proprietà `b` corrisponde al valore di `c`</span>
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: L’oggetto che stiamo leggendo. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Il nome della proprietà da leggere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string | symbol | number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">c</code>: Il valore da assegnare alla proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<h2>Creare un object</h2>
+<p>Tutto in JavaScript è un object, tranne <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, ma possiamo anche crearne noi di nuovi, utilizzando le parentesi graffe: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">{}</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {}; <span style="color: #888">// Creiamo un object vuoto e salviamolo nella costante `tazza`</span>
+<span style="color: #888">// Ora l&#x27;object non avrà nessuna proprietà perciò dobbiamo crearne qualcuna noi</span>
+tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&quot;Giallo&quot;</span>; <span style="color: #888">// Creiamo la proprietà `colore` e assegnamogli il valore `&quot;Giallo&quot;`</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>);
+<span style="color: #888">// Console: &quot;Giallo&quot;</span>
+
+<span style="color: #888">// Possiamo anche creare la proprietà direttamente nelle parentesi graffe</span>
+<span style="font-weight: 700;">const</span> tazza = { <span style="color: #444">colore</span>: <span style="color: #800;">&quot;Giallo&quot;</span>, <span style="color: #444">altezza</span>: <span style="color: #800;">100</span> };
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>);
+<span style="color: #888">// Console: &quot;Giallo&quot;</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>);
+<span style="color: #888">// Console: 100</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza);
+<span style="color: #888">// Console: { colore: &quot;Giallo&quot;, altezza: 100 }</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">larghezza</span>);
+<span style="color: #888">// Console: undefined</span>
+<span style="color: #888">// Se una proprietà non esiste, verrà restituito `undefined`</span>
+</code></pre>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors#bracket_notation">Bracket notation</a></h2>
+<p>Le proprietà di un object possono essere semplici stringhe, come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">larghezza</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">colore</code>, ma anche simboli o numeri.</p>
+<p>Purtroppo, però, possiamo utilizzare il punto per accedere ad una proprietà solo se il suo nome è una stringa, inizia con una lettera e non contiene spazi.</p>
+<p>In caso contrario, dobbiamo utilizzare la <em>bracket notation</em>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
+tazza[<span style="color: #800;">&quot;data creazione&quot;</span>] = <span style="color: #800;">2000</span>; <span style="color: #888">// Impostiamo la proprietà &quot;data creazione&quot; a `2000`</span>
+tazza[<span style="color: #800;">&quot;altezza&quot;</span>] = <span style="color: #800;">100</span>;
+<span style="color: #888">// Possiamo utilizzare questa sintassi anche per le altre proprietà, seppur può confonderci</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>); <span style="color: #888">// 100</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza[<span style="color: #800;">&quot;data creazione&quot;</span>]); <span style="color: #888">// 2000</span>
+</code></pre>
+<h2>Proprietà inesistenti</h2>
+<p>Come visto in precedenza, se proviamo ad accedere ad una proprietà inesistente ci verrà restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p>Attenzione, però, perché <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> è un valore come gli altri, e possiamo anche esplicitamente impostare una proprietà al valore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, perciò, se vogliamo controllare se una proprietà esiste o meno, non possiamo semplicemente vedere se è uguale a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>);
+<span style="color: #888">// Console: undefined - Perché questa proprietà non esiste</span>
+tazza.<span class="hljs-property">altezza</span> = <span style="color: #78a960;">undefined</span>;
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">altezza</span>);
+<span style="color: #888">// Console: undefined - Perché la proprietà esiste ma ha il vore di `undefined`</span>
+</code></pre>
+<p>Per risolvere questo problema dobbiamo utilizzare l’operatore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">in</code>, che ci dirà se la proprietà esiste o meno.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;altezza&quot;</span> <span style="font-weight: 700;">in</span> tazza);
+<span style="color: #888">// Console: false - La proprietà `altezza` non esiste in `tazza`</span>
+tazza.<span class="hljs-property">altezza</span> = <span style="color: #78a960;">undefined</span>; <span style="color: #888">// Impostiamo a undefined la proprietà</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;altezza&quot;</span> <span style="font-weight: 700;">in</span> tazza);
+<span style="color: #888">// Console: true - La proprietà `altezza` esiste in `tazza`, seppur è `undefined`</span>
+</code></pre>
+<h2>Valori che sono objects</h2>
+<p>Come detto in precedenza, tutto è un object, tranne <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, questo significa che possiamo sempre utilizzare il punto o le parentesi quadre per accedere ad una proprietà di un valore.</p>
+<p>Questo comprende anche stringhe, numeri, etc…: anche loro in realtà sono objects e hanno delle proprietà.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> str = <span style="color: #800;">&quot;Sus&quot;</span>;
+str.<span class="hljs-property">length</span>; <span style="color: #888">// 3 - La proprietà `length` indica la lunghezza della stringa</span>
+str.<span style="color: #800; font-weight: 700;">split</span>(<span style="color: #800;">&quot;u&quot;</span>); <span style="color: #888">// [&quot;S&quot;, &quot;s&quot;] - `split` è invece un metodo delle stringhe per dividerle</span>
+<span style="color: #888">// Vedreno queste proprietà e metodi speciali in altri articoli</span>
+
+<span style="font-weight: 700;">const</span> nothing = <span style="color: #78a960;">null</span>;
+nothing.<span class="hljs-property">length</span>; <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
+<span style="color: #888">// `null` non è un object, perciò non possiamo accedere a nessuna proprietà</span>
+
+<span style="font-weight: 700;">const</span> tazza = {};
+tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&quot;Giallo&quot;</span>;
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>);
+<span style="color: #888">// Console: 6 - La lunghezza della stringa &quot;Giallo&quot;</span>
+tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">null</span>;
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>); <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
+</code></pre>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining operator: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">?.</code></a></h2>
+<p>Per evitare questi errori con valori che possono essere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> possiamo utilizzare l’operatore <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">?.</code>.</p>
+<p>Questo operatore possiamo utilizzarlo al posto del punto o prima delle parentesi quadre quando leggiamo una proprietà.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">a?.<span class="hljs-property">c</span>;
+a?.[d];
+b?.(<span style="color: #888">/** e, ... */</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code>: Un qualsiasi object che può avere un valore nullo. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>: Una funzione che può essere nulla. Nota che nel caso non sia un valore nullo la funzione verrà eseguita e un errore verrà mostrato se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code> non è una funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Function | null | undefined</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a</code> è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code>, in caso contrario, il valore della proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> tazza = {};
+tazza.<span class="hljs-property">colore</span> = <span style="color: #800;">&quot;Giallo&quot;</span>;
+tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">length</span>; <span style="color: #888">// 6 - `tazza.colore` è una stringa perciò la proprietà viene letta</span>
+tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">split</span>?.(<span style="color: #800;">&quot;al&quot;</span>); <span style="color: #888">// [&quot;Gi&quot;, &quot;lo&quot;]</span>
+<span style="color: #888">// In questo caso viene controllato che sia `tazza.colore` che `tazza.colore.split` non siano nulli</span>
+tazza.<span class="hljs-property">colore</span> = <span style="color: #78a960;">null</span>;
+tazza.<span class="hljs-property">colore</span>?.<span class="hljs-property">length</span>; <span style="color: #888">// undefined</span>
+<span style="color: #888">// Ora la proprietà `colore` è nulla perciò length non viene letta e `undefined` viene restituito</span>
+tazza.<span class="hljs-property">colore</span>.<span class="hljs-property">length</span>; <span style="color: #888">// TypeError: cannot read property &quot;length&quot; of null</span>
+<span style="color: #888">// Senza optional chaining operator riceviamo un errore perché `tazza.colore` è nullo</span>
+</code></pre>
+<h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></h2>
+<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object</code> è una variabile globale, nonché una classe a cui appartengono tutti gli objects.</p>
+<p><strong>Nota: Nei prossimi articoli vedremo nel dettaglio le classi e le variabili globali (oggetti globali).</strong></p>
+<p><strong>Nota: Questo paragrafo utilizza una sintassi che vedremo nel dettaglio più avanti.</strong></p>
+<p>Istanziando questa classe creiamo un nuovo object; è come utilizzare delle parentesi graffe</p>
+<p>In questo articolo vedremo solo i metodi degli objects in quanto ci riguardano.
+Tutte le informazioni riguardo ai metodi statici etc… le vedremo nell’articolo sugli oggetti globali.</p>
+<p><strong>Costruttore:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Object</span>(value);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">value</code>: Un valore da cui creare il nuovo object. Se è un valore nullo verrà creato un object vuoto (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">{}</code>), in caso contrario verrà restituito l’oggetto passato. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Metodi:</strong></p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object#hasOwnProperty(v: PropertyKey)</code></a></h3>
+<p>Controlla se un object ha una certa proprietà, escludendo le proprietà e i metodi nativi, come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">toString</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">object.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(v);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">v</code>: La proprietà da controllare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">PropertyKey = string | number | symbol</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se la proprietà esiste e non è nativa, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> example = {};
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// false - Non esiste nessuna proprietà `prop` in `example`</span>
+
+example.<span class="hljs-property">prop</span> = <span style="color: #800;">&quot;exists&quot;</span>;
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// true - `prop` ora esiste</span>
+
+example.<span class="hljs-property">prop</span> = <span style="color: #78a960;">null</span>;
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// true - `prop` è null ma esiste</span>
+
+example.<span class="hljs-property">prop</span> = <span style="color: #78a960;">undefined</span>;
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// true - `prop` è undefined ma esiste</span>
+
+<span style="font-weight: 700;">let</span> example = {};
+example.<span class="hljs-property">prop</span> = <span style="color: #800;">&quot;exists&quot;</span>;
+
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;prop&quot;</span>); <span style="color: #888">// true</span>
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;toString&quot;</span>); <span style="color: #888">// false - È un metodo nativo</span>
+example.<span style="color: #800; font-weight: 700;">hasOwnProperty</span>(<span style="color: #800;">&quot;hasOwnProperty&quot;</span>); <span style="color: #888">// false - Anche questo è un metodo nativo</span>
+
+<span style="color: #800;">&quot;toString&quot;</span> <span style="font-weight: 700;">in</span> example; <span style="color: #888">// true - L&#x27;operatore `in` non controlla se la proprietà è nativa</span>
+</code></pre>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Object#toString()</code></a></h3>
+<p>Converte l’object in stringa. Questo metodo differisce in base al tipo di object, infatti, degli object nativi non possono essere convertiti e viene restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">[object Object]</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">object.<span style="color: #800; font-weight: 700;">toString</span>();
+</code></pre>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - L’object convertito in stringa.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Dog</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">name, breed, color, sex</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">name</span> = name;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">breed</span> = breed;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">color</span> = color;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">sex</span> = sex;
+    }
+}
+
+theDog = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Dog</span>(<span style="color: #800;">&quot;Gabby&quot;</span>, <span style="color: #800;">&quot;Lab&quot;</span>, <span style="color: #800;">&quot;chocolate&quot;</span>, <span style="color: #800;">&quot;female&quot;</span>);
+
+theDog.<span style="color: #800; font-weight: 700;">toString</span>(); <span style="color: #888">// [object Object]</span>
+
+<span style="font-weight: 700;">const</span> i = <span style="color: #800;">10</span>;
+i.<span style="color: #800; font-weight: 700;">toString</span>(); <span style="color: #888">// &quot;10&quot;</span>
+</code></pre>
+<h2>Loop delle proprietà</h2>
+<p>Possiamo anche eseguire un loop delle proprietà di un object, in modo da eseguire una azione per ognuna di esso.
+Per farlo utilizziamo un <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a> loop.</p>
+<p>Per evitare di eseguire azioni anche per proprietà native dell’object utilizziamo il metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">hasOwnProperty</code>.</p>
+<p><strong>Vedi anche:</strong> Sintassi <a href="2%20-%20Parole%20chiave%20&amp;%20operatori.md#for--continue--forof--forin"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">for...in</code></a> loop.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> obj = { <span style="color: #444">a</span>: <span style="color: #800;">1</span>, <span style="color: #444">b</span>: <span style="color: #800;">2</span>, <span style="color: #444">c</span>: <span style="color: #800;">3</span> };
+
+<span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">const</span> key <span style="font-weight: 700;">in</span> obj)
+    <span style="font-weight: 700;">if</span> (<span style="color: #800; font-weight: 700;">Object</span>.<span class="hljs-property">hasOwnProperty</span>.<span style="color: #800; font-weight: 700;">call</span>(obj, key)) <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">`obj.<span class="hljs-subst">${key}</span> = <span class="hljs-subst">${obj[key]}</span>`</span>);
+
+<span style="color: #888">// Console: &quot;obj.a = 1&quot;, &quot;obj.b = 2&quot;, &quot;obj.c = 3&quot;</span>
+</code></pre>
+<h2>Conclusione</h2>
+<p>In questo articolo abbiamo scoperto gli objects, la natura del JavaScript.</p>
+<p>Nel prossimo articolo andremo a vedere le funzioni, la loro dichiarazione e come utilizzarle al meglio.</p>
+<h3><strong>Good Coding!</strong></h3>
