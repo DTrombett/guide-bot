@@ -20,7 +20,7 @@ Grazie a loro possiamo creare degli objects simili partendo da una semplice funz
 </ul>
 <hr />
 <h2>Dichiarare una classe</h2>
-<p>Per dichiarare una classe utilizziamo la parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code> che abbiamo spiegato nel dettaglio nell’articolo <strong>Parole chiave &amp; operatori</strong>.</p>
+<p>Per dichiarare una classe utilizziamo la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code></a> che abbiamo spiegato nel dettaglio nell’articolo <strong>Parole chiave &amp; operatori</strong>.</p>
 <p>Ogni classe deve avere un nome e una funzione principale che creerà il nostro object.
 Generalmente, le classi vengono chiamate con un nome che inizia con una lettera maiuscola (es. <strong>Rettangolo</strong>).</p>
 <p><strong>Sintassi:</strong></p>
@@ -38,8 +38,8 @@ Generalmente, le classi vengono chiamate con un nome che inizia con una lettera 
 </ul>
 <hr />
 <h2><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></h2>
-<p>La prima funzione che dichiariamo si chiama <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code> e verrà chiamata quando utilizzeremo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new</code> per creare il nuovo object.
-Questa funzione dovrà quindi impostare le proprietà dell’object, che sarà definito con il nome <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code>.</p>
+<p>La prima funzione che dichiariamo si chiama <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></a> e verrà chiamata quando utilizzeremo la parola <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new</code></a> per creare il nuovo object.
+Questa funzione dovrà quindi impostare le proprietà dell’object, che sarà definito con il nome <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code></a>.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Rettangolo</span> {
     <span style="color: #888">/**
@@ -117,7 +117,7 @@ Sono molto utili quando vogliamo creare una proprietà che si basa su altri valo
 }
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Nome della proprietà. Viene dichiarata come un metodo, ma con la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">get</code> prima; indica che il valore della proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> sarà quello restituito dalla funzione.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Nome della proprietà. Viene dichiarata come un metodo, ma con la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">get</code> prima, la quale indica che il valore della proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> sarà quello restituito dalla funzione.</li>
 </ul>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Rettangolo</span> {
@@ -142,10 +142,10 @@ Sono molto utili quando vogliamo creare una proprietà che si basa su altri valo
 <hr />
 <h2>Estendere una classe</h2>
 <p>In JavaScript possiamo anche creare una classe partendo da un’altra.
-Per farlo aggiungiamo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">extends</code> dopo il nome della nostra classe, seguito dalla classe da estendere.</p>
+Per farlo aggiungiamo la parola <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">extends</code></a> dopo il nome della nostra classe, seguito dalla classe da estendere.</p>
 <p>L’object che creeremo potrà quindi essere <em>combinato</em> con quello creato da un’altra classe ed avere tutti i suoi metodi e le sue proprietà.
-Per far si che questo accada, però, dobbiamo utilizzare la parola chiave <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code>.
-Nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code> sarà il constructor della classe estesa e va obbligatoriamente chiamato immediatamente, mentre nei metodi e getters sarà un riferimento all’object creato dalla classe estesa, praticamente il <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> ma della classe che stiamo estendendo.</p>
+Per far si che questo accada, però, dobbiamo utilizzare la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code></a>.
+Nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code> sarà il constructor della classe estesa e va chiamato subito, mentre nei metodi e getters sarà un riferimento all’object creato dalla classe estesa, praticamente il <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> ma della classe che stiamo estendendo.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">A</span> <span style="font-weight: 700;">extends</span> <span class="hljs-title class_ inherited__">D</span> {
     <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {
