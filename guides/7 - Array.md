@@ -36,6 +36,21 @@ In questo modo avremo completo controllo sulla nostra lista e potremo gestirla f
       - [`<Array>.flatMap<U, This = undefined> (callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>, thisArg?: This): U[]`](#arrayflatmapu-this--undefined-callback-this-this-value-t-index-number-array-t--u--readonlyarrayu-thisarg-this-u)
       - [`<Array>.includes(searchElement: T, fromIndex?: number): boolean`](#arrayincludessearchelement-t-fromindex-number-boolean)
       - [`<Array>.indexOf(searchElement: T, fromIndex?: number): number`](#arrayindexofsearchelement-t-fromindex-number-number)
+      - [`<Array>.join(separator?: string): string`](#arrayjoinseparator-string-string)
+      - [`<Array>.lastIndexOf(searchElement: T, fromIndex?: number): number`](#arraylastindexofsearchelement-t-fromindex-number-number)
+      - [`<Array>.map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: unknown): U[]`](#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-unknown-u)
+      - [`<Array>.pop(): T | undefined`](#arraypop-t--undefined)
+      - [`<Array>.push(...items: T[]): number`](#arraypushitems-t-number)
+      - [`<Array>.reduce<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue?: U): U`](#arrayreduceucallbackfn-previousvalue-u-currentvalue-t-currentindex-number-array-t--u-initialvalue-u-u)
+      - [`<Array>.reverse(): T[]`](#arrayreverse-t)
+      - [`<Array>.shift(): T | undefined`](#arrayshift-t--undefined)
+      - [`<Array>.slice(start?: number, end?: number): T[]`](#arrayslicestart-number-end-number-t)
+      - [`<Array>.some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: unknown): boolean`](#arraysomepredicate-value-t-index-number-array-t--unknown-thisarg-unknown-boolean)
+      - [`<Array>.sort(compareFn?: (a: T, b: T) => number): this`](#arraysortcomparefn-a-t-b-t--number-this)
+      - [`<Array>.splice(start: number, deleteCount?: number, ...items?: T[]): T[]`](#arraysplicestart-number-deletecount-number-items-t-t)
+      - [`<Array>.unshift(...items: T[]): number`](#arrayunshiftitems-t-number)
+  - [Conclusione](#conclusione)
+    - [**Good Coding!**](#good-coding)
 
 ---
 
@@ -665,7 +680,7 @@ arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 Questo metodo è l'equivalente di `<Array>.map(callback, thisArg).flat(1)`.
 
-**Vedi anche:** [`Array#map()`](#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-any-u).
+**Vedi anche:** [`Array#map()`](#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-unknown-u).
 
 **Sintassi:**
 
@@ -751,3 +766,468 @@ array.indexOf(9, 2); // 2
 array.indexOf(2, -1); // -1
 array.indexOf(2, -3); // 0
 ```
+
+---
+
+#### `<Array>.join(separator?: string): string`
+
+Questo metodo unisce gli elementi dell'array in una stringa, separati da un certo separatore.
+
+Gli elementi che non sono stringhe verranno convertiti usando il metodo `toString`, o saranno stringhe vuote nel caso di elementi nulli.
+
+**Sintassi:**
+
+```js
+array.join(separator);
+```
+
+- `separator`: Il carattere che separerà gli elementi dell'array. Default: `,`. **Type:** `string`.
+
+**Restituisce:** `string` - La stringa contenente gli elementi dell'array.
+
+**Esempi:**
+
+```js
+const a = ["Wind", "Water", "Fire"];
+
+a.join(); // 'Wind,Water,Fire'
+a.join(", "); // 'Wind, Water, Fire'
+a.join(" + "); // 'Wind + Water + Fire'
+a.join(""); // 'WindWaterFire'
+```
+
+---
+
+#### `<Array>.lastIndexOf(searchElement: T, fromIndex?: number): number`
+
+Questo metodo è identico a [`Array#indexOf()`](#arrayindexofsearchelement-t-fromindex-number-number) ma restituisce l'ultimo index trovato invece che il primo.
+
+**Sintassi:**
+
+```js
+array.indexOf(searchElement /** , fromIndex **/);
+```
+
+- `searchElement`: L'elemento da cercare. **Type:** `unknown`;
+- `fromIndex`: L'index da cui iniziare a cercare. Default: 0. **Type:** `number`
+
+**Restituisce:** `number` - L'index dell'elemento trovato, o `-1` se non è stato possibile trovare alcun elemento.
+
+**Esempi:**
+
+```js
+const numbers = [2, 5, 9, 2];
+
+numbers.lastIndexOf(2); // 3
+numbers.lastIndexOf(7); // -1 - Nessun elemento trovato
+numbers.lastIndexOf(2, 3); // 3
+numbers.lastIndexOf(2, 2); // 0
+numbers.lastIndexOf(2, -2); // 0
+numbers.lastIndexOf(2, -1); // 3
+```
+
+---
+
+#### `<Array>.map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: unknown): U[]`
+
+Questo metodo crea un nuovo array che abbia, al posto dei vecchi elementi, dei nuovi elementi ricavati da una funzione.
+
+**Sintassi:**
+
+```js
+array.map(callbackfn /** , thisArg **/);
+```
+
+- `callbackfn`: La funzione da eseguire su ogni elemento per ricavare il nuovo valore. **Type:** `(value: unknown, index: number, array: unknown[]) => unknown`;
+- `thisArg`: Il valore da usare come `this` nella funzione. **Type:** `unknown`
+
+**Restituisce:** `unknown[]` - Il nuovo array.
+
+**Esempi:**
+
+```js
+const numbers = [1, 4, 9];
+numbers.map((num) => Math.sqrt(num)); //[1, 2, 3]
+// `numbers` non viene modificato ed è ancora `[1, 4, 9]`
+
+const kvArray = [
+	{ key: 1, value: 10 },
+	{ key: 2, value: 20 },
+	{ key: 3, value: 30 },
+];
+
+// Creiamo un array partendo da `kvArray` che abbia come proprietà il valore di `key` e come valore quello di `value`
+kvArray.map((obj) => ({ [obj.key]: obj.value })); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+```
+
+---
+
+#### `<Array>.pop(): T | undefined`
+
+Questo metodo rimuove dall'array l'ultimo elemento e lo restituisce.
+
+**Sintassi:**
+
+```js
+array.pop();
+```
+
+**Restituisce:** `unknown` - L'elemento rimosso o `undefined` se l'array è vuoto.
+
+**Esempi:**
+
+```js
+const myFish = ["angel", "clown", "mandarin", "sturgeon"];
+const popped = myFish.pop();
+
+console.log(myFish); // ["angel", "clown", "mandarin"]
+console.log(popped); // "sturgeon"
+```
+
+---
+
+#### `<Array>.push(...items: T[]): number`
+
+Questo metodo aggiunge degli elementi all'array e restituisce la nuova lunghezza dell'array.
+
+**Sintassi:**
+
+```js
+array.push(...items);
+```
+
+- `...items`: Gli elementi da aggiungere alla fine dell'array. **Type:** `unknown`.
+
+**Restituisce:** `number` - La nuova lunghezza dell'array.
+
+**Esempi:**
+
+```js
+const sports = ["soccer", "baseball"];
+const total = sports.push("football", "swimming");
+
+console.log(sports); // ["soccer", "baseball", "football", "swimming"]
+console.log(total); // 4
+
+const vegetables = ["parsnip", "potato"];
+const moreVegs = ["celery", "beetroot"];
+
+// Uniamo gli elementi del secondo array nel primo
+vegetables.push(...moreVegs);
+
+console.log(vegetables); // ["parsnip", "potato", "celery", "beetroot"]
+```
+
+---
+
+#### `<Array>.reduce<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue?: U): U`
+
+Questo metodo esegue una funzione passando come parametri i primi due elementi dell'array e salva il risultato.
+Poi la esegue nuovamente passando come parametro il risultato precedente e il prossimo elemento, così per ogni elemento dell'array.
+Restituisce, infine, il valore dell'ultima esecuzione.
+
+Se viene passato un valore come `initialValue`, la funzione viene eseguita una volta in più, all'inizio, passando come parametri il valore di `initialValue` e il primo parametro.
+
+Questo metodo è generalmente utilizzato per eseguire la somma di tutti gli elementi di un array (numeri) e non ci sono molti altri utilizzi.
+
+**Sintassi:**
+
+```js
+array.reduce(callbackfn /** , initialValue **/);
+```
+
+- `callbackfn`: La funzione da eseguire su tutte le coppie di elementi. **Type:** `(previousValue: unknown, currentValue: unknown, currentIndex: number, array: unknown[]) => unknown`;
+- `initialValue`: Il valore facoltativo da passare alla prima esecuzione della funzione. **Type:** `unknown`
+
+**Restituisce:** `unknown` - Il risultato dell'ultima esecuzione della funzione.
+
+**Esempi:**
+
+```js
+const sum = [0, 1, 2, 3].reduce((previousValue, currentValue) => previousValue + currentValue, 0); // 6
+
+const sum1 = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(
+	(previousValue, currentValue) => previousValue + currentValue.x,
+	0
+);
+
+console.log(sum1); // 6
+```
+
+---
+
+#### `<Array>.reverse(): T[]`
+
+Questo metodo inverte l'array in modo che il primo elemento diventi l'ultimo e viceversa.
+
+Si dovrebbe generalmente evitare di utilizzare questo metodo, specialmente in grandi array, in quanto può consumare molta memoria.
+**Nota: Vedremo come funziona l'utilizzo della memoria in nodejs in un altro articolo.**
+
+**Sintassi:**
+
+```js
+array.reverse();
+```
+
+**Restituisce:** `unknown[]` - L'array invertito. Nota che anche il vecchio array viene modificato.
+
+**Esempi:**
+
+```js
+const a = [1, 2, 3];
+
+console.log(a); // [1, 2, 3]
+
+a.reverse();
+
+console.log(a); // [3, 2, 1]
+```
+
+---
+
+#### `<Array>.shift(): T | undefined`
+
+Questo metodo rimuove il primo elemento dall'array e lo restituisce.
+
+**Sintassi:**
+
+```js
+array.shift();
+```
+
+**Restituisce:** `unknown` - L'elemento rimosso o `undefined` se l'array è vuoto.
+
+**Esempi:**
+
+```js
+const myFish = ["angel", "clown", "mandarin", "surgeon"];
+
+console.log("myFish prima:", JSON.stringify(myFish));
+// myFish prima: ["angel", "clown", "mandarin", "surgeon"]
+
+const shifted = myFish.shift();
+
+console.log("myFish dopo:", myFish);
+// myFish dopo: ["clown", "mandarin", "surgeon"]
+
+console.log("Elemento rimosso:", shifted);
+// Elemento rimosso: "angel"
+```
+
+---
+
+#### `<Array>.slice(start?: number, end?: number): T[]`
+
+Questo metodo restituisce una copia dell'array tra due index da noi specificati.
+
+Ci fornisce il modo migliore per eseguire una copia di un array: `array.slice(0)`.
+
+**Sintassi:**
+
+```js
+array.slice(/** start, end **/);
+```
+
+- `start`: L'index da cui iniziare la copia. Default: `0`. **Type:** `number`;
+- `end`: L'ultimo index da copiare. Default: `array.length`. **Type:** `number`.
+
+**Restituisce:** `unknown[]` - La copia dell'array tra i due index.
+
+**Esempi:**
+
+```js
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);
+
+// fruits: ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+// citrus: ['Orange','Lemon']
+```
+
+---
+
+#### `<Array>.some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: unknown): boolean`
+
+Questo metodo è simile a [`Array#every()`](#arrayeverys-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-this-is-s) ma restituisce `true` se una delle esecuzioni della funzione ha restituito `true`.
+
+**Sintassi:**
+
+```js
+array.some(predicate /** , thisArg **/);
+```
+
+- `predicate`: La funzione da eseguire su ogni elemento. **Type:** `(value: unknown, index: number, array: unknown[]) => unknown`;
+- `thisArg`: Il valore da usare come `this` nella funzione. **Type:** `unknown`.
+
+**Restituisce:** `boolean` - `true` se la funzione ha restituito un valore veritiero almeno una volta, `false` in caso contrario.
+
+**Esempi:**
+
+```js
+/**
+ * Controlla se un numero è maggiore di 10.
+ * @param {number} element - L'elemento da controllare
+ * @returns {boolean} Se il numero è maggiore di 10
+ */
+const isBig = (element) => element > 10;
+
+[2, 5, 8, 1, 4].some(isBig); // false
+[12, 5, 8, 1, 4].some(isBig); // true
+
+const fruits = ["apple", "banana", "mango", "guava"];
+```
+
+---
+
+#### `<Array>.sort(compareFn?: (a: T, b: T) => number): this`
+
+Questo metodo permette di ordinare gli elementi dell'array secondo una nostra funzione o in modo alfabetico.
+
+**Sintassi:**
+
+```js
+array.sort(compareFn);
+```
+
+- `compareFn`: La funzione da eseguire su ogni coppia di elementi. Se restituisce un numero maggiore di 0 il secondo valore viene posizionato prima, se invece è minore di 0 il primo valore viene posizionato per primo. Nel caso il risultato sia 0 l'ordine rimarrà invariato. **Type:** `(a: unknown, b: unknown) => number`.
+
+**Restituisce:** `unknown[]` - L'array ordinato.
+
+**Esempi:**
+
+```js
+const stringArray = ["Blue", "Humpback", "Beluga"];
+const numericStringArray = ["80", "9", "700"];
+const numberArray = [40, 1, 5, 200];
+const mixedNumericArray = ["80", "9", "700", 40, 1, 5, 200];
+
+/**
+ * Controlla se a è maggiore di b o viceversa.
+ * @param {number|string} a
+ * @param {number|string} b
+ * @returns {number} La loro differenza, maggiore di 0 se a è più grande e minore di 0 se b è maggiore di a
+ */
+const compareNumbers = (a, b) => Number(a) - Number(b);
+
+stringArray.join(); // 'Blue,Humpback,Beluga'
+stringArray.sort(); // ['Beluga', 'Blue', 'Humpback']
+
+numberArray.join(); // '40,1,5,200'
+numberArray.sort(); // [1, 200, 40, 5]
+numberArray.sort(compareNumbers); // [1, 5, 40, 200]
+
+numericStringArray.join(); // '80,9,700'
+numericStringArray.sort(); // [700, 80, 9]
+numericStringArray.sort(compareNumbers); // [9, 80, 700]
+
+mixedNumericArray.join(); // '80,9,700,40,1,5,200'
+mixedNumericArray.sort(); // [1, 200, 40, 5, 700, 80, 9]
+mixedNumericArray.sort(compareNumbers); // [1, 5, 9, 40, 80, 200, 700]
+```
+
+---
+
+#### `<Array>.splice(start: number, deleteCount?: number, ...items?: T[]): T[]`
+
+Questo metodo ci permette di inserire, aggiungere e sostituire elementi in un array.
+
+**Sintassi:**
+
+```js
+array.splice(start /** , deleteCount, ...items **/);
+```
+
+- `start`: L'index da cui iniziare a modificare l'array. **Type:** `number`;
+- `deleteCount`: Quanti elementi eliminare partendo dall'index `start`. Se viene omesso, l'array conterrà tutti gli elementi **fino** a `start`. **Type:** `number`;
+- `...items`: Gli elementi con cui sostituire quelli eliminati. Specificabile solo se usato insieme a `deleteCount`. **Type:** `unknown`.
+
+**Restituisce:** `unknown[]` - Gli elementi rimossi.
+
+**Esempi:**
+
+```js
+const myFish = ["angel", "clown", "mandarin", "sturgeon"];
+const removed = myFish.splice(2, 0, "drum");
+// myFish: ["angel", "clown", "drum", "mandarin", "sturgeon"]
+// removed: [], nessun elemento rimosso
+
+const myFish1 = ["angel", "clown", "mandarin", "sturgeon"];
+const removed1 = myFish.splice(2, 0, "drum", "guitar");
+// myFish: ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
+// removed: [], nessun elemento rimosso
+
+const myFish2 = ["angel", "clown", "drum", "mandarin", "sturgeon"];
+const removed2 = myFish.splice(3, 1);
+// myFish: ["angel", "clown", "drum", "sturgeon"]
+// removed: ["mandarin"]
+
+const myFish3 = ["angel", "clown", "drum", "sturgeon"];
+const removed3 = myFish.splice(2, 1, "trumpet");
+// myFish: ["angel", "clown", "trumpet", "sturgeon"]
+// removed: ["drum"]
+
+const myFish4 = ["angel", "clown", "trumpet", "sturgeon"];
+const removed4 = myFish.splice(0, 2, "parrot", "anemone", "blue");
+// myFish: ["parrot", "anemone", "blue", "trumpet", "sturgeon"]
+// removed: ["angel", "clown"]
+
+const myFish5 = ["parrot", "anemone", "blue", "trumpet", "sturgeon"];
+const removed5 = myFish.splice(2, 2);
+// myFish: ["parrot", "anemone", "sturgeon"]
+// removed: ["blue", "trumpet"]
+
+const myFish6 = ["angel", "clown", "mandarin", "sturgeon"];
+const removed6 = myFish.splice(-2, 1);
+// myFish: ["angel", "clown", "sturgeon"]
+// removed: ["mandarin"]
+
+const myFish7 = ["angel", "clown", "mandarin", "sturgeon"];
+const removed7 = myFish.splice(2);
+// myFish: ["angel", "clown"]
+// removed: ["mandarin", "sturgeon"]
+```
+
+---
+
+#### `<Array>.unshift(...items: T[]): number`
+
+Questo metodo è simile a [`Array#push()`](#arraypushitems-t-number) ma aggiunge gli elementi all'inizio invece che alla fine.
+
+**Sintassi:**
+
+```js
+array.unshift(...items);
+```
+
+- `...items`: Gli elementi da aggiungere all'inizio dell'array. **Type:** `unknown`.
+
+**Restituisce:** `number` - La nuova lunghezza dell'array.
+
+**Esempi:**
+
+```js
+/**
+ * @type {(number|number[])[]}
+ */
+const arr = [1, 2];
+
+arr.unshift(0); // 3 - La nuova lunghezza dell'array
+// arr: [0, 1, 2]
+
+arr.unshift(-2, -1); // 5
+// arr: [-2, -1, 0, 1, 2]
+
+arr.unshift([-4, -3]); // 6
+// arr: [[-4, -3], -2, -1, 0, 1, 2]
+
+arr.unshift([-7, -6], [-5]); // 8
+// arr: [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
+```
+
+---
+
+## Conclusione
+
+Grazie a questo articolo sappiamo utilizzare gli array e... siamo pronti ad iniziare!
+Nel prossimo articolo creeremo il primo codice in JavaScript per collegare il nostro bot a Discord.
+
+### **Good Coding!**
