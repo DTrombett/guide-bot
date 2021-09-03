@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm ci && node .",
-    "lint": "npx eslint src --fix",
-    "prettier": "npx prettier --config guides/.prettierrc.json --write guides/*.md"
+    "lint": "eslint src --fix",
+    "prettier": "prettier --config guides/.prettierrc.json --write guides/*.md"
   },
   "repository": {
     "type": "git",

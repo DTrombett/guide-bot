@@ -5,15 +5,15 @@ Le [classi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Cl
 ## Sommario
 
 - [Classi](#classi)
-	- [Sommario](#sommario)
-	- [Dichiarare una classe](#dichiarare-una-classe)
-	- [`constructor`](#constructor)
-	- [Metodi](#metodi)
-	- [Getters](#getters)
-	- [Estendere una classe](#estendere-una-classe)
-	- [Dichiarare una classe con `function`](#dichiarare-una-classe-con-function)
-	- [Conclusione](#conclusione)
-		- [**Good Coding!**](#good-coding)
+  - [Sommario](#sommario)
+  - [Dichiarare una classe](#dichiarare-una-classe)
+  - [`constructor`](#constructor)
+  - [Metodi](#metodi)
+  - [Getters](#getters)
+  - [Estendere una classe](#estendere-una-classe)
+  - [Dichiarare una classe con `function`](#dichiarare-una-classe-con-function)
+  - [Conclusione](#conclusione)
+    - [**Good Coding!**](#good-coding)
 
 ---
 
