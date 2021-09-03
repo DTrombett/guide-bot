@@ -1,7 +1,6 @@
 # Classi
 
-Le [classi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) sono come dei template per creare degli object.
-Grazie a loro possiamo creare degli objects simili partendo da una semplice funzione.
+Le [classi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) sono come dei template e servono per creare degli object simili partendo da una semplice funzione.
 
 ## Sommario
 
@@ -22,8 +21,8 @@ Grazie a loro possiamo creare degli objects simili partendo da una semplice funz
 
 Per dichiarare una classe utilizziamo la parola chiave [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) che abbiamo spiegato nel dettaglio nell'articolo **Parole chiave & operatori**.
 
-Ogni classe deve avere un nome e una funzione principale che creerà il nostro object.
-Generalmente, le classi vengono chiamate con un nome che inizia con una lettera maiuscola (es. **Rettangolo**).
+Ogni classe ha un nome e una funzione principale.
+Generalmente, le classi vengono chiamate con un nome che inizia con la lettera maiuscola (es. **Rettangolo**).
 
 **Sintassi:**
 
@@ -77,7 +76,7 @@ console.log(rettangolo.larghezza);
 
 ## Metodi
 
-Alla nostra nuova classe possiamo anche aggiungere dei metodi, funzioni che si basano sui valori dell'object, li elaborano ed eseguono azioni.
+Alla nostra nuova classe possiamo anche aggiungere dei metodi, ossia funzioni che si basano sui valori dell'object ed eseguono azioni dopo averli elaborati.
 
 Per creare un metodo creiamo una funzione all'interno delle parentesi graffe della classe, omettendo la parola `function`.
 
@@ -175,7 +174,7 @@ In JavaScript possiamo anche creare una classe partendo da un'altra.
 Per farlo aggiungiamo la parola [`extends`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) dopo il nome della nostra classe, seguito dalla classe da estendere.
 
 L'object che creeremo potrà quindi essere _combinato_ con quello creato da un'altra classe ed avere tutti i suoi metodi e le sue proprietà.
-Per far si che questo accada, però, dobbiamo utilizzare la parola chiave [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super).
+Per far sì che questo accada, però, dobbiamo utilizzare la parola chiave [`super`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super).
 Nel `constructor`, `super` sarà il constructor della classe estesa e va chiamato subito, mentre nei metodi e getters sarà un riferimento all'object creato dalla classe estesa, praticamente il `this` ma della classe che stiamo estendendo.
 
 **Sintassi:**
