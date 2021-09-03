@@ -10,29 +10,32 @@ In questo modo avremo completo controllo sulla nostra lista e potremo gestirla f
 ## Sommario
 
 - [Array](#array)
-  - [Sommario](#sommario)
-  - [Dichiarare un array](#dichiarare-un-array)
-  - [Accedere agli elementi dell'array](#accedere-agli-elementi-dellarray)
-  - [Loop](#loop)
-    - [for loop](#for-loop)
-      - [for](#for)
-      - [for...of](#forof)
-    - [forEach](#foreach)
-  - [Array](#array-1)
-    - [constructor](#constructor)
-    - [Metodi statici](#metodi-statici)
-      - [`Array.from<T, U>(arrayLike: ArrayLike<T>, mapfn?: (v: T, k: number) => U, thisArg?: unknown): U[]`](#arrayfromt-uarraylike-arrayliket-mapfn-v-t-k-number--u-thisarg-unknown-u)
-      - [`Array.isArray(arg: unknown): arg is unknown[]`](#arrayisarrayarg-unknown-arg-is-unknown)
-    - [`<Array>.length: number`](#arraylength-number)
-    - [Metodi](#metodi)
-      - [`<Array>.at(index: number): unknown`](#arrayatindex-number-unknown)
-      - [`<Array>.concat(...items: (T | ConcatArray<T>)[]): T[]`](#arrayconcatitems-t--concatarrayt-t)
-      - [`<Array>.every<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: unknown): this is S[]`](#arrayeverys-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-this-is-s)
-      - [`<Array>.fill(value: T, start?: number, end?: number): this`](#arrayfillvalue-t-start-number-end-number-this)
-      - [`<Array>.filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: unknown): S[]`](#arrayfilters-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-s)
-      - [`<Array>.find<S extends T>(predicate: (this: void, value: T, index: number, obj: T[]) => value is S, thisArg?: unknown): S | undefined`](#arrayfinds-extends-tpredicate-this-void-value-t-index-number-obj-t--value-is-s-thisarg-unknown-s--undefined)
-      - [`<Array>.findIndex(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: unknown): number`](#arrayfindindexpredicate-value-t-index-number-obj-t--unknown-thisarg-unknown-number)
-      - [`<Array>.flat<A, D extends number = 1>(this: A, depth?: D): FlatArray<A, D>[]`](#arrayflata-d-extends-number--1this-a-depth-d-flatarraya-d)
+	- [Sommario](#sommario)
+	- [Dichiarare un array](#dichiarare-un-array)
+	- [Accedere agli elementi dell'array](#accedere-agli-elementi-dellarray)
+	- [Loop](#loop)
+		- [for loop](#for-loop)
+			- [for](#for)
+			- [for...of](#forof)
+		- [forEach](#foreach)
+	- [Array](#array-1)
+		- [constructor](#constructor)
+		- [Metodi statici](#metodi-statici)
+			- [`Array.from<T, U>(arrayLike: ArrayLike<T>, mapfn?: (v: T, k: number) => U, thisArg?: unknown): U[]`](#arrayfromt-uarraylike-arrayliket-mapfn-v-t-k-number--u-thisarg-unknown-u)
+			- [`Array.isArray(arg: unknown): arg is unknown[]`](#arrayisarrayarg-unknown-arg-is-unknown)
+		- [`<Array>.length: number`](#arraylength-number)
+		- [Metodi](#metodi)
+			- [`<Array>.at(index: number): unknown`](#arrayatindex-number-unknown)
+			- [`<Array>.concat(...items: (T | ConcatArray<T>)[]): T[]`](#arrayconcatitems-t--concatarrayt-t)
+			- [`<Array>.every<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: unknown): this is S[]`](#arrayeverys-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-this-is-s)
+			- [`<Array>.fill(value: T, start?: number, end?: number): this`](#arrayfillvalue-t-start-number-end-number-this)
+			- [`<Array>.filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: unknown): S[]`](#arrayfilters-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-s)
+			- [`<Array>.find<S extends T>(predicate: (this: void, value: T, index: number, obj: T[]) => value is S, thisArg?: unknown): S | undefined`](#arrayfinds-extends-tpredicate-this-void-value-t-index-number-obj-t--value-is-s-thisarg-unknown-s--undefined)
+			- [`<Array>.findIndex(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: unknown): number`](#arrayfindindexpredicate-value-t-index-number-obj-t--unknown-thisarg-unknown-number)
+			- [`<Array>.flat<A, D extends number = 1>(this: A, depth?: D): FlatArray<A, D>[]`](#arrayflata-d-extends-number--1this-a-depth-d-flatarraya-d)
+			- [`<Array>.flatMap<U, This = undefined> (callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>, thisArg?: This): U[]`](#arrayflatmapu-this--undefined-callback-this-this-value-t-index-number-array-t--u--readonlyarrayu-thisarg-this-u)
+			- [`<Array>.includes(searchElement: T, fromIndex?: number): boolean`](#arrayincludessearchelement-t-fromindex-number-boolean)
+			- [`<Array>.indexOf(searchElement: T, fromIndex?: number): number`](#arrayindexofsearchelement-t-fromindex-number-number)
 
 ---
 
@@ -654,4 +657,97 @@ arr3.flat(2); // [1, 2, 3, 4, 5, 6]
 
 const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+---
+
+#### `<Array>.flatMap<U, This = undefined> (callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>, thisArg?: This): U[]`
+
+Questo metodo è l'equivalente di `<Array>.map(callback, thisArg).flat(1)`.
+
+**Vedi anche:** [`Array#map()`](#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-any-u).
+
+**Sintassi:**
+
+```js
+array.flatMap(callback /** , thisArg **/);
+```
+
+- `callback`: La funzione da eseguire su ogni elemento per decretarne il sostituto. **Type:** `(value: unknown, index: number, array: unknown[]) => unknown`;
+- `thisArg`: L'elemento da usare come `this` nella funzione `callback`.
+
+**Restituisce:** `unknown[]` - L'array _mappato_ e _appiattito_.
+
+**Esempi:**
+
+```js
+const arr1 = [1, 2, [3, 4]];
+arr1.flat(); // [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat(); // [1, 2, 3, 4, [5, 6]]
+
+const arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2); // [1, 2, 3, 4, 5, 6]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+---
+
+#### `<Array>.includes(searchElement: T, fromIndex?: number): boolean`
+
+Questo metodo controlla se l'array ha un certo elemento.
+
+**Sintassi:**
+
+```js
+array.includes(searchElement /** , fromIndex **/);
+```
+
+- `searchElement`: L'elemento da cercare. **Type:** `unknown`;
+- `fromIndex`: L'index da cui iniziare a cercare. Default: 0. **Type:** `number`
+
+**Restituisce:** `boolean` - `true` se l'array contiene quell'elemento, `false` in caso contrario.
+
+**Esempi:**
+
+```js
+[1, 2, 3].includes(2); // true
+[1, 2, 3].includes(4); // false
+[1, 2, 3].includes(3, 3); // false - Non esiste nessun elemento all'index 3
+[1, 2, 3].includes(3, -1); // true - Possiamo usare numeri negativi per riferirci, in questo caso, all'ultimo elemento
+// Nota: se `array.length + fromIndex` è minore o uguale a 0, tutto l'array viene controllato
+[1, 2, NaN].includes(NaN); // true
+```
+
+---
+
+#### `<Array>.indexOf(searchElement: T, fromIndex?: number): number`
+
+Questo metodo è un mix tra [`Array#includes()`](#arrayincludessearchelement-t-fromindex-number-boolean) e [`Array#findIndex()`](#arrayfindindexpredicate-value-t-index-number-obj-t--unknown-thisarg-unknown-number).
+
+Come `includes` cerca l'esistenza di un certo elemento nell'array, ma, come `findIndex`, restituisce il suo index.
+
+**Sintassi:**
+
+```js
+array.indexOf(searchElement /** , fromIndex **/);
+```
+
+- `searchElement`: L'elemento da cercare. **Type:** `unknown`;
+- `fromIndex`: L'index da cui iniziare a cercare. Default: 0. **Type:** `number`
+
+**Restituisce:** `number` - L'index dell'elemento trovato, o `-1` se non è stato possibile trovare alcun elemento.
+
+**Esempi:**
+
+```js
+const array = [2, 9, 9];
+array.indexOf(2); // 0
+array.indexOf(7); // -1 - Nessun elemento trovato
+array.indexOf(9, 2); // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0
 ```
