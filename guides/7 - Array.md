@@ -12,6 +12,7 @@ In questo modo avremo completo controllo sulla nostra lista e potremo gestirla f
 - [Array](#array)
   - [Sommario](#sommario)
   - [Dichiarare un array](#dichiarare-un-array)
+  - [Index](#index)
   - [Accedere agli elementi dell'array](#accedere-agli-elementi-dellarray)
   - [Loop](#loop)
     - [for loop](#for-loop)
@@ -80,13 +81,20 @@ const array = ["DTrombett", "davi"];
 
 ---
 
-## Accedere agli elementi dell'array
+## Index
 
 Come abbiamo detto, gli array utilizzano dei numeri come proprietà e, essendo una lista, ogni numero corrisponderà ad un elemento.
+Questi _numeri_ vengono chiamati _index_.
 
-Nell'articolo sugli object abbiamo osservato come non possiamo utilizzare il classico punto (o _dot notation_) per accedere ad un elemento di un object se il nome della proprietà è un numero o inizia con un numero, perciò utilizzeremo l'_index access_.
+Se diciamo che, in un array, un elemento ha 0 come index, vogliamo indicare che questo elemento è il primo dell'array, se diciamo che ha 3, vogliamo dire che è il quarto, e così via.
 
 **Nota: Gli elementi degli array non iniziano dal numero 1, ma da 0, quindi il primo elemento avrà 0 come numero (o index).**
+
+---
+
+## Accedere agli elementi dell'array
+
+Nell'articolo sugli object abbiamo osservato come non possiamo utilizzare il classico punto (o _dot notation_) per accedere ad un elemento di un object se il nome della proprietà è un numero o inizia con un numero, perciò utilizzeremo l'_index access_.
 
 **Sintassi:**
 

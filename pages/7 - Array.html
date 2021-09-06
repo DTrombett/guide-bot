@@ -9,6 +9,7 @@ In questo modo avremo completo controllo sulla nostra lista e potremo gestirla f
 <ul>
 <li><a href="#sommario">Sommario</a></li>
 <li><a href="#dichiarare-un-array">Dichiarare un array</a></li>
+<li><a href="#index">Index</a></li>
 <li><a href="#accedere-agli-elementi-dellarray">Accedere agli elementi dell’array</a></li>
 <li><a href="#loop">Loop</a>
 <ul>
@@ -81,10 +82,14 @@ Gli array usano le parentesi quadre e la virgola per separare i loro elementi.</
 <span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;DTrombett&quot;</span>, <span style="color: #800;">&quot;davi&quot;</span>];
 </code></pre>
 <hr />
-<h2>Accedere agli elementi dell’array</h2>
-<p>Come abbiamo detto, gli array utilizzano dei numeri come proprietà e, essendo una lista, ogni numero corrisponderà ad un elemento.</p>
-<p>Nell’articolo sugli object abbiamo osservato come non possiamo utilizzare il classico punto (o <em>dot notation</em>) per accedere ad un elemento di un object se il nome della proprietà è un numero o inizia con un numero, perciò utilizzeremo l’<em>index access</em>.</p>
+<h2>Index</h2>
+<p>Come abbiamo detto, gli array utilizzano dei numeri come proprietà e, essendo una lista, ogni numero corrisponderà ad un elemento.
+Questi <em>numeri</em> vengono chiamati <em>index</em>.</p>
+<p>Se diciamo che, in un array, un elemento ha 0 come index, vogliamo indicare che questo elemento è il primo dell’array, se diciamo che ha 3, vogliamo dire che è il quarto, e così via.</p>
 <p><strong>Nota: Gli elementi degli array non iniziano dal numero 1, ma da 0, quindi il primo elemento avrà 0 come numero (o index).</strong></p>
+<hr />
+<h2>Accedere agli elementi dell’array</h2>
+<p>Nell’articolo sugli object abbiamo osservato come non possiamo utilizzare il classico punto (o <em>dot notation</em>) per accedere ad un elemento di un object se il nome della proprietà è un numero o inizia con un numero, perciò utilizzeremo l’<em>index access</em>.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array[i];
 </code></pre>
