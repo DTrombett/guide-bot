@@ -173,7 +173,7 @@ array.<span style="color: #800; font-weight: 700;">forEach</span>(<span class="h
 Si tratta di una classe globale, quindi accessibile ovunque.</p>
 <h3>constructor</h3>
 <p>Possiamo creare un array anche con il constructor della classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array</code>, quindi usando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new Array()</code>, ma non è consigliato in quanto può essere confusionario.</p>
-<p>Se infatti passiamo un solo parametro che sia un numero, creeremo un array di quella dimensione e totalmente vuoto, se invece passiamo più di un parametro o un solo parametro ma non numero, allora verrà creato un array con gli elementi determinati come parametri.</p>
+<p>Se infatti lo usiamo con un solo parametro che sia un numero, creeremo un array di quella dimensione e totalmente vuoto, se invece forniamo più di un parametro o un solo parametro ma non numero, allora verrà creato un array con gli elementi determinati come parametri.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(arrayLength);
 <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(...items);
@@ -309,9 +309,9 @@ cart.<span style="color: #800; font-weight: 700;">push</span>(<span style="color
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">concat</span>(...items);
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi da aggiungere o degli array, in quest’ultimo caso gli elementi di questi array verranno aggiunti alla fine del vecchio array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi da aggiungere o degli array. In quest’ultimo caso gli elementi di questi array verranno aggiunti alla fine del vecchio array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
 </ul>
-<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Il nuovo array creato, nota che il vecchio array NON verrà modificato.</p>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Il nuovo array creato. Nota che il vecchio array NON verrà modificato.</p>
 <p><strong>Esempi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> num1 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>];
 <span style="font-weight: 700;">const</span> num2 = [<span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">6</span>];
@@ -707,7 +707,7 @@ vegetables.<span style="color: #800; font-weight: 700;">push</span>(...moreVegs)
 <p>Questo metodo esegue una funzione passando come parametri i primi due elementi dell’array e salva il risultato.
 Poi la esegue nuovamente passando come parametro il risultato precedente e il prossimo elemento, così per ogni elemento dell’array.
 Restituisce, infine, il valore dell’ultima esecuzione.</p>
-<p>Se viene passato un valore come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">initialValue</code>, la funzione viene eseguita una volta in più, all’inizio, passando come parametri il valore di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">initialValue</code> e il primo parametro.</p>
+<p>Se viene fornito il secondo parametro (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">initialValue</code>), la funzione viene eseguita una volta in più, all’inizio, e avrà come parametri il valore che abbiamo fornito e il primo elemento dell’array.</p>
 <p>Questo metodo è generalmente utilizzato per eseguire la somma di tutti gli elementi di un array (numeri) e non ci sono molti altri utilizzi.</p>
 <p><strong>Sintassi:</strong></p>
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">reduce</span>(callbackfn <span style="color: #888">/** , initialValue **/</span>);
@@ -855,7 +855,7 @@ mixedNumericArray.<span style="color: #800; font-weight: 700;">sort</span>(compa
 <pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">splice</span>(start <span style="color: #888">/** , deleteCount, ...items **/</span>);
 </code></pre>
 <ul>
-<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>: L’index da cui iniziare a modificare l’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>: L’index da cui iniziare per modificare l’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
 <li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">deleteCount</code>: Quanti elementi eliminare partendo dall’index <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>. Se viene omesso, l’array conterrà tutti gli elementi <strong>fino</strong> a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
 <li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi con cui sostituire quelli eliminati. Specificabile solo se usato insieme a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">deleteCount</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
 </ul>
