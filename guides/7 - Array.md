@@ -214,7 +214,7 @@ Si tratta di una classe globale, quindi accessibile ovunque.
 
 Possiamo creare un array anche con il constructor della classe `Array`, quindi usando `new Array()`, ma non è consigliato in quanto può essere confusionario.
 
-Se infatti passiamo un solo parametro che sia un numero, creeremo un array di quella dimensione e totalmente vuoto, se invece passiamo più di un parametro o un solo parametro ma non numero, allora verrà creato un array con gli elementi determinati come parametri.
+Se infatti lo usiamo con un solo parametro che sia un numero, creeremo un array di quella dimensione e totalmente vuoto, se invece forniamo più di un parametro o un solo parametro ma non numero, allora verrà creato un array con gli elementi determinati come parametri.
 
 **Esempi:**
 
@@ -399,9 +399,9 @@ Questo metodo crea un nuovo array uguale a quello precedente ma aggiungendo degl
 array.concat(...items);
 ```
 
-- `...items`: Gli elementi da aggiungere o degli array, in quest'ultimo caso gli elementi di questi array verranno aggiunti alla fine del vecchio array. **Type:** `unknown`.
+- `...items`: Gli elementi da aggiungere o degli array. In quest'ultimo caso gli elementi di questi array verranno aggiunti alla fine del vecchio array. **Type:** `unknown`.
 
-**Restituisce:** `unknown[]` - Il nuovo array creato, nota che il vecchio array NON verrà modificato.
+**Restituisce:** `unknown[]` - Il nuovo array creato. Nota che il vecchio array NON verrà modificato.
 
 **Esempi:**
 
@@ -934,7 +934,7 @@ Questo metodo esegue una funzione passando come parametri i primi due elementi d
 Poi la esegue nuovamente passando come parametro il risultato precedente e il prossimo elemento, così per ogni elemento dell'array.
 Restituisce, infine, il valore dell'ultima esecuzione.
 
-Se viene passato un valore come `initialValue`, la funzione viene eseguita una volta in più, all'inizio, passando come parametri il valore di `initialValue` e il primo parametro.
+Se viene fornito il secondo parametro (`initialValue`), la funzione viene eseguita una volta in più, all'inizio, e avrà come parametri il valore che abbiamo fornito e il primo elemento dell'array.
 
 Questo metodo è generalmente utilizzato per eseguire la somma di tutti gli elementi di un array (numeri) e non ci sono molti altri utilizzi.
 
@@ -1144,7 +1144,7 @@ Questo metodo ci permette di inserire, aggiungere e sostituire elementi in un ar
 array.splice(start /** , deleteCount, ...items **/);
 ```
 
-- `start`: L'index da cui iniziare a modificare l'array. **Type:** `number`;
+- `start`: L'index da cui iniziare per modificare l'array. **Type:** `number`;
 - `deleteCount`: Quanti elementi eliminare partendo dall'index `start`. Se viene omesso, l'array conterrà tutti gli elementi **fino** a `start`. **Type:** `number`;
 - `...items`: Gli elementi con cui sostituire quelli eliminati. Specificabile solo se usato insieme a `deleteCount`. **Type:** `unknown`.
 
