@@ -9,22 +9,24 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
 ## Sommario
 
 - [discord.js](#discordjs)
-	- [Sommario](#sommario)
-	- [ESLint](#eslint)
-	- [Prettier](#prettier)
-	- [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
-		- [Creazione della cartella](#creazione-della-cartella)
-		- [Installazione Visual Studio Code](#installazione-visual-studio-code)
-		- [Installazione estensioni](#installazione-estensioni)
-		- [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
-		- [Utilizzo VSCode](#utilizzo-vscode)
-		- [Installazione Node.js](#installazione-nodejs)
-		- [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
-			- [Typescript](#typescript)
-			- [ESLint](#eslint-1)
-			- [Prettier](#prettier-1)
-	- [Creazione progetto](#creazione-progetto)
-	- [npm](#npm)
+  - [Sommario](#sommario)
+  - [ESLint](#eslint)
+  - [Prettier](#prettier)
+  - [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
+    - [Creazione della cartella](#creazione-della-cartella)
+    - [Installazione Visual Studio Code](#installazione-visual-studio-code)
+    - [Installazione estensioni](#installazione-estensioni)
+    - [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
+    - [Utilizzo VSCode](#utilizzo-vscode)
+    - [Installazione Node.js](#installazione-nodejs)
+    - [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
+      - [Typescript](#typescript)
+      - [ESLint](#eslint-1)
+      - [Prettier](#prettier-1)
+  - [Creazione progetto](#creazione-progetto)
+  - [npm](#npm)
+  - [Installazione moduli](#installazione-moduli)
+  - [index.js](#indexjs)
 
 ## ESLint
 
@@ -406,3 +408,47 @@ Utilizzeremo vari comandi npm come:
 - `npm ci`: Comando per installare tutti i moduli inclusi in un progetto. Funziona solo se è già presente un `package-lock.json` file, automaticamente generato da `npm i`;
 - `npm dedupe`: Comando per rimuovere eventuali _doppioni_ nei nostri moduli. Può infatti accadere che un modulo tra quelli installati, ne richieda un altro che viene così installato a sua volta. Se tale modulo è stato installato anche da noi stessi, si creerà un doppione che può essere rimosso con questo comando;
 - `npm init [-y]`: Comando per iniziare un nuovo progetto npm. Chiederà vari dettagli che possono essere saltati premendo Invio, o possiamo usare la flag `-y` per saltarli automaticamente tutti.
+
+---
+
+## Installazione moduli
+
+Ci siamo quasi!
+Prima di iniziare manca un'ultima cosa: installare i moduli necessari nel nostro progetto.
+
+Potrebbero servirci altri moduli, ma per ora installeremo solo quelli necessari:
+
+1. Installiamo i moduli `eslint` e `prettier` globalmente per poterli usare anche tramite terminal: `npm i -g eslint prettier`;
+2. Installiamo `discord.js` per poter interagire con Discord: `npm i discord.js`;
+3. Installiamo localmente i moduli che ci servono per lo sviluppo del nostro bot, ossia `eslint`, `prettier` e `@types/node` che aggiungerà a typescript le definizioni degli elementi predefiniti in Node.js.
+
+---
+
+## index.js
+
+Ce l'abbiamo fatta, finalmente possiamo creare il nostro primo file in JavaScript ed iniziare a scrivere il codice.
+
+Creiamo un file chiamato `index.js` nella cartella del nostro progetto e poi assicuriamoci di riavviare VSCode in modo che rilevi il nostro nuovo progetto con i vari file di configurazione.
+
+Ora, per testare che tutte le funzioni attivate funzionino correttamente incollate il seguente codice nel file appena creato:
+
+<!-- prettier-ignore-start -->
+```js
+const{Client}=require('discord.js');const client=new Client;client
+```
+<!-- prettier-ignore-end -->
+
+Se tutto è stato configurato correttamente dovreste:
+
+- Vedere il codice immediatamente formattato nel seguente modo:
+
+  ```js
+  const { Client } = require("discord.js");
+  const client = new Client();
+  client;
+  ```
+
+- Vedere `new Client()` sottolineato di rosso con l'errore seguente (o lo stesso ma tradotto in caso abbiate modificato la lingua): `Expected 1 arguments, but got 0`;
+- Vedere l'ultimo `client` sottolineato di giallo con l'errore seguente: `Expected an assignment or function call and instead saw an expression`;
+
+Se tutto questo accade, allora la nostra configurazione è andata a buon fine e possiamo iniziare a scrivere il codice del bot; in caso contrario ricontrollate di aver eseguito correttamente la procedura descritta per ogni strumento considerando che il primo punto dell'elenco di sopra riguarda **Prettier**, il secondo **Typescript** e il terzo **ESLint**.
