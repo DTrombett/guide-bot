@@ -9,24 +9,26 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
 ## Sommario
 
 - [discord.js](#discordjs)
-  - [Sommario](#sommario)
-  - [ESLint](#eslint)
-  - [Prettier](#prettier)
-  - [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
-    - [Creazione della cartella](#creazione-della-cartella)
-    - [Installazione Visual Studio Code](#installazione-visual-studio-code)
-    - [Installazione estensioni](#installazione-estensioni)
-    - [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
-    - [Utilizzo VSCode](#utilizzo-vscode)
-    - [Installazione Node.js](#installazione-nodejs)
-    - [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
-      - [Typescript](#typescript)
-      - [ESLint](#eslint-1)
-      - [Prettier](#prettier-1)
-  - [Creazione progetto](#creazione-progetto)
-  - [npm](#npm)
-  - [Installazione moduli](#installazione-moduli)
-  - [index.js](#indexjs)
+	- [Sommario](#sommario)
+	- [ESLint](#eslint)
+	- [Prettier](#prettier)
+	- [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
+		- [Creazione della cartella](#creazione-della-cartella)
+		- [Installazione Visual Studio Code](#installazione-visual-studio-code)
+		- [Installazione estensioni](#installazione-estensioni)
+		- [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
+		- [Utilizzo VSCode](#utilizzo-vscode)
+		- [Installazione Node.js](#installazione-nodejs)
+		- [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
+			- [Typescript](#typescript)
+			- [ESLint](#eslint-1)
+			- [Prettier](#prettier-1)
+	- [Creazione progetto](#creazione-progetto)
+	- [npm](#npm)
+	- [Installazione moduli](#installazione-moduli)
+	- [Creazione bot](#creazione-bot)
+	- [Invitare il bot nel nostro server](#invitare-il-bot-nel-nostro-server)
+	- [index.js](#indexjs)
 
 ## ESLint
 
@@ -419,8 +421,53 @@ Prima di iniziare manca un'ultima cosa: installare i moduli necessari nel nostro
 Potrebbero servirci altri moduli, ma per ora installeremo solo quelli necessari:
 
 1. Installiamo i moduli `eslint` e `prettier` globalmente per poterli usare anche tramite terminal: `npm i -g eslint prettier`;
-2. Installiamo `discord.js` per poter interagire con Discord: `npm i discord.js`;
+2. Installiamo `discord.js` per poter interagire con Discord e `dotenv` per salvare delle variabili d'ambiente come token del bot e altro: `npm i discord.js dotenv`;
 3. Installiamo localmente i moduli che ci servono per lo sviluppo del nostro bot, ossia `eslint`, `prettier` e `@types/node` che aggiungerà a typescript le definizioni degli elementi predefiniti in Node.js.
+
+---
+
+## Creazione bot
+
+Ora che abbiamo completato la configurazione del nostro ambiente di lavoro dobbiamo creare il nostro bot (se non ne avete già uno)!
+
+Per farlo andiamo nel **[Discord Developer Portal](https://discord.dev)** ed eseguiamo il login se necessario.
+
+Poi rechiamoci nella sezione `Applications` e clicchiamo **New Application** in alto a destra.
+Ci verrà chiesto il nome dell'applicazione che potremo comunque cambiare in seguito e può essere diverso da quello del bot.
+
+Una volta inserito il nome clicchiamo **Create**.
+Verremo reindirizzati in una pagina dove vedremo i dettagli della nostra applicazione e potremo aggiungere una immagine (che non dovrà obbligatoriamente coincidere con quella del bot) e una descrizione che apparirà nella sezione **About Me** del profilo del bot.
+
+Ora andiamo nella sezione `Bot` e clicchiamo **Add Bot** per creare il nostro bot!
+A questo punto potremo cambiare l'immagine profilo e lo username del bot (non il tag che rimarrà sempre quello).
+Qui possiamo anche scegliere se rendere il nostro bot publico o privato (pubblico di default).
+
+![Build a Bot](../images/8/build-a-bot.png)
+
+Nella stessa pagina possiamo vedere una scritta `Token`: il token del nostro bot è la sua password ed è importante tenerlo sempre per sè, in quanto chiunque ne abbia accesso avrà completo accesso al nostro bot e quindi potrà uscire da tutti i server, bannare tutti i membri di tutti i server etc...
+Il token è sensibile quanto il _client secret_ che troviamo nella sezione `OAuth2` e che fornisce invece accesso alla tua applicazione, garantendo la possibilità di eseguire azioni a tuo nome.
+Gli ID sono invece pubblichi e possono essere condivisi tranquillamente.
+
+---
+
+## Invitare il bot nel nostro server
+
+Preferibilmente, potete creare un server Discord privato appositamente per testare il vostro bot e il suo funzionamento.
+
+Una volta fatto, tornate nel Dev Portal, aprite la vostra applicazione (ora verrà mostrata nella lista) e recatevi nella sezione `OAuth2`.
+Scendete in basso per arrivare nella sezione dove potete generare il link di invito per il vostro bot.
+
+Prima di tutti sono necessari gli _scopi_ che garantiremo al nostro bot, e quelli che ci serviranno sono `bot` (garantisce che il bot entrerà _fisicamente_ nel server) e `applications.commands` (ci darà il permesso per l'aggiunta di slash commands nel server):
+
+![Scopes](../images/8/scopes.png)
+
+Scendendo ancora più in basso potremo scegliere i permessi da aggiungere al nostro bot; selezioniamo `Administrator` per aggiungerli tutti o scegliete quelli che fanno per voi:
+
+![Bot Permissions](../images/8/bot-permissions.png)
+
+Ora torniamo nella sezione **Scopes** e copiamo l'URL in basso, che sarà l'invito del bot, poi incolliamolo nella barra di ricerca del nostro browser e scegliamo il server dove vogliamo aggiungere il nostro bot (avrete probabilmente già fatto questa procedura altre volte).
+
+Una volta autorizzato torniamo su Discord e vedremo che nel nostro server è apparso il nuovo bot (tristemente offline :/)!
 
 ---
 
