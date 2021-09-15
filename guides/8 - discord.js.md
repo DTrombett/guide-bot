@@ -17,12 +17,14 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
 		- [Installazione Visual Studio Code](#installazione-visual-studio-code)
 		- [Installazione estensioni](#installazione-estensioni)
 		- [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
+		- [Utilizzo VSCode](#utilizzo-vscode)
 		- [Installazione Node.js](#installazione-nodejs)
 		- [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
-		- [Typescript](#typescript)
-		- [ESLint](#eslint-1)
-		- [Prettier](#prettier-1)
+			- [Typescript](#typescript)
+			- [ESLint](#eslint-1)
+			- [Prettier](#prettier-1)
 	- [Creazione progetto](#creazione-progetto)
+	- [npm](#npm)
 
 ## ESLint
 
@@ -120,6 +122,43 @@ Ecco le impostazioni che modificheremo (le potete trovare direttamente all'inizi
 
 ---
 
+### Utilizzo VSCode
+
+**Visual Studio Code** (o **VSCode**) è un ambiente di sviluppo completo che ci permette di creare e modificare qualsiasi codice grazie ad un supporto integrato per linguaggi come JavaScript, Typescript o Python ed estendibile grazie a tantissime estensioni.
+
+Si tratta di un programma veramente facilissimo da usare e ora vedremo in modo sommativo come poter eseguire alcune azioni.
+
+Innanzitutto, se si vuole lavorare in una cartella specifica, è bene aprirla tramite **File** -> **Open Folder...** o semplicemente **Ctrl + K, Ctrl + O** eseguiti consecutivamente.
+
+![Open Folder](../images/8/open-folder.png)
+
+Nella barra laterale potremo gestire con facilità i nostri file.
+Le prime due icone che appariranno in alto, a destra del nome della cartella serviranno rispettivamente per creare un file o una cartella.
+Non dimentichiamoci mai di inserire anche l'estensione di un file quando lo creiamo!
+
+![VSCode Files](../images/8/vscode-files.png)
+
+Se vogliamo creare un file in una determinata cartella dovremo prima selezionarla e poi potremo cliccare il pulsante per aggiungere un file.
+
+Nei file possiamo utilizzare delle shortcut da tastiera per facilitare il nostro lavoro:
+
+- `Ctrl + C`: Copia l'intera riga attuale (dove è posizionato il cursore), o il testo selezionato;
+- `Ctrl + X`: Taglia l'intera riga attuale, o il testo selezionato;
+- `Alt + (Up|Down)Arrow`: Sposta la riga attuale sopra/sotto;
+- `Ctrl + V`: Incolla il testo precedentemente copiato nel punto dove è posizionato il cursore, o al posto del testo selezionato;
+- `Ctrl + Z`: Annulla l'ultima azione eseguita all'interno del file;
+- `Ctrl + Y`: Riesegue l'ultima azione annullata all'interno del file;
+- `Alt + Shift + (Up|Down)Arrow`: Copia/Incolla la riga attuale sopra o sotto, in modo da inserire facilmente del testo simile;
+- `Alt + Click`: Aggiunge un cursore in un punto per poter modificare contemporaneamente due parti del file differenti;
+- `Alt + Ctrl + (Up|Down)Arrow`: Aggiunge un cursore sopra/sotto quello attuale;
+- `Ctrl + A`: Seleziona tutto il testo;
+- `Ctrl + F`: Cerca nel testo la parola su cui è posizionato il cursore o il testo selezionato;
+- `Ctrl + Shift + F`: Cerca in tutta la cartella/workspace la parola su cui è posizionato il cursore o il testo selezionato.
+
+VSCode è distribuito in inglese ma è possibile cambiare la lingua in Italiano installando [questa estensione](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-it) (nota che sarà necessario riavviare VSCode successivamente).
+
+---
+
 ### Installazione Node.js
 
 Inoltre, abbiamo bisogno di **Node.js** per eseguire il nostro progetto in JavaScript.
@@ -138,9 +177,8 @@ Qui di seguito i link ai file di installazione per la versione **16.9.0** in bas
 ### Creazione file per gli strumenti
 
 Ora possiamo aggiungere i file di configurazione per i nostri strumenti: **Typescript**, **ESLint** e **Prettier**.
-Per farlo innanzitutto apriamo VSCode, clicchiamo su **File** in alto a sinistra e poi **Open Folder** e scegliamo la cartella del nostro bot; ora siamo pronti per aggiungere qualsiasi file e scrivere il nostro codice.
 
-### Typescript
+#### Typescript
 
 Per attivare le funzionalità del Typescript in JavaScript, creiamo un file chiamato `jsconfig.json` all'interno della nostra cartella e inseriamo la seguente configurazione:
 
@@ -174,9 +212,11 @@ Per attivare le funzionalità del Typescript in JavaScript, creiamo un file chia
 
 Potete trovare tutte le opzioni nel [sito ufficiale](https://code.visualstudio.com/docs/languages/jsconfig).
 
+**Nota: Se vedrete un errore nel file che indica qualcosa come `No inputs were found` non vi preoccupate, non influirà minimamente sul nostro progetto e scomparirà dopo che avremo aggiunto il nostro primo file js e riavviato VSCode.**
+
 ---
 
-### ESLint
+#### ESLint
 
 Per attivare le funzionalità di ESLint creiamo un file chiamato `.eslintrc.json` all'interno della nostra cartella e inseriamo la seguente configurazione:
 
@@ -300,7 +340,7 @@ Consultate il [sito ufficiale](https://eslint.org/docs/rules/) per la lista comp
 
 ---
 
-### Prettier
+#### Prettier
 
 Per personalizzare le funzionalità di Prettier (disponibili di default con l'estensione), creiamo un file chiamato `.prettierrc.json` all'interno della nostra cartella e inseriamo la seguente configurazione:
 
@@ -331,12 +371,15 @@ Ci manca solo un passo: creare il nostro progetto ufficialmente nella cartella.
 
 Tutti i progetti in Node.js hanno un file `package.json` che contiene i dettagli come nome, descrizione, etc...
 
-Per crearlo innanzitutto apriamo un _command prompt_ da VSCode con **Ctrl + ò** oppure **View** -> **Terminal**.
+Per crearlo innanzitutto apriamo un _terminal_ da VSCode con **Ctrl + ò** oppure **View** -> **Terminal**.
 Ora scriviamo il comando `npm init`.
-Ci verranno richiesti alcuni dettagli come:
+
+**Nota: Per maggiori dettagli riguardo l'uso di un terminal in generale potete leggere [questo articolo in merito](https://sitomsgaming.wordpress.com/2021/08/21/come-usare-il-prompt-dei-comandi/).**
+
+Ci verranno richiesti alcuni dettagli, il valore mostrato tra parentesi è quello di default e verrà assegnato se skippiamo il passaggio premendo invio:
 
 - nome: Il nome del progetto; **non** deve essere legato obbligatoriamente al nome del bot o della cartella e può utilizzare solo lettere minuscole;
-- versione: Utile se abbiamo intenzione di pubblicare il nostro progetto come modulo, ma facilmente skippabile premendo Invio.
+- versione: Utile se abbiamo intenzione di pubblicare il nostro progetto come modulo, può essere skippato.
 - descrizione: Una descrizione del nostro bot/progetto. Possiamo tranquillamente saltare questo passaggio;
 - entry point: Il file principale del nostro progetto. Possiamo saltare questo passaggio a meno che nn abbiamo intenzione di posizionare il codice in una sottocartella, in questo caso possiamo scrivere `nomeCartella/index.js`;
 - test command: Comando di test da eseguire con `npm run test`. Possiamo impostarlo in `node .` per eseguire più facilmente il nostro bot;
@@ -346,3 +389,20 @@ Ci verranno richiesti alcuni dettagli come:
 - licenza: La licenza che utilizziamo per distribuire il nostro codice. Utile solo se il nostro codice sarà pubblico come in una repository o modulo npm. Possiamo saltare questo passaggio.
 
 Alla fine della configurazione possiamo scrivere `yes` per convalidarla e verrà creato il file `package.json` già pronto.
+
+**Nota: Se eseguendo il comando `npm init` avete ricevuto un errore come questo: `npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script`, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando `node -v` che dovrebbe mostrare `v16.9.0` (o la versione da voi installata).**
+
+---
+
+## npm
+
+Come abbiamo appena visto, per creare il nostro progetto abbiamo utilizzato il comando `npm init`, gestito da `npm`.
+
+`npm` è un package manager, serve cioè per gestire i moduli che ci serviranno nel nostro progetto ed è preinstallato con Node.js.
+
+Utilizzeremo vari comandi npm come:
+
+- `npm i [nome-modulo|@autore/nome-modulo|autore/nome-modulo] [-g] [-D]`: Comando per installare uno o più moduli nel nostro progetto. Se il modulo da installare non è necessario nel codice in sè, possiamo utilizzare la _flag_ `-D` e installarlo come _devDependecy_, ossia modulo necessario allo sviluppo del codice. Se invece vogliamo installare quel modulo globalmente, allora aggiungiamo la flag `-g`, utile per moduli che contengono degli script binari da poter essere eseguiti tramite terminal. Esempi: `npm i discord.js`, `npm i -g eslint`, `npm i -D @types/node`;
+- `npm ci`: Comando per installare tutti i moduli inclusi in un progetto. Funziona solo se è già presente un `package-lock.json` file, automaticamente generato da `npm i`;
+- `npm dedupe`: Comando per rimuovere eventuali _doppioni_ nei nostri moduli. Può infatti accadere che un modulo tra quelli installati, ne richieda un altro che viene così installato a sua volta. Se tale modulo è stato installato anche da noi stessi, si creerà un doppione che può essere rimosso con questo comando;
+- `npm init [-y]`: Comando per iniziare un nuovo progetto npm. Chiederà vari dettagli che possono essere saltati premendo Invio, o possiamo usare la flag `-y` per saltarli automaticamente tutti.
