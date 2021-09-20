@@ -29,6 +29,16 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
   - [Creazione bot](#creazione-bot)
   - [Invitare il bot nel nostro server](#invitare-il-bot-nel-nostro-server)
   - [index.js](#indexjs)
+  - [Client](#client)
+    - [`constructor(options: ClientOptions)`](#constructoroptions-clientoptions)
+    - [`Client#options`](#clientoptions)
+    - [`Client#token`](#clienttoken)
+    - [`Client#user`](#clientuser)
+    - [`Client#login(/** token */)`](#clientlogin-token-)
+    - [Eventi](#eventi)
+      - [`Client#interactionCreate`](#clientinteractioncreate)
+      - [`Client#ready`](#clientready)
+  - [Salvare il token del bot](#salvare-il-token-del-bot)
 
 ## ESLint
 
@@ -499,3 +509,191 @@ Se tutto è stato configurato correttamente dovreste:
 - Vedere l'ultimo `client` sottolineato di giallo con l'errore seguente: `Expected an assignment or function call and instead saw an expression`;
 
 Se tutto questo accade, allora la nostra configurazione è andata a buon fine e possiamo iniziare a scrivere il codice del bot; in caso contrario ricontrollate di aver eseguito correttamente la procedura descritta per ogni strumento considerando che il primo punto dell'elenco di sopra riguarda **Prettier**, il secondo **Typescript** e il terzo **ESLint**.
+
+---
+
+## Client
+
+Per interagire con Discord, discord.js ci fornisce una classe che contiene tutto ciò di cui abbiamo bisogno.
+Si tratta della classe `Client`, esportata direttamente dal modulo.
+
+In questo paragrafo vedremo solo i metodi e le proprietà di questa classe che ci interessano ora, tratteremo gli altri più avanti quando ce ne sarà bisogno.
+
+### `constructor(options: ClientOptions)`
+
+Il constructor di questa classe richiede un parametro di tipo `ClientOptions` che conterrà tutte le opzioni per il nostro client.
+Potete osservare tutte le opzioni nella [documentazione ufficiale](https://discord.js.org/#/docs/main/stable/typedef/ClientOptions).
+
+Bisogna obbligatoriamente passare il parametro delle opzioni, che però contiene solo proprietà facoltative, fatta eccezione per `intents` che vedremo tra poco nel paragrafo **[Intents](#intents)**.
+
+**Esempi:**
+
+```js
+const { Client } = require("discord.js");
+
+new Client({ intents: ["GUILDS"] });
+```
+
+---
+
+### `Client#options`
+
+Rappresenta le opzioni con cui abbiamo inizializzato il nostro Client.
+
+**Type:** [`ClientOptions`](https://discord.js.org/#/docs/main/stable/typedef/ClientOptions) - Corrisponde al parametro passato in `new Client(options)`.
+
+---
+
+### `Client#token`
+
+Rappresenta il token del nostro bot.
+Questa proprietà deve essere utilizzata molto con cautela e assolutamente non in comandi.
+
+Quando inizializziamo un nuovo Client è `null` di default, a meno che non abbiamo impostato la variabile d'ambiente `DISCORD_TOKEN`.
+Se la variabile d'ambiente `DISCORD_TOKEN` non è impostata allora saremo costretti a passare un token valido nel metodo `login`.
+
+**Type:** `string | null` - Il token del bot, o `null` se nessun token è presente.
+
+**Nota: Questa proprietà viene rilevata automaticamente e non dovrebbe essere mai modificata manualmente.**
+
+---
+
+### `Client#user`
+
+Rappresenta il bot come utente Discord.
+
+**Type:** [`ClientUser | null`](https://discord.js.org/#/docs/main/stable/class/ClientUser) - Una classe discord.js che rappresenta il bot come utente. Vedremo le varie proprietà e metodi di questa classe quando ne avremo bisogno.
+
+---
+
+### `Client#login(/** token */)`
+
+Connette il bot a discord tramite un token, in modo da poter ricevere gli eventi e interagire con gli utenti.
+
+- `token` - Il token con cui connettersi a Discord. Di default è `client.token` quindi può essere omesso solo nel caso avessimo definito la variabile d'ambiente `DISCORD_TOKEN`.
+
+**Esempi:**
+
+```js
+const client = new Client({ intents: ["GUILDS"] });
+
+client.login();
+client.login("70K3N");
+```
+
+---
+
+### Eventi
+
+La classe `Client` di discord.js estende `EventEmitter`, una classe predefinita in nodejs che permette di eseguire delle funzioni quando accadono degli eventi.
+Per farlo, però, abbiamo bisogno di _registrare_ quell'evento e la funzione associata tramite il metodo `on`.
+Se vogliamo che quella funzione venga chiamata solo la prima volta che quell'evento accade possiamo usare `once`.
+
+**Sintassi:**
+
+```js
+client.on(event, listener);
+
+// La funzione `listener` in questo caso verrà eseguita solo la prima volta che riceviamo l'evento `event`
+client.once(event, listener);
+```
+
+- `event` - Il nome dell'evento;
+- `listener` - La funzione da eseguire quando l'evento `event` viene chiamato.
+
+**Restituisce:** `Client` - Il nostro client.
+
+In poche parole, per eseguire una certa azione quando il nostro bot riceve un'interazione usiamo il metodo `on` passando come parametri `interactionCreate` (il nome dell'evento) e la funzione da eseguire quando l'interazione verrà ricevuta, accettando come parametro l'interazione:
+
+```js
+client.on("interactionCreate", (interaction) => {
+	console.log(interaction.user.tag);
+});
+```
+
+Con questo codice, ogni qualvolta ricevessimo un'interazione, vedremo in console l'username e il tag dell'utente che ha interagito con il bot.
+
+Di seguito sono elencati alcuni eventi utili forniti da discord.js tramite il Client.
+Man mano che andremo avanti con la guida ce ne potranno servire di nuovi che elencheremo quando necessario.
+
+Tutti gli eventi sono descritti nella [documentazione ufficiale](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-applicationCommandCreate).
+
+#### `Client#interactionCreate`
+
+Questo evento si verifica quando il bot riceve una interazione, questa può essere relativa ad uno slash command, pulsante, menu...
+
+**Sintassi:**
+
+```js
+client.on("interactionCreate", (interaction) => {
+	// Azioni da eseguire quando un utente interagisce con il bot
+});
+```
+
+- `interaction` - L'interazione ricevuta. **Type:** [`Interaction`](https://discord.js.org/#/docs/main/stable/class/Interaction) - Si tratta di una classe che rappresenta un'interazione di qualsiasi tipo. Vedremo le sue proprietà e metodi fondamentali quando necessario.
+
+**Esempi:**
+
+```js
+const { Client } = require("discord.js");
+
+const client = new Client({ intents: ["GUILDS"] });
+
+client.on("interactionCreate", (interaction) => {
+	// Controlliamo se abbiamo ricevuto un'interazione da uno Slash Command
+	if (interaction.isCommand())
+		// Inviamo una risposta "ephemeral", cioè visibile solo all'utente
+		interaction.reply({ content: "Messaggio segreto!", ephemeral: true }); // Il metodo `reply()` ci permette di rispondere all'interazione
+});
+```
+
+#### `Client#ready`
+
+Evento che viene ricevuto quando il bot si è connesso a Discord ed è pronto a ricevere gli eventi come interazioni etc...
+
+Possiamo usare `once` invece che `on` in questo caso perchè sappiamo che l'evento `ready` verrà chiamato solo una volta.
+
+**Sintassi:**
+
+```js
+client.once("ready", (onlineClient) => {
+	// Azioni da eseguire uando il bot si connette
+});
+```
+
+- `onlineClient` - Il nostro client. **Type:** `Client`
+
+**Esempi:**
+
+```js
+const { Client } = require("discord.js");
+
+const client = new Client({ intents: ["GUILDS"] });
+
+client.once("ready", (onlineClient) =>
+	console.log(`Connesso con successo come ${onlineClient.user.tag}!`)
+);
+```
+
+## Salvare il token del bot
+
+Adesso salviamo il token del nostro bot nel progetto, in modo tale da poterci connettere a Discord.
+
+Per prima cosa create un file chiamato `.env` che servirà per salvare le variabili d'ambiente del nostro progetto.
+Questo file ha una struttura simile a questa:
+
+```
+NOME=VALORE
+ALTRO_NOME=ALTRO_VALORE
+```
+
+Ora tornate nel Dev Portal, cercate la vostra applicazione e passate alla sezione `Bot`.
+Lì cliccate su copia sotto il token del bot:
+
+![Copia Token](../images/8/copy-token.png)
+
+Poi tornate su VSCode e nel file `.env` aggiungete un nuovo valore che abbia come nome `DISCORD_TOKEN` (il valore usato da djs come token, menzionato in [`Client#token`](#clienttoken)) e come valore il token copiato, ad esempio:
+
+```
+DISCORD_TOKEN=ODg3NzQ4NTQ4ODkwODczOTE5.YUIqQw.B0sb_gshXY2nH5if-uHEkiGQGvc
+```
