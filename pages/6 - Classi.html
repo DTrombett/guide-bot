@@ -1,0 +1,232 @@
+<h1>Classi</h1>
+<p>Le <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">classi</a> sono come dei template e servono per creare degli object simili partendo da una semplice funzione.</p>
+<h2>Sommario</h2>
+<ul>
+<li><a href="#classi">Classi</a>
+<ul>
+<li><a href="#sommario">Sommario</a></li>
+<li><a href="#dichiarare-una-classe">Dichiarare una classe</a></li>
+<li><a href="#constructor"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></a></li>
+<li><a href="#metodi">Metodi</a></li>
+<li><a href="#getters">Getters</a></li>
+<li><a href="#estendere-una-classe">Estendere una classe</a></li>
+<li><a href="#dichiarare-una-classe-con-function">Dichiarare una classe con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code></a></li>
+<li><a href="#conclusione">Conclusione</a>
+<ul>
+<li><a href="#good-coding"><strong>Good Coding!</strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2>Dichiarare una classe</h2>
+<p>Per dichiarare una classe utilizziamo la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">class</code></a> che abbiamo spiegato nel dettaglio nell’articolo <strong>Parole chiave &amp; operatori</strong>.</p>
+<p>Ogni classe ha un nome e una funzione principale.
+Generalmente, le classi vengono chiamate con un nome che inizia con la lettera maiuscola (es. <strong>Rettangolo</strong>).</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">A</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {
+        <span style="color: #888">// Adesso abbiamo a disposizione un nuovo object a cui potremo riferirci con la parola `this`.</span>
+        <span style="color: #888">// Possiamo impostare delle nuove proprietà di questo object come facciamo normalmente</span>
+        <span style="color: #888">// Es. `this.property = value`</span>
+    }
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">A</code>: Il nome della classe. Segue gli stessi criteri del nome di una variabile;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">b, ...c</code>: I parametri della funzione per creare il nostro object.</li>
+</ul>
+<hr />
+<h2><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></h2>
+<p>La prima funzione che dichiariamo si chiama <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code></a> e verrà chiamata quando utilizzeremo la parola <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new</code></a> per creare il nuovo object.
+Questa funzione dovrà quindi impostare le proprietà dell’object, che sarà definito con il nome <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code></a>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Rettangolo</span> {
+    <span style="color: #888">/**
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">altezza</span> - L&#x27;altezza del rettangolo
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">larghezza</span> - La larghezza del rettangolo
+     */</span>
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">altezza, larghezza</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> = altezza; <span style="color: #888">// Impostiamo una proprietà chiamata `altezza` con il valore del primo parametro</span>
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span> = larghezza; <span style="color: #888">// Impostiamo una proprietà chiamata `larghezza` con il valore del secondo parametro</span>
+    }
+}
+
+<span style="font-weight: 700;">const</span> rettangolo = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Rettangolo</span>(<span style="color: #800;">10</span>, <span style="color: #800;">20</span>); <span style="color: #888">// Rettangolo { altezza: 10, larghezza: 20 }</span>
+<span style="color: #888">// Ora `rettangolo` è un object che ha una proprietà `altezza` con valore 10 e `larghezza` con valore 20</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">altezza</span>);
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">larghezza</span>);
+<span style="color: #888">// Console: 10</span>
+<span style="color: #888">// Console: 20</span>
+
+rettangolo.<span class="hljs-property">larghezza</span> = <span style="color: #800;">30</span>; <span style="color: #888">// Possiamo anche riassegnare i suoi valori, come un normale object</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">larghezza</span>);
+<span style="color: #888">// Console: 30</span>
+</code></pre>
+<hr />
+<h2>Metodi</h2>
+<p>Alla nostra nuova classe possiamo anche aggiungere dei metodi, ossia funzioni che si basano sui valori dell’object ed eseguono azioni dopo averli elaborati.</p>
+<p>Per creare un metodo creiamo una funzione all’interno delle parentesi graffe della classe, omettendo la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">A</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {}
+
+    <span style="color: #800; font-weight: 700;">d</span>(<span class="hljs-params"><span style="color: #888">/** e, ...f */</span></span>) {
+        <span style="color: #888">// Azioni da eseguire nel metodo `d`</span>
+        <span style="color: #888">// Anche qui possiamo utilizzare `this` per riferirci all&#x27;object creato</span>
+    }
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Nome del metodo da creare;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e, ...f</code>: Parametri da passare nel metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Rettangolo</span> {
+    <span style="color: #888">/**
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">altezza</span> - L&#x27;altezza del rettangolo
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">larghezza</span> - La larghezza del rettangolo
+     */</span>
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">altezza, larghezza</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> = altezza;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span> = larghezza;
+    }
+
+    <span style="color: #888">// Creiamo una funzione chiamata `calculateArea` che calcola l&#x27;area del rettangolo</span>
+    <span style="color: #800; font-weight: 700;">calculateArea</span>(<span class="hljs-params"></span>) {
+        <span style="font-weight: 700;">return</span> <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> * <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span>; <span style="color: #888">// Calcoliamo l&#x27;altezza per la larghezza e ricaviamo l&#x27;area</span>
+    }
+}
+
+<span style="font-weight: 700;">const</span> rettangolo = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Rettangolo</span>(<span style="color: #800;">10</span>, <span style="color: #800;">20</span>);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span style="color: #800; font-weight: 700;">calculateArea</span>()); <span style="color: #888">// 200 - `this.altezza * this.larghezza` =&gt; `10 * 20` =&gt; 200</span>
+</code></pre>
+<hr />
+<h2>Getters</h2>
+<p>Nelle classi possiamo anche aggiungere delle proprietà speciali, chiamate <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get">getters</a>.</p>
+<p>I getters sono dei mix tra le proprietà e i metodi, infatti possono essere utilizzate come normali proprietà dall’utente, ma devono eseguire una funzione per ricavare il risultato.
+Sono molto utili quando vogliamo creare una proprietà che si basa su altri valori dell’object.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">A</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {}
+
+    <span style="font-weight: 700;">get</span> <span style="color: #800; font-weight: 700;">d</span>() {
+        <span style="color: #888">// Azioni che verranno eseguite quando utilizzeremo la proprietà `d`</span>
+    }
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code>: Nome della proprietà. Viene dichiarata come un metodo, ma con la parola <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">get</code> prima, la quale indica che il valore della proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">d</code> sarà quello restituito dalla funzione.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Rettangolo</span> {
+    <span style="color: #888">/**
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">altezza</span> - L&#x27;altezza del rettangolo
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">larghezza</span> - La larghezza del rettangolo
+     */</span>
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">altezza, larghezza</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> = altezza;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span> = larghezza;
+    }
+
+    <span style="font-weight: 700;">get</span> <span style="color: #800; font-weight: 700;">area</span>() {
+        <span style="font-weight: 700;">return</span> <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> * <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span>;
+    }
+}
+
+<span style="font-weight: 700;">const</span> rettangolo = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Rettangolo</span>(<span style="color: #800;">10</span>, <span style="color: #800;">20</span>);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">area</span>); <span style="color: #888">// 200 - `this.altezza * this.larghezza` =&gt; `10 * 20` =&gt; 200</span>
+</code></pre>
+<hr />
+<h2>Estendere una classe</h2>
+<p>In JavaScript possiamo anche creare una classe partendo da un’altra.
+Per farlo aggiungiamo la parola <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">extends</code></a> dopo il nome della nostra classe, seguito dalla classe da estendere.</p>
+<p>L’object che creeremo potrà quindi essere <em>combinato</em> con quello creato da un’altra classe ed avere tutti i suoi metodi e le sue proprietà.
+Per far sì che questo accada, però, dobbiamo utilizzare la parola chiave <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code></a>.
+Nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">super</code> sarà il constructor della classe estesa e va chiamato subito, mentre nei metodi e getters sarà un riferimento all’object creato dalla classe estesa, praticamente il <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> ma della classe che stiamo estendendo.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">A</span> <span style="font-weight: 700;">extends</span> <span class="hljs-title class_ inherited__">D</span> {
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params"><span style="color: #888">/** b, ...c */</span></span>) {
+        <span style="color: #bc6060;">super</span>(<span style="color: #888">/** e, ...f */</span>);
+        <span style="color: #888">// Qui possiamo continuare le nostre azioni nel constructor come prima</span>
+    }
+
+    <span style="color: #800; font-weight: 700;">g</span>(<span class="hljs-params"><span style="color: #888">/** h, ...i */</span></span>) {
+        <span style="color: #bc6060;">super</span>.<span style="color: #800; font-weight: 700;">j</span>(<span style="color: #888">/** k, ...l */</span>);
+    }
+}
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">D</code>: La classe da estendere;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">e, ...f</code>: I parametri accettati dal constructor della classe estesa;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">g</code>: Il nome di un metodo;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">h, ...i</code>: I parametri del nostro metodo;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">j</code>: Il metodo della classe estesa da chiamare;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">k, ...l</code>: I parametri accettati dal metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">j</code> della classe estesa.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Animale</span> {
+    <span style="color: #888">/**
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string</span>} <span style="color: #bc6060;">nome</span> - Il nome dell&#x27;animale
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string</span>} <span style="color: #bc6060;">verso</span> - Il verso dell&#x27;animale
+     */</span>
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">nome, verso</span>) {
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">nome</span> = nome;
+        <span style="color: #bc6060;">this</span>.<span class="hljs-property">verso</span> = verso;
+    }
+
+    <span style="color: #800; font-weight: 700;">parla</span>(<span class="hljs-params"></span>) {
+        <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">`<span class="hljs-subst">${<span style="color: #bc6060;">this</span>.nome}</span> fa <span class="hljs-subst">${<span style="color: #bc6060;">this</span>.verso}</span>.`</span>);
+    }
+}
+
+<span style="font-weight: 700;">class</span> <span style="color: #800; font-weight: 700;">Cane</span> <span style="font-weight: 700;">extends</span> <span class="hljs-title class_ inherited__">Animale</span> {
+    <span style="color: #888">/**
+     * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">string</span>} <span style="color: #bc6060;">name</span> - Il nome del cane
+     */</span>
+    <span style="color: #800; font-weight: 700;">constructor</span>(<span class="hljs-params">name</span>) {
+        <span style="color: #bc6060;">super</span>(name, <span style="color: #800;">&quot;bau&quot;</span>); <span style="color: #888">// chiamiamo il constructor della classe Animale con il verso &quot;bau&quot;</span>
+    }
+
+    <span style="color: #888">// Creiamo un metodo `faiBau` che chiama il metodo `parla` della classe Animale</span>
+    <span style="color: #800; font-weight: 700;">faiBau</span>(<span class="hljs-params"></span>) {
+        <span style="color: #bc6060;">super</span>.<span style="color: #800; font-weight: 700;">parla</span>();
+    }
+}
+
+<span style="font-weight: 700;">const</span> bobby = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Cane</span>(<span style="color: #800;">&quot;Bobby&quot;</span>);
+bobby.<span style="color: #800; font-weight: 700;">parla</span>(); <span style="color: #888">// Bobby fa bau.</span>
+bobby.<span style="color: #800; font-weight: 700;">faiBau</span>(); <span style="color: #888">// Bobby fa bau.</span>
+</code></pre>
+<hr />
+<h2>Dichiarare una classe con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">function</code></h2>
+<p>Se vogliamo creare una classe semplice, che non abbia metodi nè getters, ma solo un constructor, possiamo anche dichiararla come una funzione normale.
+In questo caso daremo alla funzione il nome che vorremmo dare alla classe e potremo utilizzare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> proprio come nel <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor</code> di una classe.</p>
+<p>Questo metodo, comunque, è preferibilmente da evitare, in quanto limitato e confusionario, nonchè richiede di ritrasformare la funzione in classe nel caso volessimo aggiungere metodi o getters.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">altezza</span> - L&#x27;altezza del rettangolo
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">larghezza</span> - La larghezza del rettangolo
+ */</span>
+<span style="font-weight: 700;">function</span> <span style="color: #800; font-weight: 700;">Rettangolo</span>(<span class="hljs-params">altezza, larghezza</span>) {
+    <span style="color: #bc6060;">this</span>.<span class="hljs-property">altezza</span> = altezza; <span style="color: #888">// Impostiamo una proprietà chiamata `altezza` con il valore del primo parametro</span>
+    <span style="color: #bc6060;">this</span>.<span class="hljs-property">larghezza</span> = larghezza; <span style="color: #888">// Impostiamo una proprietà chiamata `larghezza` con il valore del secondo parametro</span>
+}
+
+<span style="font-weight: 700;">const</span> rettangolo = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Rettangolo</span>(<span style="color: #800;">10</span>, <span style="color: #800;">20</span>); <span style="color: #888">// Rettangolo { altezza: 10, larghezza: 20 }</span>
+<span style="color: #888">// Ora `rettangolo` è un object che ha una proprietà `altezza` con valore 10 e `larghezza` con valore 20</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">altezza</span>);
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">larghezza</span>);
+<span style="color: #888">// Console: 10</span>
+<span style="color: #888">// Console: 20</span>
+
+rettangolo.<span class="hljs-property">larghezza</span> = <span style="color: #800;">30</span>; <span style="color: #888">// Possiamo anche riassegnare i suoi valori, come un normale object</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(rettangolo.<span class="hljs-property">larghezza</span>);
+<span style="color: #888">// Console: 30</span>
+</code></pre>
+<hr />
+<h2>Conclusione</h2>
+<p>In questo articolo abbiamo imparato a creare e utilizzare le classi.
+Il prossimo sarà l’ultimo articolo riguardo il JavaScript e riguarderà gli array, altri articoli generali sulla programmazione saranno pubblicati anche più in avanti.</p>
+<h3><strong>Good Coding!</strong></h3>

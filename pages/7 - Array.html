@@ -1,0 +1,936 @@
+<h1>Array</h1>
+<p>In JavaScript possiamo creare delle liste di qualsiasi elemento… grazie agli <strong>array</strong>.</p>
+<p>Gli array sono degli objects speciali che come proprietà, invece di utilizzare dei nomi (stringhe), utilizzano dei numeri, in modo da creare delle liste facili da gestire.</p>
+<p>Ad esempio, se noi abbiamo bisogno di fare una lista di nomi in JavaScript possiamo usare un array ed inserirli lì.
+In questo modo avremo completo controllo sulla nostra lista e potremo gestirla facilmente.</p>
+<h2>Sommario</h2>
+<ul>
+<li><a href="#array">Array</a>
+<ul>
+<li><a href="#sommario">Sommario</a></li>
+<li><a href="#dichiarare-un-array">Dichiarare un array</a></li>
+<li><a href="#index">Index</a></li>
+<li><a href="#accedere-agli-elementi-dellarray">Accedere agli elementi dell’array</a></li>
+<li><a href="#loop">Loop</a>
+<ul>
+<li><a href="#for-loop">for loop</a>
+<ul>
+<li><a href="#for">for</a></li>
+<li><a href="#forof">for…of</a></li>
+</ul></li>
+<li><a href="#foreach">forEach</a></li>
+</ul></li>
+<li><a href="#array-1">Array</a>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+<li><a href="#metodi-statici">Metodi statici</a>
+<ul>
+<li><a href="#arrayfromt-uarraylike-arrayliket-mapfn-v-t-k-number--u-thisarg-unknown-u"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array.from&lt;T, U&gt;(arrayLike: ArrayLike&lt;T&gt;, mapfn?: (v: T, k: number) =&gt; U, thisArg?: unknown): U[]</code></a></li>
+<li><a href="#arrayisarrayarg-unknown-arg-is-unknown"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array.isArray(arg: unknown): arg is unknown[]</code></a></li>
+</ul></li>
+<li><a href="#arraylength-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.length: number</code></a></li>
+<li><a href="#metodi">Metodi</a>
+<ul>
+<li><a href="#arrayatindex-number-unknown"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.at(index: number): unknown</code></a></li>
+<li><a href="#arrayconcatitems-t--concatarrayt-t"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.concat(...items: (T | ConcatArray&lt;T&gt;)[]): T[]</code></a></li>
+<li><a href="#arrayeverys-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-this-is-s"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.every&lt;S extends T&gt;(predicate: (value: T, index: number, array: T[]) =&gt; value is S, thisArg?: unknown): this is S[]</code></a></li>
+<li><a href="#arrayfillvalue-t-start-number-end-number-this"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.fill(value: T, start?: number, end?: number): this</code></a></li>
+<li><a href="#arrayfilters-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-s"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.filter&lt;S extends T&gt;(predicate: (value: T, index: number, array: T[]) =&gt; value is S, thisArg?: unknown): S[]</code></a></li>
+<li><a href="#arrayfinds-extends-tpredicate-this-void-value-t-index-number-obj-t--value-is-s-thisarg-unknown-s--undefined"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.find&lt;S extends T&gt;(predicate: (this: void, value: T, index: number, obj: T[]) =&gt; value is S, thisArg?: unknown): S | undefined</code></a></li>
+<li><a href="#arrayfindindexpredicate-value-t-index-number-obj-t--unknown-thisarg-unknown-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.findIndex(predicate: (value: T, index: number, obj: T[]) =&gt; unknown, thisArg?: unknown): number</code></a></li>
+<li><a href="#arrayflata-d-extends-number--1this-a-depth-d-flatarraya-d"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.flat&lt;A, D extends number = 1&gt;(this: A, depth?: D): FlatArray&lt;A, D&gt;[]</code></a></li>
+<li><a href="#arrayflatmapu-this--undefined-callback-this-this-value-t-index-number-array-t--u--readonlyarrayu-thisarg-this-u"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.flatMap&lt;U, This = undefined&gt; (callback: (this: This, value: T, index: number, array: T[]) =&gt; U | ReadonlyArray&lt;U&gt;, thisArg?: This): U[]</code></a></li>
+<li><a href="#arrayincludessearchelement-t-fromindex-number-boolean"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.includes(searchElement: T, fromIndex?: number): boolean</code></a></li>
+<li><a href="#arrayindexofsearchelement-t-fromindex-number-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.indexOf(searchElement: T, fromIndex?: number): number</code></a></li>
+<li><a href="#arrayjoinseparator-string-string"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.join(separator?: string): string</code></a></li>
+<li><a href="#arraylastindexofsearchelement-t-fromindex-number-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.lastIndexOf(searchElement: T, fromIndex?: number): number</code></a></li>
+<li><a href="#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-unknown-u"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.map&lt;U&gt;(callbackfn: (value: T, index: number, array: T[]) =&gt; U, thisArg?: unknown): U[]</code></a></li>
+<li><a href="#arraypop-t--undefined"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.pop(): T | undefined</code></a></li>
+<li><a href="#arraypushitems-t-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.push(...items: T[]): number</code></a></li>
+<li><a href="#arrayreduceucallbackfn-previousvalue-u-currentvalue-t-currentindex-number-array-t--u-initialvalue-u-u"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.reduce&lt;U&gt;(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) =&gt; U, initialValue?: U): U</code></a></li>
+<li><a href="#arrayreverse-t"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.reverse(): T[]</code></a></li>
+<li><a href="#arrayshift-t--undefined"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.shift(): T | undefined</code></a></li>
+<li><a href="#arrayslicestart-number-end-number-t"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.slice(start?: number, end?: number): T[]</code></a></li>
+<li><a href="#arraysomepredicate-value-t-index-number-array-t--unknown-thisarg-unknown-boolean"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.some(predicate: (value: T, index: number, array: T[]) =&gt; unknown, thisArg?: unknown): boolean</code></a></li>
+<li><a href="#arraysortcomparefn-a-t-b-t--number-this"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.sort(compareFn?: (a: T, b: T) =&gt; number): this</code></a></li>
+<li><a href="#arraysplicestart-number-deletecount-number-items-t-t"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.splice(start: number, deleteCount?: number, ...items?: T[]): T[]</code></a></li>
+<li><a href="#arrayunshiftitems-t-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.unshift(...items: T[]): number</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#conclusione">Conclusione</a>
+<ul>
+<li><a href="#good-coding"><strong>Good Coding!</strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2>Dichiarare un array</h2>
+<p>Ora vediamo come possiamo creare un array.
+Gli array usano le parentesi quadre e la virgola per separare i loro elementi.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">[
+    <span style="color: #888">/** a, ...b **/</span>
+];
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">a, ...b</code>: Elementi dell’array. Possono essere qualsiasi, non c’è alcuna limitazione.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Creiamo un array con 2 elementi: &quot;DTrombett&quot; e &quot;davi&quot;, infine salviamolo in una costante chiamata `array`</span>
+<span style="color: #888">// Nota: generalmente gli array vengono salvati in costanti perchè non c&#x27;è alcun bisogno di riassegnarli</span>
+<span style="color: #888">// Per modificare i suoi elementi (aggiungerne, rimuoverne, etc...) possiamo utilizzare i metodi della classe Array</span>
+<span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;DTrombett&quot;</span>, <span style="color: #800;">&quot;davi&quot;</span>];
+</code></pre>
+<hr />
+<h2>Index</h2>
+<p>Come abbiamo detto, gli array utilizzano dei numeri come proprietà e, essendo una lista, ogni numero corrisponderà ad un elemento.
+Questi <em>numeri</em> vengono chiamati <em>index</em>.</p>
+<p>Se diciamo che, in un array, un elemento ha 0 come index, vogliamo indicare che questo elemento è il primo dell’array, se diciamo che ha 3, vogliamo dire che è il quarto, e così via.</p>
+<p><strong>Nota: Gli elementi degli array non iniziano dal numero 1, ma da 0, quindi il primo elemento avrà 0 come numero (o index).</strong></p>
+<hr />
+<h2>Accedere agli elementi dell’array</h2>
+<p>Nell’articolo sugli object abbiamo osservato come non possiamo utilizzare il classico punto (o <em>dot notation</em>) per accedere ad un elemento di un object se il nome della proprietà è un numero o inizia con un numero, perciò utilizzeremo l’<em>index access</em>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array[i];
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">array</code>: L’array da cui vogliamo leggere l’elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">i</code>: Il numero dell’elemento da leggere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;primo elemento&quot;</span>, <span style="color: #800;">&quot;secondo elemento&quot;</span>];
+
+array[<span style="color: #800;">1</span>]; <span style="color: #888">// &quot;secondo elemento&quot; - Il primo elemento è sempre 0 perciò il secondo sarà 1!</span>
+array[<span style="color: #800;">0</span>] = <span style="color: #800;">&quot;altro elemento&quot;</span>; <span style="color: #888">// Possiamo anche sostituire degli elementi</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(array); <span style="color: #888">// [&quot;altro elemento&quot;, &quot;secondo elemento&quot;]</span>
+array[<span style="color: #800;">2</span>] = <span style="color: #800;">&quot;nuovo elemento&quot;</span>; <span style="color: #888">// Possiamo anche aggiungere elementi nuovi, basta specificare il loro index!</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(array); <span style="color: #888">// [&quot;altro elemento&quot;, &quot;secondo elemento&quot;, &quot;nuovo elemento&quot;]</span>
+array[<span style="color: #800;">4</span>] = <span style="color: #800;">&quot;ennesimo elemento&quot;</span>; <span style="color: #888">// Se saltiamo degli index (in questo caso il 3) rimarranno vuoti</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(array); <span style="color: #888">// [&quot;altro elemento&quot;, &quot;secondo elemento&quot;, &quot;nuovo elemento&quot;, , &quot;ennesimo elemento&quot;]</span>
+<span style="color: #888">//                                                                             ^</span>
+<span style="color: #888">//                                                                             |</span>
+<span style="color: #888">//                                                 Tra il terzo e il quinto elemento è rimasto uno spazio vuoto</span>
+<span style="color: #800;">3</span> <span style="font-weight: 700;">in</span> array; <span style="color: #888">// false - Non esiste nessun elemento al numero 3</span>
+</code></pre>
+<hr />
+<h2>Loop</h2>
+<p>Se vogliamo eseguire una determinata azione per ogni elemento di un array possiamo usare dei loop.</p>
+<p>Ci sono due modi per eseguire un loop degli elementi di un array.</p>
+<h3>for loop</h3>
+<p>Il <em>for loop</em> lo abbiamo già incontrato nell’articolo sulle parole chiave ed è il metodo predefinito che abbiamo in JavaScript.</p>
+<p>Per gli array possiamo utilizzare sia il classico <strong>for</strong> loop che il <strong>for…of</strong> loop.</p>
+<h4>for</h4>
+<p>Un classico for loop ci dà più controllo sul nostro array in quanto non abbiamo direttamente accesso all’elemento dell’array, ma al suo index, dal quale possiamo ricavarci l’elemento qualora ci servisse.
+Consigliabile se abbiamo bisogno di sapere l’index del valore oltre che il valore stesso nel nostro loop.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;elemento 1&quot;</span>, <span style="color: #800;">&quot;elemento 2&quot;</span>, <span style="color: #800;">&quot;elemento 3&quot;</span>];
+
+<span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">let</span> i = <span style="color: #800;">0</span>; i &lt; array.<span class="hljs-property">length</span>; i++) {
+    <span style="color: #888">// `i` rappresenta l&#x27;index attuale, perciò `array[i]` sarà l&#x27;elemento che ci serve</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(array[i]);
+}
+
+<span style="color: #888">// Console: &quot;elemento 1&quot;,</span>
+<span style="color: #888">//          &quot;elemento 2&quot;,</span>
+<span style="color: #888">//          &quot;elemento 3&quot;</span>
+</code></pre>
+<hr />
+<h4>for…of</h4>
+<p>Questo loop è molto più facile e ci dà direttamente accesso all’elemento di cui abbiamo bisogno.
+Consigliabile se abbiamo solo bisogno di conoscere il valore.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;elemento 1&quot;</span>, <span style="color: #800;">&quot;elemento 2&quot;</span>, <span style="color: #800;">&quot;elemento 3&quot;</span>];
+
+<span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">const</span> element <span style="font-weight: 700;">of</span> array) {
+    <span style="color: #888">// `element` rappresenta l&#x27;elemento dell&#x27;array. Non abbiamo nessun riferimento al suo index</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(element);
+}
+
+<span style="color: #888">// Console: &quot;elemento 1&quot;,</span>
+<span style="color: #888">//          &quot;elemento 2&quot;,</span>
+<span style="color: #888">//          &quot;elemento 3&quot;</span>
+</code></pre>
+<p><strong>Nota: Negli esempi precedenti possiamo anche omettere le parantesi graffe in quanto vogliamo eseguire una sola azione.</strong></p>
+<hr />
+<h3>forEach</h3>
+<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">forEach</code> è un metodo degli array che ci permette di eseguire una funzione per ogni elemento dello stesso array.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">&quot;elemento 1&quot;</span>, <span style="color: #800;">&quot;elemento 2&quot;</span>, <span style="color: #800;">&quot;elemento 3&quot;</span>];
+
+array.<span style="color: #800; font-weight: 700;">forEach</span>(<span class="hljs-function">(<span class="hljs-params">element, i, arr</span>) =&gt;</span> {
+    <span style="color: #888">// `element` rappresenta l&#x27;elemento dell&#x27;array.</span>
+    <span style="color: #888">// Abbiamo, inoltre, un riferimento al suo index (`i`) e all&#x27;array stesso (`arr`)</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(element);
+});
+
+<span style="color: #888">// Console: &quot;elemento 1&quot;,</span>
+<span style="color: #888">//          &quot;elemento 2&quot;,</span>
+<span style="color: #888">//          &quot;elemento 3&quot;</span>
+</code></pre>
+<hr />
+<h2>Array</h2>
+<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array</code> è la classe di cui fanno parte tutti gli array.
+Si tratta di una classe globale, quindi accessibile ovunque.</p>
+<h3>constructor</h3>
+<p>Possiamo creare un array anche con il constructor della classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array</code>, quindi usando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new Array()</code>, ma non è consigliato in quanto può essere confusionario.</p>
+<p>Se infatti lo usiamo con un solo parametro che sia un numero, creeremo un array di quella dimensione e totalmente vuoto, se invece forniamo più di un parametro o un solo parametro ma non numero, allora verrà creato un array con gli elementi determinati come parametri.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(arrayLength);
+<span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(...items);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">arrayLength</code>: La lunghezza dell’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Elementi da inserire in nuovo array. Equivalente di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">[...items]</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<hr />
+<h3>Metodi statici</h3>
+<p>I seguenti metodi sono disponibili nella classe globale <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array</code>.</p>
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array.from&lt;T, U&gt;(arrayLike: ArrayLike&lt;T&gt;, mapfn?: (v: T, k: number) =&gt; U, thisArg?: unknown): U[]</code></h4>
+<p>Questo metodo ci permette di creare un array partendo da un <em>array-like</em>, ossia un elemento che ha delle caratteristiche simili ad un array, come una stringa dove ogni carattere corrisponde ad un elemento.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>(arrayLike <span style="color: #888">/** , mapfn, thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">arrayLike</code>: Un qualsiasi elemento simile ad un array, che abbia quindi una proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">length</code> e abbia proprietà corrispondenti a dei numeri. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">type ArrayLike = { readonly length: number; readonly [n: number]: unknown; }</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">mapFn</code>: Una funzione facoltativa che verrà chiamata su ogni elemento per modificarne il suo valore. Ha come parametri l’elemento e il suo index. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(v: unknown, k: number) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Il valore facoltativo da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">mapFn</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>(<span style="color: #800;">&quot;foo&quot;</span>); <span style="color: #888">// [ &quot;f&quot;, &quot;o&quot;, &quot;o&quot; ]</span>
+
+<span style="font-weight: 700;">const</span> map = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Map</span>([
+    [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>],
+    [<span style="color: #800;">2</span>, <span style="color: #800;">4</span>],
+    [<span style="color: #800;">4</span>, <span style="color: #800;">8</span>],
+]);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>(map); <span style="color: #888">// [[1, 2], [2, 4], [4, 8]]</span>
+
+<span style="font-weight: 700;">const</span> mapper = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Map</span>([
+    [<span style="color: #800;">&quot;1&quot;</span>, <span style="color: #800;">&quot;a&quot;</span>],
+    [<span style="color: #800;">&quot;2&quot;</span>, <span style="color: #800;">&quot;b&quot;</span>],
+]);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>(mapper.<span style="color: #800; font-weight: 700;">values</span>()); <span style="color: #888">// [&#x27;a&#x27;, &#x27;b&#x27;]</span>
+
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>(mapper.<span style="color: #800; font-weight: 700;">keys</span>()); <span style="color: #888">// [&#x27;1&#x27;, &#x27;2&#x27;]</span>
+
+<span style="color: #888">// Usiamo una funzione map per raddoppiare ogni valore dell&#x27;array</span>
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>([<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>], <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x + x);
+<span style="color: #888">// [2, 4, 6]</span>
+
+<span style="color: #888">// Creiamo un array con lunghezza 5 ed assegnamo ad ogni elemento il valore del suo index</span>
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">from</span>({ <span style="color: #444">length</span>: <span style="color: #800;">5</span> }, <span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);
+<span style="color: #888">// [0, 1, 2, 3, 4]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array.isArray(arg: unknown): arg is unknown[]</code></h4>
+<p>Questo metodo ci permette di sapere se un elemento è un array.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(arg);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">arg</code>: Un qualsiasi elemento che vogliamo controllare se sia un array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se l’elemento è un Array, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">// Tutti i seguenti esempi restituiscono `true`</span>
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>([]);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>([<span style="color: #800;">1</span>]);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>());
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(<span style="color: #800;">&quot;a&quot;</span>, <span style="color: #800;">&quot;b&quot;</span>, <span style="color: #800;">&quot;c&quot;</span>, <span style="color: #800;">&quot;d&quot;</span>));
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Array</span>(<span style="color: #800;">3</span>));
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #800; font-weight: 700;">Array</span>.<span class="hljs-property"><span style="font-weight: 700;">prototype</span></span>);
+
+<span style="color: #888">// Tutti i seguenti esempi restituiscono `false`</span>
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>({});
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #78a960;">null</span>);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #78a960;">undefined</span>);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #800;">17</span>);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #800;">&quot;Array&quot;</span>);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #78a960;">true</span>);
+<span style="color: #800; font-weight: 700;">Array</span>.<span style="color: #800; font-weight: 700;">isArray</span>(<span style="color: #78a960;">false</span>);
+</code></pre>
+<hr />
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.length: number</code></h3>
+<p>Ogni array ha una certa lunghezza che cambia quando noi aggiungiamo o rimuoviamo elementi da esso.
+Per scoprire quale è questa lunghezza possiamo utilizzare la proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">length</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span class="hljs-property">length</span>;
+</code></pre>
+<p><strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> numbers = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>, <span style="color: #800;">4</span>, <span style="color: #800;">5</span>];
+
+<span style="font-weight: 700;">if</span> (numbers.<span class="hljs-property">length</span> &gt; <span style="color: #800;">3</span>) numbers.<span class="hljs-property">length</span> = <span style="color: #800;">3</span>;
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(numbers); <span style="color: #888">// [1, 2, 3]</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(numbers.<span class="hljs-property">length</span>); <span style="color: #888">// 3</span>
+
+<span style="font-weight: 700;">const</span> otherNumbers = [];
+numbers.<span class="hljs-property">length</span> = <span style="color: #800;">3</span>;
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(numbers); <span style="color: #888">// [undefined, undefined, undefined]</span>
+</code></pre>
+<hr />
+<h3>Metodi</h3>
+<p>I seguenti metodi sono disponibili su ogni array.</p>
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.at(index: number): unknown</code></h4>
+<p>Questo metodo ci restituisce l’elemento dell’array corrispondente al nostro index.
+Molto simile a un index access normale ma ci permette di utilizzare anche valori negativi per avere, ad esempio, l’ultimo o il penultimo elemento.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">at</span>(index);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">index</code>: L’index da accedere. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - L’elemento a quell’index, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se non è presente alcun elemento.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> cart = [<span style="color: #800;">&quot;apple&quot;</span>, <span style="color: #800;">&quot;banana&quot;</span>, <span style="color: #800;">&quot;pear&quot;</span>];
+
+<span style="color: #888">/**
+ * Una funzione che restituisce l&#x27;ultimo elemento di un array.
+ * <span style="font-weight: 700;">@template</span> <span style="color: #bc6060;">V</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">V[]</span>} <span style="color: #bc6060;">arr</span> - Un array qualsiasi
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">V|undefined</span>} L&#x27;ultimo elemento dell&#x27;array o `undefined` se l&#x27;array è vuoto
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">returnLast</span> = (<span class="hljs-params">arr</span>) =&gt; arr.<span style="color: #800; font-weight: 700;">at</span>(-<span style="color: #800;">1</span>);
+
+<span style="font-weight: 700;">const</span> item1 = <span style="color: #800; font-weight: 700;">returnLast</span>(cart);
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(item1); <span style="color: #888">// &quot;pear&quot;</span>
+
+<span style="color: #888">// Aggiungiamo un elemento all&#x27;array</span>
+cart.<span style="color: #800; font-weight: 700;">push</span>(<span style="color: #800;">&quot;orange&quot;</span>);
+<span style="font-weight: 700;">const</span> item2 = <span style="color: #800; font-weight: 700;">returnLast</span>(cart);
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(item2); <span style="color: #888">// &quot;orange&quot;</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.concat(...items: (T | ConcatArray&lt;T&gt;)[]): T[]</code></h4>
+<p>Questo metodo crea un nuovo array uguale a quello precedente ma aggiungendo degli elementi ad esso.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">concat</span>(...items);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi da aggiungere o degli array. In quest’ultimo caso gli elementi di questi array verranno aggiunti alla fine del vecchio array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Il nuovo array creato. Nota che il vecchio array NON verrà modificato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> num1 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>];
+<span style="font-weight: 700;">const</span> num2 = [<span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">6</span>];
+<span style="font-weight: 700;">const</span> num3 = [<span style="color: #800;">7</span>, <span style="color: #800;">8</span>, <span style="color: #800;">9</span>];
+
+<span style="font-weight: 700;">const</span> numbers = num1.<span style="color: #800; font-weight: 700;">concat</span>(num2, num3);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(numbers); <span style="color: #888">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.every&lt;S extends T&gt;(predicate: (value: T, index: number, array: T[]) =&gt; value is S, thisArg?: unknown): this is S[]</code></h4>
+<p>Questo metodo esegue una funzione su ogni elemento dell’array e restituisce <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> solo se la funzione ha restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> per tutti gli elementi.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">every</span>(predicate <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">predicate</code>: La funzione da eseguire su ogni elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, array: unknown[]) =&gt; boolean</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Il valore facoltativo da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se la funzione ha restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> per tutti gli elementi, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Una funzione che controlla se un elemento è maggiore di 10.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">element</span> - L&#x27;elemento da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se l&#x27;elemento è maggiore di 10
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isBig</span> = (<span class="hljs-params">element</span>) =&gt; element &gt;= <span style="color: #800;">10</span>;
+
+<span style="color: #888">// Controlliamo se i seguenti array sono formati solo da numeri &quot;grandi&quot;</span>
+[<span style="color: #800;">12</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">130</span>, <span style="color: #800;">44</span>].<span style="color: #800; font-weight: 700;">every</span>(isBig); <span style="color: #888">// false</span>
+[<span style="color: #800;">12</span>, <span style="color: #800;">54</span>, <span style="color: #800;">18</span>, <span style="color: #800;">130</span>, <span style="color: #800;">44</span>].<span style="color: #800; font-weight: 700;">every</span>(isBig); <span style="color: #888">// true</span>
+
+<span style="color: #888">/**
+ * Controlliamo se il secondo array ha degli elementi del primo array.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">unknown[]</span>} <span style="color: #bc6060;">array1</span> - Il primo array
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">unknown[]</span>} <span style="color: #bc6060;">array2</span> - Il secondo array
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se gli elementi del secondo array sono presenti nel primo
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isSubset</span> = (<span class="hljs-params">array1, array2</span>) =&gt; array2.<span style="color: #800; font-weight: 700;">every</span>(<span class="hljs-function">(<span class="hljs-params">element</span>) =&gt;</span> array1.<span style="color: #800; font-weight: 700;">includes</span>(element));
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800; font-weight: 700;">isSubset</span>([<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>, <span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">6</span>, <span style="color: #800;">7</span>], [<span style="color: #800;">5</span>, <span style="color: #800;">7</span>, <span style="color: #800;">6</span>])); <span style="color: #888">// true</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800; font-weight: 700;">isSubset</span>([<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>, <span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">6</span>, <span style="color: #800;">7</span>], [<span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">7</span>])); <span style="color: #888">// false</span>
+
+[<span style="color: #800;">12</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">130</span>, <span style="color: #800;">44</span>].<span style="color: #800; font-weight: 700;">every</span>(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x &gt;= <span style="color: #800;">10</span>); <span style="color: #888">// false</span>
+[<span style="color: #800;">12</span>, <span style="color: #800;">54</span>, <span style="color: #800;">18</span>, <span style="color: #800;">130</span>, <span style="color: #800;">44</span>].<span style="color: #800; font-weight: 700;">every</span>(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x &gt;= <span style="color: #800;">10</span>); <span style="color: #888">// true</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.fill(value: T, start?: number, end?: number): this</code></h4>
+<p>Questo metodo riempie tutti gli index da <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code> a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">end</code> con l’elemento <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">value</code>.
+Se <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code> o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">end</code> vengono omessi, allora tutti gli elementi vengono sostituiti.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">fill</span>(value <span style="color: #888">/** , start, end **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">value</code>: Il valore con cui riempire l’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>: L’index da cui iniziare a riempire. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">end</code>: L’ultimo index da riempire. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - L’array modificato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>); <span style="color: #888">// [4, 4, 4]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800;">1</span>); <span style="color: #888">// [1, 4, 4]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800;">1</span>, <span style="color: #800;">2</span>); <span style="color: #888">// [1, 4, 3]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800;">1</span>, <span style="color: #800;">1</span>); <span style="color: #888">// [1, 2, 3]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800;">3</span>, <span style="color: #800;">3</span>); <span style="color: #888">// [1, 2, 3]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, -<span style="color: #800;">3</span>, -<span style="color: #800;">2</span>); <span style="color: #888">// [4, 2, 3]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800; font-weight: 700;">Na</span>N, <span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// [1, 2, 3]</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>, <span style="color: #800;">3</span>, <span style="color: #800;">5</span>); <span style="color: #888">// [1, 2, 3]</span>
+
+<span style="color: #800; font-weight: 700;">Array</span>(<span style="color: #800;">3</span>).<span style="color: #800; font-weight: 700;">fill</span>(<span style="color: #800;">4</span>); <span style="color: #888">// [4, 4, 4]</span>
+
+<span style="font-weight: 700;">const</span> arr = <span style="color: #800; font-weight: 700;">Array</span>(<span style="color: #800;">3</span>).<span style="color: #800; font-weight: 700;">fill</span>({}); <span style="color: #888">// [{}, {}, {}]</span>
+arr[<span style="color: #800;">0</span>].<span class="hljs-property">hi</span> = <span style="color: #800;">&quot;hi&quot;</span>; <span style="color: #888">// [{ hi: &quot;hi&quot; }, { hi: &quot;hi&quot; }, { hi: &quot;hi&quot; }] - Tutti e 3 gli elementi fanno in realtà riferimento allo stesso object</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.filter&lt;S extends T&gt;(predicate: (value: T, index: number, array: T[]) =&gt; value is S, thisArg?: unknown): S[]</code></h4>
+<p>Questo metodo restituisce un nuovo array contenente solo gli elementi che, passati ad una funzione, restituiscono <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">filter</span>(predicate <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">predicate</code>: La funzione da eseguire su ogni elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, array: unknown[]) =&gt; boolean</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Un valore facoltativo da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Il nuovo array filtrato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Una funzione che controlla se un elemento è maggiore di 10.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">element</span> - L&#x27;elemento da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se l&#x27;elemento è maggiore di 10
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isBig</span> = (<span class="hljs-params">element</span>) =&gt; element &gt;= <span style="color: #800;">10</span>;
+
+<span style="color: #888">// Filtriamo da questo array solo gli elementi maggiori di 10</span>
+[<span style="color: #800;">12</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">130</span>, <span style="color: #800;">44</span>].<span style="color: #800; font-weight: 700;">filter</span>(isBig); <span style="color: #888">// [12, 130, 44]</span>
+
+<span style="font-weight: 700;">const</span> array = [-<span style="color: #800;">3</span>, -<span style="color: #800;">2</span>, -<span style="color: #800;">1</span>, <span style="color: #800;">0</span>, <span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>, <span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">6</span>, <span style="color: #800;">7</span>, <span style="color: #800;">8</span>, <span style="color: #800;">9</span>, <span style="color: #800;">10</span>, <span style="color: #800;">11</span>, <span style="color: #800;">12</span>, <span style="color: #800;">13</span>];
+
+<span style="color: #888">/**
+ * Controlla se un numero è primo
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">num</span> - Il numero da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se il numero è primo o meno
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isPrime</span> = (<span class="hljs-params">num</span>) =&gt; {
+    <span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">let</span> i = <span style="color: #800;">2</span>; num &gt; i; i++) <span style="font-weight: 700;">if</span> (num % i === <span style="color: #800;">0</span>) <span style="font-weight: 700;">return</span> <span style="color: #78a960;">false</span>;
+    <span style="font-weight: 700;">return</span> num &gt; <span style="color: #800;">1</span>;
+};
+
+<span style="color: #888">// Filtriamo dall&#x27;array solo i numeri primi</span>
+array.<span style="color: #800; font-weight: 700;">filter</span>(isPrime); <span style="color: #888">// [2, 3, 5, 7, 11, 13]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.find&lt;S extends T&gt;(predicate: (this: void, value: T, index: number, obj: T[]) =&gt; value is S, thisArg?: unknown): S | undefined</code></h4>
+<p>Questo metodo cerca nell’array un elemento che, passato nella nostra funzione, restituisca <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">find</span>(predicate <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">predicate</code>: La funzione da eseguire su ogni elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(this: void, value: unknown, index: number, obj: unknown[]) =&gt; boolean</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Un valore facoltativo da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il primo elemento trovato che soddisfa la nostra funzione, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se nessun elemento è stato trovato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> inventory = [
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;apples&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">2</span> },
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;bananas&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">0</span> },
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;cherries&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">5</span> },
+];
+
+<span style="color: #888">/**
+ * Controlla se la proprietà `name` di un object è &quot;cherries&quot;
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">{ name: string; </span>}} fruit - L&#x27;elemento da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se la proprietà `name` è &quot;cherries&quot;
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isCherries</span> = (<span class="hljs-params">fruit</span>) =&gt; fruit.<span class="hljs-property">name</span> === <span style="color: #800;">&quot;cherries&quot;</span>;
+
+<span style="color: #888">// Troviamo l&#x27;elemento nell&#x27;array che abbia come `name` &quot;cherries&quot;</span>
+inventory.<span style="color: #800; font-weight: 700;">find</span>(isCherries); <span style="color: #888">// { name: &#x27;cherries&#x27;, quantity: 5 }</span>
+
+<span style="color: #888">// Equivalente:</span>
+inventory.<span style="color: #800; font-weight: 700;">find</span>(<span class="hljs-function">(<span class="hljs-params">{ name }</span>) =&gt;</span> name === <span style="color: #800;">&quot;cherries&quot;</span>); <span style="color: #888">// { name: &#x27;cherries&#x27;, quantity: 5 }</span>
+
+<span style="color: #888">/**
+ * Controlla se un numero è primo
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">num</span> - Il numero da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se il numero è primo o meno
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isPrime</span> = (<span class="hljs-params">num</span>) =&gt; {
+    <span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">let</span> i = <span style="color: #800;">2</span>; num &gt; i; i++) <span style="font-weight: 700;">if</span> (num % i === <span style="color: #800;">0</span>) <span style="font-weight: 700;">return</span> <span style="color: #78a960;">false</span>;
+    <span style="font-weight: 700;">return</span> num &gt; <span style="color: #800;">1</span>;
+};
+
+[<span style="color: #800;">4</span>, <span style="color: #800;">6</span>, <span style="color: #800;">8</span>, <span style="color: #800;">12</span>].<span style="color: #800; font-weight: 700;">find</span>(isPrime); <span style="color: #888">// undefined - Nessuno degli elementi è primo</span>
+[<span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">12</span>].<span style="color: #800; font-weight: 700;">find</span>(isPrime); <span style="color: #888">// 5</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.findIndex(predicate: (value: T, index: number, obj: T[]) =&gt; unknown, thisArg?: unknown): number</code></h4>
+<p>Questo metodo è uguale a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#find()</code> ma cerca l’index corrispondente invece che l’elemento.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">findIndex</span>(predicate <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">predicate</code>: La funzione da eseguire su ogni elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, obj: unknown[]) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Un valore facoltativo da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - L’index relativo al primo elemento trovato che soddisfa la nostra funzione, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-1</code> se nessun elemento è stato trovato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> inventory = [
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;apples&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">2</span> },
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;bananas&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">0</span> },
+    { <span style="color: #444">name</span>: <span style="color: #800;">&quot;cherries&quot;</span>, <span style="color: #444">quantity</span>: <span style="color: #800;">5</span> },
+];
+
+<span style="color: #888">/**
+ * Controlla se la proprietà `name` di un object è &quot;cherries&quot;
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">{ name: string; </span>}} fruit - L&#x27;elemento da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se la proprietà `name` è &quot;cherries&quot;
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isCherries</span> = (<span class="hljs-params">fruit</span>) =&gt; fruit.<span class="hljs-property">name</span> === <span style="color: #800;">&quot;cherries&quot;</span>;
+
+<span style="color: #888">// Troviamo l&#x27;index dell&#x27;elemento nell&#x27;array che abbia come `name` &quot;cherries&quot;</span>
+inventory.<span style="color: #800; font-weight: 700;">findIndex</span>(isCherries); <span style="color: #888">// 2</span>
+
+<span style="color: #888">// Equivalente:</span>
+inventory.<span style="color: #800; font-weight: 700;">findIndex</span>(<span class="hljs-function">(<span class="hljs-params">{ name }</span>) =&gt;</span> name === <span style="color: #800;">&quot;cherries&quot;</span>); <span style="color: #888">// 2</span>
+
+<span style="color: #888">/**
+ * Controlla se un numero è primo
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">num</span> - Il numero da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se il numero è primo o meno
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isPrime</span> = (<span class="hljs-params">num</span>) =&gt; {
+    <span style="font-weight: 700;">for</span> (<span style="font-weight: 700;">let</span> i = <span style="color: #800;">2</span>; num &gt; i; i++) <span style="font-weight: 700;">if</span> (num % i === <span style="color: #800;">0</span>) <span style="font-weight: 700;">return</span> <span style="color: #78a960;">false</span>;
+    <span style="font-weight: 700;">return</span> num &gt; <span style="color: #800;">1</span>;
+};
+
+[<span style="color: #800;">4</span>, <span style="color: #800;">6</span>, <span style="color: #800;">8</span>, <span style="color: #800;">12</span>].<span style="color: #800; font-weight: 700;">find</span>(isPrime); <span style="color: #888">// -1 - Nessuno degli elementi è primo</span>
+[<span style="color: #800;">4</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">12</span>].<span style="color: #800; font-weight: 700;">find</span>(isPrime); <span style="color: #888">// 1 - Il secondo elemento è primo</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.flat&lt;A, D extends number = 1&gt;(this: A, depth?: D): FlatArray&lt;A, D&gt;[]</code></h4>
+<p>Questo metodo costruisce un nuovo array con gli elementi del primo che non sono array, e gli elementi degli array, letti in modo ricorsivo.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">flat</span>(depth);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">depth</code>: Quanti array leggere in modo ricorsivo. 1 di default. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - L’array <em>appiattito</em>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> arr1 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>]];
+arr1.<span style="color: #800; font-weight: 700;">flat</span>(); <span style="color: #888">// [1, 2, 3, 4]</span>
+
+<span style="font-weight: 700;">const</span> arr2 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>]]];
+arr2.<span style="color: #800; font-weight: 700;">flat</span>(); <span style="color: #888">// [1, 2, 3, 4, [5, 6]]</span>
+
+<span style="font-weight: 700;">const</span> arr3 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>]]];
+arr3.<span style="color: #800; font-weight: 700;">flat</span>(<span style="color: #800;">2</span>); <span style="color: #888">// [1, 2, 3, 4, 5, 6]</span>
+
+<span style="font-weight: 700;">const</span> arr4 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>, [<span style="color: #800;">7</span>, <span style="color: #800;">8</span>, [<span style="color: #800;">9</span>, <span style="color: #800;">10</span>]]]]];
+arr4.<span style="color: #800; font-weight: 700;">flat</span>(<span style="color: #800; font-weight: 700;">Infinity</span>); <span style="color: #888">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.flatMap&lt;U, This = undefined&gt; (callback: (this: This, value: T, index: number, array: T[]) =&gt; U | ReadonlyArray&lt;U&gt;, thisArg?: This): U[]</code></h4>
+<p>Questo metodo è l’equivalente di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.map(callback, thisArg).flat(1)</code>.</p>
+<p><strong>Vedi anche:</strong> <a href="#arraymapucallbackfn-value-t-index-number-array-t--u-thisarg-unknown-u"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#map()</code></a>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">flatMap</span>(callback <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">callback</code>: La funzione da eseguire su ogni elemento per decretarne il sostituto. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, array: unknown[]) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: L’elemento da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">callback</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - L’array <em>mappato</em> e <em>appiattito</em>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> arr1 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>]];
+arr1.<span style="color: #800; font-weight: 700;">flat</span>(); <span style="color: #888">// [1, 2, 3, 4]</span>
+
+<span style="font-weight: 700;">const</span> arr2 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>]]];
+arr2.<span style="color: #800; font-weight: 700;">flat</span>(); <span style="color: #888">// [1, 2, 3, 4, [5, 6]]</span>
+
+<span style="font-weight: 700;">const</span> arr3 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>]]];
+arr3.<span style="color: #800; font-weight: 700;">flat</span>(<span style="color: #800;">2</span>); <span style="color: #888">// [1, 2, 3, 4, 5, 6]</span>
+
+<span style="font-weight: 700;">const</span> arr4 = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, [<span style="color: #800;">3</span>, <span style="color: #800;">4</span>, [<span style="color: #800;">5</span>, <span style="color: #800;">6</span>, [<span style="color: #800;">7</span>, <span style="color: #800;">8</span>, [<span style="color: #800;">9</span>, <span style="color: #800;">10</span>]]]]];
+arr4.<span style="color: #800; font-weight: 700;">flat</span>(<span style="color: #800; font-weight: 700;">Infinity</span>); <span style="color: #888">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.includes(searchElement: T, fromIndex?: number): boolean</code></h4>
+<p>Questo metodo controlla se l’array ha un certo elemento.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">includes</span>(searchElement <span style="color: #888">/** , fromIndex **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">searchElement</code>: L’elemento da cercare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">fromIndex</code>: L’index da cui iniziare a cercare. Default: 0. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se l’array contiene quell’elemento, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">includes</span>(<span style="color: #800;">2</span>); <span style="color: #888">// true</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">includes</span>(<span style="color: #800;">4</span>); <span style="color: #888">// false</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">includes</span>(<span style="color: #800;">3</span>, <span style="color: #800;">3</span>); <span style="color: #888">// false - Non esiste nessun elemento all&#x27;index 3</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">includes</span>(<span style="color: #800;">3</span>, -<span style="color: #800;">1</span>); <span style="color: #888">// true - Possiamo usare numeri negativi per riferirci, in questo caso, all&#x27;ultimo elemento</span>
+<span style="color: #888">// Nota: se `array.length + fromIndex` è minore o uguale a 0, tutto l&#x27;array viene controllato</span>
+[<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800; font-weight: 700;">Na</span>N].<span style="color: #800; font-weight: 700;">includes</span>(<span style="color: #800; font-weight: 700;">Na</span>N); <span style="color: #888">// true</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.indexOf(searchElement: T, fromIndex?: number): number</code></h4>
+<p>Questo metodo è un mix tra <a href="#arrayincludessearchelement-t-fromindex-number-boolean"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#includes()</code></a> e <a href="#arrayfindindexpredicate-value-t-index-number-obj-t--unknown-thisarg-unknown-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#findIndex()</code></a>.</p>
+<p>Come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">includes</code> cerca l’esistenza di un certo elemento nell’array, ma, come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">findIndex</code>, restituisce il suo index.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">indexOf</span>(searchElement <span style="color: #888">/** , fromIndex **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">searchElement</code>: L’elemento da cercare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">fromIndex</code>: L’index da cui iniziare a cercare. Default: 0. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - L’index dell’elemento trovato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-1</code> se non è stato possibile trovare alcun elemento.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> array = [<span style="color: #800;">2</span>, <span style="color: #800;">9</span>, <span style="color: #800;">9</span>];
+array.<span style="color: #800; font-weight: 700;">indexOf</span>(<span style="color: #800;">2</span>); <span style="color: #888">// 0</span>
+array.<span style="color: #800; font-weight: 700;">indexOf</span>(<span style="color: #800;">7</span>); <span style="color: #888">// -1 - Nessun elemento trovato</span>
+array.<span style="color: #800; font-weight: 700;">indexOf</span>(<span style="color: #800;">9</span>, <span style="color: #800;">2</span>); <span style="color: #888">// 2</span>
+array.<span style="color: #800; font-weight: 700;">indexOf</span>(<span style="color: #800;">2</span>, -<span style="color: #800;">1</span>); <span style="color: #888">// -1</span>
+array.<span style="color: #800; font-weight: 700;">indexOf</span>(<span style="color: #800;">2</span>, -<span style="color: #800;">3</span>); <span style="color: #888">// 0</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.join(separator?: string): string</code></h4>
+<p>Questo metodo unisce gli elementi dell’array in una stringa, separati da un certo separatore.</p>
+<p>Gli elementi che non sono stringhe verranno convertiti usando il metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">toString</code>, o saranno stringhe vuote nel caso di elementi nulli.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">join</span>(separator);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">separator</code>: Il carattere che separerà gli elementi dell’array. Default: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">,</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string</code> - La stringa contenente gli elementi dell’array.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> a = [<span style="color: #800;">&quot;Wind&quot;</span>, <span style="color: #800;">&quot;Water&quot;</span>, <span style="color: #800;">&quot;Fire&quot;</span>];
+
+a.<span style="color: #800; font-weight: 700;">join</span>(); <span style="color: #888">// &#x27;Wind,Water,Fire&#x27;</span>
+a.<span style="color: #800; font-weight: 700;">join</span>(<span style="color: #800;">&quot;, &quot;</span>); <span style="color: #888">// &#x27;Wind, Water, Fire&#x27;</span>
+a.<span style="color: #800; font-weight: 700;">join</span>(<span style="color: #800;">&quot; + &quot;</span>); <span style="color: #888">// &#x27;Wind + Water + Fire&#x27;</span>
+a.<span style="color: #800; font-weight: 700;">join</span>(<span style="color: #800;">&quot;&quot;</span>); <span style="color: #888">// &#x27;WindWaterFire&#x27;</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.lastIndexOf(searchElement: T, fromIndex?: number): number</code></h4>
+<p>Questo metodo è identico a <a href="#arrayindexofsearchelement-t-fromindex-number-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#indexOf()</code></a> ma restituisce l’ultimo index trovato invece che il primo.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">indexOf</span>(searchElement <span style="color: #888">/** , fromIndex **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">searchElement</code>: L’elemento da cercare. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">fromIndex</code>: L’index da cui iniziare a cercare. Default: 0. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - L’index dell’elemento trovato, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-1</code> se non è stato possibile trovare alcun elemento.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> numbers = [<span style="color: #800;">2</span>, <span style="color: #800;">5</span>, <span style="color: #800;">9</span>, <span style="color: #800;">2</span>];
+
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">2</span>); <span style="color: #888">// 3</span>
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">7</span>); <span style="color: #888">// -1 - Nessun elemento trovato</span>
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">2</span>, <span style="color: #800;">3</span>); <span style="color: #888">// 3</span>
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">2</span>, <span style="color: #800;">2</span>); <span style="color: #888">// 0</span>
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">2</span>, -<span style="color: #800;">2</span>); <span style="color: #888">// 0</span>
+numbers.<span style="color: #800; font-weight: 700;">lastIndexOf</span>(<span style="color: #800;">2</span>, -<span style="color: #800;">1</span>); <span style="color: #888">// 3</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.map&lt;U&gt;(callbackfn: (value: T, index: number, array: T[]) =&gt; U, thisArg?: unknown): U[]</code></h4>
+<p>Questo metodo crea un nuovo array che abbia, al posto dei vecchi elementi, dei nuovi elementi ricavati da una funzione.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">map</span>(callbackfn <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">callbackfn</code>: La funzione da eseguire su ogni elemento per ricavare il nuovo valore. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, array: unknown[]) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Il valore da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Il nuovo array.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> numbers = [<span style="color: #800;">1</span>, <span style="color: #800;">4</span>, <span style="color: #800;">9</span>];
+numbers.<span style="color: #800; font-weight: 700;">map</span>(<span class="hljs-function">(<span class="hljs-params">num</span>) =&gt;</span> <span style="color: #800; font-weight: 700;">Math</span>.<span style="color: #800; font-weight: 700;">sqrt</span>(num)); <span style="color: #888">//[1, 2, 3]</span>
+<span style="color: #888">// `numbers` non viene modificato ed è ancora `[1, 4, 9]`</span>
+
+<span style="font-weight: 700;">const</span> kvArray = [
+    { <span style="color: #444">key</span>: <span style="color: #800;">1</span>, <span style="color: #444">value</span>: <span style="color: #800;">10</span> },
+    { <span style="color: #444">key</span>: <span style="color: #800;">2</span>, <span style="color: #444">value</span>: <span style="color: #800;">20</span> },
+    { <span style="color: #444">key</span>: <span style="color: #800;">3</span>, <span style="color: #444">value</span>: <span style="color: #800;">30</span> },
+];
+
+<span style="color: #888">// Creiamo un array partendo da `kvArray` che abbia come proprietà il valore di `key` e come valore quello di `value`</span>
+kvArray.<span style="color: #800; font-weight: 700;">map</span>(<span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> ({ [obj.<span class="hljs-property">key</span>]: obj.<span class="hljs-property">value</span> })); <span style="color: #888">// [{ 1: 10 }, { 2: 20 }, { 3: 30 }]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.pop(): T | undefined</code></h4>
+<p>Questo metodo rimuove dall’array l’ultimo elemento e lo restituisce.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">pop</span>();
+</code></pre>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - L’elemento rimosso o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se l’array è vuoto.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> myFish = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> popped = myFish.<span style="color: #800; font-weight: 700;">pop</span>();
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(myFish); <span style="color: #888">// [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;]</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(popped); <span style="color: #888">// &quot;sturgeon&quot;</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.push(...items: T[]): number</code></h4>
+<p>Questo metodo aggiunge degli elementi all’array e restituisce la nuova lunghezza dell’array.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">push</span>(...items);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi da aggiungere alla fine dell’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - La nuova lunghezza dell’array.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> sports = [<span style="color: #800;">&quot;soccer&quot;</span>, <span style="color: #800;">&quot;baseball&quot;</span>];
+<span style="font-weight: 700;">const</span> total = sports.<span style="color: #800; font-weight: 700;">push</span>(<span style="color: #800;">&quot;football&quot;</span>, <span style="color: #800;">&quot;swimming&quot;</span>);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(sports); <span style="color: #888">// [&quot;soccer&quot;, &quot;baseball&quot;, &quot;football&quot;, &quot;swimming&quot;]</span>
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(total); <span style="color: #888">// 4</span>
+
+<span style="font-weight: 700;">const</span> vegetables = [<span style="color: #800;">&quot;parsnip&quot;</span>, <span style="color: #800;">&quot;potato&quot;</span>];
+<span style="font-weight: 700;">const</span> moreVegs = [<span style="color: #800;">&quot;celery&quot;</span>, <span style="color: #800;">&quot;beetroot&quot;</span>];
+
+<span style="color: #888">// Uniamo gli elementi del secondo array nel primo</span>
+vegetables.<span style="color: #800; font-weight: 700;">push</span>(...moreVegs);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(vegetables); <span style="color: #888">// [&quot;parsnip&quot;, &quot;potato&quot;, &quot;celery&quot;, &quot;beetroot&quot;]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.reduce&lt;U&gt;(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) =&gt; U, initialValue?: U): U</code></h4>
+<p>Questo metodo esegue una funzione passando come parametri i primi due elementi dell’array e salva il risultato.
+Poi la esegue nuovamente passando come parametro il risultato precedente e il prossimo elemento, così per ogni elemento dell’array.
+Restituisce, infine, il valore dell’ultima esecuzione.</p>
+<p>Se viene fornito il secondo parametro (<code style="padding: 3px 5px; background: #f0f0f0; color: #444;">initialValue</code>), la funzione viene eseguita una volta in più, all’inizio, e avrà come parametri il valore che abbiamo fornito e il primo elemento dell’array.</p>
+<p>Questo metodo è generalmente utilizzato per eseguire la somma di tutti gli elementi di un array (numeri) e non ci sono molti altri utilizzi.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">reduce</span>(callbackfn <span style="color: #888">/** , initialValue **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">callbackfn</code>: La funzione da eseguire su tutte le coppie di elementi. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(previousValue: unknown, currentValue: unknown, currentIndex: number, array: unknown[]) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">initialValue</code>: Il valore facoltativo da passare alla prima esecuzione della funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code></li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - Il risultato dell’ultima esecuzione della funzione.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> sum = [<span style="color: #800;">0</span>, <span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>].<span style="color: #800; font-weight: 700;">reduce</span>(<span class="hljs-function">(<span class="hljs-params">previousValue, currentValue</span>) =&gt;</span> previousValue + currentValue, <span style="color: #800;">0</span>); <span style="color: #888">// 6</span>
+
+<span style="font-weight: 700;">const</span> sum1 = [{ <span style="color: #444">x</span>: <span style="color: #800;">1</span> }, { <span style="color: #444">x</span>: <span style="color: #800;">2</span> }, { <span style="color: #444">x</span>: <span style="color: #800;">3</span> }].<span style="color: #800; font-weight: 700;">reduce</span>(
+    <span class="hljs-function">(<span class="hljs-params">previousValue, currentValue</span>) =&gt;</span> previousValue + currentValue.<span class="hljs-property">x</span>,
+    <span style="color: #800;">0</span>
+);
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(sum1); <span style="color: #888">// 6</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.reverse(): T[]</code></h4>
+<p>Questo metodo inverte l’array in modo che il primo elemento diventi l’ultimo e viceversa.</p>
+<p>Si dovrebbe generalmente evitare di utilizzare questo metodo, specialmente in grandi array, in quanto può consumare molta memoria.
+<strong>Nota: Vedremo come funziona l’utilizzo della memoria in nodejs in un altro articolo.</strong></p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">reverse</span>();
+</code></pre>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - L’array invertito. Nota che anche il vecchio array viene modificato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> a = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>, <span style="color: #800;">3</span>];
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a); <span style="color: #888">// [1, 2, 3]</span>
+
+a.<span style="color: #800; font-weight: 700;">reverse</span>();
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(a); <span style="color: #888">// [3, 2, 1]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.shift(): T | undefined</code></h4>
+<p>Questo metodo rimuove il primo elemento dall’array e lo restituisce.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">shift</span>();
+</code></pre>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code> - L’elemento rimosso o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">undefined</code> se l’array è vuoto.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> myFish = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;surgeon&quot;</span>];
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;myFish prima:&quot;</span>, <span style="color: #bc6060;">JSON</span>.<span style="color: #800; font-weight: 700;">stringify</span>(myFish));
+<span style="color: #888">// myFish prima: [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;]</span>
+
+<span style="font-weight: 700;">const</span> shifted = myFish.<span style="color: #800; font-weight: 700;">shift</span>();
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;myFish dopo:&quot;</span>, myFish);
+<span style="color: #888">// myFish dopo: [&quot;clown&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;]</span>
+
+<span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">&quot;Elemento rimosso:&quot;</span>, shifted);
+<span style="color: #888">// Elemento rimosso: &quot;angel&quot;</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.slice(start?: number, end?: number): T[]</code></h4>
+<p>Questo metodo restituisce una copia dell’array tra due index da noi specificati.</p>
+<p>Ci fornisce il modo migliore per eseguire una copia di un array: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">array.slice(0)</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">slice</span>(<span style="color: #888">/** start, end **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>: L’index da cui iniziare la copia. Default: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">0</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">end</code>: L’ultimo index da copiare. Default: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">array.length</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - La copia dell’array tra i due index.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> fruits = [<span style="color: #800;">&quot;Banana&quot;</span>, <span style="color: #800;">&quot;Orange&quot;</span>, <span style="color: #800;">&quot;Lemon&quot;</span>, <span style="color: #800;">&quot;Apple&quot;</span>, <span style="color: #800;">&quot;Mango&quot;</span>];
+<span style="font-weight: 700;">const</span> citrus = fruits.<span style="color: #800; font-weight: 700;">slice</span>(<span style="color: #800;">1</span>, <span style="color: #800;">3</span>);
+
+<span style="color: #888">// fruits: [&#x27;Banana&#x27;, &#x27;Orange&#x27;, &#x27;Lemon&#x27;, &#x27;Apple&#x27;, &#x27;Mango&#x27;]</span>
+<span style="color: #888">// citrus: [&#x27;Orange&#x27;,&#x27;Lemon&#x27;]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.some(predicate: (value: T, index: number, array: T[]) =&gt; unknown, thisArg?: unknown): boolean</code></h4>
+<p>Questo metodo è simile a <a href="#arrayeverys-extends-tpredicate-value-t-index-number-array-t--value-is-s-thisarg-unknown-this-is-s"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#every()</code></a> ma restituisce <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se una delle esecuzioni della funzione ha restituito <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">some</span>(predicate <span style="color: #888">/** , thisArg **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">predicate</code>: La funzione da eseguire su ogni elemento. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(value: unknown, index: number, array: unknown[]) =&gt; unknown</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">thisArg</code>: Il valore da usare come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">this</code> nella funzione. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">boolean</code> - <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">true</code> se la funzione ha restituito un valore veritiero almeno una volta, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">false</code> in caso contrario.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * Controlla se un numero è maggiore di 10.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number</span>} <span style="color: #bc6060;">element</span> - L&#x27;elemento da controllare
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">boolean</span>} Se il numero è maggiore di 10
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">isBig</span> = (<span class="hljs-params">element</span>) =&gt; element &gt; <span style="color: #800;">10</span>;
+
+[<span style="color: #800;">2</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">1</span>, <span style="color: #800;">4</span>].<span style="color: #800; font-weight: 700;">some</span>(isBig); <span style="color: #888">// false</span>
+[<span style="color: #800;">12</span>, <span style="color: #800;">5</span>, <span style="color: #800;">8</span>, <span style="color: #800;">1</span>, <span style="color: #800;">4</span>].<span style="color: #800; font-weight: 700;">some</span>(isBig); <span style="color: #888">// true</span>
+
+<span style="font-weight: 700;">const</span> fruits = [<span style="color: #800;">&quot;apple&quot;</span>, <span style="color: #800;">&quot;banana&quot;</span>, <span style="color: #800;">&quot;mango&quot;</span>, <span style="color: #800;">&quot;guava&quot;</span>];
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.sort(compareFn?: (a: T, b: T) =&gt; number): this</code></h4>
+<p>Questo metodo permette di ordinare gli elementi dell’array secondo una nostra funzione o in modo alfabetico.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">sort</span>(compareFn);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">compareFn</code>: La funzione da eseguire su ogni coppia di elementi. Se restituisce un numero maggiore di 0 il secondo valore viene posizionato prima, se invece è minore di 0 il primo valore viene posizionato per primo. Nel caso il risultato sia 0 l’ordine rimarrà invariato. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">(a: unknown, b: unknown) =&gt; number</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - L’array ordinato.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> stringArray = [<span style="color: #800;">&quot;Blue&quot;</span>, <span style="color: #800;">&quot;Humpback&quot;</span>, <span style="color: #800;">&quot;Beluga&quot;</span>];
+<span style="font-weight: 700;">const</span> numericStringArray = [<span style="color: #800;">&quot;80&quot;</span>, <span style="color: #800;">&quot;9&quot;</span>, <span style="color: #800;">&quot;700&quot;</span>];
+<span style="font-weight: 700;">const</span> numberArray = [<span style="color: #800;">40</span>, <span style="color: #800;">1</span>, <span style="color: #800;">5</span>, <span style="color: #800;">200</span>];
+<span style="font-weight: 700;">const</span> mixedNumericArray = [<span style="color: #800;">&quot;80&quot;</span>, <span style="color: #800;">&quot;9&quot;</span>, <span style="color: #800;">&quot;700&quot;</span>, <span style="color: #800;">40</span>, <span style="color: #800;">1</span>, <span style="color: #800;">5</span>, <span style="color: #800;">200</span>];
+
+<span style="color: #888">/**
+ * Controlla se a è maggiore di b o viceversa.
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number|string</span>} <span style="color: #bc6060;">a</span>
+ * <span style="font-weight: 700;">@param</span> {<span style="color: #800;">number|string</span>} <span style="color: #bc6060;">b</span>
+ * <span style="font-weight: 700;">@returns</span> {<span style="color: #800;">number</span>} La loro differenza, maggiore di 0 se a è più grande e minore di 0 se b è maggiore di a
+ */</span>
+<span style="font-weight: 700;">const</span> <span style="color: #800; font-weight: 700;">compareNumbers</span> = (<span class="hljs-params">a, b</span>) =&gt; <span style="color: #800; font-weight: 700;">Number</span>(a) - <span style="color: #800; font-weight: 700;">Number</span>(b);
+
+stringArray.<span style="color: #800; font-weight: 700;">join</span>(); <span style="color: #888">// &#x27;Blue,Humpback,Beluga&#x27;</span>
+stringArray.<span style="color: #800; font-weight: 700;">sort</span>(); <span style="color: #888">// [&#x27;Beluga&#x27;, &#x27;Blue&#x27;, &#x27;Humpback&#x27;]</span>
+
+numberArray.<span style="color: #800; font-weight: 700;">join</span>(); <span style="color: #888">// &#x27;40,1,5,200&#x27;</span>
+numberArray.<span style="color: #800; font-weight: 700;">sort</span>(); <span style="color: #888">// [1, 200, 40, 5]</span>
+numberArray.<span style="color: #800; font-weight: 700;">sort</span>(compareNumbers); <span style="color: #888">// [1, 5, 40, 200]</span>
+
+numericStringArray.<span style="color: #800; font-weight: 700;">join</span>(); <span style="color: #888">// &#x27;80,9,700&#x27;</span>
+numericStringArray.<span style="color: #800; font-weight: 700;">sort</span>(); <span style="color: #888">// [700, 80, 9]</span>
+numericStringArray.<span style="color: #800; font-weight: 700;">sort</span>(compareNumbers); <span style="color: #888">// [9, 80, 700]</span>
+
+mixedNumericArray.<span style="color: #800; font-weight: 700;">join</span>(); <span style="color: #888">// &#x27;80,9,700,40,1,5,200&#x27;</span>
+mixedNumericArray.<span style="color: #800; font-weight: 700;">sort</span>(); <span style="color: #888">// [1, 200, 40, 5, 700, 80, 9]</span>
+mixedNumericArray.<span style="color: #800; font-weight: 700;">sort</span>(compareNumbers); <span style="color: #888">// [1, 5, 9, 40, 80, 200, 700]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.splice(start: number, deleteCount?: number, ...items?: T[]): T[]</code></h4>
+<p>Questo metodo ci permette di inserire, aggiungere e sostituire elementi in un array.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">splice</span>(start <span style="color: #888">/** , deleteCount, ...items **/</span>);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>: L’index da cui iniziare per modificare l’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">deleteCount</code>: Quanti elementi eliminare partendo dall’index <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>. Se viene omesso, l’array conterrà tutti gli elementi <strong>fino</strong> a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">start</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi con cui sostituire quelli eliminati. Specificabile solo se usato insieme a <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">deleteCount</code>. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown[]</code> - Gli elementi rimossi.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> myFish = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">2</span>, <span style="color: #800;">0</span>, <span style="color: #800;">&quot;drum&quot;</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;mandarin&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [], nessun elemento rimosso</span>
+
+<span style="font-weight: 700;">const</span> myFish1 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed1 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">2</span>, <span style="color: #800;">0</span>, <span style="color: #800;">&quot;drum&quot;</span>, <span style="color: #800;">&quot;guitar&quot;</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;guitar&quot;, &quot;mandarin&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [], nessun elemento rimosso</span>
+
+<span style="font-weight: 700;">const</span> myFish2 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;drum&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed2 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">3</span>, <span style="color: #800;">1</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [&quot;mandarin&quot;]</span>
+
+<span style="font-weight: 700;">const</span> myFish3 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;drum&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed3 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">2</span>, <span style="color: #800;">1</span>, <span style="color: #800;">&quot;trumpet&quot;</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;trumpet&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [&quot;drum&quot;]</span>
+
+<span style="font-weight: 700;">const</span> myFish4 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;trumpet&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed4 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">0</span>, <span style="color: #800;">2</span>, <span style="color: #800;">&quot;parrot&quot;</span>, <span style="color: #800;">&quot;anemone&quot;</span>, <span style="color: #800;">&quot;blue&quot;</span>);
+<span style="color: #888">// myFish: [&quot;parrot&quot;, &quot;anemone&quot;, &quot;blue&quot;, &quot;trumpet&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [&quot;angel&quot;, &quot;clown&quot;]</span>
+
+<span style="font-weight: 700;">const</span> myFish5 = [<span style="color: #800;">&quot;parrot&quot;</span>, <span style="color: #800;">&quot;anemone&quot;</span>, <span style="color: #800;">&quot;blue&quot;</span>, <span style="color: #800;">&quot;trumpet&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed5 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">2</span>, <span style="color: #800;">2</span>);
+<span style="color: #888">// myFish: [&quot;parrot&quot;, &quot;anemone&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [&quot;blue&quot;, &quot;trumpet&quot;]</span>
+
+<span style="font-weight: 700;">const</span> myFish6 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed6 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(-<span style="color: #800;">2</span>, <span style="color: #800;">1</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;sturgeon&quot;]</span>
+<span style="color: #888">// removed: [&quot;mandarin&quot;]</span>
+
+<span style="font-weight: 700;">const</span> myFish7 = [<span style="color: #800;">&quot;angel&quot;</span>, <span style="color: #800;">&quot;clown&quot;</span>, <span style="color: #800;">&quot;mandarin&quot;</span>, <span style="color: #800;">&quot;sturgeon&quot;</span>];
+<span style="font-weight: 700;">const</span> removed7 = myFish.<span style="color: #800; font-weight: 700;">splice</span>(<span style="color: #800;">2</span>);
+<span style="color: #888">// myFish: [&quot;angel&quot;, &quot;clown&quot;]</span>
+<span style="color: #888">// removed: [&quot;mandarin&quot;, &quot;sturgeon&quot;]</span>
+</code></pre>
+<hr />
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">&lt;Array&gt;.unshift(...items: T[]): number</code></h4>
+<p>Questo metodo è simile a <a href="#arraypushitems-t-number"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Array#push()</code></a> ma aggiunge gli elementi all’inizio invece che alla fine.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">array.<span style="color: #800; font-weight: 700;">unshift</span>(...items);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">...items</code>: Gli elementi da aggiungere all’inizio dell’array. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">unknown</code>.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">number</code> - La nuova lunghezza dell’array.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="color: #888">/**
+ * <span style="font-weight: 700;">@type</span> {<span style="color: #800;">(number|number[])[]</span>}
+ */</span>
+<span style="font-weight: 700;">const</span> arr = [<span style="color: #800;">1</span>, <span style="color: #800;">2</span>];
+
+arr.<span style="color: #800; font-weight: 700;">unshift</span>(<span style="color: #800;">0</span>); <span style="color: #888">// 3 - La nuova lunghezza dell&#x27;array</span>
+<span style="color: #888">// arr: [0, 1, 2]</span>
+
+arr.<span style="color: #800; font-weight: 700;">unshift</span>(-<span style="color: #800;">2</span>, -<span style="color: #800;">1</span>); <span style="color: #888">// 5</span>
+<span style="color: #888">// arr: [-2, -1, 0, 1, 2]</span>
+
+arr.<span style="color: #800; font-weight: 700;">unshift</span>([-<span style="color: #800;">4</span>, -<span style="color: #800;">3</span>]); <span style="color: #888">// 6</span>
+<span style="color: #888">// arr: [[-4, -3], -2, -1, 0, 1, 2]</span>
+
+arr.<span style="color: #800; font-weight: 700;">unshift</span>([-<span style="color: #800;">7</span>, -<span style="color: #800;">6</span>], [-<span style="color: #800;">5</span>]); <span style="color: #888">// 8</span>
+<span style="color: #888">// arr: [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]</span>
+</code></pre>
+<hr />
+<h2>Conclusione</h2>
+<p>Grazie a questo articolo sappiamo utilizzare gli array e… siamo pronti ad iniziare!
+Nel prossimo articolo creeremo il primo codice in JavaScript per collegare il nostro bot a Discord.</p>
+<h3><strong>Good Coding!</strong></h3>
