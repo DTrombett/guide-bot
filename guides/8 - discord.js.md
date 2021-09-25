@@ -39,6 +39,12 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
       - [`Client#interactionCreate`](#clientinteractioncreate)
       - [`Client#ready`](#clientready)
   - [Salvare il token del bot](#salvare-il-token-del-bot)
+  - [Collegare il nostro bot a Discord](#collegare-il-nostro-bot-a-discord)
+  - [Intents](#intents)
+    - [Scegliere gli intents adatti](#scegliere-gli-intents-adatti)
+  - [Collegarci a Discord](#collegarci-a-discord)
+  - [Importare le variabili d'ambiente](#importare-le-variabili-dambiente)
+  - [Eseguire il bot](#eseguire-il-bot)
 
 ## ESLint
 
@@ -50,7 +56,7 @@ Anche questo strumento ha bisogno di un file di configurazione, successivamente 
 
 Ecco un'immagine per darvi un'idea su come funziona eslint:
 
-![ESLint](../images/8/eslint.png)
+![ESLint](/images/8/eslint.png)
 
 ---
 
@@ -64,11 +70,11 @@ Per rendervi un'idea del funzionamento di prettier ecco la differenza tra un cod
 
 **Prima:**
 
-![Prettier-prima](../images/8/prettier-prima.png)
+![Prettier-prima](/images/8/prettier-prima.png)
 
 **Dopo:**
 
-![Prettier-dopo](../images/8/prettier-dopo.png)
+![Prettier-dopo](/images/8/prettier-dopo.png)
 
 ---
 
@@ -118,7 +124,7 @@ Adesso possiamo modificare alcune impostazioni di Visual Studio Code e installar
 
 Per cambiare le impostazioni cliccate il simbolo dell'ingranaggio in basso a sinistra e poi **Settings**:
 
-![Settings](../images/8/settings.png)
+![Settings](/images/8/settings.png)
 
 Ecco le impostazioni che modificheremo (le potete trovare direttamente all'inizio della pagina impostazioni o cercarle tramite nome nella barra in alto):
 
@@ -144,13 +150,13 @@ Si tratta di un programma veramente facilissimo da usare e ora vedremo in modo s
 
 Innanzitutto, se si vuole lavorare in una cartella specifica, è bene aprirla tramite **File** -> **Open Folder...** o semplicemente **Ctrl + K, Ctrl + O** eseguiti consecutivamente.
 
-![Open Folder](../images/8/open-folder.png)
+![Open Folder](/images/8/open-folder.png)
 
 Nella barra laterale potremo gestire con facilità i nostri file.
 Le prime due icone che appariranno in alto, a destra del nome della cartella serviranno rispettivamente per creare un file o una cartella.
 Non dimentichiamoci mai di inserire anche l'estensione di un file quando lo creiamo!
 
-![VSCode Files](../images/8/vscode-files.png)
+![VSCode Files](/images/8/vscode-files.png)
 
 Se vogliamo creare un file in una determinata cartella dovremo prima selezionarla e poi potremo cliccare il pulsante per aggiungere un file.
 
@@ -452,7 +458,7 @@ Ora andiamo nella sezione `Bot` e clicchiamo **Add Bot** per creare il nostro bo
 A questo punto potremo cambiare l'immagine profilo e lo username del bot (non il tag che rimarrà sempre quello).
 Qui possiamo anche scegliere se rendere il nostro bot publico o privato (pubblico di default).
 
-![Build a Bot](../images/8/build-a-bot.png)
+![Build a Bot](/images/8/build-a-bot.png)
 
 Nella stessa pagina possiamo vedere una scritta `Token`: il token del nostro bot è la sua password ed è importante tenerlo sempre per sè, in quanto chiunque ne abbia accesso avrà completo accesso al nostro bot e quindi potrà uscire da tutti i server, bannare tutti i membri di tutti i server etc...
 Il token è sensibile quanto il _client secret_ che troviamo nella sezione `OAuth2` e che fornisce invece accesso alla tua applicazione, garantendo la possibilità di eseguire azioni a tuo nome.
@@ -469,11 +475,11 @@ Scendete in basso per arrivare nella sezione dove potete generare il link di inv
 
 Prima di tutti sono necessari gli _scopi_ che garantiremo al nostro bot, e quelli che ci serviranno sono `bot` (garantisce che il bot entrerà _fisicamente_ nel server) e `applications.commands` (ci darà il permesso per l'aggiunta di slash commands nel server):
 
-![Scopes](../images/8/scopes.png)
+![Scopes](/images/8/scopes.png)
 
 Scendendo ancora più in basso potremo scegliere i permessi da aggiungere al nostro bot; selezioniamo `Administrator` per aggiungerli tutti o scegliete quelli che fanno per voi:
 
-![Bot Permissions](../images/8/bot-permissions.png)
+![Bot Permissions](/images/8/bot-permissions.png)
 
 Ora torniamo nella sezione **Scopes** e copiamo l'URL in basso, che sarà l'invito del bot, poi incolliamolo nella barra di ricerca del nostro browser e scegliamo il server dove vogliamo aggiungere il nostro bot (avrete probabilmente già fatto questa procedura altre volte).
 
@@ -690,10 +696,238 @@ ALTRO_NOME=ALTRO_VALORE
 Ora tornate nel Dev Portal, cercate la vostra applicazione e passate alla sezione `Bot`.
 Lì cliccate su copia sotto il token del bot:
 
-![Copia Token](../images/8/copy-token.png)
+![Copia Token](/images/8/copy-token.png)
 
 Poi tornate su VSCode e nel file `.env` aggiungete un nuovo valore che abbia come nome `DISCORD_TOKEN` (il valore usato da djs come token, menzionato in [`Client#token`](#clienttoken)) e come valore il token copiato, ad esempio:
 
 ```
 DISCORD_TOKEN=ODg3NzQ4NTQ4ODkwODczOTE5.YUIqQw.B0sb_gshXY2nH5if-uHEkiGQGvc
 ```
+
+## Collegare il nostro bot a Discord
+
+Finalmente possiamo collegare il nostro bot a Discord.
+Per farlo torniamo nell'index.js e cancelliamo quello che avevamo scritto in precedenza.
+
+Ora, come abbiamo già detto, come prima cosa abbiamo bisogno di un `Client` che rappresenterà il nostro bot, perciò scriviamo:
+
+```js
+const client = new Client();
+```
+
+Ovviamente `Client` va importato da discord.js ma questo può essere fatto facilmente mentre lo scriviamo:
+
+![Import Client](/images/8/import-client.gif)
+
+Adesso dovreste vedere il seguente errore su `new Client()`: `An argument for 'options' was not provided.`
+Questo significa che il constructor della classe `Client`, come mostrato [in precedenza](#constructoroptions-clientoptions), richiede un parametro che specifichi le sue opzioni.
+
+Questo parametro è di tipo [`ClientOptions`](https://discord.js.org/#/docs/main/stable/typedef/ClientOptions) ed è quindi un object con tante possibili opzioni.
+Vedremo altre opzioni in futuro o potete vederle voi dalla [documentazione ufficiale](https://discord.js.org/#/docs/main/stable/typedef/ClientOptions) ma per ora ci basta vedere l'opzione `intents` che è obbligatoria.
+
+## Intents
+
+Discord richiede a tutti i bot che si connettono, di specificare di quali _intents_ hanno bisogno.
+
+Gli intents indicano gli eventi a cui siamo interessati.
+Nella [documentazione Discord](https://discord.com/developers/docs/topics/gateway#list-of-intents) riguardo gli intents potete trovare ognuno quali eventi ci permette di ricevere.
+
+Per scegliere i nostri intents innanzitutto andiamo ad aggiungere la proprietà dedicata nelle opzioni del client come un array vuoto:
+
+```diff
+const { Client } = require("discord.js");
+
+- const client = new Client();
++ const client = new Client({ intents: [] });
+```
+
+Ora possiamo aggiungere nell'array tutti gli intents che ci servono, usando le costanti che ci fornisce djs.
+Ci basta importare anche la classe `Intents` da djs, la quale ha una proprietà statica chiamata `FLAGS` che contiene tutti gli intent esistenti.
+
+**Nota: Se non ricordi cosa erano le proprietà statiche puoi controllare [il paragrafo dedicato alle classi nel nostro articolo sulle parole chiave](/guides/2%20-%20Parole%20chiave%20&%20operatori.md#class--this--extends--super--static--new)!**
+
+```diff
+- const { Client } = require("discord.js");
++ const {
++ 	Client,
++ 	Intents: { FLAGS },
++ } = require("discord.js");
+
+const client = new Client({ intents: [] });
+```
+
+**Nota: Nell'importare `Intents` abbiamo usato una _scorciatoia_ per poter importare direttamente la sua proprietà statica `FLAGS` visto che abbiamo bisogno solo di quella!**
+
+Ora possiamo aggiungere nell'array tutti gli intents di cui abbiamo bisogno utilizzando le proprietà di `FLAGS`.
+Ad esempio, se ho bisogno dell'intent `GUILDS`, allora aggiungerò `FLAGS.GUILDS` nell'array:
+
+```diff
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+
+- const client = new Client({ intents: [] });
++ const client = new Client({ intents: [FLAGS.GUILDS] });
+```
+
+### Scegliere gli intents adatti
+
+Discord ci offre tantissimi intents da poter scegliere ma è bene scegliere solo quelli di cui abbiamo bisogno in modo che il nostro bot sia più veloce e occupi meno RAM.
+
+Di seguito è una lista di tutti gli intents che possiamo scegliere:
+
+- `GUILDS`: Ci serve sempre per poter interagire con i server di cui il nostro bot fa parte. L'unico caso in cui non ne abbiamo bisogno e se volessimo creare un bot basato su slash commands che ha solo bisogno di rispondere ai comandi senza eseguire alcuna azione tramite Discord (es. bannare utenti) e quindi possiamo invitarlo aggiungendo solo gli slash commands e senza aggiungere il bot come utente;
+- `GUILD_MEMBERS`: Ne abbiamo bisogno per ricevere i dati riguardo i membri dei server come una lista completa dei membri o sapere quando un nuovo membro entra in un server. **Nota: Questo intent è _privilegiato_, ossia ha bisogno di un permesso speciale per poter essere usato. Se il nostro bot si trova in meno di 100 server e non è verificato, allora possiamo abilitarlo nella pagina del nostro bot nel Dev Portal, in caso contrario dovremo fare una richiesta a Discord**;
+- `GUILD_BANS`: Ci permette di ricevere i dati riguardo agli utenti bannati in un server. Può essere utile se vogliamo eseguire una certa azione quando un utente viene bannato/sbannato da un server;
+- `GUILD_EMOJIS_AND_STICKERS`: Ci può servire se abbiamo bisogno di accedere alle emoji e gli sticker dei server. Nota che anche senza questo intent il tuo bot potrà continuare ad utilizzare emoji personalizzate, questo comunque richiede il permesso `Usa emoji esterne` per il ruolo `@everyone` nel server;
+- `GUILD_INTEGRATIONS`: Ci permette di ricevere i dati riguardo le integrazioni nei server;
+- `GUILD_WEBHOOKS`: Ci fornisce i dati riguardo i webhook nei canali. Nota che anche senza questo intent il nostro bot potrà comunque usare i webhook per i quali abbiamo bisogno dell'id e del token;
+- `GUILD_INVITES`: Ci permette di monitorare gli inviti in un server;
+- `GUILD_VOICE_STATES`: Ci permette di ricevere dati riguardo gli utenti nei canali vocali. Nota che abbiamo bisogno di questo intent se vogliamo che il nostro bot possa connettersi ai canali vocali;
+- `GUILD_PRESENCES`: Ci fornisce i dati riguardo lo stato dei membri. Nota che senza questo intent il nostro bot riceverà solo alcuni membri dei server di cui fa parte appena sarà online. **Nota: Questo intent è _privilegiato_, ossia ha bisogno di un permesso speciale per poter essere usato. Se il nostro bot si trova in meno di 100 server e non è verificato, allora possiamo abilitarlo nella pagina del nostro bot nel Dev Portal, in caso contrario dovremo fare una richiesta a Discord**;
+- `GUILD_MESSAGES`: Ci fornisce i dati riguardo i messaggi che vengono inviati nei server. Nota che noi non avremo bisogno di questo intent per i comandi in quanto utilizzeremo gli slash commands che si basano sulle interazioni e i webhook. **Nota: I comandi in chat sono ora sconsigliati da parte di Discord ed è per questo che non li utilizzeremo nella nostra guida. Discord non verificherà i bot che utilizzano questo intent per i comandi in chat ma continuerà a farlo se ne abbiamo bisogno per automod etc...**;
+- `GUILD_MESSAGE_REACTIONS`: Ci fornisce i dati riguardo le reazioni ai messaggi. Nota che non abbiamo bisogno di questo intent per cose come reaction roles in quanto utilizzeremo i pulsanti di Discord;
+- `GUILD_MESSAGE_TYPING`: Ci permette di sapere quando un nuovo membro sta scrivendo in un server;
+- `DIRECT_MESSAGES`: Come `GUILD_MESSAGES` ma relativo ai DM;
+- `DIRECT_MESSAGE_REACTIONS`: Come `DIRECT_MESSAGE_REACTIONS` ma relativo ai DM;
+- `DIRECT_MESSAGE_TYPING`: Come `DIRECT_MESSAGE_TYPING` ma relativo ai DM;
+
+Esempio di codice del nostro bot utilizzando gli intent `GUILDS`, `GUILD_VOICE_STATES`, `GUILD_PRESENCES` e `GUILD_MEMBERS`:
+
+```js
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+
+const client = new Client({
+	intents: [FLAGS.GUILDS, FLAGS.GUILD_VOICE_STATES, FLAGS.GUILD_PRESENCES, FLAGS.GUILD_MEMBERS],
+});
+```
+
+## Collegarci a Discord
+
+Attualmente il nostro codice risulterà, a parte gli intents e altre opzioni del client, come il seguente:
+
+```js
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+```
+
+Ora ci manca solo di collegare il bot a Discord!
+
+Per farlo possiamo usare la funzione `Client#login()`, mostrata [in precedenza](#clientlogin-token-):
+
+```diff
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
++
++ client.login();
+```
+
+Adesso il nostro bot può collegarsi a Discord, ma... come faremo a sapere se è riuscito a connettersi con successo?
+
+Come [spiegato in precedenza](#clientready), possiamo usare l'evento `ready` che verrà eseguito appena il bot si connetterà a Discord.
+Aggiungiamo quindi un'istruzione che scriva nella console che il nostro bot è pronto, insieme al suo username Discord:
+
+```diff
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
++
++ client.once("ready", (onlineClient) =>
++ 	console.log(`Connesso con successo come ${onlineClient.user.tag}!`)
++ );
+
+client.login();
+```
+
+Manca solo un'ultima cosa: importare le variabili d'ambiente, compreso il token del nostro bot che ci permetterà di connettere con successo.
+
+## Importare le variabili d'ambiente
+
+Per importare le variabili d'ambiente del nostro progetto, usiamo il modulo `dotenv` che abbiamo scaricato in precedenza.
+Più precisamente andremo ad utilizzare la funzione `config` esportata dal modulo che caricherà tutte le variabili d'ambiente salvate nel file `.env`:
+
+```diff
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
++ const { config } = require("dotenv");
++
++ config();
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+
+client.once("ready", (onlineClient) =>
+	console.log(`Connesso con successo come ${onlineClient.user.tag}!`)
+);
+
+client.login();
+```
+
+Questo ci permette di caricare il token del bot direttamente nel nostro progetto senza doverlo scrivere manualmente nel codice.
+
+## Eseguire il bot
+
+Finalmente, dopo tanta fatica, siamo riusciti a scrivere il codice che permetterà al nostro bot di connettersi a Discord e possiamo provarlo... ma come?
+
+Beh, è molto semplice: come abbiamo già detto, per eseguire il codice in JavaScript abbiamo bisogno di Nodejs che abbiamo installato in precedenza.
+Questo "programma" ha un comando chiamato `node` che possiamo immettere nel terminal, seguito dal file che vogliamo eseguire, perciò apriamo un nuovo terminal in VSC (come abbiamo già spiegato) e scriviamo il seguente comando:
+
+```sh
+node .
+```
+
+In questo caso `.` indica la cartella corrente perciò Node andrà ad eseguire il file che abbiamo specificato come `entry point` quando abbiamo creato il file package.json e che ora si trova nella proprietà `main` dello stesso file.
+
+Se avete fatto tutto bene, nel terminal vedrete una scritta che vi dice che il vostro bot è online ed effettivamente potrete osservarlo come online anche su Discord!
+
+![Succesfully connected](/images/8/connesso-terminal.png)
+
+![Discord online](/images/8/bot-online.png)
+
+## Codice finale
+
+Se avete seguito tutto l'articolo, il vostro progetto dovrebbe risultare più o meno come il seguente:
+
+[index.js](/src/index.js):
+
+```js
+const {
+	Client,
+	Intents: { FLAGS },
+} = require("discord.js");
+const { config } = require("dotenv");
+
+config();
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+
+client.once("ready", (onlineClient) =>
+	console.log(`Connesso con successo come ${onlineClient.user.tag}!`)
+);
+
+client.login();
+```
+
+## Conclusione
+
+In questo articolo siamo riusciti, non senza qualche difficoltà, a sviluppare il nostro primo codice, capace di connettere il bot a Discord.
+
+Nel prossimo articolo vedremo come creare dei comandi e registrarli su Discord.
+
+### **Good Coding!**
