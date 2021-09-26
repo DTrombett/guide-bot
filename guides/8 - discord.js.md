@@ -2,7 +2,7 @@
 
 In questo nuovo articolo inizieremo a sviluppare il nostro bot in JavaScript.
 
-Per farlo utilizzeremo una libreria JavaScript chiamata **discord.js** che ci permetterà di interagire con DIscord facilmente.
+Per farlo utilizzeremo una libreria JavaScript chiamata **discord.js** che ci permetterà di interagire con Discord facilmente.
 
 Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiuteranno nello sviluppo del bot.
 
@@ -355,7 +355,7 @@ Per attivare le funzionalità di ESLint creiamo un file chiamato `.eslintrc.json
 }
 ```
 
-Questa configurazione e totalmente personalizzabile, io ho solo utilizzato delle _rules_ che ci potrebbero servire ma voi potete modificarle, rimuoverle o aggiungerne di altre.
+Questa configurazione è totalmente personalizzabile, io ho solo utilizzato delle _rules_ che ci potrebbero servire ma voi potete modificarle, rimuoverle o aggiungerne di altre.
 Consultate il [sito ufficiale](https://eslint.org/docs/rules/) per la lista completa delle _rules_ disponibili.
 
 ---
