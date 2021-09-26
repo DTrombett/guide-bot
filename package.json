@@ -4,9 +4,9 @@
   "description": "This project includes a bunch of guides to create a bot with **[discord.js](https://discord.js.org/)** and a template code in the [`src`](src) directory.",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm ci && node .",
-    "lint": "eslint src --fix",
-    "prettier": "prettier --config guides/.prettierrc.json --write guides/*.md"
+    "test": "node .",
+    "prettier": "prettier --write guides/*.md src/**/*",
+    "lint": "eslint src --fix"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,10 @@
   "devDependencies": {
     "@types/node": "^16.9.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
   },
   "dependencies": {
-    "discord.js": "^13.1.0"
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
   }
 }

@@ -5,11 +5,7 @@
         "commonjs": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:prettier/recommended"
-    ],
-    "plugins": [
-        "prettier"
+        "eslint:recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 2021
@@ -72,12 +68,6 @@
         "no-whitespace-before-property": "warn",
         "one-var-declaration-per-line": "warn",
         "operator-assignment": "warn",
-        "prettier/prettier": [
-            "warn",
-            {
-                "endOfLine": "auto"
-            }
-        ],
         "accessor-pairs": "warn",
         "array-callback-return": "warn",
         "arrow-body-style": "warn",

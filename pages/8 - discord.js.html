@@ -1,0 +1,698 @@
+<h1>discord.js</h1>
+<p>In questo nuovo articolo inizieremo a sviluppare il nostro bot in JavaScript.</p>
+<p>Per farlo utilizzeremo una libreria JavaScript chiamata <strong>discord.js</strong> che ci permetterà di interagire con DIscord facilmente.</p>
+<p>Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiuteranno nello sviluppo del bot.</p>
+<h2>Sommario</h2>
+<ul>
+<li><a href="#discordjs">discord.js</a>
+<ul>
+<li><a href="#sommario">Sommario</a></li>
+<li><a href="#eslint">ESLint</a></li>
+<li><a href="#prettier">Prettier</a></li>
+<li><a href="#configurazione-ambiente-di-lavoro">Configurazione ambiente di lavoro</a>
+<ul>
+<li><a href="#creazione-della-cartella">Creazione della cartella</a></li>
+<li><a href="#installazione-visual-studio-code">Installazione Visual Studio Code</a></li>
+<li><a href="#installazione-estensioni">Installazione estensioni</a></li>
+<li><a href="#configurazione-visual-studio-code">Configurazione Visual Studio Code</a></li>
+<li><a href="#utilizzo-vscode">Utilizzo VSCode</a></li>
+<li><a href="#installazione-nodejs">Installazione Node.js</a></li>
+<li><a href="#creazione-file-per-gli-strumenti">Creazione file per gli strumenti</a>
+<ul>
+<li><a href="#typescript">Typescript</a></li>
+<li><a href="#eslint-1">ESLint</a></li>
+<li><a href="#prettier-1">Prettier</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#creazione-progetto">Creazione progetto</a></li>
+<li><a href="#npm">npm</a></li>
+<li><a href="#installazione-moduli">Installazione moduli</a></li>
+<li><a href="#creazione-bot">Creazione bot</a></li>
+<li><a href="#invitare-il-bot-nel-nostro-server">Invitare il bot nel nostro server</a></li>
+<li><a href="#indexjs">index.js</a></li>
+<li><a href="#client">Client</a>
+<ul>
+<li><a href="#constructoroptions-clientoptions"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor(options: ClientOptions)</code></a></li>
+<li><a href="#clientoptions"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#options</code></a></li>
+<li><a href="#clienttoken"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#token</code></a></li>
+<li><a href="#clientuser"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#user</code></a></li>
+<li><a href="#clientlogin-token-"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#login(/** token */)</code></a></li>
+<li><a href="#eventi">Eventi</a>
+<ul>
+<li><a href="#clientinteractioncreate"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#interactionCreate</code></a></li>
+<li><a href="#clientready"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#ready</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#salvare-il-token-del-bot">Salvare il token del bot</a></li>
+<li><a href="#collegare-il-nostro-bot-a-discord">Collegare il nostro bot a Discord</a></li>
+<li><a href="#intents">Intents</a>
+<ul>
+<li><a href="#scegliere-gli-intents-adatti">Scegliere gli intents adatti</a></li>
+</ul></li>
+<li><a href="#collegarci-a-discord">Collegarci a Discord</a></li>
+<li><a href="#importare-le-variabili-dambiente">Importare le variabili d’ambiente</a></li>
+<li><a href="#eseguire-il-bot">Eseguire il bot</a></li>
+</ul></li>
+</ul>
+<h2>ESLint</h2>
+<p>Questo tool ci è molto utile per segnalare errori diversi da quelli di sintassi o del TypeScript, ma ci danno consigli riguardo il nostro codice.</p>
+<p>Ad esempio, <strong><a href="https://eslint.org">ESLint</a></strong> ci avverte se utilizziamo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">==</code> per un’uguaglianza dove sarebbe meglio usare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">===</code> e può essere personalizzato per modificare lo stile del nostro codice, come omettere le parentesi graffe in un blocco, come un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">if</code> dove eseguiamo una sola azione ed è facoltativo inserirle, oppure usare delle condizioni inutili, etc…</p>
+<p>Anche questo strumento ha bisogno di un file di configurazione, successivamente vedremo nel dettaglio la configurazione del nostro ambiente di sviluppo ma, se volete dare un’occhiata, utilizzeremo la configurazione che si trova nel file <a href="/.eslintrc.json"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.eslintrc.json</code></a>.</p>
+<p>Ecco un’immagine per darvi un’idea su come funziona eslint:</p>
+<p><img src="/images/8/eslint.png" alt="ESLint" /></p>
+<hr />
+<h2>Prettier</h2>
+<p>L’ultimo strumento che utilizzeremo è <strong><a href="https://prettier.io">Prettier</a></strong> che semplicemente farà da <em>formattatore</em> del nostro codice, ossia lo renderà più facile da leggere e più bello.</p>
+<p>Anche Prettier ha bisogno di un file di configurazione ma estremamente più semplice e potete trovarlo in <a href=".prettierrc.json"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.prettierrc.json</code></a>.</p>
+<p>Per rendervi un’idea del funzionamento di prettier ecco la differenza tra un codice prima e dopo essere stato (automaticamente) formattato.</p>
+<p><strong>Prima:</strong></p>
+<p><img src="/images/8/prettier-prima.png" alt="Prettier-prima" /></p>
+<p><strong>Dopo:</strong></p>
+<p><img src="/images/8/prettier-dopo.png" alt="Prettier-dopo" /></p>
+<hr />
+<h2>Configurazione ambiente di lavoro</h2>
+<p>Ora che abbiamo descritto gli ultimi strumenti, è arrivato il momento di creare l’ambiente di lavoro per il nostro bot.</p>
+<h3>Creazione della cartella</h3>
+<p>La prima cosa da fare è creare una cartella dove rimarrà il nostro codice.
+Possiamo chiamarla come vogliamo, ma sarebbe preferibile usare il nome che daremo al nostro bot.</p>
+<p>Posizionate questa cartella nel Desktop, o dovunque siete più comodi; non avremo comunque bisogno di aprirla molte volte, in quanto utilizzeremo direttamente Visual Studio Code.</p>
+<hr />
+<h3>Installazione Visual Studio Code</h3>
+<p>Se non l’avete già fatto, è arrivata l’ora di installare <strong>Visual Studio Code</strong>.</p>
+<p>In base ai requisiti del vostro sistema, troverete il file da installare che fa per voi sul <a href="https://code.visualstudio.com/download">sito ufficiale</a>.</p>
+<p>Se avete privilegi da amministratore nel vostro utente, potete scegliere <em>system installer</em>, ma <em>user installer</em> andrà benissimo ugualmente (cambiano solo i permessi garantiti all’applicazione).</p>
+<hr />
+<h3>Installazione estensioni</h3>
+<p>Ora possiamo installare le estensioni necessarie per il nostro progetto.</p>
+<p>Di seguito ne è una lista con i rispettivi link per l’installazione:</p>
+<ul>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comments</a></strong> - Per rendere facile interagire con i commenti che ci serviranno per Typescript;</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></strong> - Ci permetterà di vedere gli errori segnalati di ESLint nell’editor;</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script">npm</a></strong> - Ci faciliterà l’esecuzione dei comandi per eseguire il nostro bot e ci fornirà avvisi riguardo ai nostri moduli;</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense">npm Intellisense</a></strong> - Ci fornirà dei consigli quando vorremo importare un modulo (come discord.js etc…);</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></strong> - Installerà Prettier e lo renderà disponibile come formattatore;</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode">Visual Studio Intellicode</a></strong> - Ci fornirà consigli più intelligenti riguardo al nostro codice.</li>
+</ul>
+<hr />
+<h3>Configurazione Visual Studio Code</h3>
+<p>Adesso possiamo modificare alcune impostazioni di Visual Studio Code e installare le estensioni necessarie.</p>
+<p><strong>Nota: non siete obbligati a cambiare queste impostazioni ma ci possono essere utili per programmare più facilmente!</strong></p>
+<p>Per cambiare le impostazioni cliccate il simbolo dell’ingranaggio in basso a sinistra e poi <strong>Settings</strong>:</p>
+<p><img src="/images/8/settings.png" alt="Settings" /></p>
+<p>Ecco le impostazioni che modificheremo (le potete trovare direttamente all’inizio della pagina impostazioni o cercarle tramite nome nella barra in alto):</p>
+<ul>
+<li><strong>Files - Auto Save</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">onFocusChange</code> - Salverà automaticamente il file quando clicchiamo fuori di esso;</li>
+<li><strong>Editor - Font Size</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">15</code> - Ingrandirà leggermente (da 14) i caratteri, in modo più visibile;</li>
+<li><strong>Editor - Cursor Style</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">line-thin</code> - Renderà il cursore leggermente più sottile;</li>
+<li><strong>Editor - Tab Size</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">2</code> - Questo è il numero di spazi equivalenti ad un <strong>Tab</strong>;</li>
+<li><strong>Editor - Insert Spaces</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">off</code> - Non convertirà i tabs in spazi;</li>
+<li><strong>Editor - Detect Indentation</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">off</code> - Ci permetterà di usare <strong>Tab Size</strong> e <strong>Insert Spaces</strong>;</li>
+<li><strong>Editor - Format On Paste</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code> - Formatterà automaticamente il file se incolliamo del nuovo codice;</li>
+<li><strong>Editor - Format On Type</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code> - Formatterà automaticamente il file se eseguiamo azioni come inserire un punto e virgola o andiamo a capo;</li>
+<li><strong>Editor - Format On Save</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code> - Formatterà automaticamente il file al suo salvataggio;</li>
+<li><strong>Editor - Default Formatter</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">prettier</code> - Sceglierà Prettier come formattatore di default per i nostri file;</li>
+<li><strong>Editor - Suggest Selection</strong>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">recentlyUsedByPrefix</code> - Ordinerà i suggerimenti di Intellisense secondo quelli utilizzati più di recente e se il nostro testo corrisponde a quello utilizzato in altri casi con quel suggerimento.</li>
+</ul>
+<hr />
+<h3>Utilizzo VSCode</h3>
+<p><strong>Visual Studio Code</strong> (o <strong>VSCode</strong>) è un ambiente di sviluppo completo che ci permette di creare e modificare qualsiasi codice grazie ad un supporto integrato per linguaggi come JavaScript, Typescript o Python ed estendibile grazie a tantissime estensioni.</p>
+<p>Si tratta di un programma veramente facilissimo da usare e ora vedremo in modo sommativo come poter eseguire alcune azioni.</p>
+<p>Innanzitutto, se si vuole lavorare in una cartella specifica, è bene aprirla tramite <strong>File</strong> -&gt; <strong>Open Folder…</strong> o semplicemente <strong>Ctrl + K, Ctrl + O</strong> eseguiti consecutivamente.</p>
+<p><img src="/images/8/open-folder.png" alt="Open Folder" /></p>
+<p>Nella barra laterale potremo gestire con facilità i nostri file.
+Le prime due icone che appariranno in alto, a destra del nome della cartella serviranno rispettivamente per creare un file o una cartella.
+Non dimentichiamoci mai di inserire anche l’estensione di un file quando lo creiamo!</p>
+<p><img src="/images/8/vscode-files.png" alt="VSCode Files" /></p>
+<p>Se vogliamo creare un file in una determinata cartella dovremo prima selezionarla e poi potremo cliccare il pulsante per aggiungere un file.</p>
+<p>Nei file possiamo utilizzare delle shortcut da tastiera per facilitare il nostro lavoro:</p>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + C</code>: Copia l’intera riga attuale (dove è posizionato il cursore), o il testo selezionato;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + X</code>: Taglia l’intera riga attuale, o il testo selezionato;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Alt + (Up|Down)Arrow</code>: Sposta la riga attuale sopra/sotto;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + V</code>: Incolla il testo precedentemente copiato nel punto dove è posizionato il cursore, o al posto del testo selezionato;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + Z</code>: Annulla l’ultima azione eseguita all’interno del file;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + Y</code>: Riesegue l’ultima azione annullata all’interno del file;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Alt + Shift + (Up|Down)Arrow</code>: Copia/Incolla la riga attuale sopra o sotto, in modo da inserire facilmente del testo simile;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Alt + Click</code>: Aggiunge un cursore in un punto per poter modificare contemporaneamente due parti del file differenti;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Alt + Ctrl + (Up|Down)Arrow</code>: Aggiunge un cursore sopra/sotto quello attuale;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + A</code>: Seleziona tutto il testo;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + F</code>: Cerca nel testo la parola su cui è posizionato il cursore o il testo selezionato;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Ctrl + Shift + F</code>: Cerca in tutta la cartella/workspace la parola su cui è posizionato il cursore o il testo selezionato.</li>
+</ul>
+<p>VSCode è distribuito in inglese ma è possibile cambiare la lingua in Italiano installando <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-it">questa estensione</a> (nota che sarà necessario riavviare VSCode successivamente).</p>
+<hr />
+<h3>Installazione Node.js</h3>
+<p>Inoltre, abbiamo bisogno di <strong>Node.js</strong> per eseguire il nostro progetto in JavaScript.</p>
+<p>Ci sono molte versioni disponibili di node ma per usare discord.js abbiamo bisogno di almeno la versione <strong>16.6.0</strong>.
+Per comodità e per utilizzare le nuove funzionalità io preferisco la versione <strong>16.9.0</strong> (ultima <em>security release</em> al momento della scrittura di questo articolo) ma va bene qualsiasi altra versione, purchè sia almeno la <strong>16.6.0</strong>.</p>
+<p>Qui di seguito i link ai file di installazione per la versione <strong>16.9.0</strong> in base al vostro sistema operativo:</p>
+<ul>
+<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0-x64.msi">Windows per sistemi basati su 64 bit (consigliato)</a></li>
+<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0-x86.msi">Windows per sistemi basati su 32 bit</a></li>
+<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0.pkg">MacOS</a></li>
+</ul>
+<hr />
+<h3>Creazione file per gli strumenti</h3>
+<p>Ora possiamo aggiungere i file di configurazione per i nostri strumenti: <strong>Typescript</strong>, <strong>ESLint</strong> e <strong>Prettier</strong>.</p>
+<h4>Typescript</h4>
+<p>Per attivare le funzionalità del Typescript in JavaScript, creiamo un file chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">jsconfig.json</code> all’interno della nostra cartella e inseriamo la seguente configurazione:</p>
+<pre><code class="language-json"><span style="color: #444a">{</span>
+    <span style="color: #444">&quot;compilerOptions&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">{</span>
+        <span style="color: #444">&quot;lib&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;esnext&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;module&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;commonJS&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;moduleResolution&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;node&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;allowSyntheticDefaultImports&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;target&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;esnext&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;strict&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;esModuleInterop&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;skipLibCheck&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;forceConsistentCasingInFileNames&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;allowUnreachableCode&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">false</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;alwaysStrict&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noFallthroughCasesInSwitch&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noImplicitAny&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noImplicitReturns&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noImplicitThis&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noUncheckedIndexedAccess&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noUnusedLocals&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noUnusedParameters&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;resolveJsonModule&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;noEmit&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;checkJs&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span>
+    <span style="color: #444a">}</span>
+<span style="color: #444a">}</span>
+</code></pre>
+<p>Potete trovare tutte le opzioni nel <a href="https://code.visualstudio.com/docs/languages/jsconfig">sito ufficiale</a>.</p>
+<p><strong>Nota: Se vedrete un errore nel file che indica qualcosa come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">No inputs were found</code> non vi preoccupate, non influirà minimamente sul nostro progetto e scomparirà dopo che avremo aggiunto il nostro primo file js e riavviato VSCode.</strong></p>
+<hr />
+<h4>ESLint</h4>
+<p>Per attivare le funzionalità di ESLint creiamo un file chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.eslintrc.json</code> all’interno della nostra cartella e inseriamo la seguente configurazione:</p>
+<pre><code class="language-json"><span style="color: #444a">{</span>
+    <span style="color: #444">&quot;env&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">{</span>
+        <span style="color: #444">&quot;es2021&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;node&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;commonjs&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span>
+    <span style="color: #444a">}</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;extends&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;eslint:recommended&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;parserOptions&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">{</span>
+        <span style="color: #444">&quot;ecmaVersion&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">2021</span>
+    <span style="color: #444a">}</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;rules&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">{</span>
+        <span style="color: #444">&quot;curly&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;multi&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;dot-location&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;property&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;eqeqeq&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;smart&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-else-return&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span>
+            <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+            <span style="color: #444a">{</span>
+                <span style="color: #444">&quot;allowElseIf&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">false</span>
+            <span style="color: #444a">}</span>
+        <span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-extra-bind&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-floating-decimal&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-implicit-coercion&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-multi-spaces&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-return&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;wrap-iife&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;inside&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;yoda&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span>
+            <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+            <span style="color: #800;">&quot;never&quot;</span><span style="color: #444a">,</span>
+            <span style="color: #444a">{</span>
+                <span style="color: #444">&quot;exceptRange&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span>
+            <span style="color: #444a">}</span>
+        <span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-undef-init&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;array-bracket-newline&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;consistent&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;array-element-newline&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">&quot;consistent&quot;</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;computed-property-spacing&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;new-parens&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-async-promise-executor&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;off&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-lonely-if&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-multiple-empty-lines&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unneeded-ternary&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span>
+            <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+            <span style="color: #444a">{</span>
+                <span style="color: #444">&quot;defaultAssignment&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">false</span>
+            <span style="color: #444a">}</span>
+        <span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-whitespace-before-property&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;one-var-declaration-per-line&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;operator-assignment&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;accessor-pairs&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;array-callback-return&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;arrow-body-style&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;class-methods-use-this&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;complexity&quot;</span><span style="color: #444a">:</span> <span style="color: #444a">[</span><span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span> <span style="color: #800;">10</span><span style="color: #444a">]</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;consistent-return&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;default-case-last&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;default-case&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;grouped-accessor-pairs&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;guard-for-in&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-alert&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-await-in-loop&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-caller&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-constructor-return&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-labels&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-loop-func&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-loss-of-precision&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-multi-str&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-new&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-new-func&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-new-wrappers&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-octal-escape&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-param-reassign&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-promise-executor-return&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-proto&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-return-await&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-self-compare&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-sequences&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-shadow&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-template-curly-in-string&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-throw-literal&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unmodified-loop-condition&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unreachable-loop&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unsafe-optional-chaining&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unused-expressions&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-unused-vars&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;off&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-use-before-define&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-backreference&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-call&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-concat&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-constructor&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-useless-rename&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-var&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;no-warning-comments&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;object-shorthand&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-arrow-callback&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-const&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-destructuring&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-numeric-literals&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-promise-reject-errors&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-regex-literals&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-rest-params&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-spread&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;prefer-template&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;require-atomic-updates&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;require-unicode-regexp&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;semi-spacing&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;semi-style&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;sort-vars&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span><span style="color: #444a">,</span>
+        <span style="color: #444">&quot;symbol-description&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;warn&quot;</span>
+    <span style="color: #444a">}</span>
+<span style="color: #444a">}</span>
+</code></pre>
+<p>Questa configurazione e totalmente personalizzabile, io ho solo utilizzato delle <em>rules</em> che ci potrebbero servire ma voi potete modificarle, rimuoverle o aggiungerne di altre.
+Consultate il <a href="https://eslint.org/docs/rules/">sito ufficiale</a> per la lista completa delle <em>rules</em> disponibili.</p>
+<hr />
+<h4>Prettier</h4>
+<p>Per personalizzare le funzionalità di Prettier (disponibili di default con l’estensione), creiamo un file chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.prettierrc.json</code> all’interno della nostra cartella e inseriamo la seguente configurazione:</p>
+<pre><code class="language-json"><span style="color: #444a">{</span>
+    <span style="color: #444">&quot;printWidth&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">100</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;quoteProps&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;consistent&quot;</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;arrowParens&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;always&quot;</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;bracketSpacing&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;embeddedLanguageFormatting&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;auto&quot;</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;endOfLine&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;crlf&quot;</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;semi&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;singleQuote&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">false</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;tabWidth&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">2</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;trailingComma&quot;</span><span style="color: #444a">:</span> <span style="color: #800;">&quot;es5&quot;</span><span style="color: #444a">,</span>
+    <span style="color: #444">&quot;useTabs&quot;</span><span style="color: #444a">:</span> <span style="font-weight: 700;">true</span>
+<span style="color: #444a">}</span>
+</code></pre>
+<p>Anche questa configurazione è personalizzabile e potete trovare tutte le opzioni nel <a href="https://prettier.io/docs/en/options.html">sito ufficiale</a>.</p>
+<hr />
+<h2>Creazione progetto</h2>
+<p>Ora siamo praticamente pronti per iniziare a sviluppare il nostro bot!
+Ci manca solo un passo: creare il nostro progetto ufficialmente nella cartella.</p>
+<p>Tutti i progetti in Node.js hanno un file <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">package.json</code> che contiene i dettagli come nome, descrizione, etc…</p>
+<p>Per crearlo innanzitutto apriamo un <em>terminal</em> da VSCode con <strong>Ctrl + ò</strong> oppure <strong>View</strong> -&gt; <strong>Terminal</strong>.
+Ora scriviamo il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code>.</p>
+<p><strong>Nota: Per maggiori dettagli riguardo l’uso di un terminal in generale potete leggere <a href="https://sitomsgaming.wordpress.com/2021/08/21/come-usare-il-prompt-dei-comandi/">questo articolo in merito</a>.</strong></p>
+<p>Ci verranno richiesti alcuni dettagli, il valore mostrato tra parentesi è quello di default e verrà assegnato se skippiamo il passaggio premendo invio:</p>
+<ul>
+<li>nome: Il nome del progetto; <strong>non</strong> deve essere legato obbligatoriamente al nome del bot o della cartella e può utilizzare solo lettere minuscole;</li>
+<li>versione: Utile se abbiamo intenzione di pubblicare il nostro progetto come modulo, può essere skippato.</li>
+<li>descrizione: Una descrizione del nostro bot/progetto. Possiamo tranquillamente saltare questo passaggio;</li>
+<li>entry point: Il file principale del nostro progetto. Possiamo saltare questo passaggio a meno che nn abbiamo intenzione di posizionare il codice in una sottocartella, in questo caso possiamo scrivere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">nomeCartella/index.js</code>;</li>
+<li>test command: Comando di test da eseguire con <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm run test</code>. Possiamo impostarlo in <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">node .</code> per eseguire più facilmente il nostro bot;</li>
+<li>repository: La repository dove verrà salvato il nostro codice. Al momento non abbiamo bisogno di nessuna repository e possiamo skippare questo passaggio;</li>
+<li>keywords: Parole chiave legate al progetto, utili in caso il nostro fosse un progetto pubblico su npm. Possiamo skippare questo passaggio;</li>
+<li>autore: L’autore del progetto. Potete inserire il vostro nickname o tranquillamente skippare questo passaggio;</li>
+<li>licenza: La licenza che utilizziamo per distribuire il nostro codice. Utile solo se il nostro codice sarà pubblico come in una repository o modulo npm. Possiamo saltare questo passaggio.</li>
+</ul>
+<p>Alla fine della configurazione possiamo scrivere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">yes</code> per convalidarla e verrà creato il file <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">package.json</code> già pronto.</p>
+<p><strong>Nota: Se eseguendo il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code> avete ricevuto un errore come questo: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script</code>, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">node -v</code> che dovrebbe mostrare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">v16.9.0</code> (o la versione da voi installata).</strong></p>
+<hr />
+<h2>npm</h2>
+<p>Come abbiamo appena visto, per creare il nostro progetto abbiamo utilizzato il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code>, gestito da <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm</code>.</p>
+<p><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm</code> è un package manager, serve cioè per gestire i moduli che ci serviranno nel nostro progetto ed è preinstallato con Node.js.</p>
+<p>Utilizzeremo vari comandi npm come:</p>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i [nome-modulo|@autore/nome-modulo|autore/nome-modulo] [-g] [-D]</code>: Comando per installare uno o più moduli nel nostro progetto. Se il modulo da installare non è necessario nel codice in sè, possiamo utilizzare la <em>flag</em> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-D</code> e installarlo come <em>devDependecy</em>, ossia modulo necessario allo sviluppo del codice. Se invece vogliamo installare quel modulo globalmente, allora aggiungiamo la flag <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-g</code>, utile per moduli che contengono degli script binari da poter essere eseguiti tramite terminal. Esempi: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i discord.js</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i -g eslint</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i -D @types/node</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm ci</code>: Comando per installare tutti i moduli inclusi in un progetto. Funziona solo se è già presente un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">package-lock.json</code> file, automaticamente generato da <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i</code>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm dedupe</code>: Comando per rimuovere eventuali <em>doppioni</em> nei nostri moduli. Può infatti accadere che un modulo tra quelli installati, ne richieda un altro che viene così installato a sua volta. Se tale modulo è stato installato anche da noi stessi, si creerà un doppione che può essere rimosso con questo comando;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init [-y]</code>: Comando per iniziare un nuovo progetto npm. Chiederà vari dettagli che possono essere saltati premendo Invio, o possiamo usare la flag <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">-y</code> per saltarli automaticamente tutti.</li>
+</ul>
+<hr />
+<h2>Installazione moduli</h2>
+<p>Ci siamo quasi!
+Prima di iniziare manca un’ultima cosa: installare i moduli necessari nel nostro progetto.</p>
+<p>Potrebbero servirci altri moduli, ma per ora installeremo solo quelli necessari:</p>
+<ol>
+<li>Installiamo i moduli <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">eslint</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">prettier</code> globalmente per poterli usare anche tramite terminal: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i -g eslint prettier</code>;</li>
+<li>Installiamo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">discord.js</code> per poter interagire con Discord e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">dotenv</code> per salvare delle variabili d’ambiente come token del bot e altro: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm i discord.js dotenv</code>;</li>
+<li>Installiamo localmente i moduli che ci servono per lo sviluppo del nostro bot, ossia <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">eslint</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">prettier</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">@types/node</code> che aggiungerà a typescript le definizioni degli elementi predefiniti in Node.js.</li>
+</ol>
+<hr />
+<h2>Creazione bot</h2>
+<p>Ora che abbiamo completato la configurazione del nostro ambiente di lavoro dobbiamo creare il nostro bot (se non ne avete già uno)!</p>
+<p>Per farlo andiamo nel <strong><a href="https://discord.dev">Discord Developer Portal</a></strong> ed eseguiamo il login se necessario.</p>
+<p>Poi rechiamoci nella sezione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Applications</code> e clicchiamo <strong>New Application</strong> in alto a destra.
+Ci verrà chiesto il nome dell’applicazione che potremo comunque cambiare in seguito e può essere diverso da quello del bot.</p>
+<p>Una volta inserito il nome clicchiamo <strong>Create</strong>.
+Verremo reindirizzati in una pagina dove vedremo i dettagli della nostra applicazione e potremo aggiungere una immagine (che non dovrà obbligatoriamente coincidere con quella del bot) e una descrizione che apparirà nella sezione <strong>About Me</strong> del profilo del bot.</p>
+<p>Ora andiamo nella sezione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Bot</code> e clicchiamo <strong>Add Bot</strong> per creare il nostro bot!
+A questo punto potremo cambiare l’immagine profilo e lo username del bot (non il tag che rimarrà sempre quello).
+Qui possiamo anche scegliere se rendere il nostro bot publico o privato (pubblico di default).</p>
+<p><img src="/images/8/build-a-bot.png" alt="Build a Bot" /></p>
+<p>Nella stessa pagina possiamo vedere una scritta <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Token</code>: il token del nostro bot è la sua password ed è importante tenerlo sempre per sè, in quanto chiunque ne abbia accesso avrà completo accesso al nostro bot e quindi potrà uscire da tutti i server, bannare tutti i membri di tutti i server etc…
+Il token è sensibile quanto il <em>client secret</em> che troviamo nella sezione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">OAuth2</code> e che fornisce invece accesso alla tua applicazione, garantendo la possibilità di eseguire azioni a tuo nome.
+Gli ID sono invece pubblichi e possono essere condivisi tranquillamente.</p>
+<hr />
+<h2>Invitare il bot nel nostro server</h2>
+<p>Preferibilmente, potete creare un server Discord privato appositamente per testare il vostro bot e il suo funzionamento.</p>
+<p>Una volta fatto, tornate nel Dev Portal, aprite la vostra applicazione (ora verrà mostrata nella lista) e recatevi nella sezione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">OAuth2</code>.
+Scendete in basso per arrivare nella sezione dove potete generare il link di invito per il vostro bot.</p>
+<p>Prima di tutti sono necessari gli <em>scopi</em> che garantiremo al nostro bot, e quelli che ci serviranno sono <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">bot</code> (garantisce che il bot entrerà <em>fisicamente</em> nel server) e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">applications.commands</code> (ci darà il permesso per l’aggiunta di slash commands nel server):</p>
+<p><img src="/images/8/scopes.png" alt="Scopes" /></p>
+<p>Scendendo ancora più in basso potremo scegliere i permessi da aggiungere al nostro bot; selezioniamo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Administrator</code> per aggiungerli tutti o scegliete quelli che fanno per voi:</p>
+<p><img src="/images/8/bot-permissions.png" alt="Bot Permissions" /></p>
+<p>Ora torniamo nella sezione <strong>Scopes</strong> e copiamo l’URL in basso, che sarà l’invito del bot, poi incolliamolo nella barra di ricerca del nostro browser e scegliamo il server dove vogliamo aggiungere il nostro bot (avrete probabilmente già fatto questa procedura altre volte).</p>
+<p>Una volta autorizzato torniamo su Discord e vedremo che nel nostro server è apparso il nuovo bot (tristemente offline :/)!</p>
+<hr />
+<h2>index.js</h2>
+<p>Ce l’abbiamo fatta, finalmente possiamo creare il nostro primo file in JavaScript ed iniziare a scrivere il codice.</p>
+<p>Creiamo un file chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">index.js</code> nella cartella del nostro progetto e poi assicuriamoci di riavviare VSCode in modo che rilevi il nostro nuovo progetto con i vari file di configurazione.</p>
+<p>Ora, per testare che tutte le funzioni attivate funzionino correttamente incollate il seguente codice nel file appena creato:</p>
+<!-- prettier-ignore-start -->
+```js
+const{Client}=require('discord.js');const client=new Client;client
+```
+<!-- prettier-ignore-end -->
+<p>Se tutto è stato configurato correttamente dovreste:</p>
+<ul>
+<li><p>Vedere il codice immediatamente formattato nel seguente modo:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Client</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>();
+client;
+</code></pre></li>
+<li><p>Vedere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new Client()</code> sottolineato di rosso con l’errore seguente (o lo stesso ma tradotto in caso abbiate modificato la lingua): <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Expected 1 arguments, but got 0</code>;</p></li>
+<li><p>Vedere l’ultimo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">client</code> sottolineato di giallo con l’errore seguente: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Expected an assignment or function call and instead saw an expression</code>;</p></li>
+</ul>
+<p>Se tutto questo accade, allora la nostra configurazione è andata a buon fine e possiamo iniziare a scrivere il codice del bot; in caso contrario ricontrollate di aver eseguito correttamente la procedura descritta per ogni strumento considerando che il primo punto dell’elenco di sopra riguarda <strong>Prettier</strong>, il secondo <strong>Typescript</strong> e il terzo <strong>ESLint</strong>.</p>
+<hr />
+<h2>Client</h2>
+<p>Per interagire con Discord, discord.js ci fornisce una classe che contiene tutto ciò di cui abbiamo bisogno.
+Si tratta della classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code>, esportata direttamente dal modulo.</p>
+<p>In questo paragrafo vedremo solo i metodi e le proprietà di questa classe che ci interessano ora, tratteremo gli altri più avanti quando ce ne sarà bisogno.</p>
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">constructor(options: ClientOptions)</code></h3>
+<p>Il constructor di questa classe richiede un parametro di tipo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ClientOptions</code> che conterrà tutte le opzioni per il nostro client.
+Potete osservare tutte le opzioni nella <a href="https://discord.js.org/#/docs/main/stable/typedef/ClientOptions">documentazione ufficiale</a>.</p>
+<p>Bisogna obbligatoriamente passare il parametro delle opzioni, che però contiene solo proprietà facoltative, fatta eccezione per <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">intents</code> che vedremo tra poco nel paragrafo <strong><a href="#intents">Intents</a></strong>.</p>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Client</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+
+<span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #800;">&quot;GUILDS&quot;</span>] });
+</code></pre>
+<hr />
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#options</code></h3>
+<p>Rappresenta le opzioni con cui abbiamo inizializzato il nostro Client.</p>
+<p><strong>Type:</strong> <a href="https://discord.js.org/#/docs/main/stable/typedef/ClientOptions"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ClientOptions</code></a> - Corrisponde al parametro passato in <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new Client(options)</code>.</p>
+<hr />
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#token</code></h3>
+<p>Rappresenta il token del nostro bot.
+Questa proprietà deve essere utilizzata molto con cautela e assolutamente non in comandi.</p>
+<p>Quando inizializziamo un nuovo Client è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> di default, a meno che non abbiamo impostato la variabile d’ambiente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DISCORD_TOKEN</code>.
+Se la variabile d’ambiente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DISCORD_TOKEN</code> non è impostata allora saremo costretti a passare un token valido nel metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">login</code>.</p>
+<p><strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">string | null</code> - Il token del bot, o <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">null</code> se nessun token è presente.</p>
+<p><strong>Nota: Questa proprietà viene rilevata automaticamente e non dovrebbe essere mai modificata manualmente.</strong></p>
+<hr />
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#user</code></h3>
+<p>Rappresenta il bot come utente Discord.</p>
+<p><strong>Type:</strong> <a href="https://discord.js.org/#/docs/main/stable/class/ClientUser"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ClientUser | null</code></a> - Una classe discord.js che rappresenta il bot come utente. Vedremo le varie proprietà e metodi di questa classe quando ne avremo bisogno.</p>
+<hr />
+<h3><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#login(/** token */)</code></h3>
+<p>Connette il bot a discord tramite un token, in modo da poter ricevere gli eventi e interagire con gli utenti.</p>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">token</code> - Il token con cui connettersi a Discord. Di default è <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">client.token</code> quindi può essere omesso solo nel caso avessimo definito la variabile d’ambiente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DISCORD_TOKEN</code>.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #800;">&quot;GUILDS&quot;</span>] });
+
+client.<span style="color: #800; font-weight: 700;">login</span>();
+client.<span style="color: #800; font-weight: 700;">login</span>(<span style="color: #800;">&quot;70K3N&quot;</span>);
+</code></pre>
+<hr />
+<h3>Eventi</h3>
+<p>La classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code> di discord.js estende <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">EventEmitter</code>, una classe predefinita in nodejs che permette di eseguire delle funzioni quando accadono degli eventi.
+Per farlo, però, abbiamo bisogno di <em>registrare</em> quell’evento e la funzione associata tramite il metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code>.
+Se vogliamo che quella funzione venga chiamata solo la prima volta che quell’evento accade possiamo usare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">once</code>.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">client.<span style="color: #800; font-weight: 700;">on</span>(event, listener);
+
+<span style="color: #888">// La funzione `listener` in questo caso verrà eseguita solo la prima volta che riceviamo l&#x27;evento `event`</span>
+client.<span style="color: #800; font-weight: 700;">once</span>(event, listener);
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">event</code> - Il nome dell’evento;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">listener</code> - La funzione da eseguire quando l’evento <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">event</code> viene chiamato.</li>
+</ul>
+<p><strong>Restituisce:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code> - Il nostro client.</p>
+<p>In poche parole, per eseguire una certa azione quando il nostro bot riceve un’interazione usiamo il metodo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code> passando come parametri <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">interactionCreate</code> (il nome dell’evento) e la funzione da eseguire quando l’interazione verrà ricevuta, accettando come parametro l’interazione:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">client.<span style="color: #800; font-weight: 700;">on</span>(<span style="color: #800;">&quot;interactionCreate&quot;</span>, <span class="hljs-function">(<span class="hljs-params">interaction</span>) =&gt;</span> {
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(interaction.<span class="hljs-property">user</span>.<span class="hljs-property">tag</span>);
+});
+</code></pre>
+<p>Con questo codice, ogni qualvolta ricevessimo un’interazione, vedremo in console l’username e il tag dell’utente che ha interagito con il bot.</p>
+<p>Di seguito sono elencati alcuni eventi utili forniti da discord.js tramite il Client.
+Man mano che andremo avanti con la guida ce ne potranno servire di nuovi che elencheremo quando necessario.</p>
+<p>Tutti gli eventi sono descritti nella <a href="https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-applicationCommandCreate">documentazione ufficiale</a>.</p>
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#interactionCreate</code></h4>
+<p>Questo evento si verifica quando il bot riceve una interazione, questa può essere relativa ad uno slash command, pulsante, menu…</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">client.<span style="color: #800; font-weight: 700;">on</span>(<span style="color: #800;">&quot;interactionCreate&quot;</span>, <span class="hljs-function">(<span class="hljs-params">interaction</span>) =&gt;</span> {
+    <span style="color: #888">// Azioni da eseguire quando un utente interagisce con il bot</span>
+});
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">interaction</code> - L’interazione ricevuta. <strong>Type:</strong> <a href="https://discord.js.org/#/docs/main/stable/class/Interaction"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Interaction</code></a> - Si tratta di una classe che rappresenta un’interazione di qualsiasi tipo. Vedremo le sue proprietà e metodi fondamentali quando necessario.</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Client</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #800;">&quot;GUILDS&quot;</span>] });
+
+client.<span style="color: #800; font-weight: 700;">on</span>(<span style="color: #800;">&quot;interactionCreate&quot;</span>, <span class="hljs-function">(<span class="hljs-params">interaction</span>) =&gt;</span> {
+    <span style="color: #888">// Controlliamo se abbiamo ricevuto un&#x27;interazione da uno Slash Command</span>
+    <span style="font-weight: 700;">if</span> (interaction.<span style="color: #800; font-weight: 700;">isCommand</span>())
+        <span style="color: #888">// Inviamo una risposta &quot;ephemeral&quot;, cioè visibile solo all&#x27;utente</span>
+        interaction.<span style="color: #800; font-weight: 700;">reply</span>({ <span style="color: #444">content</span>: <span style="color: #800;">&quot;Messaggio segreto!&quot;</span>, <span style="color: #444">ephemeral</span>: <span style="color: #78a960;">true</span> }); <span style="color: #888">// Il metodo `reply()` ci permette di rispondere all&#x27;interazione</span>
+});
+</code></pre>
+<h4><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#ready</code></h4>
+<p>Evento che viene ricevuto quando il bot si è connesso a Discord ed è pronto a ricevere gli eventi come interazioni etc…</p>
+<p>Possiamo usare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">once</code> invece che <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">on</code> in questo caso perchè sappiamo che l’evento <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ready</code> verrà chiamato solo una volta.</p>
+<p><strong>Sintassi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;">client.<span style="color: #800; font-weight: 700;">once</span>(<span style="color: #800;">&quot;ready&quot;</span>, <span class="hljs-function">(<span class="hljs-params">onlineClient</span>) =&gt;</span> {
+    <span style="color: #888">// Azioni da eseguire uando il bot si connette</span>
+});
+</code></pre>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">onlineClient</code> - Il nostro client. <strong>Type:</strong> <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code></li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> { <span style="color: #800; font-weight: 700;">Client</span> } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #800;">&quot;GUILDS&quot;</span>] });
+
+client.<span style="color: #800; font-weight: 700;">once</span>(<span style="color: #800;">&quot;ready&quot;</span>, <span class="hljs-function">(<span class="hljs-params">onlineClient</span>) =&gt;</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">`Connesso con successo come <span class="hljs-subst">${onlineClient.user.tag}</span>!`</span>)
+);
+</code></pre>
+<h2>Salvare il token del bot</h2>
+<p>Adesso salviamo il token del nostro bot nel progetto, in modo tale da poterci connettere a Discord.</p>
+<p>Per prima cosa create un file chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.env</code> che servirà per salvare le variabili d’ambiente del nostro progetto.
+Questo file ha una struttura simile a questa:</p>
+<pre><code style="padding: 3px 5px; background: #f0f0f0; color: #444;"><span style="color: #444">NOME</span>=VALORE
+<span style="color: #444">ALTRO_NOME</span>=ALTRO_VALORE
+</code></pre>
+<p>Ora tornate nel Dev Portal, cercate la vostra applicazione e passate alla sezione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Bot</code>.
+Lì cliccate su copia sotto il token del bot:</p>
+<p><img src="/images/8/copy-token.png" alt="Copia Token" /></p>
+<p>Poi tornate su VSCode e nel file <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.env</code> aggiungete un nuovo valore che abbia come nome <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DISCORD_TOKEN</code> (il valore usato da djs come token, menzionato in <a href="#clienttoken"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#token</code></a>) e come valore il token copiato, ad esempio:</p>
+<pre><code style="padding: 3px 5px; background: #f0f0f0; color: #444;"><span style="color: #444">DISCORD_TOKEN</span>=ODg3NzQ4NTQ4ODkwODczOTE5.YUIqQw.B0sb_gshXY2nH5if-uHEkiGQGvc
+</code></pre>
+<h2>Collegare il nostro bot a Discord</h2>
+<p>Finalmente possiamo collegare il nostro bot a Discord.
+Per farlo torniamo nell’index.js e cancelliamo quello che avevamo scritto in precedenza.</p>
+<p>Ora, come abbiamo già detto, come prima cosa abbiamo bisogno di un <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code> che rappresenterà il nostro bot, perciò scriviamo:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>();
+</code></pre>
+<p>Ovviamente <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code> va importato da discord.js ma questo può essere fatto facilmente mentre lo scriviamo:</p>
+<p><img src="/images/8/import-client.gif" alt="Import Client" /></p>
+<p>Adesso dovreste vedere il seguente errore su <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">new Client()</code>: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">An argument for 'options' was not provided.</code>
+Questo significa che il constructor della classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client</code>, come mostrato <a href="#constructoroptions-clientoptions">in precedenza</a>, richiede un parametro che specifichi le sue opzioni.</p>
+<p>Questo parametro è di tipo <a href="https://discord.js.org/#/docs/main/stable/typedef/ClientOptions"><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ClientOptions</code></a> ed è quindi un object con tante possibili opzioni.
+Vedremo altre opzioni in futuro o potete vederle voi dalla <a href="https://discord.js.org/#/docs/main/stable/typedef/ClientOptions">documentazione ufficiale</a> ma per ora ci basta vedere l’opzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">intents</code> che è obbligatoria.</p>
+<h2>Intents</h2>
+<p>Discord richiede a tutti i bot che si connettono, di specificare di quali <em>intents</em> hanno bisogno.</p>
+<p>Gli intents indicano gli eventi a cui siamo interessati.
+Nella <a href="https://discord.com/developers/docs/topics/gateway#list-of-intents">documentazione Discord</a> riguardo gli intents potete trovare ognuno quali eventi ci permette di ricevere.</p>
+<p>Per scegliere i nostri intents innanzitutto andiamo ad aggiungere la proprietà dedicata nelle opzioni del client come un array vuoto:</p>
+<pre><code class="language-diff">const { Client } = require(&quot;discord.js&quot;);
+
+<span style="color: #800;">- const client = new Client();</span>
+<span style="color: #397300;">+ const client = new Client({ intents: [] });</span>
+</code></pre>
+<p>Ora possiamo aggiungere nell’array tutti gli intents che ci servono, usando le costanti che ci fornisce djs.
+Ci basta importare anche la classe <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Intents</code> da djs, la quale ha una proprietà statica chiamata <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">FLAGS</code> che contiene tutti gli intent esistenti.</p>
+<p><strong>Nota: Se non ricordi cosa erano le proprietà statiche puoi controllare <a href="/guides/2%20-%20Parole%20chiave%20&amp;%20operatori.md#class--this--extends--super--static--new">il paragrafo dedicato alle classi nel nostro articolo sulle parole chiave</a>!</strong></p>
+<pre><code class="language-diff"><span style="color: #800;">- const { Client } = require(&quot;discord.js&quot;);</span>
+<span style="color: #397300;">+ const {</span>
+<span style="color: #397300;">+   Client,</span>
+<span style="color: #397300;">+   Intents: { FLAGS },</span>
+<span style="color: #397300;">+ } = require(&quot;discord.js&quot;);</span>
+
+const client = new Client({ intents: [] });
+</code></pre>
+<p><strong>Nota: Nell’importare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Intents</code> abbiamo usato una <em>scorciatoia</em> per poter importare direttamente la sua proprietà statica <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">FLAGS</code> visto che abbiamo bisogno solo di quella!</strong></p>
+<p>Ora possiamo aggiungere nell’array tutti gli intents di cui abbiamo bisogno utilizzando le proprietà di <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">FLAGS</code>.
+Ad esempio, se ho bisogno dell’intent <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILDS</code>, allora aggiungerò <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">FLAGS.GUILDS</code> nell’array:</p>
+<pre><code class="language-diff">const {
+    Client,
+    Intents: { FLAGS },
+} = require(&quot;discord.js&quot;);
+
+<span style="color: #800;">- const client = new Client({ intents: [] });</span>
+<span style="color: #397300;">+ const client = new Client({ intents: [FLAGS.GUILDS] });</span>
+</code></pre>
+<h3>Scegliere gli intents adatti</h3>
+<p>Discord ci offre tantissimi intents da poter scegliere ma è bene scegliere solo quelli di cui abbiamo bisogno in modo che il nostro bot sia più veloce e occupi meno RAM.</p>
+<p>Di seguito è una lista di tutti gli intents che possiamo scegliere:</p>
+<ul>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILDS</code>: Ci serve sempre per poter interagire con i server di cui il nostro bot fa parte. L’unico caso in cui non ne abbiamo bisogno e se volessimo creare un bot basato su slash commands che ha solo bisogno di rispondere ai comandi senza eseguire alcuna azione tramite Discord (es. bannare utenti) e quindi possiamo invitarlo aggiungendo solo gli slash commands e senza aggiungere il bot come utente;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MEMBERS</code>: Ne abbiamo bisogno per ricevere i dati riguardo i membri dei server come una lista completa dei membri o sapere quando un nuovo membro entra in un server. <strong>Nota: Questo intent è <em>privilegiato</em>, ossia ha bisogno di un permesso speciale per poter essere usato. Se il nostro bot si trova in meno di 100 server e non è verificato, allora possiamo abilitarlo nella pagina del nostro bot nel Dev Portal, in caso contrario dovremo fare una richiesta a Discord</strong>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_BANS</code>: Ci permette di ricevere i dati riguardo agli utenti bannati in un server. Può essere utile se vogliamo eseguire una certa azione quando un utente viene bannato/sbannato da un server;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_EMOJIS_AND_STICKERS</code>: Ci può servire se abbiamo bisogno di accedere alle emoji e gli sticker dei server. Nota che anche senza questo intent il tuo bot potrà continuare ad utilizzare emoji personalizzate, questo comunque richiede il permesso <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Usa emoji esterne</code> per il ruolo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">@everyone</code> nel server;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_INTEGRATIONS</code>: Ci permette di ricevere i dati riguardo le integrazioni nei server;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_WEBHOOKS</code>: Ci fornisce i dati riguardo i webhook nei canali. Nota che anche senza questo intent il nostro bot potrà comunque usare i webhook per i quali abbiamo bisogno dell’id e del token;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_INVITES</code>: Ci permette di monitorare gli inviti in un server;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_VOICE_STATES</code>: Ci permette di ricevere dati riguardo gli utenti nei canali vocali. Nota che abbiamo bisogno di questo intent se vogliamo che il nostro bot possa connettersi ai canali vocali;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_PRESENCES</code>: Ci fornisce i dati riguardo lo stato dei membri. Nota che senza questo intent il nostro bot riceverà solo alcuni membri dei server di cui fa parte appena sarà online. <strong>Nota: Questo intent è <em>privilegiato</em>, ossia ha bisogno di un permesso speciale per poter essere usato. Se il nostro bot si trova in meno di 100 server e non è verificato, allora possiamo abilitarlo nella pagina del nostro bot nel Dev Portal, in caso contrario dovremo fare una richiesta a Discord</strong>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MESSAGES</code>: Ci fornisce i dati riguardo i messaggi che vengono inviati nei server. Nota che noi non avremo bisogno di questo intent per i comandi in quanto utilizzeremo gli slash commands che si basano sulle interazioni e i webhook. <strong>Nota: I comandi in chat sono ora sconsigliati da parte di Discord ed è per questo che non li utilizzeremo nella nostra guida. Discord non verificherà i bot che utilizzano questo intent per i comandi in chat ma continuerà a farlo se ne abbiamo bisogno per automod etc…</strong>;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MESSAGE_REACTIONS</code>: Ci fornisce i dati riguardo le reazioni ai messaggi. Nota che non abbiamo bisogno di questo intent per cose come reaction roles in quanto utilizzeremo i pulsanti di Discord;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MESSAGE_TYPING</code>: Ci permette di sapere quando un nuovo membro sta scrivendo in un server;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DIRECT_MESSAGES</code>: Come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MESSAGES</code> ma relativo ai DM;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DIRECT_MESSAGE_REACTIONS</code>: Come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DIRECT_MESSAGE_REACTIONS</code> ma relativo ai DM;</li>
+<li><code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DIRECT_MESSAGE_TYPING</code>: Come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">DIRECT_MESSAGE_TYPING</code> ma relativo ai DM;</li>
+</ul>
+<p>Esempio di codice del nostro bot utilizzando gli intent <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILDS</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_VOICE_STATES</code>, <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_PRESENCES</code> e <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">GUILD_MEMBERS</code>:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> {
+    <span style="color: #800; font-weight: 700;">Client</span>,
+    <span style="color: #800; font-weight: 700;">Intents</span>: { <span style="color: #bc6060;">FLAGS</span> },
+} = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({
+    <span style="color: #444">intents</span>: [<span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILDS</span>, <span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILD_VOICE_STATES</span>, <span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILD_PRESENCES</span>, <span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILD_MEMBERS</span>],
+});
+</code></pre>
+<h2>Collegarci a Discord</h2>
+<p>Attualmente il nostro codice risulterà, a parte gli intents e altre opzioni del client, come il seguente:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> {
+    <span style="color: #800; font-weight: 700;">Client</span>,
+    <span style="color: #800; font-weight: 700;">Intents</span>: { <span style="color: #bc6060;">FLAGS</span> },
+} = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILDS</span>] });
+</code></pre>
+<p>Ora ci manca solo di collegare il bot a Discord!</p>
+<p>Per farlo possiamo usare la funzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">Client#login()</code>, mostrata <a href="#clientlogin-token-">in precedenza</a>:</p>
+<pre><code class="language-diff">const {
+    Client,
+    Intents: { FLAGS },
+} = require(&quot;discord.js&quot;);
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+<span style="color: #397300;">+</span>
+<span style="color: #397300;">+ client.login();</span>
+</code></pre>
+<p>Adesso il nostro bot può collegarsi a Discord, ma… come faremo a sapere se è riuscito a connettersi con successo?</p>
+<p>Come <a href="#clientready">spiegato in precedenza</a>, possiamo usare l’evento <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">ready</code> che verrà eseguito appena il bot si connetterà a Discord.
+Aggiungiamo quindi un’istruzione che scriva nella console che il nostro bot è pronto, insieme al suo username Discord:</p>
+<pre><code class="language-diff">const {
+    Client,
+    Intents: { FLAGS },
+} = require(&quot;discord.js&quot;);
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+<span style="color: #397300;">+</span>
+<span style="color: #397300;">+ client.once(&quot;ready&quot;, (onlineClient) =&gt;</span>
+<span style="color: #397300;">+   console.log(`Connesso con successo come ${onlineClient.user.tag}!`)</span>
+<span style="color: #397300;">+ );</span>
+
+client.login();
+</code></pre>
+<p>Manca solo un’ultima cosa: importare le variabili d’ambiente, compreso il token del nostro bot che ci permetterà di connettere con successo.</p>
+<h2>Importare le variabili d’ambiente</h2>
+<p>Per importare le variabili d’ambiente del nostro progetto, usiamo il modulo <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">dotenv</code> che abbiamo scaricato in precedenza.
+Più precisamente andremo ad utilizzare la funzione <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">config</code> esportata dal modulo che caricherà tutte le variabili d’ambiente salvate nel file <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.env</code>:</p>
+<pre><code class="language-diff">const {
+    Client,
+    Intents: { FLAGS },
+} = require(&quot;discord.js&quot;);
+<span style="color: #397300;">+ const { config } = require(&quot;dotenv&quot;);</span>
+<span style="color: #397300;">+</span>
+<span style="color: #397300;">+ config();</span>
+
+const client = new Client({ intents: [FLAGS.GUILDS] });
+
+client.once(&quot;ready&quot;, (onlineClient) =&gt;
+    console.log(`Connesso con successo come ${onlineClient.user.tag}!`)
+);
+
+client.login();
+</code></pre>
+<p>Questo ci permette di caricare il token del bot direttamente nel nostro progetto senza doverlo scrivere manualmente nel codice.</p>
+<h2>Eseguire il bot</h2>
+<p>Finalmente, dopo tanta fatica, siamo riusciti a scrivere il codice che permetterà al nostro bot di connettersi a Discord e possiamo provarlo… ma come?</p>
+<p>Beh, è molto semplice: come abbiamo già detto, per eseguire il codice in JavaScript abbiamo bisogno di Nodejs che abbiamo installato in precedenza.
+Questo “programma” ha un comando chiamato <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">node</code> che possiamo immettere nel terminal, seguito dal file che vogliamo eseguire, perciò apriamo un nuovo terminal in VSC (come abbiamo già spiegato) e scriviamo il seguente comando:</p>
+<pre><code class="language-sh">node .
+</code></pre>
+<p>In questo caso <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">.</code> indica la cartella corrente perciò Node andrà ad eseguire il file che abbiamo specificato come <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">entry point</code> quando abbiamo creato il file package.json e che ora si trova nella proprietà <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">main</code> dello stesso file.</p>
+<p>Se avete fatto tutto bene, nel terminal vedrete una scritta che vi dice che il vostro bot è online ed effettivamente potrete osservarlo come online anche su Discord!</p>
+<p><img src="/images/8/connesso-terminal.png" alt="Succesfully connected" /></p>
+<p><img src="/images/8/bot-online.png" alt="Discord online" /></p>
+<h2>Codice finale</h2>
+<p>Se avete seguito tutto l’articolo, il vostro progetto dovrebbe risultare più o meno come il seguente:</p>
+<p><a href="/src/index.js">index.js</a>:</p>
+<pre><code style="background: #f0f0f0; color: #444; padding: 1em; display: block; overflow-wrap: break-word; white-space: pre-wrap;"><span style="font-weight: 700;">const</span> {
+    <span style="color: #800; font-weight: 700;">Client</span>,
+    <span style="color: #800; font-weight: 700;">Intents</span>: { <span style="color: #bc6060;">FLAGS</span> },
+} = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;discord.js&quot;</span>);
+<span style="font-weight: 700;">const</span> { config } = <span style="color: #397300;">require</span>(<span style="color: #800;">&quot;dotenv&quot;</span>);
+
+<span style="color: #800; font-weight: 700;">config</span>();
+
+<span style="font-weight: 700;">const</span> client = <span style="font-weight: 700;">new</span> <span style="color: #800; font-weight: 700;">Client</span>({ <span style="color: #444">intents</span>: [<span style="color: #bc6060;">FLAGS</span>.<span class="hljs-property">GUILDS</span>] });
+
+client.<span style="color: #800; font-weight: 700;">once</span>(<span style="color: #800;">&quot;ready&quot;</span>, <span class="hljs-function">(<span class="hljs-params">onlineClient</span>) =&gt;</span>
+    <span style="color: #bc6060;">console</span>.<span style="color: #800; font-weight: 700;">log</span>(<span style="color: #800;">`Connesso con successo come <span class="hljs-subst">${onlineClient.user.tag}</span>!`</span>)
+);
+
+client.<span style="color: #800; font-weight: 700;">login</span>();
+</code></pre>
+<h2>Conclusione</h2>
+<p>In questo articolo siamo riusciti, non senza qualche difficoltà, a sviluppare il nostro primo codice, capace di connettere il bot a Discord.</p>
+<p>Nel prossimo articolo vedremo come creare dei comandi e registrarli su Discord.</p>
+<h3><strong>Good Coding!</strong></h3>
