@@ -1,6 +1,6 @@
 <h1>discord.js</h1>
 <p>In questo nuovo articolo inizieremo a sviluppare il nostro bot in JavaScript.</p>
-<p>Per farlo utilizzeremo una libreria JavaScript chiamata <strong>discord.js</strong> che ci permetterà di interagire con DIscord facilmente.</p>
+<p>Per farlo utilizzeremo una libreria JavaScript chiamata <strong>discord.js</strong> che ci permetterà di interagire con Discord facilmente.</p>
 <p>Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiuteranno nello sviluppo del bot.</p>
 <h2>Sommario</h2>
 <ul>
@@ -52,6 +52,11 @@
 <li><a href="#collegarci-a-discord">Collegarci a Discord</a></li>
 <li><a href="#importare-le-variabili-dambiente">Importare le variabili d’ambiente</a></li>
 <li><a href="#eseguire-il-bot">Eseguire il bot</a></li>
+<li><a href="#codice-finale">Codice finale</a></li>
+<li><a href="#conclusione">Conclusione</a>
+<ul>
+<li><a href="#good-coding"><strong>Good Coding!</strong></a></li>
+</ul></li>
 </ul></li>
 </ul>
 <h2>ESLint</h2>
@@ -144,12 +149,12 @@ Non dimentichiamoci mai di inserire anche l’estensione di un file quando lo cr
 <h3>Installazione Node.js</h3>
 <p>Inoltre, abbiamo bisogno di <strong>Node.js</strong> per eseguire il nostro progetto in JavaScript.</p>
 <p>Ci sono molte versioni disponibili di node ma per usare discord.js abbiamo bisogno di almeno la versione <strong>16.6.0</strong>.
-Per comodità e per utilizzare le nuove funzionalità io preferisco la versione <strong>16.9.0</strong> (ultima <em>security release</em> al momento della scrittura di questo articolo) ma va bene qualsiasi altra versione, purchè sia almeno la <strong>16.6.0</strong>.</p>
-<p>Qui di seguito i link ai file di installazione per la versione <strong>16.9.0</strong> in base al vostro sistema operativo:</p>
+Per comodità e per utilizzare le nuove funzionalità io preferisco la versione <strong>16.10.0</strong> (ultima <em>security release</em> al momento della scrittura di questo articolo) ma va bene qualsiasi altra versione, purchè sia almeno la <strong>16.6.0</strong>.</p>
+<p>Qui di seguito i link ai file di installazione per la versione <strong>16.10.0</strong> in base al vostro sistema operativo:</p>
 <ul>
-<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0-x64.msi">Windows per sistemi basati su 64 bit (consigliato)</a></li>
-<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0-x86.msi">Windows per sistemi basati su 32 bit</a></li>
-<li><a href="https://nodejs.org/dist/v16.9.0/node-v16.9.0.pkg">MacOS</a></li>
+<li><a href="https://nodejs.org/dist/v16.10.0/node-v16.10.0-x64.msi">Windows per sistemi basati su 64 bit (consigliato)</a></li>
+<li><a href="https://nodejs.org/dist/v16.10.0/node-v16.10.0-x86.msi">Windows per sistemi basati su 32 bit</a></li>
+<li><a href="https://nodejs.org/dist/v16.10.0/node-v16.10.0.pkg">MacOS</a></li>
 </ul>
 <hr />
 <h3>Creazione file per gli strumenti</h3>
@@ -300,7 +305,7 @@ Per comodità e per utilizzare le nuove funzionalità io preferisco la versione 
     <span style="color: #444a">}</span>
 <span style="color: #444a">}</span>
 </code></pre>
-<p>Questa configurazione e totalmente personalizzabile, io ho solo utilizzato delle <em>rules</em> che ci potrebbero servire ma voi potete modificarle, rimuoverle o aggiungerne di altre.
+<p>Questa configurazione è totalmente personalizzabile, io ho solo utilizzato delle <em>rules</em> che ci potrebbero servire ma voi potete modificarle, rimuoverle o aggiungerne di altre.
 Consultate il <a href="https://eslint.org/docs/rules/">sito ufficiale</a> per la lista completa delle <em>rules</em> disponibili.</p>
 <hr />
 <h4>Prettier</h4>
@@ -341,7 +346,7 @@ Ora scriviamo il comando <code style="padding: 3px 5px; background: #f0f0f0; col
 <li>licenza: La licenza che utilizziamo per distribuire il nostro codice. Utile solo se il nostro codice sarà pubblico come in una repository o modulo npm. Possiamo saltare questo passaggio.</li>
 </ul>
 <p>Alla fine della configurazione possiamo scrivere <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">yes</code> per convalidarla e verrà creato il file <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">package.json</code> già pronto.</p>
-<p><strong>Nota: Se eseguendo il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code> avete ricevuto un errore come questo: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script</code>, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">node -v</code> che dovrebbe mostrare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">v16.9.0</code> (o la versione da voi installata).</strong></p>
+<p><strong>Nota: Se eseguendo il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code> avete ricevuto un errore come questo: <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script</code>, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">node -v</code> che dovrebbe mostrare <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">v16.10.0</code> (o la versione da voi installata).</strong></p>
 <hr />
 <h2>npm</h2>
 <p>Come abbiamo appena visto, per creare il nostro progetto abbiamo utilizzato il comando <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm init</code>, gestito da <code style="padding: 3px 5px; background: #f0f0f0; color: #444;">npm</code>.</p>
