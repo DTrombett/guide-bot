@@ -9,42 +9,45 @@ Prima di iniziare, però, diamo uno sguardo agli ultimi strumenti che ci aiutera
 ## Sommario
 
 - [discord.js](#discordjs)
-  - [Sommario](#sommario)
-  - [ESLint](#eslint)
-  - [Prettier](#prettier)
-  - [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
-    - [Creazione della cartella](#creazione-della-cartella)
-    - [Installazione Visual Studio Code](#installazione-visual-studio-code)
-    - [Installazione estensioni](#installazione-estensioni)
-    - [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
-    - [Utilizzo VSCode](#utilizzo-vscode)
-    - [Installazione Node.js](#installazione-nodejs)
-    - [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
-      - [Typescript](#typescript)
-      - [ESLint](#eslint-1)
-      - [Prettier](#prettier-1)
-  - [Creazione progetto](#creazione-progetto)
-  - [npm](#npm)
-  - [Installazione moduli](#installazione-moduli)
-  - [Creazione bot](#creazione-bot)
-  - [Invitare il bot nel nostro server](#invitare-il-bot-nel-nostro-server)
-  - [index.js](#indexjs)
-  - [Client](#client)
-    - [`constructor(options: ClientOptions)`](#constructoroptions-clientoptions)
-    - [`Client#options`](#clientoptions)
-    - [`Client#token`](#clienttoken)
-    - [`Client#user`](#clientuser)
-    - [`Client#login(/** token */)`](#clientlogin-token-)
-    - [Eventi](#eventi)
-      - [`Client#interactionCreate`](#clientinteractioncreate)
-      - [`Client#ready`](#clientready)
-  - [Salvare il token del bot](#salvare-il-token-del-bot)
-  - [Collegare il nostro bot a Discord](#collegare-il-nostro-bot-a-discord)
-  - [Intents](#intents)
-    - [Scegliere gli intents adatti](#scegliere-gli-intents-adatti)
-  - [Collegarci a Discord](#collegarci-a-discord)
-  - [Importare le variabili d'ambiente](#importare-le-variabili-dambiente)
-  - [Eseguire il bot](#eseguire-il-bot)
+	- [Sommario](#sommario)
+	- [ESLint](#eslint)
+	- [Prettier](#prettier)
+	- [Configurazione ambiente di lavoro](#configurazione-ambiente-di-lavoro)
+		- [Creazione della cartella](#creazione-della-cartella)
+		- [Installazione Visual Studio Code](#installazione-visual-studio-code)
+		- [Installazione estensioni](#installazione-estensioni)
+		- [Configurazione Visual Studio Code](#configurazione-visual-studio-code)
+		- [Utilizzo VSCode](#utilizzo-vscode)
+		- [Installazione Node.js](#installazione-nodejs)
+		- [Creazione file per gli strumenti](#creazione-file-per-gli-strumenti)
+			- [Typescript](#typescript)
+			- [ESLint](#eslint-1)
+			- [Prettier](#prettier-1)
+	- [Creazione progetto](#creazione-progetto)
+	- [npm](#npm)
+	- [Installazione moduli](#installazione-moduli)
+	- [Creazione bot](#creazione-bot)
+	- [Invitare il bot nel nostro server](#invitare-il-bot-nel-nostro-server)
+	- [index.js](#indexjs)
+	- [Client](#client)
+		- [`constructor(options: ClientOptions)`](#constructoroptions-clientoptions)
+		- [`Client#options`](#clientoptions)
+		- [`Client#token`](#clienttoken)
+		- [`Client#user`](#clientuser)
+		- [`Client#login(/** token */)`](#clientlogin-token-)
+		- [Eventi](#eventi)
+			- [`Client#interactionCreate`](#clientinteractioncreate)
+			- [`Client#ready`](#clientready)
+	- [Salvare il token del bot](#salvare-il-token-del-bot)
+	- [Collegare il nostro bot a Discord](#collegare-il-nostro-bot-a-discord)
+	- [Intents](#intents)
+		- [Scegliere gli intents adatti](#scegliere-gli-intents-adatti)
+	- [Collegarci a Discord](#collegarci-a-discord)
+	- [Importare le variabili d'ambiente](#importare-le-variabili-dambiente)
+	- [Eseguire il bot](#eseguire-il-bot)
+	- [Codice finale](#codice-finale)
+	- [Conclusione](#conclusione)
+		- [**Good Coding!**](#good-coding)
 
 ## ESLint
 
@@ -184,13 +187,13 @@ VSCode è distribuito in inglese ma è possibile cambiare la lingua in Italiano 
 Inoltre, abbiamo bisogno di **Node.js** per eseguire il nostro progetto in JavaScript.
 
 Ci sono molte versioni disponibili di node ma per usare discord.js abbiamo bisogno di almeno la versione **16.6.0**.
-Per comodità e per utilizzare le nuove funzionalità io preferisco la versione **16.9.0** (ultima _security release_ al momento della scrittura di questo articolo) ma va bene qualsiasi altra versione, purchè sia almeno la **16.6.0**.
+Per comodità e per utilizzare le nuove funzionalità io preferisco la versione **16.10.0** (ultima _security release_ al momento della scrittura di questo articolo) ma va bene qualsiasi altra versione, purchè sia almeno la **16.6.0**.
 
-Qui di seguito i link ai file di installazione per la versione **16.9.0** in base al vostro sistema operativo:
+Qui di seguito i link ai file di installazione per la versione **16.10.0** in base al vostro sistema operativo:
 
-- [Windows per sistemi basati su 64 bit (consigliato)](https://nodejs.org/dist/v16.9.0/node-v16.9.0-x64.msi)
-- [Windows per sistemi basati su 32 bit](https://nodejs.org/dist/v16.9.0/node-v16.9.0-x86.msi)
-- [MacOS](https://nodejs.org/dist/v16.9.0/node-v16.9.0.pkg)
+- [Windows per sistemi basati su 64 bit (consigliato)](https://nodejs.org/dist/v16.10.0/node-v16.10.0-x64.msi)
+- [Windows per sistemi basati su 32 bit](https://nodejs.org/dist/v16.10.0/node-v16.10.0-x86.msi)
+- [MacOS](https://nodejs.org/dist/v16.10.0/node-v16.10.0.pkg)
 
 ---
 
@@ -410,7 +413,7 @@ Ci verranno richiesti alcuni dettagli, il valore mostrato tra parentesi è quell
 
 Alla fine della configurazione possiamo scrivere `yes` per convalidarla e verrà creato il file `package.json` già pronto.
 
-**Nota: Se eseguendo il comando `npm init` avete ricevuto un errore come questo: `npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script`, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando `node -v` che dovrebbe mostrare `v16.9.0` (o la versione da voi installata).**
+**Nota: Se eseguendo il comando `npm init` avete ricevuto un errore come questo: `npm : Termine 'npm' non riconosciuto come nome di cmdlet, funzione, programma eseguibile o file script`, allora vuol dire che non avete installato correttamente Node.js. Verificate che sia tutto ok e potrete sempre constatare la corretta installazione tramite il comando `node -v` che dovrebbe mostrare `v16.10.0` (o la versione da voi installata).**
 
 ---
 
