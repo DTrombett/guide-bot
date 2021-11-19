@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/DTrombett/guide-bot#readme",
   "devDependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.11.9",
     "eslint": "^8.2.0",
     "prettier": "^2.4.1"
   },
